@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<ruleset name="rollingdonuts">
+    <description>PSR12 with PHP 8.0+ compatibility</description>
+    <arg name="extensions" value="php"/>
+    <arg name="colors"/>
+    <arg value="sp"/>
+
+    <!-- PHP compatibility takes precedent over PSR12 -->
+    <rule ref="PHPCompatibility"/>
+    <rule ref="PSR12"/>
+
+    <!-- Support for PHP 8.0+ -->
+    <config name="testVersion" value="8.0-"/>
+
+    <!-- Include the current directory -->
+    <file>.</file>
+
+    <!-- Ignore WordPress and Composer dependencies -->
+    <exclude-pattern>node_modules/</exclude-pattern>
+    <exclude-pattern>public/content/mu-plugins/bedrock-autoloader.php</exclude-pattern>
+    <exclude-pattern>public/content/mu-plugins/bedrock-disallow-indexing/</exclude-pattern>
+    <exclude-pattern>public/content/mu-plugins/soil/</exclude-pattern>
+    <exclude-pattern>public/content/plugins/</exclude-pattern>
+    <exclude-pattern>public/wp</exclude-pattern>
+    <exclude-pattern>vendor/</exclude-pattern>
+
+    <!-- Ignore storage and resources directory -->
+    <exclude-pattern>storage/</exclude-pattern>
+    <exclude-pattern>resources/</exclude-pattern>
+</ruleset>

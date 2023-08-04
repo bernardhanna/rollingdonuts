@@ -1,0 +1,59 @@
+{
+  "name": "rollingdonuts",
+  "private": true,
+  "browserslist": [
+    "extends @roots/browserslist-config"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "yarn bud build production",
+    "dev": "yarn bud build development",
+    "translate": "yarn translate:pot && yarn translate:update",
+    "translate:pot": "wp i18n make-pot . ./resources/lang/rollingdonuts.pot --include=\"app,config,resources,public/dist/js\"",
+    "translate:update": "wp i18n update-po ./resources/lang/rollingdonuts.pot ./resources/lang/*.po",
+    "translate:compile": "yarn translate:mo && yarn translate:js",
+    "translate:js": "wp i18n make-json ./resources/lang --pretty-print",
+    "translate:mo": "wp i18n make-mo ./resources/lang ./resources/lang"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.35.0",
+    "@roots/bud": "6.13.1",
+    "@roots/bud-eslint": "6.13.1",
+    "@roots/bud-imagemin": "6.13.1",
+    "@roots/bud-preset-wordpress": "6.13.1",
+    "@roots/bud-prettier": "6.13.1",
+    "@roots/bud-stylelint": "6.13.1",
+    "@roots/bud-swc": "6.13.1",
+    "@roots/bud-tailwindcss": "6.13.1",
+    "@roots/eslint-config": "6.13.1",
+    "@roots/sage": "6.13.1",
+    "@tailwindcss/forms": "^0.5.3",
+    "@types/alpinejs": "^3.7.1",
+    "@types/wordpress__block-editor": "11.5.1",
+    "@types/wordpress__blocks": "12.5.0",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.26",
+    "postcss-preset-env": "^9.0.0",
+    "tailwindcss": "^3.3.3",
+    "typescript": "4.9.5"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.0",
+    "@glidejs/glide": "^3.6.0",
+    "@iconify/iconify": "^3.1.1",
+    "@iconify/icons-ic": "^1.2.13",
+    "@iconify/icons-ph": "^1.2.4",
+    "@roots/wordpress-hmr": "6.13.1",
+    "@splidejs/splide": "^4.1.4",
+    "alpinejs": "^3.12.3",
+    "flowbite": "^1.8.0",
+    "glidejs": "^2.1.0",
+    "postcss-loader": "^7.3.3",
+    "postcss-scss": "^4.0.6",
+    "slick-carousel": "^1.8.1",
+    "tailwindcss-pseudo": "^1.0.3"
+  }
+}

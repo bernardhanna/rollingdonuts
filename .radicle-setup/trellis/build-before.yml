@@ -1,0 +1,30 @@
+- name: Install npm dependencies
+  command: yarn
+  delegate_to: localhost
+  args:
+    chdir: '{{ project_local_path }}'
+
+- name: Compile assets for production
+  command: yarn build
+  delegate_to: localhost
+  args:
+    chdir: '{{ project_local_path }}'
+
+- name: 'Build: Check for entrypoints'
+  stat:
+    path: '{{ project_local_path }}/public/dist/entrypoints.json'
+  delegate_to: localhost
+  register: theme_entrypoints_data
+
+- name: 'Build: Entrypoints missing'
+  ansible.builtin.fail:
+    msg: 'The theme is missing the public/entrypoints.json file'
+  when: not theme_entrypoints_data.stat.exists
+
+- name: 'Build: Copy production assets'
+  synchronize:
+    src: '{{ project_local_path }}/public/dist'
+    dest: '{{ deploy_helper.new_release_path }}/public'
+    group: no
+    owner: no
+    rsync_opts: --chmod=Du=rwx,--chmod=Dg=rx,--chmod=Do=rx,--chmod=Fu=rw,--chmod=Fg=r,--chmod=Fo=r

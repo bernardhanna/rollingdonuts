@@ -1,0 +1,287 @@
+{
+  "__generated__": "⚠️ This file is generated. Do not edit.",
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "color": {
+      "custom": false,
+      "customDuotone": false,
+      "customGradient": false,
+      "defaultDuotone": false,
+      "defaultGradients": false,
+      "defaultPalette": false,
+      "duotone": [],
+      "palette": [
+        {
+          "color": "inherit",
+          "name": "Inherit",
+          "slug": "inherit"
+        },
+        {
+          "color": "currentcolor",
+          "name": "Current",
+          "slug": "current"
+        },
+        {
+          "color": "transparent",
+          "name": "Transparent",
+          "slug": "transparent"
+        },
+        {
+          "color": "#2d2a2a",
+          "name": "Black Secondary",
+          "slug": "black-secondary"
+        },
+        {
+          "color": "#291f19",
+          "name": "Black Primary",
+          "slug": "black-primary"
+        },
+        {
+          "color": "#000000",
+          "name": "Black Full",
+          "slug": "black-full"
+        },
+        {
+          "color": "#252525",
+          "name": "Black Font",
+          "slug": "black-font"
+        },
+        {
+          "color": "#ffed56",
+          "name": "Yellow Primary",
+          "slug": "yellow-primary"
+        },
+        {
+          "color": "#f3ea5d",
+          "name": "Yellow Secondary",
+          "slug": "yellow-secondary"
+        },
+        {
+          "color": "#fff6a7",
+          "name": "Yellow Hovered",
+          "slug": "yellow-hovered"
+        },
+        {
+          "color": "#f1da1a",
+          "name": "Yellow Depressed",
+          "slug": "yellow-depressed"
+        },
+        {
+          "color": "#f5f951",
+          "name": "Yellow Alert",
+          "slug": "yellow-alert"
+        },
+        {
+          "color": "#d8d7ce",
+          "name": "Yellow Disabled",
+          "slug": "yellow-disabled"
+        },
+        {
+          "color": "#ffffff",
+          "name": "White",
+          "slug": "white"
+        },
+        {
+          "color": "#484848",
+          "name": "Grey Subdued",
+          "slug": "grey-subdued"
+        },
+        {
+          "color": "#e1e1e1",
+          "name": "Grey Disabled",
+          "slug": "grey-disabled"
+        },
+        {
+          "color": "#fafafa",
+          "name": "Grey Background",
+          "slug": "grey-background"
+        },
+        {
+          "color": "#59e456",
+          "name": "Green Success",
+          "slug": "green-success"
+        },
+        {
+          "color": "#65c2f6",
+          "name": "Blue Highlight",
+          "slug": "blue-highlight"
+        },
+        {
+          "color": "#f55959",
+          "name": "Red Critical",
+          "slug": "red-critical"
+        }
+      ]
+    },
+    "custom": {
+      "spacing": {},
+      "typography": {
+        "font-size": {},
+        "line-height": {}
+      }
+    },
+    "layout": {
+      "contentSize": "64rem"
+    },
+    "spacing": {
+      "padding": true,
+      "units": [
+        "px",
+        "%",
+        "em",
+        "rem",
+        "vw",
+        "vh"
+      ]
+    },
+    "typography": {
+      "customFontSize": false,
+      "fontFamilies": [
+        {
+          "fontFamily": "\"Edmondsans\",sans-serif",
+          "name": "\"Edmondsans\"",
+          "slug": "edmondsans"
+        },
+        {
+          "fontFamily": "\"Laca\",sans-serif",
+          "name": "\"Laca\"",
+          "slug": "laca"
+        }
+      ],
+      "fontSizes": [
+        {
+          "name": "xxxl-font",
+          "size": "64px",
+          "slug": "xxxl-font"
+        },
+        {
+          "name": "xxl-font",
+          "size": "56px",
+          "slug": "xxl-font"
+        },
+        {
+          "name": "xl-font",
+          "size": "48px",
+          "slug": "xl-font"
+        },
+        {
+          "name": "lg-font",
+          "size": "40px",
+          "slug": "lg-font"
+        },
+        {
+          "name": "1lg-font",
+          "size": "36px",
+          "slug": "1lg-font"
+        },
+        {
+          "name": "md-font",
+          "size": "32px",
+          "slug": "md-font"
+        },
+        {
+          "name": "font-28",
+          "size": "28px",
+          "slug": "font-28"
+        },
+        {
+          "name": "sm-md-font",
+          "size": "24px",
+          "slug": "sm-md-font"
+        },
+        {
+          "name": "reg-font",
+          "size": "20px",
+          "slug": "reg-font"
+        },
+        {
+          "name": "base-font",
+          "size": "18px",
+          "slug": "base-font"
+        },
+        {
+          "name": "sm-font",
+          "size": "16px",
+          "slug": "sm-font"
+        },
+        {
+          "name": "xs-font",
+          "size": "1em",
+          "slug": "xs-font"
+        },
+        {
+          "name": "xxs-font",
+          "size": "12px",
+          "slug": "xxs-font"
+        },
+        {
+          "name": "mob-xxl-font",
+          "size": "40px",
+          "slug": "mob-xxl-font"
+        },
+        {
+          "name": "mob-xl-font",
+          "size": "32px",
+          "slug": "mob-xl-font"
+        },
+        {
+          "name": "mob-lg-font",
+          "size": "24px",
+          "slug": "mob-lg-font"
+        },
+        {
+          "name": "mob-md-font",
+          "size": "20px",
+          "slug": "mob-md-font"
+        },
+        {
+          "name": "mob-sm-font",
+          "size": "16px",
+          "slug": "mob-sm-font"
+        },
+        {
+          "name": "mob-xs-font",
+          "size": "14px",
+          "slug": "mob-xs-font"
+        },
+        {
+          "name": "mob-xxs-font",
+          "size": "12px",
+          "slug": "mob-xxs-font"
+        }
+      ]
+    }
+  },
+  "styles": {
+    "spacing": {
+      "blockGap": "1.5rem",
+      "padding": {
+        "left": "1.5rem",
+        "right": "1.5rem"
+      }
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--sans)",
+      "fontSize": "var(--wp--preset--font-size--normal)"
+    },
+    "blocks": {
+      "core/button": {
+        "variations": {
+          "outline": {
+            "border": {
+              "width": "1px"
+            }
+          }
+        }
+      }
+    },
+    "elements": {
+      "button": {
+        "border": {
+          "radius": "0"
+        }
+      }
+    }
+  }
+}

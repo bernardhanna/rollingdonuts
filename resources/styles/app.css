@@ -1,0 +1,253 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import '@splidejs/splide/dist/css/splide.min.css';
+
+body {
+  font-family: edmondsans, sans-serif;
+}
+
+
+[x-cloak] {
+  display: none;
+}
+
+/* TYPOGRAPHY */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  @apply text-black-full;
+}
+
+b {
+  @apply font-bold;
+}
+
+h1 {
+  @apply text-xxxl-font;
+}
+
+h2 {
+  @apply text-xxl-font;
+}
+
+h3 {
+  @apply text-xl-font;
+}
+
+h4 {
+  @apply text-lg-font;
+}
+
+h5 {
+  @apply text-md-font;
+}
+
+h6 {
+  @apply text-sm-font;
+}
+
+p {
+  @apply text-base-font font-regular;
+}
+
+input {
+  @apply bg-white text-black-primary font-laca text-mob-xs-font font-light;
+}
+
+.margin-top-18 {
+  margin-top: 18rem;
+}
+
+/* Spacing */
+.btn-width {
+  max-width: inherit;
+}
+
+/* Buttons */
+.btn {
+  @apply inline-flex justify-center items-center whitespace-nowrap transition ease-in-out duration-150 hover:cursor-pointer hover:no-underline;
+}
+
+.btn-menu {
+  @apply btn w-full max-w-max-242 text-white bg-black-full border-radius-large btn-p-lg font-reg420 hover:bg-yellow-primary hover:text-black-full;
+}
+
+.btn-p-lg {
+  padding: 16px 56px;
+}
+
+.rd-border {
+  border: 3px solid black;
+}
+
+.border-radius-large {
+  border-radius: 8.25rem;
+}
+
+.btn .donut-icon {
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 32px;
+  height: 32px;
+  margin-right: 5px;
+  background-image: url('../images/icons/top-donut.png');
+}
+
+.btn:hover .donut-icon {
+  background-image: url('../images/icons/btn2.png'); /* Set the path to your second icon image */
+}
+
+.nav-line {
+  width: 1px;
+  height: 48px;
+  background-color: black;
+  margin-top: -5px;
+}
+
+.logo {
+  width: 152px;
+  height: 141px;
+  object-fit: contain;
+}
+
+.mobile-logo {
+  width: 86px;
+  height: 80px;
+  display: none;
+}
+
+nav .active {
+  text-decoration: underline;
+}
+
+nav .submenu .current_page_item {
+  background-color: #000;
+  color: white;
+}
+
+.highlighted {
+  display: inline-flex;
+  align-items: flex-start;
+  clear: both; /* Add this to clear the float for the next element */
+  line-height: 1.4; /* Adjust as needed for spacing between lines */
+  margin: 0; /* Remove any default margins */
+  padding: 0 2px; /* Add a little padding to the left and right of the text */
+}
+
+.highlighted-first {
+  border-radius: 10px 10px 0 0;
+  width: max-content;
+}
+
+.highlighted-second {
+  border-radius: 0 10px 10px;
+}
+
+.splide.is-initialized:not(.is-active) .splide__list {
+  display: flex;
+}
+
+.boxshadow {
+  box-shadow: 0 4px 0 0 rgb(0 0 0 / 25%)
+}
+
+.display-md {
+  display: none;
+}
+
+.bestseller-glide .glide__slide {
+  margin: 0;
+}
+
+.bestseller-glide .glide__arrow {
+  color: black;
+  background-color: #ffed56;
+  border: 2px solid black;
+}
+
+.glide__arrow {
+  top: 65%;
+  z-index: 2;
+  color: white;
+  padding: 0;
+  background-color: black;
+  border: none;
+  border-radius: 100%;
+  box-shadow: none;
+  text-shadow: none;
+  opacity: 1;
+  cursor: pointer;
+  transition: opacity 150ms ease, border 300ms ease-in-out;
+  line-height: 0px;
+}
+
+.section-divider-shape {
+  fill: #fff;
+}
+
+.section-divider-border {
+  stroke: rgb(255 255 255 / 64%);
+  stroke-width: 5px;
+}
+
+.btn-icon-yellow:hover .yellow-donut path {
+  fill: black;
+  stroke: black;
+}
+
+.btn-icon-yellow:hover svg {
+  fill: black;
+  stroke: black;
+}
+
+@media (width <= 1200px) {
+  .hidden-lg {
+    display: none;
+  }
+}
+
+
+@media screen and (width >= ¸) and (width <= 1280px) {
+  .hide-md {
+    display: none;
+  }
+
+  .display-md {
+    display: block !important;
+  }
+}
+
+@media (width => 1082px) {
+  .mobile-logo {
+    display: none;
+  }
+
+  .desktop-logo {
+    display: block;
+  }
+
+  .highlighted-first {
+    border-radius: 10px 10px 0 0;
+    width: max-content;
+  }
+
+  .highlighted-second {
+    border-radius: 0 10px 10px;
+  }
+}
+
+@media (width <= 1082px) {
+  .desktop-logo {
+    display: none;
+  }
+
+  .mobile-logo {
+    display: block;
+  }
+}
