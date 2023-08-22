@@ -189,11 +189,7 @@ return [
         /*
          * Package Service Providers...
          */
-
-        /*
-         * Application Service Providers...
-         */
-        Hexbit\Woocommerce\Providers\WooCommerceServiceProvider::class
+        Genero\Sage\WooCommerce\WooCommerceServiceProvider::class,
     ],
 
     /*

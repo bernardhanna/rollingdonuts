@@ -95,5 +95,14 @@ return [
                 'plural' => __('Categories', 'rollingdonuts'),
             ],
         ],
+        'rd_product_type' => [
+            'post_types' => ['product'],
+            'meta_box' => 'dropdown',
+            'names' => [
+                'singular' => __('Product Type', 'rollingdonuts'),
+                'plural' => __('Product Types', 'rollingdonuts'),
+                'slug' => 'product-type',
+            ],
+        ],
     ],
 ];

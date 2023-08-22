@@ -3,7 +3,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-06-14 16:00:17
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-07-26 12:04:54
+ * @Last Modified time: 2023-08-18 16:20:29
  */
 
 
@@ -36,7 +36,7 @@ class AssetsServiceProvider extends ServiceProvider
             wp_enqueue_style('laca', 'https://fonts.cdnfonts.com/css/laca?styles=51511,51510,51505,51504,51507,51506,51503,51502,51509,51508,51513,51512,51501,51500,51499,51498', false);
             remove_action('wp_body_open', 'wp_global_styles_render_svg_filters');
             bundle('app')->enqueue();
-        }, 100);
+        }, 1);
 
         /**
          * Register the theme assets with the block editor.

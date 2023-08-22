@@ -17,9 +17,9 @@ return [
      * @link https://developer.wordpress.org/reference/functions/add_image_size/
      */
     'image_sizes' => [
-        // 'hd' => [1600, 900, true],
+        'small' => [309, 309, true],
+        'large' => [800, 800, true],
     ],
-
     /**
      * Sidebars
      *

@@ -2,7 +2,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-06-14 16:00:17
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-08-02 13:02:17
+ * @Last Modified time: 2023-08-10 13:03:37
  */
 import type { Config } from 'tailwindcss';
 import forms from '@tailwindcss/forms';
@@ -147,6 +147,7 @@ export default {
         'max-474': '29.625rem', //474px
         'max-478': '29.875rem', //478px
         'max-504': '31.5rem', //504px
+        'max-573': '35.8125rem', //573px
         'max-750': '46.875rem', //750px
         'max-529': '33.0625rem', //529px
         'max-1514': '94.625rem', //1514px
@@ -156,9 +157,13 @@ export default {
         'max-95': '95%', //95%
       },
       maxHeight: {
+        'max-125': '7.813rem', //175px
+        'max-300': '18.75rem', //300px
+        'max-386': '24.125rem', //386px
         'max-473': '29.5625rem', //473px
         'max-504': '31.5rem', //504px
         'max-645': '40.3125rem', //645px
+        'max-800': '50rem', //800px
         'max-984': '61.5rem', //984px
       },
       borderWidth: {

@@ -3,7 +3,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-07-06 12:34:17
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-08-03 11:36:36
+ * @Last Modified time: 2023-08-08 12:22:15
  */
 ?>
 @php
@@ -19,7 +19,7 @@ $hero_link = get_field('hero_link');
 @endphp
 
 @if(is_array($bannerLeft) && isset($bannerLeft['url']) && is_array($bannerRight) && isset($bannerRight['url']))
-<section class="home-hero w-full relative">
+<section class="home-hero w-full relative mt-32 lg:mt-72">
     <div class="flex flex-col-reverse lg:flex-row">
         <div class="w-full flex items-center justify-center flex-col bg-black-full h-hero-mob lg:w-heroleft lg:h-hero-height"
              x-data="{ isMobile: false, getBackgroundImage() {

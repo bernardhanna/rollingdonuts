@@ -2,13 +2,14 @@
  * @Author: Bernard Hanna
  * @Date:   2023-06-14 16:00:17
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-08-03 12:22:59
+ * @Last Modified time: 2023-08-22 16:09:52
  */
 import Alpine from 'alpinejs';
 import 'flowbite/dist/flowbite.js';
 import '@iconify/iconify';
 import Glide from '@glidejs/glide';
 import Splide from '@splidejs/splide';
+console.log(Splide);
 
 Object.assign(window, { Alpine: Alpine }).Alpine.start();
 
@@ -106,35 +107,83 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('resize', initializeBestSellersGlide);
 });
 // SPLIDES
-// Initialize the featured Splide slider
-let featuredSplide;
-
-function initializeFeaturedSplide() {
-    if (!featuredSplide) {
-        featuredSplide = new Splide('#featured-slider', {
-            type: 'loop',
-            perPage: 1,
-            arrows: true,
-            pagination: false,
-        }).mount();
-
-        updateSlideCounts(1);
-
-        featuredSplide.on('moved', () => {
-            const currentSlide = featuredSplide.index + 1;
-            updateSlideCounts(currentSlide);
-        });
-    }
-}
-
-function updateSlideCounts(currentSlide) {
-  const slideCountElements = document.querySelectorAll('.slide-count');
-  slideCountElements.forEach(el => {
-      const spanElement = el.querySelector('.start-count');
-      if (spanElement) {
-          spanElement.textContent = currentSlide;
-      }
+document.addEventListener('DOMContentLoaded', function () {
+  const featuredSplide = new Splide('#featured-slider', {
+      type: 'loop',
+      perPage: 1,
+      pagination: false,
+      arrows: true,
   });
-}
 
-document.addEventListener('DOMContentLoaded', initializeFeaturedSplide);
+  featuredSplide.on('moved', () => {
+      const currentSlide = featuredSplide.index + 1;
+      updateSlideCounts(currentSlide);
+      updateSectionBackgroundColor();
+  });
+
+  featuredSplide.mount();
+
+  const thumbnailSlider = new Splide('#thumbnail-slider', {
+      cover:  false,
+      isNavigation: true,
+      focus: 'center',
+      pagination: false,
+      arrows: false,
+  }).mount();
+
+  featuredSplide.sync(thumbnailSlider);
+
+  function updateSlideCounts(currentSlide) {
+      const slideCountElements = document.querySelectorAll('.slide-count');
+      slideCountElements.forEach(el => {
+          const spanElement = el.querySelector('.start-count');
+          if (spanElement) {
+              spanElement.textContent = currentSlide;
+          }
+      });
+  }
+
+  function updateSectionBackgroundColor() {
+      const currentSlide = featuredSplide.Components.Elements.slides[featuredSplide.index];
+      const currentSlideBgColor = currentSlide.querySelector('.left-feature').style.backgroundColor;
+
+      // Update the section's background color
+      document.querySelector('.featured-donuts').style.backgroundColor = currentSlideBgColor;
+  }
+
+  updateSlideCounts(1);
+  updateSectionBackgroundColor(); // Calling this function here ensures the correct background color is set when the page loads
+});
+
+// Product Gallery Slider
+document.addEventListener('DOMContentLoaded', function () {
+  // Main Slider
+  const mainSlider = new Splide('#main-slider', {
+      type: 'loop',
+      perPage: 1,
+      pagination: false,
+      arrows: true,
+  }).mount();
+
+  // Thumbnail Slider
+  const thumbnailSlider = new Splide('#thumbnail-slider', {
+      isNavigation: true,
+      focus: 'center',
+      pagination: false,
+      perPage: 3,
+      arrows: false,
+  }).mount();
+
+  // Sync main slider with thumbnail slider
+  mainSlider.sync(thumbnailSlider);
+
+  // Prevent default click behavior on thumbnail images and navigate the main slider
+  document.querySelectorAll('#thumbnail-slider .splide__slide a').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          const index = Array.from(anchor.closest('.splide__list').children).indexOf(anchor.closest('.splide__slide'));
+          mainSlider.go(index);
+      });
+  });
+});
+

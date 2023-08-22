@@ -3,7 +3,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-07-24 14:54:58
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-07-26 11:21:10
+ * @Last Modified time: 2023-08-10 09:52:28
  */
 
 /*
@@ -99,3 +99,4 @@ add_action('login_headertext', function () {
       </style>';
   }
 });
+

@@ -3,7 +3,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-06-14 16:00:17
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-07-11 13:02:26
+ * @Last Modified time: 2023-08-21 09:50:34
  */
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -31,4 +31,5 @@ Route::post('/newsletter/subscribe', function (Request $request) {
     // Redirect back to the form
     return redirect()->back();
 })->name('newsletter.subscribe');
+
 

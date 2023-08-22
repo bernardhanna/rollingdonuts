@@ -3,7 +3,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-07-04 20:18:21
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-07-19 12:17:30
+ * @Last Modified time: 2023-08-09 17:05:22
  */
 
 
@@ -59,7 +59,7 @@ class ThemeOptions extends Field
             'return_format' => 'url', // Return image URL
         ])
 
-        ->addTab('Header Options')
+        ->addTab('Header')
         ->addImage('icon_image', [
             'label' => 'Icon Image',
             'return_format' => 'url', // Return image URL
@@ -77,7 +77,7 @@ class ThemeOptions extends Field
             'label' =>'Telephone Number'
         ])
 
-        ->addTab('Footer Options')
+        ->addTab('Footer')
         ->addImage('newsletter_image', [
             'label' => 'Newsletter Image Background',
             'return_format' => 'url', // Return image URL
@@ -131,7 +131,7 @@ class ThemeOptions extends Field
         ])
         ->endRepeater()
 
-        ->addTab('Copyright Options')
+        ->addTab('Copyright')
         ->addText('copyright_text', [
             'label' => 'Copyright Text Left'
         ])
@@ -153,7 +153,21 @@ class ThemeOptions extends Field
             ->addLink('site_links', [
             'label' => 'Add Link'
         ])
-        ->endRepeater();
+        ->endRepeater()
+
+        ->addTab('WooCommerce')
+        ->addImage('woo_header_bg', [
+            'label' => 'Header Background',
+            'return_format' => 'url', // Return image URL
+        ])
+        ->addImage('woo_mobile_bg', [
+            'label' => 'Header Mobile Background',
+            'return_format' => 'url', // Return image URL
+        ])
+        ->addImage('shop_bg', [
+            'label' => 'Shop Background',
+            'return_format' => 'url', // Return image URL
+        ]);
 
         return $themeOptions->build();
     }
