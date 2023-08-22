@@ -4,7 +4,7 @@
   </a>
 </p>
 
-<p align="center">rollingdonuts is a WordPress stack from Roots</p>
+<p align="center">rollingdonuts is Built on Radicles</p>
 
 <p align="center">
   <a href="https://roots.io/rollingdonuts/">Website</a> &nbsp;&nbsp; <a href="https://roots.io/rollingdonuts/docs/installation/">Documentation</a> &nbsp;&nbsp; <a href="https://github.com/roots/rollingdonuts/releases">Releases</a> &nbsp;&nbsp; <a href="https://discourse.roots.io/c/rollingdonuts">Community</a>
