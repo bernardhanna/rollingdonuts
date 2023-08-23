@@ -3,7 +3,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-08-10 12:18:40
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-08-21 09:56:39
+ * @Last Modified time: 2023-08-23 16:35:03
  */
 global $product;
 
@@ -39,12 +39,7 @@ $rd_product_type = get_rd_product_type($product->get_id());
             </div>
         </div>
         <div class="mt-2">
-            <!-- Check if its a box or a product -->
-            <?php if ($rd_product_type == 'Box'): ?>
-                <a href="<?php the_permalink(); ?>" class="button"><?php _e('Select and Customise', 'rolling-donut'); ?></a>
-                <?php else: ?>
-                 <?php woocommerce_template_loop_add_to_cart(); ?>
-            <?php endif; ?>
+            <a href="<?php the_permalink(); ?>" class="button"><?php _e('Select and Customise', 'rolling-donut'); ?></a>
         </div>
 
     <?php if ($rd_product_type == 'Box'): ?>

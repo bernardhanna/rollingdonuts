@@ -3,7 +3,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-08-21 16:38:16
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-08-21 16:54:03
+ * @Last Modified time: 2023-08-23 14:53:39
  */
 /**
  * Related Products
@@ -29,22 +29,33 @@ if ( $related_products ) : ?>
 
 	<div class="related product overflow-hidden w-full">
 
-		<?php
-		$heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'Related products', 'woocommerce' ) );
+    <?php
+        $heading = apply_filters( 'woocommerce_product_related_products_heading', __( 'Related products', 'woocommerce' ) );
 
-		if ( $heading ) :
-			?>
+        if ( $heading ) :
+            ?>
             <h4>
                 <?php
                 global $product;
-                if ($product->get_attribute('rd_product_type') === 'Merch') {
-                    esc_html_e('Other designs you might like', 'woocommerce');
+                $product_id = $product->get_id();
+
+                $terms = wp_get_post_terms( $product_id, 'rd_product_type' );
+
+                if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
+                    $product_type = $terms[0]->name;  // Assuming 'rd_product_type' is not multi-select
+
+                    if ( strcasecmp( $product_type, 'merch' ) === 0 ) {
+                        esc_html_e( 'Other designs you might like', 'woocommerce' );
+                    } else {
+                        esc_html_e( 'Other donuts you might like', 'woocommerce' );
+                    }
                 } else {
-                    esc_html_e('Other Donuts you might like', 'woocommerce');
+                    // Default text if no terms are found or if an error occurs
+                    esc_html_e( 'You might also like', 'woocommerce' );
                 }
                 ?>
             </h4>
-		<?php endif; ?>
+        <?php endif; ?>
 
 		<?php woocommerce_product_loop_start(); ?>
 

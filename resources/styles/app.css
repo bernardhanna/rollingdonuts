@@ -191,6 +191,10 @@ nav .submenu .current_page_item {
   line-height: 0px;
 }
 
+.splide__list {
+  height: unset;
+}
+
 .splide__arrow {
   background: none; /* remove default background */
   border: none;     /* remove default borders */

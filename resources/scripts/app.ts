@@ -2,7 +2,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-06-14 16:00:17
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-08-22 16:09:52
+ * @Last Modified time: 2023-08-23 17:27:27
  */
 import Alpine from 'alpinejs';
 import 'flowbite/dist/flowbite.js';
@@ -157,33 +157,48 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Product Gallery Slider
 document.addEventListener('DOMContentLoaded', function () {
-  // Main Slider
+  const mainSliderElement = document.getElementById('main-slider');
+  const slides = mainSliderElement.querySelectorAll('.splide__slide');
+
+  // Initialize main slider
   const mainSlider = new Splide('#main-slider', {
-      type: 'loop',
-      perPage: 1,
-      pagination: false,
-      arrows: true,
+    type: 'loop',
+    perPage: 1,
+    pagination: false,
+    arrows: slides.length > 1, // Show arrows only if more than one slide
   }).mount();
 
-  // Thumbnail Slider
-  const thumbnailSlider = new Splide('#thumbnail-slider', {
+  // Hide arrows if only one slide
+  if (slides.length <= 1) {
+    const arrowElements = document.querySelectorAll('.splide__arrows');
+    arrowElements.forEach(function(arrow) {
+      arrow.classList.add('hidden');
+    });
+  }
+
+  // Initialize thumbnail slider
+  const thumbnailSliderElement = document.getElementById('thumbnail-slider');
+  const thumbnailSlides = thumbnailSliderElement.querySelectorAll('.splide__slide');
+  if (thumbnailSlides.length > 1) {
+    const thumbnailSlider = new Splide('#thumbnail-slider', {
       isNavigation: true,
       focus: 'center',
       pagination: false,
       perPage: 3,
       arrows: false,
-  }).mount();
+    }).mount();
 
-  // Sync main slider with thumbnail slider
-  mainSlider.sync(thumbnailSlider);
+    // Sync main slider with thumbnail slider
+    mainSlider.sync(thumbnailSlider);
+  }
 
   // Prevent default click behavior on thumbnail images and navigate the main slider
   document.querySelectorAll('#thumbnail-slider .splide__slide a').forEach(function(anchor) {
-      anchor.addEventListener('click', function(e) {
-          e.preventDefault();
-          const index = Array.from(anchor.closest('.splide__list').children).indexOf(anchor.closest('.splide__slide'));
-          mainSlider.go(index);
-      });
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const index = Array.from(anchor.closest('.splide__list').children).indexOf(anchor.closest('.splide__slide'));
+      mainSlider.go(index);
+    });
   });
 });
 

@@ -3,7 +3,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-08-08 15:42:22
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-08-21 16:58:07
+ * @Last Modified time: 2023-08-23 16:01:56
  */
 
 /*
@@ -239,10 +239,86 @@ function remove_product_tabs($tabs) {
 }
 add_filter('woocommerce_product_tabs', 'remove_product_tabs', 98);
 
+// Remove the additional information tab
+add_action( 'init', 'remove_woocommerce_product_tabs', 99 );
+function remove_woocommerce_product_tabs() {
+    remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+}
+
 // Remove categories display
 add_action( 'woocommerce_single_product_summary', 'remove_product_categories', 1 );
 function remove_product_categories() {
     remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
 }
 
+// SINGLE DONUTS
+add_action('woocommerce_before_add_to_cart_button', 'remove_elements_start', 10);
+add_action('woocommerce_after_add_to_cart_button', 'remove_elements_end', 10);
+// Remove the add to cart button and other stuff we don't need
+function remove_elements_start() {
+    global $product;
+
+    $product_id = $product->get_id();
+    $terms = wp_get_post_terms($product_id, 'rd_product_type');
+
+    if (!is_wp_error($terms) && !empty($terms)) {
+        $product_type = $terms[0]->name;
+
+        if (strcasecmp($product_type, 'Donut') === 0) {
+            ob_start();
+        }
+    }
+}
+function remove_elements_end() {
+    global $product;
+
+    $product_id = $product->get_id();
+    $terms = wp_get_post_terms($product_id, 'rd_product_type');
+
+    if (!is_wp_error($terms) && !empty($terms)) {
+        $product_type = $terms[0]->name;
+
+        if (strcasecmp($product_type, 'Donut') === 0) {
+            ob_end_clean();
+        }
+    }
+}
+// Remove thea ttributes to cart button
+add_action('woocommerce_single_product_summary', 'remove_attribute_dropdowns', 1);
+
+function remove_attribute_dropdowns() {
+    global $product;
+
+    $product_id = $product->get_id();
+    $terms = wp_get_post_terms($product_id, 'rd_product_type');
+
+    if (!is_wp_error($terms) && !empty($terms)) {
+        $product_type = $terms[0]->name;
+
+        if (strcasecmp($product_type, 'Donut') === 0) {
+            remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
+        }
+    }
+}
+
+// NOTIFICATION BAR
+function custom_woocommerce_notices_output() {
+    $all_notices  = WC()->session->get( 'wc_notices', array() );
+    $notice_types = apply_filters( 'woocommerce_notice_types', array( 'error', 'success', 'notice' ) );
+
+    foreach ( $notice_types as $notice_type ) {
+        if ( wc_notice_count( $notice_type ) > 0 ) {
+            wc_get_template( "notices/{$notice_type}.php", array(
+                'notices' => $all_notices[ $notice_type ],
+            ) );
+        }
+    }
+
+    wc_clear_notices();
+}
+
+remove_action( 'woocommerce_before_shop_loop', 'wc_print_notices', 10 );
+remove_action( 'woocommerce_before_single_product', 'wc_print_notices', 10 );
+add_action( 'woocommerce_before_shop_loop', 'custom_woocommerce_notices_output', 10 );
+add_action( 'woocommerce_before_single_product', 'custom_woocommerce_notices_output', 10 );
 

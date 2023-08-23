@@ -3,10 +3,10 @@
  * @Author: Bernard Hanna
  * @Date:   2023-06-14 16:00:17
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-08-10 09:53:20
+ * @Last Modified time: 2023-08-23 16:58:01
  */
 ?>
-<footer class="footer w-full relative z-1">
+<footer class="footer w-full relative z-1 overflow-hidden">
     @include('partials.newsletter')
     @include('partials.footer-content')
 
