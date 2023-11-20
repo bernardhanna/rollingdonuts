@@ -3,7 +3,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-08-18 11:56:17
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-08-22 17:25:25
+ * @Last Modified time: 2023-10-10 14:38:28
  */
 ?>
 {{--
@@ -21,12 +21,12 @@ Template Name: Box Orders
         $ordered_categories = get_field('ordered_categories'); // Fetch the ordered categories using ACF
     @endphp
 
-    <div class="mt-32 lg:mt-72"></div>
+    @include('partials.space')
     @include('woocommerce.custom.woocommerce-header')
 
     <div class="bg-cover bg-no-repeat" style="{{ $shop_bg_url ? 'background-image: url(' . $shop_bg_url . ');' : '' }}">
-        <div class="mx-auto px-4 lg:max-w-max-1549">
-            <ul class="filter products columns-3 flex flex-row flex-wrap">
+        <div class="mx-auto px-4 pb-20  lg:max-w-max-1549">
+            <ul class="filter products columns-3 flex flex-row flex-wrap justify-between">
             @if ($ordered_categories && (is_array($ordered_categories) || is_object($ordered_categories)))
                 @foreach ($ordered_categories as $product_category)
                     @php
@@ -51,7 +51,7 @@ Template Name: Box Orders
                         $box_products = new WP_Query($args);
                     @endphp
                     @if ($box_products->have_posts())
-                        <h2 class="product-category-title">{{ $product_category->name }}</h2>
+                        <h4 class="product-category-title font-edmondsans text-xl-font font-reg420 pb-6 w-full">{{ $product_category->name }}</h4>
                         @php
                             remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
                             remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);

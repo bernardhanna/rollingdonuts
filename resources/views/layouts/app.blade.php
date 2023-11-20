@@ -3,7 +3,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-06-14 16:00:17
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-07-31 15:38:59
+ * @Last Modified time: 2023-11-01 15:22:14
  */
 ?>
 <html <?php language_attributes(); ?>>
@@ -14,7 +14,7 @@
         @include('utils.styles')
     </head>
 
-    <body <?php body_class(''); ?> style="padding: 0px;">
+    <body <?php body_class('p-0'); ?>>
         <?php wp_body_open(); ?>
         <?php do_action('get_header'); ?>
 
@@ -25,7 +25,7 @@
 
             @include('sections.header')
 
-            <main id="main" class="">
+            <main id="main">
                 <div class="mx-auto">
                     @yield('content')
                 </div>

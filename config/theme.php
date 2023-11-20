@@ -9,6 +9,7 @@ return [
     'menus' => [
         'primary_navigation' => __('Primary Navigation', 'rollingdonuts'),
         'footer_navigation' => __('Footer Navigation', 'rollingdonuts'),
+        'sitemap_navigation' => __('Sitemap Navigation', 'rollingdonuts'),
     ],
 
     /**
@@ -17,6 +18,7 @@ return [
      * @link https://developer.wordpress.org/reference/functions/add_image_size/
      */
     'image_sizes' => [
+        'related' => [200, 200, true],
         'small' => [309, 309, true],
         'large' => [800, 800, true],
     ],

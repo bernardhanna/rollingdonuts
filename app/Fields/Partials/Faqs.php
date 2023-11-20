@@ -5,7 +5,6 @@
  * @Last Modified by:   Bernard Hanna
  * @Last Modified time: 2023-07-31 16:01:44
  */
-
 namespace App\Fields\Partials;
 
 use Log1x\AcfComposer\Partial;
@@ -22,12 +21,14 @@ class Faqs extends Partial
     {
         $faqs = new FieldsBuilder('faqs');
 
+        $faqs->addImage('faq_image', [
+            'label' => 'Image',
+            'return_format' => 'array',
+            'preview_size' => 'medium',
+        ]);
+
+
         $faqs
-            ->addImage('faq_image', [
-                'label' => 'Image',
-                'return_format' => 'array',
-                'preview_size' => 'medium',
-            ])
             ->addText('faq_title', [
                 'label' => 'Title',
             ])

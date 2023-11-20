@@ -3,7 +3,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-08-18 11:56:17
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-08-21 14:57:49
+ * @Last Modified time: 2023-10-10 14:38:05
  */
 ?>
 {{--
@@ -21,11 +21,11 @@ Template Name: Merch Orders
     @endphp
 
 
-    <div class="mt-32 lg:mt-72"></div>
+    @include('partials.space')
     @include('woocommerce.custom.woocommerce-header')
 
     <div class="bg-cover bg-no-repeat" style="{{ $shop_bg_url ? 'background-image: url(' . $shop_bg_url . ');' : '' }}">
-        <div class="mx-auto px-4 lg:max-w-max-1549">
+        <div class="mx-auto px-4 pb-20 lg:max-w-max-1549">
             <ul class="filter products columns-3 flex flex-row flex-wrap w-full">
                 @php
                     // Fetch all products of type 'Merch'

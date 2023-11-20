@@ -3,7 +3,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-07-06 12:34:17
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-08-08 12:22:15
+ * @Last Modified time: 2023-10-05 11:15:17
  */
 ?>
 @php
@@ -79,7 +79,7 @@ $hero_link = get_field('hero_link');
         </div>
     </div>
     <div>
-        <svg class="section-divider fill-white w-full bottom-0 absolute left-0 right-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 79.5">
+        <svg class="mb-[-1px] section-divider fill-white w-full bottom-0 absolute left-0 right-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 79.5">
             <path class="fill-white" d="M0 79.5h1440V0c-220.2 51-459.9 79.5-720 79.5C465.1 79.5 216.8 49.1 0 0v79.5z"/>
             <path class="section-divider-border" fill="none" d="M0 0s319.7 79.5 720 79.5c412.7 0 720-79.5 720-79.5"/>
         </svg>

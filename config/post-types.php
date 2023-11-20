@@ -24,7 +24,7 @@ return [
                 'slug' => 'allergens',
             ]
         ],
-        'career' => [
+        /*'career' => [
             'menu_icon' => 'dashicons-star-filled',
             'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail'],
             'show_in_rest' => true,
@@ -33,7 +33,7 @@ return [
                 'plural' => __('Careers', 'rollingdonuts'),
                 'slug' => 'careers',
             ]
-        ],
+        ], */
         'Faq' => [
             'menu_icon' => 'dashicons-star-filled',
             'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail'],
@@ -41,13 +41,14 @@ return [
             'names' => [
                 'singular' => __('Faq', 'rollingdonuts'),
                 'plural' => __('Faqs', 'rollingdonuts'),
-                'slug' => 'faqs',
+                'slug' => 'faq',
             ]
         ],
         'Location' => [
             'menu_icon' => 'dashicons-star-filled',
             'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail'],
             'show_in_rest' => true,
+            'publicly_queryable' => false, // Add this line to make it not publicly viewable
             'names' => [
                 'singular' => __('Location', 'rollingdonuts'),
                 'plural' => __('Locations', 'rollingdonuts'),

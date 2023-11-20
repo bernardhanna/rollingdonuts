@@ -3,7 +3,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-07-04 12:28:49
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-07-18 11:03:44
+ * @Last Modified time: 2023-10-24 10:13:41
  */
 ?>
 @php
@@ -14,7 +14,9 @@ $isUserLoggedIn = !empty($currentUserId);
 <div x-data="{ open: false }" class="relative">
     <section class="navbar">
         <div class="mx-auto max-w-sitewidth relative pb-2">
-        @include('navigation.topnav')
+            @if (!is_cart() && !is_checkout())
+                @include('navigation.topnav')
+            @endif
         @php
             use Log1x\Navi\Navi;
 
@@ -29,16 +31,22 @@ $isUserLoggedIn = !empty($currentUserId);
         @endphp
         <nav class="flex justify-between items-center w-full pt-6 lg:pt-0" role="navigation" id="menu">
             <div class="w-1/3 lg:w-5/6">
-                @include('navigation.hamburger')
-                @include('navigation.leftnav')
+                @if (!is_cart() && !is_checkout())
+                    @include('navigation.hamburger')
+                    @include('navigation.leftnav')
+                @endif
             </div>
             @include('navigation.logo')
-            <div class="w-1/3 lg:w-5/6 flex justify-end lg:justify-start" >
-                @include('navigation.mobile-right')
-                @include('navigation.rightnav')
+            <div class="w-1/3 lg:w-5/6 flex justify-end lg:justify-start">
+                 @if (!is_cart() && !is_checkout())
+                    @include('navigation.mobile-right')
+                    @include('navigation.rightnav')
+                @endif
             </div>
         </nav>
-        @include('navigation.hamburger-open')
+        @if (!is_cart() && !is_checkout())
+          @include('navigation.hamburger-open')
+        @endif
         </div>
     </section>
 </div>

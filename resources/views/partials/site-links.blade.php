@@ -3,12 +3,20 @@
  * @Author: Bernard Hanna
  * @Date:   2023-07-04 12:47:27
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-07-14 11:57:58
+ * @Last Modified time: 2023-09-07 15:07:31
  */
 ?>
-<section class="sitelinks flex flex-col lg:hidden p-4">
-  @php
-      $site_links = get_field('site_links', 'option');
+    @php
+    $hideSection = 'lg:hidden';  // Default to hide
+    // Show on large devices for these templates:
+    if (is_page_template('templates/template-locations.blade.php') || 
+        is_page_template('templates/template-contact.blade.php')) {
+            $hideSection = '';
+    }
+    @endphp
+<section class="sitelinks flex flex-col p-4 {{ $hideSection }} lg:grid lg:grid-rows-3 grid-flow-col gap-3">
+    @php
+    $site_links = get_field('site_links', 'option');
   @endphp
 
   @if($site_links && is_array($site_links))

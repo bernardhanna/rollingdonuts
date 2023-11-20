@@ -3,7 +3,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-08-08 13:48:12
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-08-10 12:14:41
+ * @Last Modified time: 2023-10-12 10:38:52
  */
 ?>
 @extends('layouts.app')
@@ -20,7 +20,7 @@
     @endphp
 
     <div class="bg-cover bg-no-repeat" style="{{ $shop_bg_url ? 'background-image: url(' . $shop_bg_url . ');' : '' }}">
-        <div class="mx-auto px-4 lg:max-w-max-1549">
+        <div class="mx-auto lg:max-w-max-1549">
             @if (woocommerce_product_loop())
                 @php
                 remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);

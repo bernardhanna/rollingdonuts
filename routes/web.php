@@ -3,10 +3,11 @@
  * @Author: Bernard Hanna
  * @Date:   2023-06-14 16:00:17
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-08-21 09:50:34
+ * @Last Modified time: 2023-10-10 14:54:28
  */
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+/*
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +21,7 @@ Route::get('/welcome/', function () {
     return view('welcome');
 });
 
-//Newsletter Form
+// Newsletter Form
 Route::post('/newsletter/subscribe', function (Request $request) {
     // Process the form submission
     // ...
@@ -31,5 +32,7 @@ Route::post('/newsletter/subscribe', function (Request $request) {
     // Redirect back to the form
     return redirect()->back();
 })->name('newsletter.subscribe');
+
+
 
 

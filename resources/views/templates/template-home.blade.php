@@ -3,7 +3,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-06-14 16:00:17
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-08-03 09:55:49
+ * @Last Modified time: 2023-10-03 10:21:45
  */
 ?>
 {{--
@@ -28,9 +28,9 @@
     @include('partials.trust-pilot')--}}
     {{-- Include the Faqs partial  --}}
     @include('partials.faqs')
-     {{-- Include the Site Links partial  --}}
-    @include('partials.site-links')
 
+    {{-- Include the Site Links partial  --}}
+    @include('partials.site-links')
   {{-- Use the content from the template-home.blade.php --}}
   {!! get_post_field('post_content', get_the_ID()) !!}
 @endsection

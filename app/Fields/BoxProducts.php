@@ -3,7 +3,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-07-13 09:33:48
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-08-18 14:43:31
+ * @Last Modified time: 2023-09-01 12:02:20
  */
 namespace App\Fields;
 
@@ -26,7 +26,7 @@ class BoxProducts extends Field
         ->setGroupConfig('hide_on_screen', ['the_content'])
         ->setLocation('page_template', '==', 'template-box-products.php')
         ->or('post_type', '==', 'page')
-        ->and('page', '==', get_page_by_path('orders')->ID);
+        ->and('page', '==', get_page_by_path('donut-box')->ID);
 
         $boxProducts
             ->addFields($this->get(BoxProduct::class));

@@ -3,7 +3,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-07-17 15:02:17
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-08-01 16:24:33
+ * @Last Modified time: 2023-10-24 09:57:59
  */
 ?>
 <div class="top-nav w-full md:max-w-max-1549 lg:max-w-max-95 py-4 hidden lg:flex md:justify-between lg:justify-end relative top-0 lg:mb-[-4]">
@@ -23,15 +23,15 @@
             <span class="flex text-reg-font font-reg420">{{ $telephone }}</span>
         </a>
         <div class="nav-line hidden md:block lg:hidden"></div>
-        <a class="flex align-center flex-row" href="{{ get_permalink(get_page_by_title('Search Page')) }}">
+        <a class="flex align-center flex-row" href="{{ wc_get_page_permalink('myaccount') }}">
             <span class="iconify h-8 w-8" data-icon="uil:user"></span>
         </a>
         <div class="nav-line hidden lg:flex"></div>
-        <a class="text-reg-font flex align-center flex-row" href="{{ wc_get_page_permalink('myaccount') }}">
+        <a class="text-reg-font flex align-center flex-row" href="{{ get_permalink(get_page_by_title('Search Page')) }}">
             <span class="iconify h-8 w-8" data-icon="ion:search"></span>
         </a>
         <div class="nav-line  hidden lg:flex"></div>
-        <a class="reg-font hidden lg:flex align-center flex-row items-center " ref="{{ wc_get_cart_url() }}">
+        <a class="reg-font hidden lg:flex align-center flex-row items-center " href="{{ wc_get_cart_url() }}">
             <span class="iconify" data-icon="grommet-icons:basket" data-width="32" data-height="32"></span>
             <span class="ml-2 text-reg-font font-reg420">{!! wc_price(WC()->cart->get_total('edit')) !!}</span>
         </a>

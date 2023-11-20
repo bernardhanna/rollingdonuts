@@ -3,7 +3,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-08-08 13:57:14
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-08-08 15:32:04
+ * @Last Modified time: 2023-10-10 14:58:34
  */
 ?>
 {{--
@@ -42,21 +42,27 @@ the readme will list any important changes.
     {!! sprintf(__('To connect to %1$s you need to be logged in. Log in to your store below, or <a href="%2$s">cancel and return to %1$s</a>', 'woocommerce'), esc_html(wc_clean($app_name)), esc_url($return_url)) !!}
 </p>
 
-<form method="post" class="wc-auth-login">
-    <p class="form-row form-row-wide">
-        <label for="username">{{ esc_html__('login', 'woocommerce') }}&nbsp;<span class="required">*</span></label>
-        <input type="text" class="input-text" name="username" id="username" value="{{ old('username') }}" />
-    </p>
-    <p class="form-row form-row-wide">
-        <label for="password">{{ esc_html__('Password', 'woocommerce') }}&nbsp;<span class="required">*</span></label>
-        <input class="input-text" type="password" name="password" id="password" />
-    </p>
-    <p class="wc-auth-actions">
-        @php wp_nonce_field('woocommerce-login', 'woocommerce-login-nonce'); @endphp
-        <button type="submit" class="bg-yellow-primary {{ wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : '' }}" name="login" value="{{ esc_attr__('test', 'woocommerce') }}">{{ esc_html__('test', 'woocommerce') }}</button>
-        <input type="hidden" name="redirect" value="{{ esc_url($redirect_url) }}" />
-    </p>
-</form>
+
+<div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+    <ul class="flex flex-wrap -mb-px">
+        <li class="mr-2">
+            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Profile</a>
+        </li>
+        <li class="mr-2">
+            <a href="#" class="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500" aria-current="page">Dashboard</a>
+        </li>
+        <li class="mr-2">
+            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Settings</a>
+        </li>
+        <li class="mr-2">
+            <a href="#" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Contacts</a>
+        </li>
+        <li>
+            <a class="inline-block p-4 text-gray-400 rounded-t-lg cursor-not-allowed dark:text-gray-500">Disabled</a>
+        </li>
+    </ul>
+</div>
+
 
 @php
     do_action('woocommerce_auth_page_footer');

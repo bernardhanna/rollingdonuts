@@ -3,32 +3,35 @@
  * @Author: Bernard Hanna
  * @Date:   2023-07-12 16:09:36
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-08-04 17:33:34
+ * @Last Modified time: 2023-10-05 10:32:33
  */
 ?>
 @php
 $featuredDonuts = get_field('donuts');
 @endphp
-
 <section class="featured-donuts relative bg-black" id="featured-section">
     <div class="splide" id="featured-slider">
-        <div class="splide__track lg:max-w-sitewidth mx-auto">
+        <div class="splide__track">
             <div class="splide__list">
                 @foreach($featuredDonuts as $donut)
                     @php
                         $bgColor = get_field('featured_donut_bg_color', $donut->ID);
                         $allergens = get_field('product_allergens', $donut->ID);
                     @endphp
-                    <div class="splide__slide">
-                        <div class="featured-slide w-full flex flex-col lg:flex-row">
-                            <div class="w-full lg:w-1/2 left-feature" style="background-color: {{ $bgColor }}">
-                                <img class="w-full h-full max-h-max-300 lg:max-h-max-800 object-cover" src="{{ get_the_post_thumbnail_url($donut->ID) }}"
-                                sizes="(max-width: 640px) 309px, 800px"
-                                alt="{{ $donut->post_title }}">
+                    <div class="splide__slide" style="background-color: {{ $bgColor }}">
+                        <div class="lg:max-w-sitewidth mx-auto featured-slide w-full flex flex-col lg:flex-row">
+                            <div class="w-full lg:w-1/2 left-feature">
+                                 <img
+                                    id="featuredImage"
+                                    class="w-full h-full max-h-max-300 lg:max-h-max-800 object-cover xyz-in xyz-n10"
+                                    xyz="fade up big"
+                                    src="{{ get_the_post_thumbnail_url($donut->ID) }}"
+                                    sizes="(max-width: 640px) 309px, 800px"
+                                    alt="{{ $donut->post_title }}">
                             </div>
-                            <div class="w-full lg:w-1/2 lg:h-[800px] bg-transparent">
-                                <div class="h-full flex flex-col items-start justify-center px-12 py-12 lg:mx-16">
-                                    <p class="slide-count text-md-font"><span class="start-count font-reg420">1</span>/{{ count($featuredDonuts) }}</p>
+                            <div class="w-full lg:w-1/2 lg:h-[800px]" style="background-color: {{ $bgColor }}">
+                                <div class="h-full flex flex-col items-start px-12 py-12 lg:mx-16">
+                                    <p class="slide-count text-md-font"><span id="current-slide" class="start-count font-reg420">1</span>/{{ count($featuredDonuts) }}</p>
                                     <h3 class="text-lg-font font-reg420">{{ $donut->post_title }}</h3>
                                     <p class="text-sm-font text-left w-full max-w-max-573">{{ get_the_excerpt($donut->ID) }}</p>
                                     <span class="text-md-font font-reg420 py-4">Allergens</span>
@@ -50,7 +53,7 @@ $featuredDonuts = get_field('donuts');
                 @endforeach
             </div>
         </div>
-        <div class="lg:w-[100px] lg:mx-auto lg:h-full lg:absolute top-0 left-0 right-0 splide hidden lg:flex lg:items-center lg:justify-center lg:flex-col" id="thumbnail-slider">
+        <div class="lg:w-[100px] lg:mx-auto lg:h-full lg:absolute top-0 left-0 right-0 splide hidden lg:flex lg:items-center lg:justify-center lg:flex-col" id="donut-thumb-slider">
             <div class="splide__track">
                 <div class="splide__list flex flex-col">
                     @foreach($featuredDonuts as $donut)
@@ -80,3 +83,5 @@ $featuredDonuts = get_field('donuts');
         </div>
     </div>
 </section>
+
+

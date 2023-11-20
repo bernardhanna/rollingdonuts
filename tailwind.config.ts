@@ -2,7 +2,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-06-14 16:00:17
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-08-10 13:03:37
+ * @Last Modified time: 2023-10-24 12:03:14
  */
 import type { Config } from 'tailwindcss';
 import forms from '@tailwindcss/forms';
@@ -29,7 +29,7 @@ export default {
         primary: '#ffed56',
         secondary: '#f3ea5d',
         hovered: '#fff6a7',
-        depressed: '#f1da1a',
+       depressed: '#f1da1a',
         alert: '#f5f951',
         disabled: '#d8d7ce',
       },
@@ -38,6 +38,8 @@ export default {
         subdued: '#484848',
         disabled: '#e1e1e1',
         background: '#FAFAFA',
+        font: '#1F2937',
+        border: '#E0E0E0',
       },
       green: {
         success: '#59e456',
@@ -54,16 +56,16 @@ export default {
       'laca': ['"Laca"', 'sans-serif'],
     },
     fontSize: {
-      'xxxl-font': '64px',
+      'xxxl-font': '4rem',
       'xxl-font': '56px',
       'xl-font': '48px',
-      'lg-font': '40px',
+      'lg-font': '2.5rem',
       '1lg-font': '36px',
       'md-font': '32px',
       'font-28': '28px',
       'sm-md-font': '24px',
-      'reg-font': '20px',
-      'base-font': '18px',
+      'base-font': '1.25rem',
+      'reg-font': '1.25rem',
       'sm-font': '16px',
       'xs-font': '1em',
       'xxs-font': '12px',
@@ -111,6 +113,12 @@ export default {
       'full': '100%',
     },
     extend: {
+      margin: {
+        '64': '16rem',
+      },
+      textShadow: {
+        'medium' : '2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;',
+      },
       screens: {
         'lg' : '1085px',
         'one-xl': '1600px',
@@ -122,7 +130,9 @@ export default {
         'input': '3.5rem',
         '40': '40px',
         '80': '32rem',
+        '492': '30.75rem',
         '500px' : '31.25rem',
+        'btn-h' : '56px',
         'hero-28': '28rem',
         'hero-height' : '43.625rem',
         'hero-mob': '50vh',
@@ -136,6 +146,13 @@ export default {
         '256' : '256px',
         'heroleft': '56%',
         'heroright': '44%',
+        '23': '23%',
+        '47': '47%',
+        '31-5': '31.5%',
+      },
+      minWidth: {
+        'min-208': '208px',
+        'min-276': '276px',
       },
       maxWidth: {
         'max-128': '6rem', //126px
@@ -148,11 +165,18 @@ export default {
         'max-478': '29.875rem', //478px
         'max-504': '31.5rem', //504px
         'max-573': '35.8125rem', //573px
+        'max-691': '43.188rem', //691px
         'max-750': '46.875rem', //750px
+        'max-503': '31.438rem', //529px
         'max-529': '33.0625rem', //529px
+        'max-584': '36.5rem', //584px
+        'max-1200': '75rem', //1200px
+        'max-1300': '81.25rem', //1300px
+        'max-1467': '91.6875rem', //1467px
         'max-1514': '94.625rem', //1514px
         'max-1549': '96.8125rem', //1549px
         'max-1568': '98rem', //1568px
+        'max-1571': '98.1875rem', //1571px;
         'sitewidth': '107.875rem', //1726px
         'max-95': '95%', //95%
       },
@@ -170,8 +194,13 @@ export default {
         '3': '3px',
       },
       borderRadius: {
+        'tl-lg': '0.5rem 0.5rem 0rem 0rem',
+        'md-20': '20px',
+        'md-32' : '32px',
+        'md-40' : '40px',
         'sm-8': '8px',
         'sm-10': '10px',
+        'sm-12' : '12px',
         'btn-72': '72px',
         '1': '1px',
         '3': '3px',

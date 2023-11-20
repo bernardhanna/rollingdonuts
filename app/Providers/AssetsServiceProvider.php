@@ -3,7 +3,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-06-14 16:00:17
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-08-18 16:20:29
+ * @Last Modified time: 2023-10-10 09:41:48
  */
 
 
@@ -28,15 +28,25 @@ class AssetsServiceProvider extends ServiceProvider
          * @return void
          */
 
-        add_action('wp_enqueue_scripts', function (): void {
-            wp_enqueue_style('glide-one', 'https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.core.css', array(), null);
-            wp_enqueue_style('glide-two', 'https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.2.0/css/glide.theme.min.css', array(), null);
+         add_action('wp_enqueue_scripts', function (): void {
+            // Dequeue WooCommerce styles
+            wp_dequeue_style('woocommerce-general');
+            wp_dequeue_style('woocommerce-layout');
+            wp_dequeue_style('woocommerce-smallscreen');
+            // Conditionally enqueue Leaflet.js and Leaflet.css for a specific template
+            if (is_page_template('templates/template-locations.blade.php')) {
+                wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css', array(), null);
+                wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js', array(), null, true);
+            }
+
             wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css', array(), null);
             wp_enqueue_style('edmondsans', 'https://fonts.cdnfonts.com/css/edmondsans', false);
             wp_enqueue_style('laca', 'https://fonts.cdnfonts.com/css/laca?styles=51511,51510,51505,51504,51507,51506,51503,51502,51509,51508,51513,51512,51501,51500,51499,51498', false);
+
             remove_action('wp_body_open', 'wp_global_styles_render_svg_filters');
             bundle('app')->enqueue();
-        }, 1);
+        }, 9999);
+
 
         /**
          * Register the theme assets with the block editor.

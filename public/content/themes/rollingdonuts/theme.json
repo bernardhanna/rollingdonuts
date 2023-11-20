@@ -98,6 +98,16 @@
           "slug": "grey-background"
         },
         {
+          "color": "#1f2937",
+          "name": "Grey Font",
+          "slug": "grey-font"
+        },
+        {
+          "color": "#e0e0e0",
+          "name": "Grey Border",
+          "slug": "grey-border"
+        },
+        {
           "color": "#59e456",
           "name": "Green Success",
           "slug": "green-success"
@@ -152,7 +162,7 @@
       "fontSizes": [
         {
           "name": "xxxl-font",
-          "size": "64px",
+          "size": "4rem",
           "slug": "xxxl-font"
         },
         {
@@ -167,7 +177,7 @@
         },
         {
           "name": "lg-font",
-          "size": "40px",
+          "size": "2.5rem",
           "slug": "lg-font"
         },
         {
@@ -191,14 +201,14 @@
           "slug": "sm-md-font"
         },
         {
-          "name": "reg-font",
-          "size": "20px",
-          "slug": "reg-font"
+          "name": "base-font",
+          "size": "1.25rem",
+          "slug": "base-font"
         },
         {
-          "name": "base-font",
-          "size": "18px",
-          "slug": "base-font"
+          "name": "reg-font",
+          "size": "1.25rem",
+          "slug": "reg-font"
         },
         {
           "name": "sm-font",

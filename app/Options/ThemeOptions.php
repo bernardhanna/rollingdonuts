@@ -3,7 +3,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-07-04 20:18:21
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-08-09 17:05:22
+ * @Last Modified time: 2023-10-12 17:00:14
  */
 
 
@@ -56,6 +56,18 @@ class ThemeOptions extends Field
         ])
         ->addImage('mobile_menu_bg', [
             'label' => 'Mobile Menu Open Background',
+            'return_format' => 'url', // Return image URL
+        ])
+        ->addImage('page_header_bg', [
+            'label' => 'Page Header Background',
+            'return_format' => 'url', // Return image URL
+        ])
+        ->addImage('page_header_mobile_bg', [
+            'label' => 'Mobile Page Header Background',
+            'return_format' => 'url', // Return image URL
+        ])
+        ->addImage('notice_bg', [
+            'label' => 'WooCommerce Notice Background',
             'return_format' => 'url', // Return image URL
         ])
 

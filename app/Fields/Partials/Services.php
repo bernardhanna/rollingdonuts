@@ -33,6 +33,12 @@ class Services extends Partial
                     'return_format' => 'array',
                     'preview_size' => 'medium',
                 ])
+                ->addFile('video', [
+                    'label' => 'Video Animation',
+                    'return_format' => 'url',
+                    'library' => 'all',
+                    'mime_types' => 'mp4',
+                ])
                 ->addText('title', [
                     'label' => 'Title',
                 ])
