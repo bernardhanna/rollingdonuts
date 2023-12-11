@@ -8,6 +8,7 @@ public/content/uploads/*
 !public/content/uploads/.gitkeep
 public/content/cache/*
 public/dist/*
+public/content/updraft/*
 
 # WordPress
 public/wp
