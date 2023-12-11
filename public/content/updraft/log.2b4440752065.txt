@@ -1,0 +1,711 @@
+0000.002 (0) Opened log file at time: Mon, 11 Dec 2023 10:11:47 +0000 on https://rollingdonuts.lndo.site/wp
+0000.006 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.23.13 WP: 6.3.1 PHP: 8.1.18 (fpm-fcgi, Linux 0561bb5c793c 5.15.49-linuxkit #1 SMP PREEMPT Tue Sep 13 07:51:32 UTC 2022 aarch64) MySQL: 10.3.27-MariaDB (max packet size=33554432) WPLANG: en_US Server: nginx/1.17.10 safe_mode: 0 max_execution_time: 900 memory_limit: 1G (used: 11.8M | 14M) multisite: N openssl: OpenSSL 1.1.1n  15 Mar 2022 mcrypt: N LANG:  ZipArchive::addFile: Y
+0000.008 (0) Free space on disk containing Updraft's temporary directory: 279733.7 MB
+0000.012 (0) Tasks: Backup files: 1 (schedule: unset) Backup DB: 1 (schedule: unset)
+0000.015 (0) Semaphore (fd, wp_options) being initialised
+0000.020 (0) Requesting semaphore lock (fd) (apparently not via scheduler)
+0000.023 (0) Set semaphore last lock (fd) time to 2023-12-11 10:11:47
+0000.025 (0) Semaphore lock (fd) complete
+0000.028 (0) Backup run: resumption=0, nonce=2b4440752065, file_nonce=2b4440752065 begun at=1702289507 (0s ago), job type=backup
+0000.030 (0) Scheduling a resumption (1) after 300 seconds (1702289807) in case this run gets aborted
+0000.049 (0) Checking if we have a zip executable available
+0000.052 (0) Creation of backups of directories: beginning
+0000.058 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0006.280 (0) Total entities for the zip file: 2423 directories, 12246 files (0 skipped as non-modified), 143.3 MB
+0006.288 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 2.0 seconds have passed since the last write (0 MB, 1 (1) files added so far); re-opening (prior size: 0 KB)
+0010.901 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 100 files added (on-disk size: 485.6 KB)
+0010.963 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 200 files added (on-disk size: 485.6 KB)
+0011.022 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 300 files added (on-disk size: 485.6 KB)
+0011.089 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 400 files added (on-disk size: 485.6 KB)
+0011.147 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 500 files added (on-disk size: 485.6 KB)
+0011.210 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 600 files added (on-disk size: 485.6 KB)
+0011.282 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 700 files added (on-disk size: 485.6 KB)
+0011.353 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 800 files added (on-disk size: 485.6 KB)
+0011.422 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 900 files added (on-disk size: 485.6 KB)
+0011.492 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 1000 files added (on-disk size: 485.6 KB)
+0011.497 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 1000 files added on this batch (22 MB, 12246 files batched, 1001 (1002) added so far); re-opening (prior size: 485.6 KB)
+0015.649 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 1100 files added (on-disk size: 7851.8 KB)
+0015.718 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 1200 files added (on-disk size: 7851.8 KB)
+0015.799 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 1300 files added (on-disk size: 7851.8 KB)
+0015.866 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 1400 files added (on-disk size: 7851.8 KB)
+0015.927 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 1500 files added (on-disk size: 7851.8 KB)
+0015.993 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 1600 files added (on-disk size: 7851.8 KB)
+0016.060 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 1700 files added (on-disk size: 7851.8 KB)
+0016.133 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 1800 files added (on-disk size: 7851.8 KB)
+0016.212 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 1900 files added (on-disk size: 7851.8 KB)
+0016.273 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 2000 files added (on-disk size: 7851.8 KB)
+0016.277 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 1000 files added on this batch (15.8 MB, 12246 files batched, 1001 (2003) added so far); re-opening (prior size: 7851.8 KB)
+0020.663 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 2100 files added (on-disk size: 15299.5 KB)
+0020.726 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 2200 files added (on-disk size: 15299.5 KB)
+0020.797 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 2300 files added (on-disk size: 15299.5 KB)
+0020.865 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 2400 files added (on-disk size: 15299.5 KB)
+0020.934 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 2500 files added (on-disk size: 15299.5 KB)
+0020.998 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 2600 files added (on-disk size: 15299.5 KB)
+0021.055 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 2700 files added (on-disk size: 15299.5 KB)
+0021.119 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 2800 files added (on-disk size: 15299.5 KB)
+0021.178 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 2900 files added (on-disk size: 15299.5 KB)
+0021.238 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 3000 files added (on-disk size: 15299.5 KB)
+0021.243 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 1000 files added on this batch (6.4 MB, 12246 files batched, 1001 (3004) added so far); re-opening (prior size: 15299.5 KB)
+0025.513 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 3100 files added (on-disk size: 17533.7 KB)
+0025.596 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 3200 files added (on-disk size: 17533.7 KB)
+0025.664 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 3300 files added (on-disk size: 17533.7 KB)
+0025.740 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 3400 files added (on-disk size: 17533.7 KB)
+0025.816 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 3500 files added (on-disk size: 17533.7 KB)
+0025.895 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 3600 files added (on-disk size: 17533.7 KB)
+0025.964 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 3700 files added (on-disk size: 17533.7 KB)
+0026.042 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 3800 files added (on-disk size: 17533.7 KB)
+0026.102 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 3900 files added (on-disk size: 17533.7 KB)
+0026.164 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 4000 files added (on-disk size: 17533.7 KB)
+0026.169 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 1000 files added on this batch (21.7 MB, 12246 files batched, 1001 (4005) added so far); re-opening (prior size: 17533.7 KB)
+0031.704 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 4100 files added (on-disk size: 23750.2 KB)
+0031.792 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 4200 files added (on-disk size: 23750.2 KB)
+0031.864 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 4300 files added (on-disk size: 23750.2 KB)
+0031.937 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 4400 files added (on-disk size: 23750.2 KB)
+0032.016 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 4500 files added (on-disk size: 23750.2 KB)
+0032.083 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 4600 files added (on-disk size: 23750.2 KB)
+0032.145 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 4700 files added (on-disk size: 23750.2 KB)
+0032.204 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 4800 files added (on-disk size: 23750.2 KB)
+0032.269 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 4900 files added (on-disk size: 23750.2 KB)
+0032.327 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 5000 files added (on-disk size: 23750.2 KB)
+0032.333 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 1000 files added on this batch (13 MB, 12246 files batched, 1001 (5006) added so far); re-opening (prior size: 23750.2 KB)
+0037.877 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 5100 files added (on-disk size: 28459.6 KB)
+0037.944 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 5200 files added (on-disk size: 28459.6 KB)
+0038.001 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 5300 files added (on-disk size: 28459.6 KB)
+0038.054 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 5400 files added (on-disk size: 28459.6 KB)
+0038.124 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 5500 files added (on-disk size: 28459.6 KB)
+0038.192 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 5600 files added (on-disk size: 28459.6 KB)
+0038.261 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 5700 files added (on-disk size: 28459.6 KB)
+0038.322 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 5800 files added (on-disk size: 28459.6 KB)
+0038.388 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 5900 files added (on-disk size: 28459.6 KB)
+0038.463 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 6000 files added (on-disk size: 28459.6 KB)
+0038.472 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 1000 files added on this batch (10.8 MB, 12246 files batched, 1001 (6007) added so far); re-opening (prior size: 28459.6 KB)
+0044.094 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 6100 files added (on-disk size: 31243.9 KB)
+0044.204 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 6200 files added (on-disk size: 31243.9 KB)
+0044.315 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 6300 files added (on-disk size: 31243.9 KB)
+0044.424 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 6400 files added (on-disk size: 31243.9 KB)
+0044.524 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 6500 files added (on-disk size: 31243.9 KB)
+0044.617 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 6600 files added (on-disk size: 31243.9 KB)
+0044.692 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 6700 files added (on-disk size: 31243.9 KB)
+0044.753 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 6800 files added (on-disk size: 31243.9 KB)
+0044.822 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 6900 files added (on-disk size: 31243.9 KB)
+0044.885 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 7000 files added (on-disk size: 31243.9 KB)
+0044.892 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 1000 files added on this batch (1.8 MB, 12246 files batched, 1001 (7008) added so far); re-opening (prior size: 31243.9 KB)
+0050.335 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 7100 files added (on-disk size: 32335.6 KB)
+0050.443 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 7200 files added (on-disk size: 32335.6 KB)
+0050.522 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 7300 files added (on-disk size: 32335.6 KB)
+0050.598 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 7400 files added (on-disk size: 32335.6 KB)
+0050.664 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 7500 files added (on-disk size: 32335.6 KB)
+0050.741 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 7600 files added (on-disk size: 32335.6 KB)
+0050.803 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 7700 files added (on-disk size: 32335.6 KB)
+0050.867 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 7800 files added (on-disk size: 32335.6 KB)
+0050.933 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 7900 files added (on-disk size: 32335.6 KB)
+0051.009 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 8000 files added (on-disk size: 32335.6 KB)
+0051.018 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 1000 files added on this batch (11.5 MB, 12246 files batched, 1001 (8009) added so far); re-opening (prior size: 32335.6 KB)
+0057.198 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 8100 files added (on-disk size: 38950.3 KB)
+0057.249 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 8200 files added (on-disk size: 38950.3 KB)
+0057.307 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 8300 files added (on-disk size: 38950.3 KB)
+0057.368 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 8400 files added (on-disk size: 38950.3 KB)
+0057.434 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 8500 files added (on-disk size: 38950.3 KB)
+0057.496 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 8600 files added (on-disk size: 38950.3 KB)
+0057.559 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 8700 files added (on-disk size: 38950.3 KB)
+0057.627 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 8800 files added (on-disk size: 38950.3 KB)
+0057.681 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 8900 files added (on-disk size: 38950.3 KB)
+0057.746 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 9000 files added (on-disk size: 38950.3 KB)
+0057.755 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 1000 files added on this batch (4.7 MB, 12246 files batched, 1001 (9010) added so far); re-opening (prior size: 38950.3 KB)
+0064.014 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 9100 files added (on-disk size: 40466.4 KB)
+0064.082 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 9200 files added (on-disk size: 40466.4 KB)
+0064.137 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 9300 files added (on-disk size: 40466.4 KB)
+0064.202 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 9400 files added (on-disk size: 40466.4 KB)
+0064.273 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 9500 files added (on-disk size: 40466.4 KB)
+0064.335 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 9600 files added (on-disk size: 40466.4 KB)
+0064.391 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 9700 files added (on-disk size: 40466.4 KB)
+0064.452 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 9800 files added (on-disk size: 40466.4 KB)
+0064.522 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 9900 files added (on-disk size: 40466.4 KB)
+0064.595 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 10000 files added (on-disk size: 40466.4 KB)
+0064.603 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 1000 files added on this batch (15.9 MB, 12246 files batched, 1001 (10011) added so far); re-opening (prior size: 40466.4 KB)
+0074.293 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 10100 files added (on-disk size: 46580.6 KB)
+0074.359 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 10200 files added (on-disk size: 46580.6 KB)
+0074.423 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 10300 files added (on-disk size: 46580.6 KB)
+0074.492 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 10400 files added (on-disk size: 46580.6 KB)
+0074.553 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 10500 files added (on-disk size: 46580.6 KB)
+0074.615 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 10600 files added (on-disk size: 46580.6 KB)
+0074.676 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 10700 files added (on-disk size: 46580.6 KB)
+0074.735 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 10800 files added (on-disk size: 46580.6 KB)
+0074.806 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 10900 files added (on-disk size: 46580.6 KB)
+0074.866 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 11000 files added (on-disk size: 46580.6 KB)
+0074.875 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 1000 files added on this batch (11.9 MB, 12246 files batched, 1001 (11012) added so far); re-opening (prior size: 46580.6 KB)
+0082.549 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 11100 files added (on-disk size: 50324 KB)
+0082.613 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 11200 files added (on-disk size: 50324 KB)
+0082.681 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 11300 files added (on-disk size: 50324 KB)
+0082.759 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 11400 files added (on-disk size: 50324 KB)
+0082.839 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 11500 files added (on-disk size: 50324 KB)
+0082.925 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 11600 files added (on-disk size: 50324 KB)
+0082.990 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 11700 files added (on-disk size: 50324 KB)
+0083.074 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 11800 files added (on-disk size: 50324 KB)
+0083.147 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 11900 files added (on-disk size: 50324 KB)
+0083.205 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 12000 files added (on-disk size: 50324 KB)
+0083.217 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 1000 files added on this batch (6.7 MB, 12246 files batched, 1001 (12013) added so far); re-opening (prior size: 50324 KB)
+0090.882 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 12100 files added (on-disk size: 53197.6 KB)
+0090.954 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.tmp: 12200 files added (on-disk size: 53197.6 KB)
+0096.520 (0) Creating zip file manifest (backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.list-temp.tmp)
+0100.277 (0) Successfully created zip file manifest (size: 1147396)
+0100.987 (0) Created plugins zip (0) - 53547.1 KB in 100.9 s (530.6 KB/s) (sha1: 706cbecb86da86da576e63ac7b41ee11d5d27267, sha256: 03f1aa620c3b39469a0d54054b10f2585f3cec339227b91a334b0d50ccf1715b)
+0101.008 (0) Cloud backup selection (1/1): none with instance (1/1) (last)
+0101.009 (0) No remote despatch: user chose no remote backup service
+0101.011 (0) Recording as successfully uploaded: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip
+0101.013 (0) Deleting zip manifest (backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip.list.tmp)
+0101.018 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=2, retain_db=2
+0101.020 (0) Number of backup sets in history: 0; groups (db): 1
+0101.021 (0) Number of backup sets in history: 0; groups (files): 1
+0101.022 (0) Retain: saving new backup history (sets now: 0) and finishing retain operation
+0101.029 (0) Beginning creation of dump of themes (split every: 400 MB)
+0101.038 (0) Total entities for the zip file: 2 directories, 5 files (0 skipped as non-modified), 0 MB
+0101.061 (0) Creating zip file manifest (backup_2023-12-11-1011_Rolling_Donut_2b4440752065-themes.zip.list-temp.tmp)
+0101.065 (0) Successfully created zip file manifest (size: 223)
+0101.072 (0) Created themes zip (0) - 2.8 KB in 0 s (71.6 KB/s) (sha1: 132648d249db1e455e4aa9c588c833a2a06f3874, sha256: fee45a4798bedd1a5aa52143a1e946fb135851b2fb51af03803e164b20ea4d14)
+0101.078 (0) Cloud backup selection (1/1): none with instance (1/1) (last)
+0101.079 (0) No remote despatch: user chose no remote backup service
+0101.080 (0) Recording as successfully uploaded: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-themes.zip
+0101.083 (0) Deleting zip manifest (backup_2023-12-11-1011_Rolling_Donut_2b4440752065-themes.zip.list.tmp)
+0101.086 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=2, retain_db=2
+0101.087 (0) Number of backup sets in history: 0; groups (db): 1
+0101.089 (0) Number of backup sets in history: 0; groups (files): 1
+0101.090 (0) Retain: saving new backup history (sets now: 0) and finishing retain operation
+0101.097 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0101.098 (0) Looking for candidates to backup in: /app/public/content/uploads
+0101.101 (0) finding files: .gitkeep: adding to list (1)
+0101.102 (0) finding files: 2023: adding to list (2)
+0101.103 (0) finding files: csv_exports: adding to list (3)
+0101.105 (0) finding files: sb-instagram-feed-images: adding to list (4)
+0101.106 (0) finding files: wc-logs: adding to list (5)
+0101.107 (0) finding files: woocommerce-placeholder-100x100.png: adding to list (6)
+0101.108 (0) finding files: woocommerce-placeholder-1024x1024.png: adding to list (7)
+0101.109 (0) finding files: woocommerce-placeholder-150x150.png: adding to list (8)
+0101.110 (0) finding files: woocommerce-placeholder-175x175.png: adding to list (9)
+0101.111 (0) finding files: woocommerce-placeholder-300x300.png: adding to list (10)
+0101.113 (0) finding files: woocommerce-placeholder-506x506.png: adding to list (11)
+0101.114 (0) finding files: woocommerce-placeholder-600x600.png: adding to list (12)
+0101.115 (0) finding files: woocommerce-placeholder-768x768.png: adding to list (13)
+0101.116 (0) finding files: woocommerce-placeholder.png: adding to list (14)
+0101.117 (0) finding files: woocommerce_uploads: adding to list (15)
+0101.118 (0) finding files: wpallimport: adding to list (16)
+0101.119 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0102.228 (0) Total entities for the zip file: 18 directories, 2668 files (0 skipped as non-modified), 315.2 MB
+0102.303 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)
+0102.360 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 200 files added (on-disk size: 0 KB)
+0102.368 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 25 MB added on this batch (25.5 MB, 2668 files batched, 211 (211) added so far); re-opening (prior size: 0 KB)
+0105.209 (0) A useful amount of data was added after this amount of zip processing: 4.9 s (normalised: 4.8 s, rate: 5294.3 KB/s)
+0105.212 (0) Performance is good - will increase the amount of data we attempt to batch (time=4.9284179210663, normalised_time=4.8353976088504, max_time=105.20837688446, data points known=1, old_max_bytes=26214400, new_max_bytes=209715200)
+0105.268 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 300 files added (on-disk size: 26128.5 KB)
+0105.330 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 400 files added (on-disk size: 26128.5 KB)
+0105.391 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 500 files added (on-disk size: 26128.5 KB)
+0105.457 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 600 files added (on-disk size: 26128.5 KB)
+0105.509 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 700 files added (on-disk size: 26128.5 KB)
+0105.567 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 800 files added (on-disk size: 26128.5 KB)
+0105.624 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 900 files added (on-disk size: 26128.5 KB)
+0105.694 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 1000 files added (on-disk size: 26128.5 KB)
+0105.756 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 1100 files added (on-disk size: 26128.5 KB)
+0105.816 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 1200 files added (on-disk size: 26128.5 KB)
+0105.825 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 1000 files added on this batch (114.8 MB, 2668 files batched, 1001 (1212) added so far); re-opening (prior size: 26128.5 KB)
+0121.503 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 1300 files added (on-disk size: 143867.1 KB)
+0121.564 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 1400 files added (on-disk size: 143867.1 KB)
+0121.621 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 1500 files added (on-disk size: 143867.1 KB)
+0121.708 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 1600 files added (on-disk size: 143867.1 KB)
+0121.766 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 1700 files added (on-disk size: 143867.1 KB)
+0121.826 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 1800 files added (on-disk size: 143867.1 KB)
+0121.879 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 1900 files added (on-disk size: 143867.1 KB)
+0121.940 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 2000 files added (on-disk size: 143867.1 KB)
+0122.005 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 2100 files added (on-disk size: 143867.1 KB)
+0122.063 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 2200 files added (on-disk size: 143867.1 KB)
+0122.076 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 1000 files added on this batch (139.7 MB, 2668 files batched, 1001 (2213) added so far); re-opening (prior size: 143867.1 KB)
+0150.266 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 2300 files added (on-disk size: 287049.8 KB)
+0150.377 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 2400 files added (on-disk size: 287049.8 KB)
+0150.466 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 2500 files added (on-disk size: 287049.8 KB)
+0150.546 (0) Zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.tmp: 2600 files added (on-disk size: 287049.8 KB)
+0181.648 (0) Creating zip file manifest (backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.list-temp.tmp)
+0182.559 (0) Successfully created zip file manifest (size: 168299)
+0187.520 (0) Created uploads zip (0) - 318491.2 KB in 86.4 s (3686.4 KB/s) (sha1: 6465c24af9e81a6718fd3850cd098e778dfc13dc, sha256: 269077467d4bece30614519a974d9cd892d53d683f8c28edee3c7e4fc411640d)
+0187.531 (0) Cloud backup selection (1/1): none with instance (1/1) (last)
+0187.533 (0) No remote despatch: user chose no remote backup service
+0187.534 (0) Recording as successfully uploaded: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip
+0187.537 (0) Deleting zip manifest (backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip.list.tmp)
+0187.540 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=2, retain_db=2
+0187.542 (0) Number of backup sets in history: 0; groups (db): 1
+0187.544 (0) Number of backup sets in history: 0; groups (files): 1
+0187.545 (0) Retain: saving new backup history (sets now: 0) and finishing retain operation
+0187.557 (0) Beginning creation of dump of mu-plugins (split every: 400 MB)
+0187.625 (0) Total entities for the zip file: 28 directories, 86 files (0 skipped as non-modified), 0.8 MB
+0188.029 (0) Creating zip file manifest (backup_2023-12-11-1011_Rolling_Donut_2b4440752065-mu-plugins.zip.list-temp.tmp)
+0188.056 (0) Successfully created zip file manifest (size: 4627)
+0188.069 (0) Created mu-plugins zip (0) - 305.4 KB in 0.5 s (603.1 KB/s) (sha1: d8002dbacba2672f8fdc12e3e45a214612d84a9b, sha256: d4054cc98074f354036ad90182ecc1ba504ff6161a2b058b487e662077db230f)
+0188.075 (0) Cloud backup selection (1/1): none with instance (1/1) (last)
+0188.076 (0) No remote despatch: user chose no remote backup service
+0188.078 (0) Recording as successfully uploaded: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-mu-plugins.zip
+0188.080 (0) Deleting zip manifest (backup_2023-12-11-1011_Rolling_Donut_2b4440752065-mu-plugins.zip.list.tmp)
+0188.083 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=2, retain_db=2
+0188.084 (0) Number of backup sets in history: 0; groups (db): 1
+0188.086 (0) Number of backup sets in history: 0; groups (files): 1
+0188.087 (0) Retain: saving new backup history (sets now: 0) and finishing retain operation
+0188.093 (0) Beginning backup of other directories found in the content directory (index: 0)
+0188.095 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0188.096 (0) Looking for candidates to backup in: /app/public/content
+0188.097 (0) finding files: debug.log: skipping: excluded by options
+0188.099 (0) finding files: mu-plugins: skipping: this is the mu-plugins directory
+0188.100 (0) finding files: plugins: skipping: this is the plugins directory
+0188.101 (0) finding files: themes: skipping: this is the themes directory
+0188.102 (0) finding files: updraft: skipping: this is the updraft directory
+0188.103 (0) finding files: upgrade: skipping: excluded by options
+0188.104 (0) finding files: upgrade-temp-backup: adding to list (1)
+0188.105 (0) finding files: uploads: skipping: this is the uploads directory
+0188.114 (0) Total entities for the zip file: 1 directories, 0 files (0 skipped as non-modified), 0 MB
+0188.123 (0) Did not find any files in the zip: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-others.zip.tmp
+0188.130 (0) Created others zip (0) - 0.1 KB in 0 s (6.6 KB/s) (sha1: cfc3ab63ec71c0f3459c2b3a91065804eb36670f, sha256: f547918b7dc14a466c772cf8b92938e7a58a25b830586be593f974aefc6e0c4f)
+0188.137 (0) Saving backup status to database (elements: 10)
+0188.140 (0) Beginning creation of database dump (WordPress DB)
+0188.141 (0) SQL compatibility mode is: ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION
+0188.145 (0) Testing potential mysqldump binary: /usr/bin/mysqldump
+0188.176 (0) Output: /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;\n/*!40103 SET TIME_ZONE='+00:00' */;\n/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;\n/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;\n/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;\n/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;\nDROP TABLE IF EXISTS `wp_options`;\n/*!40101 SET @saved_cs_client     = @@character_set_client */;\n/*!40101 SET character_set_client = utf8 */;\nCRE (truncated - 1551 bytes total)
+0188.178 (0) Working binary mysqldump found: /usr/bin/mysqldump
+0188.218 (0) Table wp_options: Total expected rows (via COUNT): 692
+0188.271 (0) Table wp_options: Rows added in this batch (next record: 19081): 688 (uncompressed bytes in this segment=1426199) in 0.06 seconds
+0188.285 (0) Table wp_options: finishing file(s) (2, 284.7 KB)
+0188.294 (0) Table wp_users: Total expected rows (via COUNT): 2
+0188.296 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0188.300 (0) Table wp_users: Rows added in this batch (next record: 2): 2 (uncompressed bytes in this segment=1663) in 0.01 seconds
+0188.309 (0) Table wp_users: finishing file(s) (2, 0.8 KB)
+0188.318 (0) Table wp_usermeta: Total expected rows (via COUNT): 65
+0188.320 (0) Table is relatively small; fetch_rows will thus be: 100 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0188.324 (0) Table wp_usermeta: Rows added in this batch (next record: 176): 65 (uncompressed bytes in this segment=22457) in 0.01 seconds
+0188.335 (0) Table wp_usermeta: finishing file(s) (2, 5.7 KB)
+0188.346 (0) Table wp_actionscheduler_actions: Total expected rows (via COUNT): 27
+0188.347 (0) Table is relatively small; fetch_rows will thus be: 50 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0188.351 (0) Table wp_actionscheduler_actions: Rows added in this batch (next record: 1451): 27 (uncompressed bytes in this segment=13476) in 0.01 seconds
+0188.362 (0) Table wp_actionscheduler_actions: finishing file(s) (2, 1.8 KB)
+0188.369 (0) Table wp_actionscheduler_claims: Total expected rows (via COUNT): 0
+0188.372 (0) Table wp_actionscheduler_claims: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=627) in 0.00 seconds
+0188.381 (0) Table wp_actionscheduler_claims: finishing file(s) (2, 0.4 KB)
+0188.390 (0) Table wp_actionscheduler_groups: Total expected rows (via COUNT): 6
+0188.391 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0188.394 (0) Table wp_actionscheduler_groups: Rows added in this batch (next record: 6): 6 (uncompressed bytes in this segment=833) in 0.01 seconds
+0188.403 (0) Table wp_actionscheduler_groups: finishing file(s) (2, 0.5 KB)
+0188.411 (0) Table wp_actionscheduler_logs: Total expected rows (via COUNT): 77
+0188.412 (0) Table is relatively small; fetch_rows will thus be: 100 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0188.416 (0) Table wp_actionscheduler_logs: Rows added in this batch (next record: 4331): 77 (uncompressed bytes in this segment=9726) in 0.01 seconds
+0188.425 (0) Table wp_actionscheduler_logs: finishing file(s) (2, 1.5 KB)
+0188.436 (0) Table wp_commentmeta: Total expected rows (via COUNT): 0
+0188.439 (0) Table wp_commentmeta: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=696) in 0.01 seconds
+0188.450 (0) Table wp_commentmeta: finishing file(s) (2, 0.4 KB)
+0188.458 (0) Table wp_comments: Total expected rows (via COUNT): 1
+0188.459 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0188.463 (0) Table wp_comments: Rows added in this batch (next record: 1): 1 (uncompressed bytes in this segment=2180) in 0.01 seconds
+0188.473 (0) Table wp_comments: finishing file(s) (2, 0.8 KB)
+0188.483 (0) Table wp_links: Total expected rows (via COUNT): 0
+0188.486 (0) Table wp_links: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1306) in 0.01 seconds
+0188.495 (0) Table wp_links: finishing file(s) (2, 0.5 KB)
+0188.502 (0) Table wp_postmeta: Total expected rows (approximate): 51676
+0188.737 (0) Table wp_postmeta: binary mysqldump finished (writes: 34, bytes 3059823, return code 0) in 0.23 seconds
+0188.745 (0) Table wp_postmeta: finishing file(s) (1, 380.8 KB)
+0188.758 (0) Table wp_posts: Total expected rows (approximate): 1059
+0188.785 (0) Table wp_posts: Rows added in this batch (next record: 1275): 1059 (uncompressed bytes in this segment=470869) in 0.03 seconds
+0188.799 (0) Table wp_posts: finishing file(s) (2, 52.8 KB)
+0188.807 (0) Table wp_term_relationships: Total expected rows (approximate): 1309
+0188.815 (0) Table wp_term_relationships: Rows added in this batch (next record: 100000): 1303 (uncompressed bytes in this segment=20555) in 0.01 seconds
+0188.825 (0) Table wp_term_relationships: finishing file(s) (2, 3.7 KB)
+0188.835 (0) Table wp_term_taxonomy: Total expected rows (via COUNT): 182
+0188.837 (0) Table is relatively small; fetch_rows will thus be: 250 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0188.841 (0) Table wp_term_taxonomy: Rows added in this batch (next record: 210): 182 (uncompressed bytes in this segment=7729) in 0.01 seconds
+0188.851 (0) Table wp_term_taxonomy: finishing file(s) (2, 1.6 KB)
+0188.860 (0) Table wp_termmeta: Total expected rows (via COUNT): 169
+0188.861 (0) Table is relatively small; fetch_rows will thus be: 250 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0188.864 (0) Table wp_termmeta: Rows added in this batch (next record: 227): 169 (uncompressed bytes in this segment=8119) in 0.01 seconds
+0188.875 (0) Table wp_termmeta: finishing file(s) (2, 1.5 KB)
+0188.884 (0) Table wp_terms: Total expected rows (via COUNT): 182
+0188.885 (0) Table is relatively small; fetch_rows will thus be: 250 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0188.888 (0) Table wp_terms: Rows added in this batch (next record: 210): 182 (uncompressed bytes in this segment=9190) in 0.01 seconds
+0188.897 (0) Table wp_terms: finishing file(s) (2, 2.8 KB)
+0188.906 (0) Table wp_wc_category_lookup: Total expected rows (approximate): 10
+0188.909 (0) Table wp_wc_category_lookup: Rows added in this batch (next record: 1000): 10 (uncompressed bytes in this segment=707) in 0.00 seconds
+0188.917 (0) Table wp_wc_category_lookup: finishing file(s) (2, 0.4 KB)
+0188.929 (0) Table wp_wc_product_meta_lookup: Total expected rows (via COUNT): 574
+0188.938 (0) Table wp_wc_product_meta_lookup: Rows added in this batch (next record: 1076): 574 (uncompressed bytes in this segment=53391) in 0.01 seconds
+0188.948 (0) Table wp_wc_product_meta_lookup: finishing file(s) (2, 3.1 KB)
+0188.958 (0) Table wp_wc_reserved_stock: Total expected rows (approximate): 0
+0188.960 (0) Table wp_wc_reserved_stock: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=663) in 0.00 seconds
+0188.970 (0) Table wp_wc_reserved_stock: finishing file(s) (2, 0.4 KB)
+0188.978 (0) Table wp_wc_tax_rate_classes: Total expected rows (via COUNT): 1
+0188.980 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0188.983 (0) Table wp_wc_tax_rate_classes: Rows added in this batch (next record: 3): 1 (uncompressed bytes in this segment=779) in 0.01 seconds
+0188.993 (0) Table wp_wc_tax_rate_classes: finishing file(s) (2, 0.4 KB)
+0189.004 (0) Table wp_woocommerce_order_itemmeta: Total expected rows (via COUNT): 0
+0189.008 (0) Table wp_woocommerce_order_itemmeta: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=784) in 0.01 seconds
+0189.018 (0) Table wp_woocommerce_order_itemmeta: finishing file(s) (2, 0.4 KB)
+0189.029 (0) Table wp_woocommerce_payment_tokenmeta: Total expected rows (via COUNT): 0
+0189.031 (0) Table wp_woocommerce_payment_tokenmeta: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=811) in 0.01 seconds
+0189.042 (0) Table wp_woocommerce_payment_tokenmeta: finishing file(s) (2, 0.4 KB)
+0189.050 (0) Table wp_hf_submissions: Total expected rows (via COUNT): 0
+0189.053 (0) Table wp_hf_submissions: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=798) in 0.00 seconds
+0189.062 (0) Table wp_hf_submissions: finishing file(s) (2, 0.4 KB)
+0189.070 (0) Table wp_pmxi_files: Total expected rows (via COUNT): 0
+0189.072 (0) Table wp_pmxi_files: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=643) in 0.00 seconds
+0189.081 (0) Table wp_pmxi_files: finishing file(s) (2, 0.4 KB)
+0189.089 (0) Table wp_pmxi_hash: Total expected rows (approximate): 0
+0189.090 (0) Table wp_pmxi_hash: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=553) in 0.00 seconds
+0189.101 (0) Table wp_pmxi_hash: finishing file(s) (2, 0.4 KB)
+0189.110 (0) Table wp_pmxi_history: Total expected rows (via COUNT): 0
+0189.112 (0) Table wp_pmxi_history: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=772) in 0.00 seconds
+0189.121 (0) Table wp_pmxi_history: finishing file(s) (2, 0.4 KB)
+0189.130 (0) Table wp_pmxi_images: Total expected rows (via COUNT): 0
+0189.132 (0) Table wp_pmxi_images: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=631) in 0.00 seconds
+0189.142 (0) Table wp_pmxi_images: finishing file(s) (2, 0.4 KB)
+0189.158 (0) Table wp_pmxi_imports: Total expected rows (via COUNT): 0
+0189.160 (0) Table wp_pmxi_imports: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=2026) in 0.01 seconds
+0189.171 (0) Table wp_pmxi_imports: finishing file(s) (2, 0.6 KB)
+0189.181 (0) Table wp_pmxi_posts: Total expected rows (via COUNT): 0
+0189.183 (0) Table wp_pmxi_posts: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=721) in 0.00 seconds
+0189.193 (0) Table wp_pmxi_posts: finishing file(s) (2, 0.4 KB)
+0189.203 (0) Table wp_pmxi_templates: Total expected rows (via COUNT): 0
+0189.205 (0) Table wp_pmxi_templates: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=998) in 0.00 seconds
+0189.215 (0) Table wp_pmxi_templates: finishing file(s) (2, 0.4 KB)
+0189.225 (0) Table wp_sbi_feed_caches: Total expected rows (via COUNT): 0
+0189.227 (0) Table wp_sbi_feed_caches: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=830) in 0.01 seconds
+0189.237 (0) Table wp_sbi_feed_caches: finishing file(s) (2, 0.4 KB)
+0189.248 (0) Table wp_sbi_feeds: Total expected rows (via COUNT): 0
+0189.250 (0) Table wp_sbi_feeds: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=816) in 0.00 seconds
+0189.260 (0) Table wp_sbi_feeds: finishing file(s) (2, 0.4 KB)
+0189.271 (0) Table wp_sbi_instagram_feed_locator: Total expected rows (via COUNT): 0
+0189.273 (0) Table wp_sbi_instagram_feed_locator: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=756) in 0.00 seconds
+0189.284 (0) Table wp_sbi_instagram_feed_locator: finishing file(s) (2, 0.4 KB)
+0189.293 (0) Table wp_sbi_instagram_feeds_posts: Total expected rows (via COUNT): 0
+0189.294 (0) Table wp_sbi_instagram_feeds_posts: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=856) in 0.00 seconds
+0189.303 (0) Table wp_sbi_instagram_feeds_posts: finishing file(s) (2, 0.4 KB)
+0189.313 (0) Table wp_sbi_instagram_posts: Total expected rows (via COUNT): 0
+0189.315 (0) Table wp_sbi_instagram_posts: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1034) in 0.00 seconds
+0189.325 (0) Table wp_sbi_instagram_posts: finishing file(s) (2, 0.5 KB)
+0189.334 (0) Table wp_sbi_sources: Total expected rows (via COUNT): 0
+0189.336 (0) Table wp_sbi_sources: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1144) in 0.00 seconds
+0189.345 (0) Table wp_sbi_sources: finishing file(s) (2, 0.5 KB)
+0189.357 (0) Table wp_search_filter_cache: Total expected rows (via COUNT): 861
+0189.366 (0) Table wp_search_filter_cache: Rows added in this batch (next record: 861): 861 (uncompressed bytes in this segment=48324) in 0.01 seconds
+0189.375 (0) Table wp_search_filter_cache: finishing file(s) (2, 5.5 KB)
+0189.385 (0) Table wp_search_filter_term_results: Total expected rows (via COUNT): 116
+0189.387 (0) Table is relatively small; fetch_rows will thus be: 200 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0189.391 (0) Table wp_search_filter_term_results: Rows added in this batch (next record: 861): 116 (uncompressed bytes in this segment=9549) in 0.01 seconds
+0189.400 (0) Table wp_search_filter_term_results: finishing file(s) (2, 1.9 KB)
+0189.411 (0) Table wp_wc_admin_note_actions: Total expected rows (via COUNT): 128
+0189.412 (0) Table is relatively small; fetch_rows will thus be: 250 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0189.416 (0) Table wp_wc_admin_note_actions: Rows added in this batch (next record: 12005): 128 (uncompressed bytes in this segment=25979) in 0.01 seconds
+0189.427 (0) Table wp_wc_admin_note_actions: finishing file(s) (2, 4 KB)
+0189.438 (0) Table wp_wc_admin_notes: Total expected rows (via COUNT): 96
+0189.439 (0) Table is relatively small; fetch_rows will thus be: 100 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0189.444 (0) Table wp_wc_admin_notes: Rows added in this batch (next record: 96): 96 (uncompressed bytes in this segment=46130) in 0.01 seconds
+0189.456 (0) Table wp_wc_admin_notes: finishing file(s) (2, 9.2 KB)
+0189.467 (0) Table wp_wc_customer_lookup: Total expected rows (via COUNT): 1
+0189.468 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0189.471 (0) Table wp_wc_customer_lookup: Rows added in this batch (next record: 1): 1 (uncompressed bytes in this segment=1430) in 0.01 seconds
+0189.481 (0) Table wp_wc_customer_lookup: finishing file(s) (2, 0.5 KB)
+0189.491 (0) Table wp_wc_download_log: Total expected rows (via COUNT): 0
+0189.494 (0) Table wp_wc_download_log: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=747) in 0.01 seconds
+0189.504 (0) Table wp_wc_download_log: finishing file(s) (2, 0.4 KB)
+0189.515 (0) Table wp_wc_order_addresses: Total expected rows (via COUNT): 0
+0189.517 (0) Table wp_wc_order_addresses: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1425) in 0.01 seconds
+0189.527 (0) Table wp_wc_order_addresses: finishing file(s) (2, 0.5 KB)
+0189.536 (0) Table wp_wc_order_coupon_lookup: Total expected rows (approximate): 0
+0189.538 (0) Table wp_wc_order_coupon_lookup: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=715) in 0.00 seconds
+0189.548 (0) Table wp_wc_order_coupon_lookup: finishing file(s) (2, 0.4 KB)
+0189.558 (0) Table wp_wc_order_operational_data: Total expected rows (via COUNT): 0
+0189.560 (0) Table wp_wc_order_operational_data: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1523) in 0.00 seconds
+0189.570 (0) Table wp_wc_order_operational_data: finishing file(s) (2, 0.6 KB)
+0189.579 (0) Table wp_wc_order_product_lookup: Total expected rows (via COUNT): 0
+0189.582 (0) Table wp_wc_order_product_lookup: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1215) in 0.00 seconds
+0189.591 (0) Table wp_wc_order_product_lookup: finishing file(s) (2, 0.5 KB)
+0189.601 (0) Table wp_wc_order_stats: Total expected rows (via COUNT): 0
+0189.603 (0) Table wp_wc_order_stats: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1223) in 0.00 seconds
+0189.613 (0) Table wp_wc_order_stats: finishing file(s) (2, 0.5 KB)
+0189.621 (0) Table wp_wc_order_tax_lookup: Total expected rows (approximate): 0
+0189.623 (0) Table wp_wc_order_tax_lookup: Rows added in this batch (next record: 0): 0 (uncompressed bytes in this segment=793) in 0.00 seconds
+0189.632 (0) Table wp_wc_order_tax_lookup: finishing file(s) (2, 0.4 KB)
+0189.642 (0) Table wp_wc_orders: Total expected rows (via COUNT): 0
+0189.644 (0) Table wp_wc_orders: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1693) in 0.00 seconds
+0189.655 (0) Table wp_wc_orders: finishing file(s) (2, 0.5 KB)
+0189.665 (0) Table wp_wc_orders_meta: Total expected rows (via COUNT): 0
+0189.668 (0) Table wp_wc_orders_meta: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=756) in 0.00 seconds
+0189.679 (0) Table wp_wc_orders_meta: finishing file(s) (2, 0.4 KB)
+0189.689 (0) Table wp_wc_product_attributes_lookup: Total expected rows (approximate): 304
+0189.694 (0) Table wp_wc_product_attributes_lookup: Rows added in this batch (next record: 1000): 301 (uncompressed bytes in this segment=11172) in 0.01 seconds
+0189.704 (0) Table wp_wc_product_attributes_lookup: finishing file(s) (2, 2 KB)
+0189.714 (0) Table wp_wc_product_download_directories: Total expected rows (via COUNT): 2
+0189.715 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0189.719 (0) Table wp_wc_product_download_directories: Rows added in this batch (next record: 2): 2 (uncompressed bytes in this segment=901) in 0.01 seconds
+0189.729 (0) Table wp_wc_product_download_directories: finishing file(s) (2, 0.5 KB)
+0189.737 (0) Table wp_wc_rate_limits: Total expected rows (via COUNT): 0
+0189.741 (0) Table wp_wc_rate_limits: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=698) in 0.00 seconds
+0189.751 (0) Table wp_wc_rate_limits: finishing file(s) (2, 0.4 KB)
+0189.760 (0) Table wp_wc_webhooks: Total expected rows (via COUNT): 0
+0189.762 (0) Table wp_wc_webhooks: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1226) in 0.00 seconds
+0189.772 (0) Table wp_wc_webhooks: finishing file(s) (2, 0.5 KB)
+0189.783 (0) Table wp_woocommerce_api_keys: Total expected rows (via COUNT): 0
+0189.785 (0) Table wp_woocommerce_api_keys: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1059) in 0.01 seconds
+0189.795 (0) Table wp_woocommerce_api_keys: finishing file(s) (2, 0.5 KB)
+0189.804 (0) Table wp_woocommerce_attribute_taxonomies: Total expected rows (via COUNT): 1
+0189.805 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0189.809 (0) Table wp_woocommerce_attribute_taxonomies: Rows added in this batch (next record: 1): 1 (uncompressed bytes in this segment=1082) in 0.01 seconds
+0189.819 (0) Table wp_woocommerce_attribute_taxonomies: finishing file(s) (2, 0.5 KB)
+0189.828 (0) Table wp_woocommerce_downloadable_product_permissions: Total expected rows (via COUNT): 0
+0189.831 (0) Table wp_woocommerce_downloadable_product_permissions: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1534) in 0.01 seconds
+0189.840 (0) Table wp_woocommerce_downloadable_product_permissions: finishing file(s) (2, 0.5 KB)
+0189.850 (0) Table wp_woocommerce_exported_csv_items: Total expected rows (via COUNT): 0
+0189.852 (0) Table wp_woocommerce_exported_csv_items: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=774) in 0.00 seconds
+0189.862 (0) Table wp_woocommerce_exported_csv_items: finishing file(s) (2, 0.4 KB)
+0189.872 (0) Table wp_woocommerce_log: Total expected rows (via COUNT): 0
+0189.874 (0) Table wp_woocommerce_log: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=735) in 0.01 seconds
+0189.885 (0) Table wp_woocommerce_log: finishing file(s) (2, 0.4 KB)
+0189.894 (0) Table wp_woocommerce_order_items: Total expected rows (via COUNT): 0
+0189.896 (0) Table wp_woocommerce_order_items: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=739) in 0.00 seconds
+0189.906 (0) Table wp_woocommerce_order_items: finishing file(s) (2, 0.4 KB)
+0189.915 (0) Table wp_woocommerce_payment_tokens: Total expected rows (via COUNT): 0
+0189.916 (0) Table wp_woocommerce_payment_tokens: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=837) in 0.00 seconds
+0189.926 (0) Table wp_woocommerce_payment_tokens: finishing file(s) (2, 0.4 KB)
+0189.935 (0) Table wp_woocommerce_pickup_locations_geodata: Total expected rows (via COUNT): 0
+0189.937 (0) Table wp_woocommerce_pickup_locations_geodata: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1368) in 0.00 seconds
+0189.947 (0) Table wp_woocommerce_pickup_locations_geodata: finishing file(s) (2, 0.5 KB)
+0189.956 (0) Table wp_woocommerce_sessions: Total expected rows (via COUNT): 1
+0189.957 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0189.960 (0) Table wp_woocommerce_sessions: Rows added in this batch (next record: 491): 1 (uncompressed bytes in this segment=4278) in 0.01 seconds
+0189.971 (0) Table wp_woocommerce_sessions: finishing file(s) (2, 1.6 KB)
+0189.980 (0) Table wp_woocommerce_shipping_zone_locations: Total expected rows (via COUNT): 21
+0189.981 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0189.984 (0) Table wp_woocommerce_shipping_zone_locations: Rows added in this batch (next record: 37): 21 (uncompressed bytes in this segment=1622) in 0.01 seconds
+0189.993 (0) Table wp_woocommerce_shipping_zone_locations: finishing file(s) (2, 0.6 KB)
+0190.001 (0) Table wp_woocommerce_shipping_zone_methods: Total expected rows (via COUNT): 2
+0190.002 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0190.004 (0) Table wp_woocommerce_shipping_zone_methods: Rows added in this batch (next record: 2): 2 (uncompressed bytes in this segment=904) in 0.00 seconds
+0190.013 (0) Table wp_woocommerce_shipping_zone_methods: finishing file(s) (2, 0.4 KB)
+0190.021 (0) Table wp_woocommerce_shipping_zones: Total expected rows (via COUNT): 2
+0190.023 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0190.024 (0) Table wp_woocommerce_shipping_zones: Rows added in this batch (next record: 2): 2 (uncompressed bytes in this segment=751) in 0.00 seconds
+0190.033 (0) Table wp_woocommerce_shipping_zones: finishing file(s) (2, 0.4 KB)
+0190.041 (0) Table wp_woocommerce_tax_rate_locations: Total expected rows (via COUNT): 0
+0190.043 (0) Table wp_woocommerce_tax_rate_locations: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=848) in 0.00 seconds
+0190.052 (0) Table wp_woocommerce_tax_rate_locations: finishing file(s) (2, 0.4 KB)
+0190.060 (0) Table wp_woocommerce_tax_rates: Total expected rows (via COUNT): 0
+0190.061 (0) Table wp_woocommerce_tax_rates: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1297) in 0.00 seconds
+0190.071 (0) Table wp_woocommerce_tax_rates: finishing file(s) (2, 0.5 KB)
+0190.082 (0) Table wp_wp_phpmyadmin_extension__errors_log: Total expected rows (via COUNT): 0
+0190.083 (0) Table wp_wp_phpmyadmin_extension__errors_log: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=810) in 0.01 seconds
+0190.093 (0) Table wp_wp_phpmyadmin_extension__errors_log: finishing file(s) (2, 0.4 KB)
+0190.101 (0) Table wp_wpmailsmtp_debug_events: Total expected rows (via COUNT): 0
+0190.103 (0) Table wp_wpmailsmtp_debug_events: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=733) in 0.00 seconds
+0190.114 (0) Table wp_wpmailsmtp_debug_events: finishing file(s) (2, 0.4 KB)
+0190.126 (0) Table wp_wpmailsmtp_tasks_meta: Total expected rows (via COUNT): 1
+0190.128 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0190.143 (0) Table wp_wpmailsmtp_tasks_meta: Rows added in this batch (next record: 1): 1 (uncompressed bytes in this segment=766) in 0.02 seconds
+0190.157 (0) Table wp_wpmailsmtp_tasks_meta: finishing file(s) (2, 0.4 KB)
+0190.176 (0) Table wp_wpml_mails: Total expected rows (via COUNT): 0
+0190.185 (0) Table wp_wpml_mails: Rows added in this batch (next record: -1): 0 (uncompressed bytes in this segment=1077) in 0.01 seconds
+0190.216 (0) Table wp_wpml_mails: finishing file(s) (2, 0.4 KB)
+0190.243 (0) Table wp_yoast_indexable: Total expected rows (via COUNT): 400
+0190.247 (0) Table is relatively small; fetch_rows will thus be: 500 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0190.275 (0) Table wp_yoast_indexable: Rows added in this batch (next record: 458): 400 (uncompressed bytes in this segment=258002) in 0.04 seconds
+0190.300 (0) Table wp_yoast_indexable: finishing file(s) (2, 30.4 KB)
+0190.322 (0) Table wp_yoast_indexable_hierarchy: Total expected rows (approximate): 389
+0190.332 (0) Table wp_yoast_indexable_hierarchy: Rows added in this batch (next record: 1000): 389 (uncompressed bytes in this segment=7305) in 0.01 seconds
+0190.351 (0) Table wp_yoast_indexable_hierarchy: finishing file(s) (2, 1.3 KB)
+0190.363 (0) Table wp_yoast_migrations: Total expected rows (via COUNT): 24
+0190.365 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0190.369 (0) Table wp_yoast_migrations: Rows added in this batch (next record: 24): 24 (uncompressed bytes in this segment=1265) in 0.01 seconds
+0190.378 (0) Table wp_yoast_migrations: finishing file(s) (2, 0.6 KB)
+0190.387 (0) Table wp_yoast_primary_term: Total expected rows (via COUNT): 21
+0190.388 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0190.391 (0) Table wp_yoast_primary_term: Rows added in this batch (next record: 21): 21 (uncompressed bytes in this segment=2570) in 0.01 seconds
+0190.401 (0) Table wp_yoast_primary_term: finishing file(s) (2, 0.7 KB)
+0190.409 (0) Table wp_yoast_seo_links: Total expected rows (via COUNT): 1
+0190.411 (0) Table is relatively small; fetch_rows will thus be: 20 (allow_further_reductions=1, is_first_fetch=1, known_bigger_than_table=1)
+0190.413 (0) Table wp_yoast_seo_links: Rows added in this batch (next record: 2): 1 (uncompressed bytes in this segment=1123) in 0.01 seconds
+0190.423 (0) Table wp_yoast_seo_links: finishing file(s) (2, 0.5 KB)
+0190.425 (0) PHP event: code E_WARNING: filemtime(): stat failed for /app/public/content/updraft/backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db.gz (line 1976, /app/public/content/plugins/updraftplus/backup.php)
+0190.430 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_options.table.tmpr19082.gz (1/77/fopen): adding to final database dump
+0190.801 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_options.table.gz (2/77/fopen): adding to final database dump
+0190.804 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_users.table.tmpr3.gz (3/77/fopen): adding to final database dump
+0190.808 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_users.table.gz (4/77/fopen): adding to final database dump
+0190.809 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_usermeta.table.tmpr177.gz (5/77/fopen): adding to final database dump
+0190.818 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_usermeta.table.gz (6/77/fopen): adding to final database dump
+0190.819 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_actionscheduler_actions.table.tmpr1452.gz (7/77/fopen): adding to final database dump
+0190.827 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_actionscheduler_actions.table.gz (8/77/fopen): adding to final database dump
+0190.829 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_actionscheduler_claims.table.tmpr0.gz (9/77/fopen): adding to final database dump
+0190.832 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_actionscheduler_claims.table.gz (10/77/fopen): adding to final database dump
+0190.834 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_actionscheduler_groups.table.tmpr7.gz (11/77/fopen): adding to final database dump
+0190.836 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_actionscheduler_groups.table.gz (12/77/fopen): adding to final database dump
+0190.837 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_actionscheduler_logs.table.tmpr4332.gz (13/77/fopen): adding to final database dump
+0190.841 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_actionscheduler_logs.table.gz (14/77/fopen): adding to final database dump
+0190.842 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_commentmeta.table.tmpr0.gz (15/77/fopen): adding to final database dump
+0190.845 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_commentmeta.table.gz (16/77/fopen): adding to final database dump
+0190.846 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_comments.table.tmpr2.gz (17/77/fopen): adding to final database dump
+0190.850 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_comments.table.gz (18/77/fopen): adding to final database dump
+0190.851 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_links.table.tmpr0.gz (19/77/fopen): adding to final database dump
+0190.853 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_links.table.gz (20/77/fopen): adding to final database dump
+0190.855 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_postmeta.table.gz (21/77/fopen): adding to final database dump
+0191.365 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_posts.table.tmpr1276.gz (22/77/fopen): adding to final database dump
+0191.431 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_posts.table.gz (23/77/fopen): adding to final database dump
+0191.434 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_term_relationships.table.tmpr100001.gz (24/77/fopen): adding to final database dump
+0191.445 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_term_relationships.table.gz (25/77/fopen): adding to final database dump
+0191.446 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_term_taxonomy.table.tmpr211.gz (26/77/fopen): adding to final database dump
+0191.449 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_term_taxonomy.table.gz (27/77/fopen): adding to final database dump
+0191.450 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_termmeta.table.tmpr228.gz (28/77/fopen): adding to final database dump
+0191.453 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_termmeta.table.gz (29/77/fopen): adding to final database dump
+0191.455 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_terms.table.tmpr211.gz (30/77/fopen): adding to final database dump
+0191.459 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_terms.table.gz (31/77/fopen): adding to final database dump
+0191.461 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_category_lookup.table.tmpr1001.gz (32/77/fopen): adding to final database dump
+0191.463 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_category_lookup.table.gz (33/77/fopen): adding to final database dump
+0191.464 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_product_meta_lookup.table.tmpr1077.gz (34/77/fopen): adding to final database dump
+0191.468 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_product_meta_lookup.table.gz (35/77/fopen): adding to final database dump
+0191.470 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_reserved_stock.table.tmpr1.gz (36/77/fopen): adding to final database dump
+0191.472 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_reserved_stock.table.gz (37/77/fopen): adding to final database dump
+0191.473 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_tax_rate_classes.table.tmpr4.gz (38/77/fopen): adding to final database dump
+0191.475 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_tax_rate_classes.table.gz (39/77/fopen): adding to final database dump
+0191.476 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_order_itemmeta.table.tmpr0.gz (40/77/fopen): adding to final database dump
+0191.479 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_order_itemmeta.table.gz (41/77/fopen): adding to final database dump
+0191.480 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_payment_tokenmeta.table.tmpr0.gz (42/77/fopen): adding to final database dump
+0191.483 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_payment_tokenmeta.table.gz (43/77/fopen): adding to final database dump
+0191.484 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_hf_submissions.table.tmpr0.gz (44/77/fopen): adding to final database dump
+0191.487 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_hf_submissions.table.gz (45/77/fopen): adding to final database dump
+0191.488 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_pmxi_files.table.tmpr0.gz (46/77/fopen): adding to final database dump
+0191.490 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_pmxi_files.table.gz (47/77/fopen): adding to final database dump
+0191.491 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_pmxi_hash.table.tmpr1.gz (48/77/fopen): adding to final database dump
+0191.494 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_pmxi_hash.table.gz (49/77/fopen): adding to final database dump
+0191.496 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_pmxi_history.table.tmpr0.gz (50/77/fopen): adding to final database dump
+0191.499 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_pmxi_history.table.gz (51/77/fopen): adding to final database dump
+0191.501 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_pmxi_images.table.tmpr0.gz (52/77/fopen): adding to final database dump
+0191.503 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_pmxi_images.table.gz (53/77/fopen): adding to final database dump
+0191.504 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_pmxi_imports.table.tmpr0.gz (54/77/fopen): adding to final database dump
+0191.508 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_pmxi_imports.table.gz (55/77/fopen): adding to final database dump
+0191.509 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_pmxi_posts.table.tmpr0.gz (56/77/fopen): adding to final database dump
+0191.511 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_pmxi_posts.table.gz (57/77/fopen): adding to final database dump
+0191.512 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_pmxi_templates.table.tmpr0.gz (58/77/fopen): adding to final database dump
+0191.515 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_pmxi_templates.table.gz (59/77/fopen): adding to final database dump
+0191.516 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_sbi_feed_caches.table.tmpr0.gz (60/77/fopen): adding to final database dump
+0191.519 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_sbi_feed_caches.table.gz (61/77/fopen): adding to final database dump
+0191.520 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_sbi_feeds.table.tmpr0.gz (62/77/fopen): adding to final database dump
+0191.523 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_sbi_feeds.table.gz (63/77/fopen): adding to final database dump
+0191.524 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_sbi_instagram_feed_locator.table.tmpr0.gz (64/77/fopen): adding to final database dump
+0191.526 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_sbi_instagram_feed_locator.table.gz (65/77/fopen): adding to final database dump
+0191.527 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_sbi_instagram_feeds_posts.table.tmpr0.gz (66/77/fopen): adding to final database dump
+0191.529 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_sbi_instagram_feeds_posts.table.gz (67/77/fopen): adding to final database dump
+0191.530 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_sbi_instagram_posts.table.tmpr0.gz (68/77/fopen): adding to final database dump
+0191.533 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_sbi_instagram_posts.table.gz (69/77/fopen): adding to final database dump
+0191.534 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_sbi_sources.table.tmpr0.gz (70/77/fopen): adding to final database dump
+0191.537 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_sbi_sources.table.gz (71/77/fopen): adding to final database dump
+0191.538 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_search_filter_cache.table.tmpr862.gz (72/77/fopen): adding to final database dump
+0191.549 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_search_filter_cache.table.gz (73/77/fopen): adding to final database dump
+0191.550 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_search_filter_term_results.table.tmpr862.gz (74/77/fopen): adding to final database dump
+0191.554 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_search_filter_term_results.table.gz (75/77/fopen): adding to final database dump
+0191.555 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_admin_note_actions.table.tmpr12006.gz (76/77/fopen): adding to final database dump
+0191.560 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_admin_note_actions.table.gz (77/77/fopen): adding to final database dump
+0191.561 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_admin_notes.table.tmpr97.gz (78/77/fopen): adding to final database dump
+0191.574 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_admin_notes.table.gz (79/77/fopen): adding to final database dump
+0191.575 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_customer_lookup.table.tmpr2.gz (80/77/fopen): adding to final database dump
+0191.577 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_customer_lookup.table.gz (81/77/fopen): adding to final database dump
+0191.578 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_download_log.table.tmpr0.gz (82/77/fopen): adding to final database dump
+0191.581 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_download_log.table.gz (83/77/fopen): adding to final database dump
+0191.583 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_order_addresses.table.tmpr0.gz (84/77/fopen): adding to final database dump
+0191.585 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_order_addresses.table.gz (85/77/fopen): adding to final database dump
+0191.586 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_order_coupon_lookup.table.tmpr1.gz (86/77/fopen): adding to final database dump
+0191.588 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_order_coupon_lookup.table.gz (87/77/fopen): adding to final database dump
+0191.590 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_order_operational_data.table.tmpr0.gz (88/77/fopen): adding to final database dump
+0191.592 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_order_operational_data.table.gz (89/77/fopen): adding to final database dump
+0191.593 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_order_product_lookup.table.tmpr0.gz (90/77/fopen): adding to final database dump
+0191.595 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_order_product_lookup.table.gz (91/77/fopen): adding to final database dump
+0191.596 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_order_stats.table.tmpr0.gz (92/77/fopen): adding to final database dump
+0191.598 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_order_stats.table.gz (93/77/fopen): adding to final database dump
+0191.599 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_order_tax_lookup.table.tmpr1.gz (94/77/fopen): adding to final database dump
+0191.602 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_order_tax_lookup.table.gz (95/77/fopen): adding to final database dump
+0191.604 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_orders.table.tmpr0.gz (96/77/fopen): adding to final database dump
+0191.606 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_orders.table.gz (97/77/fopen): adding to final database dump
+0191.607 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_orders_meta.table.tmpr0.gz (98/77/fopen): adding to final database dump
+0191.609 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_orders_meta.table.gz (99/77/fopen): adding to final database dump
+0191.612 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_product_attributes_lookup.table.tmpr1001.gz (100/77/fopen): adding to final database dump
+0191.620 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_product_attributes_lookup.table.gz (101/77/fopen): adding to final database dump
+0191.621 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_product_download_directories.table.tmpr3.gz (102/77/fopen): adding to final database dump
+0191.624 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_product_download_directories.table.gz (103/77/fopen): adding to final database dump
+0191.625 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_rate_limits.table.tmpr0.gz (104/77/fopen): adding to final database dump
+0191.627 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_rate_limits.table.gz (105/77/fopen): adding to final database dump
+0191.629 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_webhooks.table.tmpr0.gz (106/77/fopen): adding to final database dump
+0191.631 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wc_webhooks.table.gz (107/77/fopen): adding to final database dump
+0191.632 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_api_keys.table.tmpr0.gz (108/77/fopen): adding to final database dump
+0191.635 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_api_keys.table.gz (109/77/fopen): adding to final database dump
+0191.636 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_attribute_taxonomies.table.tmpr2.gz (110/77/fopen): adding to final database dump
+0191.638 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_attribute_taxonomies.table.gz (111/77/fopen): adding to final database dump
+0191.640 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_downloadable_product_permissions.table.tmpr0.gz (112/77/fopen): adding to final database dump
+0191.642 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_downloadable_product_permissions.table.gz (113/77/fopen): adding to final database dump
+0191.643 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_exported_csv_items.table.tmpr0.gz (114/77/fopen): adding to final database dump
+0191.645 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_exported_csv_items.table.gz (115/77/fopen): adding to final database dump
+0191.646 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_log.table.tmpr0.gz (116/77/fopen): adding to final database dump
+0191.648 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_log.table.gz (117/77/fopen): adding to final database dump
+0191.649 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_order_items.table.tmpr0.gz (118/77/fopen): adding to final database dump
+0191.651 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_order_items.table.gz (119/77/fopen): adding to final database dump
+0191.652 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_payment_tokens.table.tmpr0.gz (120/77/fopen): adding to final database dump
+0191.655 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_payment_tokens.table.gz (121/77/fopen): adding to final database dump
+0191.656 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_pickup_locations_geodata.table.tmpr0.gz (122/77/fopen): adding to final database dump
+0191.658 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_pickup_locations_geodata.table.gz (123/77/fopen): adding to final database dump
+0191.659 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_sessions.table.tmpr492.gz (124/77/fopen): adding to final database dump
+0191.663 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_sessions.table.gz (125/77/fopen): adding to final database dump
+0191.664 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_shipping_zone_locations.table.tmpr38.gz (126/77/fopen): adding to final database dump
+0191.667 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_shipping_zone_locations.table.gz (127/77/fopen): adding to final database dump
+0191.669 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_shipping_zone_methods.table.tmpr3.gz (128/77/fopen): adding to final database dump
+0191.671 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_shipping_zone_methods.table.gz (129/77/fopen): adding to final database dump
+0191.672 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_shipping_zones.table.tmpr3.gz (130/77/fopen): adding to final database dump
+0191.674 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_shipping_zones.table.gz (131/77/fopen): adding to final database dump
+0191.675 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_tax_rate_locations.table.tmpr0.gz (132/77/fopen): adding to final database dump
+0191.677 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_tax_rate_locations.table.gz (133/77/fopen): adding to final database dump
+0191.678 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_tax_rates.table.tmpr0.gz (134/77/fopen): adding to final database dump
+0191.680 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_woocommerce_tax_rates.table.gz (135/77/fopen): adding to final database dump
+0191.681 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wp_phpmyadmin_extension__errors_log.table.tmpr0.gz (136/77/fopen): adding to final database dump
+0191.684 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wp_phpmyadmin_extension__errors_log.table.gz (137/77/fopen): adding to final database dump
+0191.685 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wpmailsmtp_debug_events.table.tmpr0.gz (138/77/fopen): adding to final database dump
+0191.687 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wpmailsmtp_debug_events.table.gz (139/77/fopen): adding to final database dump
+0191.688 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wpmailsmtp_tasks_meta.table.tmpr2.gz (140/77/fopen): adding to final database dump
+0191.690 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wpmailsmtp_tasks_meta.table.gz (141/77/fopen): adding to final database dump
+0191.691 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wpml_mails.table.tmpr0.gz (142/77/fopen): adding to final database dump
+0191.693 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_wpml_mails.table.gz (143/77/fopen): adding to final database dump
+0191.694 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_yoast_indexable.table.tmpr459.gz (144/77/fopen): adding to final database dump
+0191.740 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_yoast_indexable.table.gz (145/77/fopen): adding to final database dump
+0191.742 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_yoast_indexable_hierarchy.table.tmpr1001.gz (146/77/fopen): adding to final database dump
+0191.745 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_yoast_indexable_hierarchy.table.gz (147/77/fopen): adding to final database dump
+0191.746 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_yoast_migrations.table.tmpr25.gz (148/77/fopen): adding to final database dump
+0191.749 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_yoast_migrations.table.gz (149/77/fopen): adding to final database dump
+0191.750 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_yoast_primary_term.table.tmpr22.gz (150/77/fopen): adding to final database dump
+0191.754 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_yoast_primary_term.table.gz (151/77/fopen): adding to final database dump
+0191.755 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_yoast_seo_links.table.tmpr3.gz (152/77/fopen): adding to final database dump
+0191.757 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db-table-wp_yoast_seo_links.table.gz (153/77/fopen): adding to final database dump
+0191.767 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db.gz: finished writing out complete database file (821.2 KB)
+0191.846 (0) Total database tables backed up: 77 (backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db.gz, size: 841001, sha1: d17a2c7740512fd485011883704963717a988263, sha256: 973ff3b4be38364f935431145da20a2037ce138f088cb5b1ae2ec16ab2cc8cac)
+0191.853 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-plugins.zip: plugins: This file has already been successfully uploaded
+0191.854 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-themes.zip: themes: This file has already been successfully uploaded
+0191.855 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip: uploads: This file has already been successfully uploaded
+0191.856 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-mu-plugins.zip: mu-plugins: This file has already been successfully uploaded
+0191.857 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-others.zip: others: This file has not yet been successfully uploaded: will queue
+0191.858 (0) backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db.gz: db: This file has not yet been successfully uploaded: will queue
+0191.859 (0) Saving backup history. Total backup size: 364.4 MB
+0191.862 (0) Requesting upload of the files that have not yet been successfully uploaded (2)
+0191.866 (0) Cloud backup selection (1/1): none with instance (1/1) (last)
+0191.867 (0) No remote despatch: user chose no remote backup service
+0191.868 (0) Recording as successfully uploaded: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-others.zip
+0191.871 (0) Recording as successfully uploaded: backup_2023-12-11-1011_Rolling_Donut_2b4440752065-db.gz
+0191.875 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=2, retain_db=2
+0191.877 (0) Number of backup sets in history: 1; groups (db): 1
+0191.878 (0) Examining (for databases) backup set with group_id=0, nonce=2b4440752065, datestamp=1702289507 (Dec 11 2023 10:11:47)
+0191.879 (0) This backup set is the backup set just made, so will not be deleted.
+0191.879 (0) Number of backup sets in history: 1; groups (files): 1
+0191.880 (0) Examining (for files) backup set with nonce=2b4440752065, datestamp=1702289507 (Dec 11 2023 10:11:47)
+0191.880 (0) This backup set is the backup set just made, so will not be deleted.
+0191.881 (0) This backup set is the backup set just made, so will not be deleted.
+0191.882 (0) This backup set is the backup set just made, so will not be deleted.
+0191.882 (0) This backup set is the backup set just made, so will not be deleted.
+0191.882 (0) This backup set is the backup set just made, so will not be deleted.
+0191.883 (0) This backup set remains non-empty (f=1/d=1); will retain in history
+0191.884 (0) Retain: saving new backup history (sets now: 1) and finishing retain operation
+0191.887 (0) Resume backup (2b4440752065, 0): finish run
+0191.891 (0) Decremented the semaphore (fd) by 1
+0191.895 (0) Semaphore (fd) unlocked
+0191.896 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0191.902 (0) No email will/can be sent - the user has not configured an email address.
+0191.903 (0) The backup succeeded and is now complete
