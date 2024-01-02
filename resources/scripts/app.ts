@@ -2,7 +2,7 @@
  * @Author: Bernard Hanna
  * @Date:   2023-06-14 16:00:17
  * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-10-25 09:05:28
+ * @Last Modified time: 2023-12-11 11:30:50
  */
 import Alpine from 'alpinejs';
 import 'flowbite/dist/flowbite.js';
@@ -13,72 +13,78 @@ Object.assign(window, { Alpine: Alpine }).Alpine.start();
 
 import.meta.webpackHot?.accept(console.error);
 
-document.addEventListener('DOMContentLoaded', function () {
-  // Service Splide
-let serviceSplide;
-
-// Initial Splide setup
-if (window.location.pathname === '/' && window.innerWidth <= 1084) {
-    serviceSplide = new Splide('.service-splide', {
-        type: 'fade', // Change to 'fade'
-        perPage: 1,
-        pagination: false,
-        arrows: true,
-    }).mount();
-    console.log('serviceSplide:', serviceSplide);
+// Function declarations moved to the root level
+function updateSlideCounts(currentSlide: number) {
+    const slideCountElements = document.querySelectorAll('.slide-count');
+    slideCountElements.forEach(el => {
+        const spanElement = el.querySelector('.start-count');
+        if (spanElement) {
+            spanElement.textContent = `${currentSlide}`;
+        }
+    });
 }
 
-window.addEventListener('resize', function() {
+function initializeServiceSplide() {
+    if (window.location.pathname === '/' && window.innerWidth <= 1084) {
+        return new Splide('.service-splide', {
+            type: 'fade',
+            perPage: 1,
+            pagination: false,
+            arrows: true,
+        }).mount();
+    }
+    return null;
+}
+
+function handleResize(serviceSplide: Splide | null) {
     if (window.innerWidth <= 1084 && !serviceSplide) {
-        serviceSplide = new Splide('.service-splide', {
+        return new Splide('.service-splide', {
             type: 'loop',
             perPage: 1,
             pagination: false,
-            arrows: true, // Ensure arrows are set to true
+            arrows: true,
         }).mount();
     } else if (window.innerWidth > 1084 && serviceSplide) {
         serviceSplide.destroy();
-        serviceSplide = null;
+        return null;
     }
-});
-
-// FEATURED DONUT SLIDER
-if (window.location.pathname === '/') {
-    const featuredSplide = new Splide('#featured-slider', {
-      type: 'fade', // Change to 'fade'
-      perPage: 1,
-      arrows: true,
-  });
-
-  featuredSplide.on('moved', () => {
-    const currentSlide = featuredSplide.index + 1;
-    updateSlideCounts(currentSlide);
-  });
-
-  featuredSplide.mount();
-
-  const donutThumbnailSlider = new Splide('#donut-thumb-slider', {
-    cover: false,
-        isNavigation: true,
-        focus: 'center',
-        pagination: false,
-        arrows: false,
-    }).mount();
-
-    featuredSplide.sync(donutThumbnailSlider);
-
-  function updateSlideCounts(currentSlide) {
-      const slideCountElements = document.querySelectorAll('.slide-count');
-      slideCountElements.forEach(el => {
-          const spanElement = el.querySelector('.start-count');
-          if (spanElement) {
-              spanElement.textContent = currentSlide;
-          }
-      });
-  }
-
-  updateSlideCounts(1);
+    return serviceSplide;
 }
+
+// DOMContentLoaded Event Listener
+document.addEventListener('DOMContentLoaded', function () {
+    let serviceSplide = initializeServiceSplide();
+
+    window.addEventListener('resize', () => {
+        serviceSplide = handleResize(serviceSplide);
+    });
+
+    // FEATURED DONUT SLIDER
+    if (window.location.pathname === '/') {
+        const featuredSplide = new Splide('#featured-slider', {
+            type: 'fade',
+            perPage: 1,
+            arrows: true,
+        });
+
+        featuredSplide.on('moved', () => {
+            const currentSlide = featuredSplide.index + 1;
+            updateSlideCounts(currentSlide);
+        });
+
+        featuredSplide.mount();
+
+        const donutThumbnailSlider = new Splide('#donut-thumb-slider', {
+            cover: false,
+            isNavigation: true,
+            focus: 'center',
+            pagination: false,
+            arrows: false,
+        }).mount();
+
+        featuredSplide.sync(donutThumbnailSlider);
+        updateSlideCounts(1);
+    }
 
 //Best Sellers Slider
 if (window.location.pathname === '/') {
