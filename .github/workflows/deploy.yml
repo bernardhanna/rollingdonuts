@@ -10,57 +10,13 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Setup SSH for Deployment
-      uses: webfactory/ssh-agent@v0.5.4
-      with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Setup SSH for Deployment
+        uses: webfactory/ssh-agent@v0.5.4
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-    - name: Rsync files to Server
-      run: rsync -avz --exclude='.git*' --exclude='node_modules' ./ root@159.223.211.112:/var/www/html
-
-
-# name: Deploy site
-
-# on:
-#  workflow_dispatch:
-#  push:
-#    branches:
-#      - main      # Trigger deployment when pushing to main
-      - develop   # Add your development branch here if needed
-
-# jobs:
-#  deploy:
-#   runs-on: ubuntu-latest
-#    steps:
-#    - uses: actions/checkout@v3
-
- #   - uses: actions/setup-node@v3
- #     with:
- #       node-version: '16'
- #       cache: yarn
- #       cache-dependency-path: yarn.lock
-
- #   - uses: shimataro/ssh-key-action@v2
- #     with:
- #       key: ${{ secrets.TRELLIS_DEPLOY_SSH_PRIVATE_KEY }}
- #       known_hosts: ${{ secrets.TRELLIS_DEPLOY_SSH_KNOWN_HOSTS }}
-
- #   - uses: webfactory/ssh-agent@v0.5.4
- #     with:
- #       ssh-private-key: ${{ secrets.TRELLIS_DEPLOY_SSH_PRIVATE_KEY }}
-
- #  - uses: roots/setup-trellis-cli@main
-  #    with:
-  #      ansible-vault-password: ${{ secrets.ANSIBLE_VAULT_PASSWORD }}
-  #      repo-token: ${{ secrets.GITHUB_TOKEN }}
-
-  #  - name: Deploy to Production
- #     if: github.ref == 'refs/heads/main'
-#    run: cd trellis && trellis deploy production your_production_site_name
-
-#    - name: Deploy to Development
-#      if: github.ref == 'refs/heads/develop'
-##      run: cd trellis && trellis deploy staging your_staging_site_name
-#
+      - name: Rsync files to Server
+        run: |
+          rsync -avz --exclude='.git*' --exclude='node_modules' ./ root@159.223.211.112:/var/www/html
