@@ -22,6 +22,10 @@ public/.htaccess
 .env.*
 !.env.example
 
+# Keys
+rollingdonut
+rollingdonut.pub
+
 # Composer
 /vendor
 

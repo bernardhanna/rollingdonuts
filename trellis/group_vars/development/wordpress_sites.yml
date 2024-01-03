@@ -1,0 +1,23 @@
+# Documentation: https://roots.io/trellis/docs/local-development-setup/
+# `wordpress_sites` options: https://roots.io/trellis/docs/wordpress-sites
+# Define accompanying passwords/secrets in group_vars/development/vault.yml
+
+wordpress_sites:
+  rollingdonut.matrix-test.com:
+    site_hosts:
+      - canonical: rollingdonut.matrix-test.test
+        redirects:
+          - www.rollingdonut.matrix-test.test
+    local_path: ..
+    public_path: public
+    upload_path: content/uploads
+    admin_email: admin@rollingdonut.matrix-test.test
+    multisite:
+      enabled: false
+    ssl:
+      enabled: false
+      provider: self-signed
+    cache:
+      enabled: false
+    xmlrpc:
+      enabled: false

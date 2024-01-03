@@ -147,39 +147,41 @@ add_filter('login_headertext', function () {
 
 // Add custom styles to the login page
 add_action('login_headertext', function () {
+    if (function_exists('get_field')) {
   // Retrieve the main_logo URL from the theme options
-  $custom_logo_url = get_field('main_logo', 'option');
+    $custom_logo_url = get_field('main_logo', 'option');
 
-  // Check if the logo URL exists
-  if ($custom_logo_url) {
-      echo '<style>
-            .login #login {
-              margin: auto;
-              padding: 0px;
-              max-width: 100%;
-          }
-         .login #login>h1 {
-           background-color: white;
-           width: unset;
-           height: unset;
-         }
-          #login h1 a, .login h1 a {
-              background-image: url(' . esc_url($custom_logo_url) . ')!important;
-              height: 150px!important;
-              width: 320px!important;
-              background-size: contain!important;
-              background-repeat: no-repeat!important;
-              padding-bottom: 30px;
-          }
-          #loginform .button-primary {
-            background: #ffed56!important;
-            font-weight: bold!important;
-          }
-          #loginform .button-primary:hover {
-            background: #ffffff!important;
-          }
-      </style>';
-  }
+    // Check if the logo URL exists
+    if ($custom_logo_url) {
+        echo '<style>
+                .login #login {
+                margin: auto;
+                padding: 0px;
+                max-width: 100%;
+            }
+            .login #login>h1 {
+            background-color: white;
+            width: unset;
+            height: unset;
+            }
+            #login h1 a, .login h1 a {
+                background-image: url(' . esc_url($custom_logo_url) . ')!important;
+                height: 150px!important;
+                width: 320px!important;
+                background-size: contain!important;
+                background-repeat: no-repeat!important;
+                padding-bottom: 30px;
+            }
+            #loginform .button-primary {
+                background: #ffed56!important;
+                font-weight: bold!important;
+            }
+            #loginform .button-primary:hover {
+                background: #ffffff!important;
+            }
+        </style>';
+    }
+    }
 });
 //POST PAGINATION
 function custom_pagination() {

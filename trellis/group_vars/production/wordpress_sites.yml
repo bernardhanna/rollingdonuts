@@ -1,0 +1,24 @@
+# Documentation: https://roots.io/trellis/docs/remote-server-setup/
+# `wordpress_sites` options: https://roots.io/trellis/docs/wordpress-sites
+# Define accompanying passwords/secrets in group_vars/production/vault.yml
+
+wordpress_sites:
+  rollingdonut.matrix-test.com:
+    site_hosts:
+      - canonical: rollingdonut.matrix-test.com
+        redirects:
+          - www.rollingdonut.matrix-test.com
+    local_path: ..
+    public_path: public
+    upload_path: content/uploads
+    repo: git@github.com:example/rollingdonut.matrix-test.com.git # replace with your Git repo URL
+    branch: master
+    multisite:
+      enabled: false
+    ssl:
+      enabled: false
+      provider: letsencrypt
+    cache:
+      enabled: false
+    xmlrpc:
+      enabled: false
