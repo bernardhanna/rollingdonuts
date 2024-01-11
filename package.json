@@ -47,6 +47,7 @@
     "@iconify/iconify": "^3.1.1",
     "@iconify/icons-ic": "^1.2.13",
     "@iconify/icons-ph": "^1.2.4",
+    "@img/sharp-darwin-arm64": "^0.33.1",
     "@roots/wordpress-hmr": "6.13.1",
     "@splidejs/splide": "^4.1.4",
     "alpinejs": "^3.12.3",
