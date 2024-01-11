@@ -3,9 +3,19 @@
 @import 'tailwindcss/utilities';
 @import '@splidejs/splide/dist/css/splide.min.css';
 
+html {
+  max-width: 1729px;
+  margin: auto;
+}
 
 body {
   font-family: edmondsans, sans-serif;
+}
+
+@media (width >= 1300px) {
+  .space-top {
+    margin-top: 12.9rem;
+  }
 }
 
 .w-99 {
@@ -18,6 +28,18 @@ body {
 
 [x-cloak] {
   display: none;
+}
+
+.r-7 {
+  right: 1.75rem;
+}
+
+.t-0-3 {
+  top: 0.3rem;
+}
+
+.-t-0-1 {
+  top: -.1rem;
 }
 
 /* TYPOGRAPHY */
@@ -110,11 +132,18 @@ input {
   background-image: url('../images/icons/btn2.png'); /* Set the path to your second icon image */
 }
 
+.place-nav-icon {
+  left: -0.5rem;
+  top: 0.2rem;
+}
+
 .nav-line {
   width: 1px;
   height: 48px;
   background-color: black;
   margin-top: -5px;
+  right: 0.4rem;
+  position: relative;
 }
 
 .logo {
@@ -158,6 +187,10 @@ nav .submenu .current_page_item {
 
 .splide.is-initialized:not(.is-active) .splide__list {
   display: flex;
+}
+
+.hero-curve {
+  clip-path: ellipse(70% 100% at 50% 0%)
 }
 
 .boxshadow {

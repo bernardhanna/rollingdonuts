@@ -12,6 +12,8 @@
 @extends('layouts.app')
 
 @section('content')
+    {{-- Include the Space block  --}} 
+    @include('partials.space')
     {{-- Include the HomeHero partial  --}}
     @include('home.hero')
     {{-- Include the HomeServices partial --}}

@@ -19,7 +19,7 @@ $hero_link = get_field('hero_link');
 @endphp
 
 @if(is_array($bannerLeft) && isset($bannerLeft['url']) && is_array($bannerRight) && isset($bannerRight['url']))
-<section class="home-hero w-full relative mt-32 lg:mt-72">
+<section class="home-hero hero-curve w-full relative">
     <div class="flex flex-col-reverse lg:flex-row">
         <div class="w-full flex items-center justify-center flex-col bg-black-full h-hero-mob lg:w-heroleft lg:h-hero-height"
              x-data="{ isMobile: false, getBackgroundImage() {
@@ -78,12 +78,5 @@ $hero_link = get_field('hero_link');
               @endif
         </div>
     </div>
-    <div>
-        <svg class="mb-[-1px] section-divider fill-white w-full bottom-0 absolute left-0 right-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 79.5">
-            <path class="fill-white" d="M0 79.5h1440V0c-220.2 51-459.9 79.5-720 79.5C465.1 79.5 216.8 49.1 0 0v79.5z"/>
-            <path class="section-divider-border" fill="none" d="M0 0s319.7 79.5 720 79.5c412.7 0 720-79.5 720-79.5"/>
-        </svg>
-    </div>
 </section>
 @endif
-
