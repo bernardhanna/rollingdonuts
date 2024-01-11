@@ -16,6 +16,11 @@ body {
   .space-top {
     margin-top: 12.9rem;
   }
+
+  .post-menu {
+    position: relative;
+    left: -1rem;
+  }
 }
 
 .w-99 {
@@ -40,6 +45,10 @@ body {
 
 .-t-0-1 {
   top: -.1rem;
+}
+
+.-t-0-3 {
+  top: -.3rem;
 }
 
 /* TYPOGRAPHY */
@@ -100,7 +109,20 @@ input {
 }
 
 .btn-menu {
-  @apply btn w-full max-w-max-242 text-white bg-black-full border-radius-large btn-p-lg font-reg420 hover:bg-yellow-primary hover:text-black-full hover:no-underline;
+  @apply btn w-full max-w-max-242 text-white bg-black-full border-radius-large btn-p-lg font-reg420 text-sm-md-font hover:bg-yellow-primary right-0 hover:text-black-full hover:no-underline;
+}
+
+.btn-top::before {
+  content: url('/images/icons/top-donut.png');
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  right: 0.4rem;
+}
+
+.hoverno-underline {
+  text-decoration: none!important;
 }
 
 .btn-p-lg {
@@ -189,12 +211,12 @@ nav .submenu .current_page_item {
   display: flex;
 }
 
-.hero-curve {
-  clip-path: ellipse(70% 100% at 50% 0%)
+.hero-curve{
+  clip-path: ellipse(85% 100% at 50% 0%);
 }
 
 .boxshadow {
-  box-shadow: 0 4px 0 0 rgb(0 0 0 / 25%)
+  box-shadow: 0 4px 0 0 rgb(0 0 0 / 25%);
 }
 
 .boxshadow-two {

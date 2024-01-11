@@ -3,3 +3,11 @@
 * {
   border: 0 solid #e5e7eb;
 }
+
+.btn-top::before {
+  content: url('/images/icons/top-donut.png');
+  display: inline-block;
+  width: 32px; /* Adjust the width as needed */
+  height: 32px; /* Adjust the height as needed */
+  margin-right: 8px; /* Add spacing between the image and text */
+}
