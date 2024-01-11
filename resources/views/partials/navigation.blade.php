@@ -17,6 +17,7 @@ $isUserLoggedIn = !empty($currentUserId);
             @if (!is_cart() && !is_checkout())
                 @include('navigation.topnav')
             @endif
+            
         @php
             use Log1x\Navi\Navi;
 
