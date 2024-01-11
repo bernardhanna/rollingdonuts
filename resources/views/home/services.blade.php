@@ -9,7 +9,7 @@
 <!-- Services Section -->
 <section class="services">
     <!-- Service Splide Slider Container -->
-    <div class="service-splide splide w-full relative py-20 lg:visible">
+    <div class="service-splide splide w-full relative pt-16 pb-20 lg:visible">
         <!-- Splide Track for Slides -->
         <div class="splide__track lg:flex lg:justify-center lg:w-full" data-splide-el="track">
             <!-- Container for Service Items -->
@@ -25,7 +25,7 @@
                 <!-- Individual Service Container -->
                 <!-- AlpineJS: Initialize 'isHovered' state to track hover effect -->
                 <div
-                    class="relative splide__slide flex flex-col lg:flex-row items-center justify-center lg:justify-start h-auto max-w-750 px-6 w-auto lg:w-1/2"
+                    class="relative splide__slide flex flex-col lg:flex-row items-center justify-center lg:justify-start h-auto max-w-750 w-auto lg:w-1/2"
                     x-data="{ isHovered: false }"
                 >
                     <!-- Service Image and Video Container -->
@@ -64,7 +64,7 @@
                         <!-- Service Title -->
                          <!-- AlpineJS: Conditional class to change text color and shadow based on hover state -->
                         <span
-                            class="relative text-font-28 font-reg420 text-black-full text-center lg:text-start"
+                            class="relative top-2 text-font-28 font-reg420 text-black-full text-center lg:text-start"
                             :class="{ 'text-yellow-primary': isHovered, 'shadow-hover': isHovered }"
                         >
                             {{ $service['title'] }}

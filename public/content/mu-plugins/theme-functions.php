@@ -12,6 +12,15 @@ Description: Keeping our functions.php clean
 Version: 1.0
 Author: Bernard Hanna@
 */
+//FIX TAILWIND CLASSES IN MENU 
+function my_tw_nav_menu_css_class($classes, $item, $args, $depth) {
+    // Replace 'hoverno-underline' with 'hover:no-underline' in the array of classes
+    $classes = str_replace('hoverno-underline', 'hover:no-underline', $classes);
+
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'my_tw_nav_menu_css_class', 10, 4);
+
 // Yoast Breadcrumbs
 add_filter('wpseo_breadcrumb_links', 'customize_yoast_breadcrumbs_links');
 

@@ -6,7 +6,7 @@
  * @Last Modified time: 2023-07-19 10:45:19
  */
 ?>
-<ul class="nav-left w-100 hidden lg:flex lg:justify-end one-xl:justify-end lg:items-center lg:ml-4 one-xl:ml-0" role="menubar">
+<ul class="nav-left w-100 hidden lg:flex lg:justify-end one-xl:justify-end lg:items-center lg:ml-4 lg:relative lg:-left-4 one-xl:ml-0" role="menubar">
     @php
         $counter = 0;
     @endphp

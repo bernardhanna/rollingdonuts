@@ -134,7 +134,7 @@ export default {
         '500px' : '31.25rem',
         'btn-h' : '56px',
         'hero-28': '28rem',
-        'hero-height' : '43.625rem',
+        'hero-height' : '36.8em',
         'hero-mob': '50vh',
       },
       width: {
@@ -144,7 +144,7 @@ export default {
         '22.28': '22.28px',
         '41.6': '41.6px',
         '256' : '256px',
-        'heroleft': '56%',
+        'heroleft': '69%',
         'heroright': '44%',
         '23': '23%',
         '47': '47%',
