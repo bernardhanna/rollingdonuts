@@ -23,13 +23,13 @@
                 <div class="splide__track mx-0 lg:mx-4 xl:mx-4 xxl:mx-0">
                     <div class="splide__list">
                         @foreach($bestsellersList as $product)
-                        <div class="splide__slide flex md:p-12 lg:p-0"  x-data="{ showAllergens: false }">
+                        <div class="splide__slide item flex md:p-12 lg:p-0"  x-data="{ showAllergens: false }">
                             @php
                             $product_allergens = get_field('product_allergens', $product->ID);
                         @endphp
 
                         @if($product_allergens)
-                            <div class="absolute top-4 right-4 cursor-pointer z-50" @click="showAllergens = !showAllergens">
+                            <div class="absolute top-6 right-6 cursor-pointer z-50" @click="showAllergens = !showAllergens">
                                 <div class="z-50" x-show="!showAllergens">
                                     <span class="sr-only">{{ __('info icon', 'rolling-donut') }}</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="31" height="30" viewBox="0 0 31 30" fill="none">
@@ -85,7 +85,7 @@
 
                                 <div id="productContentOne" class="z-40 h-[386px] absolute inset-0 flex flex-col items-center justify-center lg:items-start lg:justify-end p-4" @mouseenter="isLargeScreen && (isHovered = true)" @mouseleave="isLargeScreen && (isHovered = false)">
                                     <h4 class="z-10 text-white text-md-font font-regular text-center pb-6 lg:font-reg420 lg:md-font lg:text-left"><?php echo $product->post_title; ?></h4>
-                                    <button href="{{ get_permalink($product->ID) }}" class="btn btn-primary text-black-full bg-white hover:bg-yellow-primary text-reg-font font-medium text-center w-[257px] h-[56px] flex justify-center items-center rounded-lg-x mb-10 lg:hidden">Select and Customise</button>
+                                    <button href="{{ get_permalink($product->ID) }}" class="animate-button btn btn-primary text-black-full bg-white hover:bg-yellow-primary text-reg-font font-medium text-center w-[257px] h-[56px] flex justify-center items-center rounded-lg-x mb-10 lg:hidden">Select and Customise</button>
                                     <div id="productInfo" class="flex justify-between items-end w-full" x-show="isHovered">
                                         <p class="text-white text-left font-laca font-light text-sm-md-font">
                                             <?php
