@@ -9,17 +9,17 @@
 ?>
 <section class="bestsellers-slider relative bg-repeat" @if (get_field('bg_image'))style="background-image: url('{{ get_field('bg_image')['url'] }}');"@endif>
     <div class="overlay">
-        <div class="content relative top-0 flex flex-col align-center w-full pt-14 pb-20 lg:max-w-max-1514 lg:mx-auto">
+        <div class="content relative top-0 flex flex-col align-center w-full pt-4 pb-20 lg:max-w-max-1578 lg:mx-auto">
             @if (get_field('text_image'))
-                <img class="text-image w-full h-[86px] lg:h-full max-w-max-1200 mx-auto object-contain" src="{{ get_field('text_image')['url'] }}" alt="{{ get_field('text_image')['alt'] }}" />
+                <img class="text-image w-full h-[86px] lg:h-full max-w-max-1000 mx-auto object-contain" src="{{ get_field('text_image')['url'] }}" alt="{{ get_field('text_image')['alt'] }}" />
             @endif
             @if (get_field('heading'))
-                <h2 class="text-lg-font font-regular text-white text-center pb-14 relative lg:-top-8">{{ get_field('heading') }}</h2>
+                <h2 class="text-lg-font font-regular text-white text-center pb-14 relative lg:-top-14">{{ get_field('heading') }}</h2>
             @endif
             @php
                 $bestsellersList = get_field('product');
             @endphp
-            <div class="bestseller-splide splide">
+            <div class="bestseller-splide splide lg:pt-8">
                 <div class="splide__track mx-0 lg:mx-4 xl:mx-4 xxl:mx-0">
                     <div class="splide__list">
                         @foreach($bestsellersList as $product)
@@ -71,24 +71,24 @@
                                 </div>
                             </div>
                         @endif
-                        <div x-data="{ isHovered: false, isLargeScreen: window.innerWidth > 1084 }" 
-                            x-init="() => { 
-                                window.addEventListener('resize', () => { 
-                                    isLargeScreen = window.innerWidth > 1084; 
-                                }) 
-                            }" 
+                        <div x-data="{ isHovered: false, isLargeScreen: window.innerWidth > 1084 }"
+                            x-init="() => {
+                                window.addEventListener('resize', () => {
+                                    isLargeScreen = window.innerWidth > 1084;
+                                })
+                            }"
                             x-bind:style="(isLargeScreen && isHovered) ? 'background-color: transparent;' : (isLargeScreen ? 'background-color: white;' : 'background-color: transparent;')"
                             class="relative px-12 lg:px-0 w-full lg:rounded-sm-10 bg-transparent">
                             <a href="<?php echo get_permalink($product->ID); ?>">
-                                <div class="absolute inset-0 light-black-gradient opacity-50 z-10 h-[408px] rounded-sm-10"></div>
-                                <img class="bestseller_image object-cover border-3 border-solid border-black-full rounded-sm-8 relative w-full h-[408px]" src="<?php echo get_the_post_thumbnail_url($product->ID); ?>" alt="<?php echo $product->post_title; ?>">
-                        
-                                <div id="productContentOne" class="z-40 h-[408px] absolute inset-0 flex flex-col items-center justify-center lg:items-start lg:justify-end p-4" @mouseenter="isLargeScreen && (isHovered = true)" @mouseleave="isLargeScreen && (isHovered = false)">
-                                    <h4 class="z-10 text-white text-mob-lg-font font-regular text-center pb-6 lg:font-reg420 lg:md-font lg:text-left"><?php echo $product->post_title; ?></h4>
+                                <div class="absolute inset-0 light-black-gradient opacity-50 z-10 h-[386px] rounded-sm-10"></div>
+                                <img class="bestseller_image object-cover border-3 border-solid border-black-full rounded-sm-8 relative w-full h-[386px]" src="<?php echo get_the_post_thumbnail_url($product->ID); ?>" alt="<?php echo $product->post_title; ?>">
+
+                                <div id="productContentOne" class="z-40 h-[386px] absolute inset-0 flex flex-col items-center justify-center lg:items-start lg:justify-end p-4" @mouseenter="isLargeScreen && (isHovered = true)" @mouseleave="isLargeScreen && (isHovered = false)">
+                                    <h4 class="z-10 text-white text-md-font font-regular text-center pb-6 lg:font-reg420 lg:md-font lg:text-left"><?php echo $product->post_title; ?></h4>
                                     <button href="{{ get_permalink($product->ID) }}" class="btn btn-primary text-black-full bg-white hover:bg-yellow-primary text-reg-font font-medium text-center w-[257px] h-[56px] flex justify-center items-center rounded-lg-x mb-10 lg:hidden">Select and Customise</button>
                                     <div id="productInfo" class="flex justify-between items-end w-full" x-show="isHovered">
                                         <p class="text-white text-left font-laca font-light text-sm-md-font">
-                                            <?php 
+                                            <?php
                                             if (function_exists('wc_get_product')) {
                                                 $wc_product = wc_get_product($product->ID);
                                                 echo $wc_product->get_short_description();
@@ -98,11 +98,11 @@
                                         <span class="text-white font-laca font-light text-sm-md-font text-right">€<?php echo number_format(get_post_meta($product->ID, '_price', true), 2, '.', ','); ?></span>
                                     </div>
                                 </div>
-                        
-                                <div id="productContentTwo" class="flex flex-col pt-4" @mouseenter="isLargeScreen && (isHovered = true)" @mouseleave="isLargeScreen && (isHovered = false)">
+
+                                <div id="productContentTwo" class="flex flex-col" @mouseenter="isLargeScreen && (isHovered = true)" @mouseleave="isLargeScreen && (isHovered = false)">
                                     <div x-bind:style="isHovered && isLargeScreen ? 'background-color: transparent;' : 'background-color: white;'" class="relative hidden lg:flex p-4 flex-row justify-between w-full py-4 h-[100px] rounded-bl-sm-8 rounded-br-sm-8" x-show="!isHovered">
                                         <p class="font-laca text-black-full text-sm-md-font font-light text-left w-2/3">
-                                            <?php 
+                                            <?php
                                             if (function_exists('wc_get_product')) {
                                                 $wc_product = wc_get_product($product->ID);
                                                 echo $wc_product->get_short_description();
@@ -117,7 +117,7 @@
                                 </div>
                             </a>
                         </div>
-                        
+
                         </div>
                     @endforeach
                     </div>

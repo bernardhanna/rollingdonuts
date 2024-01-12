@@ -17,21 +17,21 @@
         <img class="logo desktop-logo" src="{{ get_field('main_logo', 'option') }}" alt="{{ $main_alt_text }}"></a>
     </div>
 
-    <div class="flex flex-row justify-space-between align-center justify-end w-full space-x-5">
-        <a class="reg-font items-center flex-row hidden lg:flex" href="tel:{{ $telephone }}">
+    <div class="flex flex-row justify-space-between align-center justify-end w-full space-x-5 z-50">
+        <a class="z-50 reg-font items-center flex-row hidden lg:flex" href="tel:{{ $telephone }}">
             <span class="iconify h-8 w-8 r-7 relative" data-icon="icon-park-twotone:phone-telephone"></span>
             <span class="flex text-reg-font font-reg420 relative right-4 -t-0-1">{{ $telephone }}</span>
         </a>
         <div class="nav-line hidden md:block lg:hidden"></div>
-        <a class="flex align-center flex-row relative" href="{{ wc_get_page_permalink('myaccount') }}">
+        <a class="z-50 flex align-center flex-row relative" href="{{ wc_get_page_permalink('myaccount') }}">
             <span class="iconify h-8 w-8 place-nav-icon relative" data-icon="uil:user"></span>
         </a>
         <div class="nav-line hidden lg:flex"></div>
-        <a class="text-reg-font flex align-center flex-row" href="{{ get_permalink(get_page_by_title('Search Page')) }}">
+        <a class="z-50 text-reg-font flex align-center flex-row" href="{{ get_permalink(get_page_by_title('Search Page')) }}">
             <span class="iconify h-8 w-8 relative place-nav-icon" data-icon="ion:search"></span>
         </a>
         <div class="nav-line  hidden lg:flex"></div>
-        <a class="reg-font hidden lg:flex align-center flex-row items-center " href="{{ wc_get_cart_url() }}">
+        <a class="z-50 reg-font hidden lg:flex align-center flex-row items-center " href="{{ wc_get_cart_url() }}">
             <span class="iconify" data-icon="grommet-icons:basket" data-width="32" data-height="32"></span>
             <span class="ml-2 text-reg-font font-reg420">{!! wc_price(WC()->cart->get_total('edit')) !!}</span>
         </a>
