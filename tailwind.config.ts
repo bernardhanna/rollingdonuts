@@ -64,7 +64,7 @@ export default {
       'md-font': '32px',
       'font-28': '28px',
       'sm-md-font': '24px',
-      'base-font': '1.25rem',
+      'base-font': '18px',
       'reg-font': '1.25rem',
       'sm-font': '16px',
       'xs-font': '1em',
@@ -114,6 +114,8 @@ export default {
     },
     extend: {
       margin: {
+        '2' : '0.5rem',
+        '25rem': '25rem',
         '64': '16rem',
       },
       textShadow: {
@@ -147,6 +149,8 @@ export default {
         'heroleft': '69%',
         'heroright': '44%',
         '23': '23%',
+        '45': '45%',
+        '56': '56%',
         '47': '47%',
         '31-5': '31.5%',
       },
@@ -170,6 +174,7 @@ export default {
         'max-503': '31.438rem', //529px
         'max-529': '33.0625rem', //529px
         'max-584': '36.5rem', //584px
+        'max-1000': '62rem', //1000px
         'max-1200': '75rem', //1200px
         'max-1300': '81.25rem', //1300px
         'max-1467': '91.6875rem', //1467px
@@ -177,6 +182,7 @@ export default {
         'max-1549': '96.8125rem', //1549px
         'max-1568': '98rem', //1568px
         'max-1571': '98.1875rem', //1571px;
+        'max-1578': '98.625rem', //1578px
         'sitewidth': '107.875rem', //1726px
         'max-95': '95%', //95%
       },

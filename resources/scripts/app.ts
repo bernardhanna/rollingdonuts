@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
             type: 'fade',
             perPage: 1,
             arrows: true,
+            pagination: false,
         });
 
         featuredSplide.on('moved', () => {
@@ -80,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
             focus: 'center',
             pagination: false,
             arrows: false,
+            drag: false,
         }).mount();
 
         featuredSplide.sync(donutThumbnailSlider);

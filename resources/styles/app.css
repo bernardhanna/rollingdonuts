@@ -83,7 +83,7 @@ h6 {
 }
 
 p {
-  @apply text-base-font font-regular;
+  @apply text-reg-font font-regular;
 }
 
 input {
@@ -270,12 +270,27 @@ nav .submenu .current_page_item {
 }
 
 .featured-donuts .splide__arrow svg {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 61.5px;
+}
+
+.featured-donuts .splide__track--nav>.splide__list>.splide__slide.is-active {
+  border: 3px solid #ffed56!important;
+}
+
+.featured-donuts .splide__track--nav>.splide__list>.splide__slide:not(.is-active) {
+  border: 3px solid #000!important;
 }
 
 .featured-donuts .splide__list {
   height: unset;
+}
+
+@media (width >= 1300px) {
+  .featured-donuts .donut-indicator {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+  }
 }
 
 .splide__track--nav>.splide__list>.splide__slide.is-active {
