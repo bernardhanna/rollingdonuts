@@ -23,6 +23,14 @@ body {
   }
 }
 
+.leading-none {
+  line-height: 1;
+}
+
+.border-1 {
+  border: 1px solid #000;
+}
+
 .w-99 {
   width: 99%;
 }
@@ -649,4 +657,19 @@ nav .submenu .current_page_item {
     max-height: 157px;
     min-height: 157px;
   }
+}
+
+
+/* Initial State of the Button */
+.bestseller-splide .item .button {
+  opacity: 0;
+  transform: translateY(20px); /* Start 20px below its final position */
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Smooth transition for both properties */
+  will-change: transform, opacity; /* Optimizes rendering */
+}
+
+/* Hover State of the Item */
+.bestseller-splide .item:hover .button {
+  opacity: 1;
+  transform: translateY(0); /* Move to final position */
 }
