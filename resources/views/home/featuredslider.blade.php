@@ -29,13 +29,13 @@ $featuredDonuts = get_field('donuts');
                                     sizes="(max-width: 640px) 309px, 800px"
                                     alt="{{ $donut->post_title }}">
                             </div>
-                            <div class="w-full lg:w-1/2 lg:h-[800px]" style="background-color: {{ $bgColor }}">
+                            <div class="w-full lg:w-1/2 h-auto  lg:h-[800px]" style="background-color: {{ $bgColor }}">
                                 <div class="h-full flex flex-col items-center">
-                                    <div class="relative w-full lg:ml-25rem lg:mt-32 flex items-start flex-col">
-                                    <p class="slide-count text-mob-xxl-font"><span id="current-slide" class="start-count font-reg420">1</span>/{{ count($featuredDonuts) }}</p>
-                                    <h3 class="text-xl-font font-reg420">{{ $donut->post_title }}</h3>
-                                    <p class="text-base-font text-left w-full max-w-max-573">{{ get_the_excerpt($donut->ID) }}</p>
-                                    <span class="text-mob-xxl-font font-reg420 pt-8 pb-4">Allergens</span>
+                                    <div class="relative max-lg:p-8 w-full lg:ml-25rem lg:mt-32 flex items-start flex-col">
+                                    <p class="slide-count text-md-font lg:text-mob-xxl-font"><span id="current-slide" class="start-count font-reg420">1</span>/{{ count($featuredDonuts) }}</p>
+                                    <h3 class="text-lg-font lg:text-xl-font font-reg420">{{ $donut->post_title }}</h3>
+                                    <p class="text-sm-font lg:text-base-font text-left w-full max-w-max-573">{{ get_the_excerpt($donut->ID) }}</p>
+                                    <span class="text-lg-font lg:text-xl-font font-reg420 pt-8 pb-4">Allergens</span>
                                     @if ($allergens)
                                         <ul class="allergen-list">
                                             @foreach ($allergens as $allergen)

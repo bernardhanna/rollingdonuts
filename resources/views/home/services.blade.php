@@ -9,7 +9,7 @@
 <!-- Services Section -->
 <section class="services">
     <!-- Service Splide Slider Container -->
-    <div class="service-splide splide w-full relative pt-16 pb-20 lg:visible">
+    <div class="service-splide splide w-full relative pt-16 max-md:pb-12 pb-20 lg:visible">
         <!-- Splide Track for Slides -->
         <div class="splide__track lg:flex lg:justify-center lg:w-full" data-splide-el="track">
             <!-- Container for Service Items -->

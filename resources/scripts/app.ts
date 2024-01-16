@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
             type: 'fade',
             perPage: 1,
             arrows: true,
-            pagination: false,
+            pagination: true,
         });
 
         featuredSplide.on('moved', () => {
