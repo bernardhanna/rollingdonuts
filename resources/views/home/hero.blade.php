@@ -21,7 +21,7 @@ $hero_link = get_field('hero_link');
 @if(is_array($bannerLeft) && isset($bannerLeft['url']) && is_array($bannerRight) && isset($bannerRight['url']))
 <section class="home-hero hero-curve w-full relative">
     <div class="flex flex-col-reverse lg:flex-row">
-        <div class="w-full flex items-center justify-center flex-col bg-black-full h-hero-mob lg:w-heroleft lg:h-hero-height"
+        <div class="max-lg:h-[450px] w-full flex items-center justify-center flex-col bg-black-full h-hero-mob lg:w-heroleft lg:h-hero-height"
              x-data="{ isMobile: false, getBackgroundImage() {
                      if (this.isMobile && '{{ $banner_top_mobile['url'] }}') {
                          return 'url({{ $banner_top_mobile['url'] }})';
@@ -32,7 +32,7 @@ $hero_link = get_field('hero_link');
              x-init="setTimeout(() => { isMobile = window.innerWidth < 1084 }, 0); window.addEventListener('resize', () => { isMobile = window.innerWidth < 1084 })"
              :style="{ backgroundImage: getBackgroundImage() }">
              <div class="w-full h-full bg-[#000000b5] flex justify-center items-center">
-                <div class="flex flex-col relative xxl:mr-48 xl:mx-auto xxl:right-8">
+                <div class="max-sm:h-full max-sm:justify-around flex flex-col relative xxl:mr-48 xl:mx-auto xxl:right-8">
                     <div class="hidden lg:block">
                         @if($neon['url'])
                             <img src="{{ $neon['url'] }}" alt="{{ $neon['alt'] ?? 'Rolling Donut Signature' }}" class="w-auto object-contain mx-auto relative -top-2">
@@ -50,7 +50,7 @@ $hero_link = get_field('hero_link');
                    @endif
                    @if($hero_link)
                     <div class="w-full px-12 lg:px-0 mt-4 z-10 relative -top-8">
-                        <a class="mx-auto btn-width btn-icon-yellow rounded-btn-72 border-3 border-color-yellow-primary bg-black-full text-yellow-primary text-sm-md-font font-reg420 w-full md:w-[322px] h-[64px] flex flex-row items-center justify-center hover:bg-yellow-primary hover:text-black-full lg:bg-white lg:text-black-full lg:border-none" href="{{ $hero_link['url'] }}">
+                        <a class="mx-auto btn-width btn-icon-yellow rounded-btn-72 border-3 border-color-yellow-primary bg-black-full text-yellow-primary text-sm-md-font font-reg420 w-full max-sm:w-[280px] max-md:w-[342px] md:w-[322px] h-[64px] flex flex-row items-center justify-center hover:bg-yellow-primary hover:text-black-full lg:bg-white lg:text-black-full lg:border-none" href="{{ $hero_link['url'] }}">
                             <svg class="yellow-donut mr-4 fill-yellow-primary lg:fill-black-full hover:fill-black-full" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
                                 <path d="M32 17C32 25.2843 25.2843 32 17 32V34C26.3888 34 34 26.3888 34 17H32ZM17 2C25.2843 2 32 8.71573 32 17H34C34 7.61116 26.3888 0 17 0V2ZM2 17C2 8.71573 8.71573 2 17 2V0C7.61116 0 0 7.61116 0 17H2ZM17 32C8.71573 32 2 25.2843 2 17H0C0 26.3888 7.61116 34 17 34V32ZM21.3333 17C21.3333 19.3932 19.3932 21.3333 17 21.3333V23.3333C20.4978 23.3333 23.3333 20.4978 23.3333 17H21.3333ZM17 12.6667C19.3932 12.6667 21.3333 14.6068 21.3333 17H23.3333C23.3333 13.5022 20.4978 10.6667 17 10.6667V12.6667ZM12.6667 17C12.6667 14.6068 14.6068 12.6667 17 12.6667V10.6667C13.5022 10.6667 10.6667 13.5022 10.6667 17H12.6667ZM17 21.3333C14.6068 21.3333 12.6667 19.3932 12.6667 17H10.6667C10.6667 20.4978 13.5022 23.3333 17 23.3333V21.3333Z" fill="fill-yellow-primary hover:fill-black-full"/>
                                 <path d="M27.5096 14.7855L27.5095 14.7881C27.4734 15.629 27.6744 16.3322 28.0488 16.8697C28.4217 17.405 28.9875 17.8065 29.7373 18.0132C29.9445 18.0683 30.1528 18.1231 30.3582 18.1752L27.5096 14.7855ZM27.5096 14.7855C27.5189 14.5391 27.5375 14.2911 27.557 14.0322L27.5571 14.0317L27.5598 13.9953C27.6164 13.2362 27.6817 12.3607 27.4741 11.5077C26.7838 8.64063 25.0424 6.7799 22.3239 6.05299L22.3221 6.05251C22.1362 6.00355 21.9485 5.95733 21.7653 5.91224L21.7633 5.91175L21.7633 5.91174L21.7611 5.9112C21.7256 5.90264 21.6903 5.89416 21.6552 5.88574C21.4143 5.8279 21.1831 5.77239 20.959 5.70434L20.9579 5.70402C19.6097 5.29799 18.7931 4.15317 18.8356 2.66202L18.8356 2.66115C18.8392 2.52667 18.85 2.39525 18.8623 2.24692C18.865 2.21395 18.8678 2.18013 18.8706 2.14527C18.8722 2.12502 18.8739 2.10441 18.8756 2.08348C18.8897 1.9094 18.9057 1.71265 18.9082 1.51652C21.4246 1.88478 23.6525 2.77875 25.539 4.16582C30.4025 7.7431 32.7356 12.6734 32.482 18.873M27.5096 14.7855L32.482 18.873M32.482 18.873C31.7807 18.5354 31.046 18.3493 30.3819 18.1812L30.3585 18.1753L32.482 18.873Z" fill="fill-yellow-primary hover:fill-black-full" stroke="stroke-yellow-primary hover:stroke-black-full"/>
@@ -74,7 +74,7 @@ $hero_link = get_field('hero_link');
              x-init="setTimeout(() => { isMobile = window.innerWidth < 1084 }, 0); window.addEventListener('resize', () => { isMobile = window.innerWidth < 1084 })"
              :style="{ backgroundImage: getBackgroundImage() }">
              @if($hazelnut['url'])
-               <img src="{{ $hazelnut['url'] }}" alt="{{ $hazelnut['alt'] ?? 'Rolling Donut' }}" class="h-[430px] relative inset-0 mx-auto -mb-10 lg:mb-4 px-4 lg:px-0 lg:mr-auto lg:-ml-28">
+               <img src="{{ $hazelnut['url'] }}" alt="{{ $hazelnut['alt'] ?? 'Rolling Donut' }}" class="h-[308px] lg:h-[430px] relative inset-0 mx-auto -mb-10 lg:mb-4 px-4 lg:px-0 lg:mr-auto lg:-ml-28">
               @endif
         </div>
     </div>

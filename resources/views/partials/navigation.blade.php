@@ -12,12 +12,12 @@ $currentUserId = get_current_user_id();
 $isUserLoggedIn = !empty($currentUserId);
 @endphp
 <div x-data="{ open: false }" class="relative">
-    <section class="navbar lg:h-[165px]">
-        <div class="mx-auto max-w-sitewidth relative">
+    <section class="navbar h-[122px] lg:h-[165px] max-lg:flex max-lg:items-center">
+        <div class="mx-auto w-full max-w-sitewidth relative">
             @if (!is_cart() && !is_checkout())
                 @include('navigation.topnav')
             @endif
-            
+
         @php
             use Log1x\Navi\Navi;
 
@@ -30,7 +30,7 @@ $isUserLoggedIn = !empty($currentUserId);
             $navigation_left = array_slice($navigation, 0, $left_items);
             $navigation_right = array_slice($navigation, $left_items);
         @endphp
-        <nav class="flex justify-between items-center w-full relative -top-10 lg:pt-0" role="navigation" id="menu">
+        <nav class="flex justify-between items-center w-full relative top-0 lg:-top-10 lg:pt-0" role="navigation" id="menu">
             <div class="w-1/3 lg:w-5/6">
                 @if (!is_cart() && !is_checkout())
                     @include('navigation.hamburger')
