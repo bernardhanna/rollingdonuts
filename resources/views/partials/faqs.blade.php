@@ -21,7 +21,7 @@
 
         <div class="content flex flex-col justify-between lg:bg-white w-full h-full pl-4 pr-4 py-4 lg:pl-8 lg:pr-10 lg:w-55">
             <div class="top">
-            <h4 class="pt-10 pb-4 lg:pt-0 lg:p-0 lg:text-mob-xxl-font text-sm-md-font font-reg420 lg:text-leading-10">{{ get_field('faq_title') }}</h4>
+            <h4 class="pt-10 font-reg420 pb-4 lg:pt-0 lg:p-0 lg:text-mob-xxl-font text-sm-md-font lg:text-leading-10">{{ get_field('faq_title') }}</h4>
 
             <div id="accordion-open" data-accordion="open">
                 @php
