@@ -5,6 +5,7 @@ Login
 order now
 cart
 checkout
+myaccount
 blog
 blog single
 Contact
