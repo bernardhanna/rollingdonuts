@@ -6,7 +6,7 @@
  * @Last Modified time: 2023-10-24 09:57:59
  */
 ?>
-<div class="top-nav w-full md:max-w-max-1549 lg:max-w-max-95 py-4 hidden lg:flex md:justify-between lg:justify-end relative top-0 lg:mb-[-4]">
+<div class="top-nav w-full md:max-w-max-1549 laptop:max-w-max-95 py-4 hidden laptop:flex md:justify-between laptop:justify-end relative top-0 laptop:mb-[-4]">
     <div class="md:flex md:items-center md:justify-between md:px-4 md:w-full">
     <div class="md:pl-4">
         @php
@@ -18,20 +18,20 @@
     </div>
 
     <div class="flex flex-row justify-space-between align-center justify-end w-full space-x-5 z-50">
-        <a class="z-50 reg-font items-center flex-row hidden lg:flex" href="tel:{{ $telephone }}">
+        <a class="z-50 reg-font items-center flex-row hidden laptop:flex" href="tel:{{ $telephone }}">
             <span class="iconify h-8 w-8 r-7 relative" data-icon="icon-park-twotone:phone-telephone"></span>
             <span class="flex text-reg-font font-reg420 relative right-4 -t-0-1">{{ $telephone }}</span>
         </a>
-        <div class="nav-line hidden md:block lg:hidden"></div>
+        <div class="nav-line hidden md:block laptop:hidden"></div>
         <a class="z-50 flex align-center flex-row relative" href="{{ wc_get_page_permalink('myaccount') }}">
             <span class="iconify h-8 w-8 place-nav-icon relative" data-icon="uil:user"></span>
         </a>
-        <div class="nav-line hidden lg:flex"></div>
+        <div class="nav-line hidden laptop:flex"></div>
         <a class="z-50 text-reg-font flex align-center flex-row" href="{{ get_permalink(get_page_by_title('Search Page')) }}">
             <span class="iconify h-8 w-8 relative place-nav-icon" data-icon="ion:search"></span>
         </a>
-        <div class="nav-line  hidden lg:flex"></div>
-        <a class="z-50 reg-font hidden lg:flex align-center flex-row items-center " href="{{ wc_get_cart_url() }}">
+        <div class="nav-line  hidden laptop:flex"></div>
+        <a class="z-50 reg-font hidden laptop:flex align-center flex-row items-center " href="{{ wc_get_cart_url() }}">
             <span class="iconify" data-icon="grommet-icons:basket" data-width="32" data-height="32"></span>
             <span class="ml-2 text-reg-font font-reg420">{!! wc_price(WC()->cart->get_total('edit')) !!}</span>
         </a>

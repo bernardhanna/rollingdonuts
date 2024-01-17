@@ -9,12 +9,12 @@
 ?>
 <section class="bestsellers-slider relative bg-repeat" @if (get_field('bg_image'))style="background-image: url('{{ get_field('bg_image')['url'] }}');"@endif>
     <div class="overlay">
-        <div class="content relative top-0 flex flex-col align-center w-full pt-4 pb-20 lg:max-w-max-1578 lg:mx-auto">
+        <div class="max-desktop:px-6 content relative top-0 flex flex-col align-center w-full pt-4 pb-20 lg:max-w-max-1578 lg:mx-auto">
             @if (get_field('text_image'))
                 <img class="text-image w-full h-[86px] lg:h-full max-w-max-1000 mx-auto object-contain" src="{{ get_field('text_image')['url'] }}" alt="{{ get_field('text_image')['alt'] }}" />
             @endif
             @if (get_field('heading'))
-                <h2 class="text-lg-font font-regular text-white text-center pb-14 relative lg:-top-14">{{ get_field('heading') }}</h2>
+                <h2 class="text-mob-xxl-font lg:text-lg-font font-regular text-white text-center md:pb-14 relative lg:-top-14">{{ get_field('heading') }}</h2>
             @endif
             @php
                 $bestsellersList = get_field('product');
@@ -23,13 +23,13 @@
                 <div class="splide__track mx-0 lg:mx-4 xl:mx-4 xxl:mx-0">
                     <div class="splide__list">
                         @foreach($bestsellersList as $product)
-                        <div class="splide__slide item flex md:p-12 lg:p-0"  x-data="{ showAllergens: false }">
+                        <div class="splide__slide item flex lg:p-0"  x-data="{ showAllergens: false }">
                             @php
                             $product_allergens = get_field('product_allergens', $product->ID);
                         @endphp
 
                         @if($product_allergens)
-                            <div class="absolute top-6 right-6 cursor-pointer z-50" @click="showAllergens = !showAllergens">
+                            <div class="absolute top-6 max-sm:right-10 right-20 lg:top-6 lg:right-6 cursor-pointer z-50" @click="showAllergens = !showAllergens">
                                 <div class="z-50" x-show="!showAllergens">
                                     <span class="sr-only">{{ __('info icon', 'rolling-donut') }}</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="31" height="30" viewBox="0 0 31 30" fill="none">
@@ -78,14 +78,14 @@
                                 })
                             }"
                             x-bind:style="(isLargeScreen && isHovered) ? 'background-color: transparent;' : (isLargeScreen ? 'background-color: white;' : 'background-color: transparent;')"
-                            class="relative px-12 lg:px-0 w-full lg:rounded-sm-10 bg-transparent">
+                            class="relative max-sm:px-6 px-12 lg:px-0 w-full lg:rounded-sm-10 bg-transparent">
                             <a href="<?php echo get_permalink($product->ID); ?>">
                                 <div class="absolute inset-0 light-black-gradient opacity-50 z-10 h-[386px] rounded-sm-10"></div>
                                 <img class="bestseller_image object-cover border-3 border-solid border-black-full rounded-sm-8 relative w-full h-[386px]" src="<?php echo get_the_post_thumbnail_url($product->ID); ?>" alt="<?php echo $product->post_title; ?>">
 
-                                <div id="productContentOne" class="z-40 h-[386px] absolute inset-0 flex flex-col items-center justify-center lg:items-start lg:justify-end p-4" @mouseenter="isLargeScreen && (isHovered = true)" @mouseleave="isLargeScreen && (isHovered = false)">
-                                    <h4 class="z-10 text-white text-md-font font-regular text-center pb-6 lg:font-reg420 lg:md-font lg:text-left"><?php echo $product->post_title; ?></h4>
-                                    <button href="{{ get_permalink($product->ID) }}" class="animate-button btn btn-primary text-black-full bg-white hover:bg-yellow-primary text-reg-font font-medium text-center w-[257px] h-[56px] flex justify-center items-center rounded-lg-x mb-10 lg:hidden">Select and Customise</button>
+                                <div id="productContentOne" class="z-40 h-[386px] absolute inset-0 flex flex-col items-center  lg:items-start justify-end p-4" @mouseenter="isLargeScreen && (isHovered = true)" @mouseleave="isLargeScreen && (isHovered = false)">
+                                    <h4 class="z-10 text-white text-sm-md-font lg:text-md-font font-regular text-center pb-0 lg:pb-6 lg:font-reg420 lg:md-font lg:text-left"><?php echo $product->post_title; ?></h4>
+                                    <button href="{{ get_permalink($product->ID) }}" class="animate-button btn btn-primary text-black-full bg-white hover:bg-yellow-primary text-mob-md-font lg:text-reg-font font-medium text-center w-[257px] h-[56px] flex justify-center items-center rounded-lg-x mb-4 lg:mb-10 lg:hidden">Select and Customise</button>
                                     <div id="productInfo" class="flex justify-between items-end w-full" x-show="isHovered">
                                         <p class="text-white text-left font-laca font-light text-sm-md-font">
                                             <?php

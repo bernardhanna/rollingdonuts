@@ -6,7 +6,7 @@
  * @Last Modified time: 2023-10-24 10:23:42
  */
 ?>
-    <section class="relative w-full" x-data="{ formState: 'login' }">
+    <section class="relative w-full mb-12 x-data="{ formState: 'login' }">
         @php
         //Define Categories
         $args = array(
@@ -27,24 +27,26 @@
         @endphp
 
         @if($image_url || $image_url_mobile )
-        <div x-data="{ isMobile: window.innerWidth <= 1024 }" x-init="() => {
+        <div x-data="{ isMobile: window.innerWidth <= 575 }" x-init="() => {
             window.addEventListener('resize', () => {
-                isMobile = window.innerWidth <= 1024;
+                isMobile = window.innerWidth <= 575;
             });
         }">
-            <img x-show="!isMobile" class="w-full lgh-[400px]" src="{{ $image_url }}" alt="{{ $image_alt }}" srcset="{{ $image_srcset }}" sizes="(min-width: 1025px) 100vw">
-            <img x-show="isMobile" class="w-full" src="{{ $image_url_mobile }}" alt="{{ $image_alt_mobile }}" srcset="{{ $image_srcset_mobile }}" sizes="(max-width: 1024px) 100vw">
+            <img x-show="!isMobile" class="object-cover w-full mobile:h-[243px]" src="{{ $image_url }}" alt="{{ $image_alt }}" srcset="{{ $image_srcset }}" sizes="(min-width: 575px) 100vw">
+            <img x-show="isMobile" class="w-full" src="{{ $image_url_mobile }}" alt="{{ $image_alt_mobile }}" srcset="{{ $image_srcset_mobile }}" sizes="(max-width: 575px) 100vw">
         </div>
         @endif
 
-        <div class="px-4 lg:p-0 mx-auto lg:max-w-max-1549 absolute h-full left-0 right-0 top-0 w-full">
+        <div class="px-4 desktop:p-0 mx-auto lg:max-w-max-1549 absolute h-full left-0 right-0 top-0 w-full">
             <div class="w-full">
                 @php
                     woocommerce_breadcrumb();
                 @endphp
             </div>
-            <div class="flex items-start justify-between pt-8">
-                <h1 class="text-white lg:text-xl-font xl:text-xxxl-font font-reg420">
+            <div class="relative flex items-start justify-between pt-8 px-4 desktop:p-0">
+                <div class="text-blur">
+                </div>
+                <h1 class="left-0 absolute text-white text-mob-xxl-font lg:text-xl-font xl:text-xxxl-font font-reg420">
                     @if(is_account_page() && !is_user_logged_in())
                     Sign In
                     @elseif(is_page_template('templates/template-box-products.blade.php'))

@@ -7,7 +7,7 @@
  */
 ?>
 <section class="faq-section py-20 w-full bg-grey-background">
-    <div class="flex flex-col lg:flex-row lg:max-w-max-1568 mx-auto items-center">
+    <div class="flex flex-col sm:flex-row lg:max-w-max-1568 mx-auto items-center">
         @php
             $faqImage = get_field('faq_image');
             $faqButton = get_field('faq_button');
@@ -21,7 +21,7 @@
 
         <div class="content flex flex-col justify-between lg:bg-white w-full h-full pl-4 pr-4 py-4 lg:pl-8 lg:pr-10 lg:w-55">
             <div class="top">
-            <h4 class="pt-10 font-reg420 pb-4 lg:pt-0 lg:p-0 lg:text-mob-xxl-font text-sm-md-font lg:text-leading-10">{{ get_field('faq_title') }}</h4>
+            <h4 class="font-reg420 lg:pb-4 lg:pt-0 lg:p-0 lg:text-mob-xxl-font text-sm-md-font lg:text-leading-10">{{ get_field('faq_title') }}</h4>
 
             <div id="accordion-open" data-accordion="open">
                 @php
@@ -39,7 +39,7 @@
                               </button>
                         </div>
                         <div id="accordion-open-body-{{ $index }}" class="hidden" aria-labelledby="accordion-open-heading-{{ $index }}">
-                            <div class="pt-5 pb-5 leading-tight text-sm-font font-light font-laca">
+                            <div class="lg:pt-5 pb-5 leading-tight max-md:text-sm-font text-sm-font font-light font-laca w-full max-lg:w-11/12">
                                 {!! $faq['faq']->post_content !!}
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                     @endif
                 </div>
             </div>
-            <div class="bottom pt-4">
+            <div class="bottom md:hidden pt-4">
             @if ($faqButton)
                 <a href="{{ $faqButton['url'] }}" class="faq-button py-4 border-radius-large flex justify-center w-auto max-w-max-368 text-sm-md-font font-reg420 bg-black-full text-white hover:bg-yellow-primary hover:text-black-full">{{ $faqButton['title'] }}</a>
             @endif

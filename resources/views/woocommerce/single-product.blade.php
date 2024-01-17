@@ -26,7 +26,7 @@ the readme will list any important changes.
 $shop_bg_url = get_field('shop_bg', 'option');
 @endphp
 @section('content')
-<div class="mt-32 lg:mt-72"></div>
+<div class="mt-32"></div>
     @include('woocommerce.custom.woocommerce-header')
     <div class="bg-cover bg-no-repeat" style="{{ $shop_bg_url ? 'background-image: url(' . $shop_bg_url . ');' : '' }}">
         <div class="mx-auto px-4 lg:max-w-max-1549">

@@ -10,7 +10,7 @@ global $product;
 $rd_product_type = get_rd_product_type($product->get_id());
 
 ?>
-<li <?php wc_product_class('flex flex-col relative w-31-5', $product); ?>  x-data="{ showAllergens: false }">
+<li <?php wc_product_class('product-small-device flex flex-col relative pb-12 w-48 lg:w-31-5', $product); ?>  x-data="{ showAllergens: false }">
     <?php
     $product_allergens = get_field('product_allergens', $product->get_id());
     $allergen_text = '';
@@ -44,7 +44,7 @@ $rd_product_type = get_rd_product_type($product->get_id());
                 </svg>
             </div>
         </div>
-        <div x-show="showAllergens" class="p-4 rounded-tl-lg z-40 allergen-info absolute top-4 right-4 bg-white text-black lg:w-[220px] -m-[10px]">
+        <div x-show="showAllergens" class="p-4 rounded-tl-lg z-40 allergen-info absolute top-4 right-4 bg-white text-black md:w-[220px] -m-[10px]">
         <span class="text-black-full text-sm-font font-reg420"><?php _e('Ingredients', 'rolling-donut'); ?></span>
             <div class="w-full mt-4">
                     <div class="w-full flex flex-wrap flex-row">
@@ -66,9 +66,9 @@ $rd_product_type = get_rd_product_type($product->get_id());
             </div>
         </div>
      <?php endif; ?>
-     <a class="relative w-full" href="<?php the_permalink(); ?>" x-data="{ isHovered: false }">
-        <div class="absolute inset-0 light-black-gradient opacity-50 z-10 lg:h-[386px] rounded-sm-10"></div>
-        <?php echo woocommerce_get_product_thumbnail('medium', array('class' => 'w-full h-max-max-125 lg:max-h-full object-cover lg:h-[386px] border-2 border-solid border-black rounded-sm-8 m-0')); ?>
+     <a class="relative w-full max-md:rounded-t-lg" href="<?php the_permalink(); ?>" x-data="{ isHovered: false }">
+        <div class="max-md:hidden absolute inset-0 light-black-gradient opacity-50 z-10 md:h-[386px] rounded-sm-10"></div>
+        <?php echo woocommerce_get_product_thumbnail('medium', array('class' => 'w-full h-max-max-125 md:max-h-full object-cover h-[125px] md:h-[386px] md:border-2 md:border-solid md:border-black md:rounded-sm-8 m-0')); ?>
         <div id="productContentOne" class="absolute top-0 left-0 h-[386px] z-10 p-4 w-full" @mouseenter="isHovered = true" @mouseleave="isHovered = false">
             <div class="h-full w-full flex flex-col justify-end">
                 <h4 class="text-white text-md-font font-reg420 font-edmondsans"><?php the_title(); ?></h4>

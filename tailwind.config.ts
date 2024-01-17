@@ -69,7 +69,7 @@ export default {
       'sm-font': '16px',
       'xs-font': '1em',
       'xxs-font': '12px',
-      'mob-xxl-font': '40px',
+      'mob-xxl-font': '2.5rem',
       'mob-xl-font': '32px',
       'mob-lg-font': '24px',
       'mob-md-font': '20px',
@@ -88,11 +88,16 @@ export default {
     },
     screens: {
       'xs': '320px',
+      'mobile': '575px',
       'sm': '640px',
       'md': '768px',
+      'tablet-sm': '993px',
       'lg': '1084px',
+      'laptop': '1250px',
       'xl': '1280px',
+      'macbook': '1300px',
       'xxl': '1440px',
+      'desktop': '1628px',
       'xxxl': '1920px',
       'xxxxl': '2500px',
       'xxxxxl': '2750px',
@@ -117,6 +122,9 @@ export default {
         '2' : '0.5rem',
         '25rem': '25rem',
         '64': '16rem',
+      },
+      boxShadow: {
+        'small': '0px 8px 0px 0px rgba(0, 0, 0, 0.25)',
       },
       textShadow: {
         'medium' : '2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;',
@@ -154,9 +162,10 @@ export default {
         '55': '55%',
         '56': '56%',
         '47': '47%',
-        '31-5': '31.5%', 
+        '31-5': '31.5%',
         '35' : '35%',
         '40': '40%',
+        '48': '48%',
         '57': '57%',
         '60': '60%',
       },
@@ -166,9 +175,11 @@ export default {
       },
       maxWidth: {
         'max-128': '6rem', //126px
+        'max-40' : '10rem',
         'max-242': '15.125rem', //242px
         'max-256': '16rem', //256px
         'max-322': '20.125rem', //322px
+        'max-343': '21.4375rem', //343px''
         'max-358': '22.375rem', //358px
         'max-368': '23rem', //368px
         'max-474': '29.625rem', //474px
