@@ -7,7 +7,7 @@
  */
 ?>
 <header class="w-full relative z-1000">
-    <div class="z-50 bg-white fixed top-0 left-0 right-0 disable-fixed">
+    <div class="z-50 bg-white laptop:fixed top-0 left-0 right-0 disable-fixed">
         @if (!is_cart() && !is_checkout() || !is_user_logged_in())
             @if(get_field('topbar_text', 'option'))
                 @include('partials.topbar')

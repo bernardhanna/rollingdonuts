@@ -1,6 +1,10 @@
-TODO.md
-- Make single donuts same as merch. 
-- Make Donuts only catalogue
-
-- Check out pages etc
-- Disabel click and collect on on merch
+products mobile
+Our SHops
+Single Product page
+Login
+order now
+cart
+checkout
+blog
+blog single
+Contact

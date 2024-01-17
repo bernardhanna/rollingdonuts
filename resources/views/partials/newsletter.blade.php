@@ -15,7 +15,7 @@
 @endphp
 <img class="object-cover h-[300px] w-full hidden lg:block" src="{{ $newsletterImage }}" alt="{{ $newsletterAlt }}">
 <img class="flex object-cover object-top w-full h-full max-h-max-504 lg:hidden" src="{{ $newsletterMobileImage }}" alt="{{ $newsletterMobileAlt }}">
-    <div class="absolute flex flex-col items-center justify-center lg:justify-between h-full left-0 right-0 top-0 container pt-4 px-4
+    <div class="absolute flex flex-col items-center justify-between h-full left-0 right-0 top-0 containermax-md: max-lg:py-4 pt-4 px-4
     w-full max-w-full lg:flex-row lg:mx-auto lg:max-w-max-1504">
         <div class="newsletter-content rounded-t-lg flex flex-col w-full lg:w-22pc">
             <div class="flex flex-col highlighted items-start content-start justify-start px-1 pt-1">

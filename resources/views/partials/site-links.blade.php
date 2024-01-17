@@ -9,7 +9,7 @@
     @php
     $hideSection = 'lg:hidden';  // Default to hide
     // Show on large devices for these templates:
-    if (is_page_template('templates/template-locations.blade.php') || 
+    if (is_page_template('templates/template-locations.blade.php') ||
         is_page_template('templates/template-contact.blade.php')) {
             $hideSection = '';
     }
@@ -23,7 +23,7 @@
       @foreach($site_links as $link)
           @if(isset($link['site_links']) && $link['site_links']['url'])
               <a href="{{ esc_url($link['site_links']['url']) }}" class="flex items-center justify-between p-4 pl-4 rounded border border-black bg-white hover:bg-yellow-primary shadow-lg mb-4 text-sm-md-font font-medium boxshadow">
-                  {{ esc_html($link['site_links']['title']) }}
+                {{ html_entity_decode(esc_html($link['site_links']['title'])) }}
                   <img src="https://api.iconify.design/ph:caret-right-bold.svg?width=18&height=18" alt="Icon">
               </a>
           @endif

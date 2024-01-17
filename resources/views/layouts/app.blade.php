@@ -14,7 +14,7 @@
         @include('utils.styles')
     </head>
 
-    <body <?php body_class('p-0'); ?>>
+    <body <?php body_class('p-0 w-full'); ?>>
         <?php wp_body_open(); ?>
         <?php do_action('get_header'); ?>
 
@@ -25,11 +25,11 @@
 
             @include('sections.header')
 
-            <main id="main">
+       
                 <div class="mx-auto">
                     @yield('content')
                 </div>
-            </main>
+ 
 
             @include('sections.footer')
         </div>

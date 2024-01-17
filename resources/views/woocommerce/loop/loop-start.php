@@ -26,4 +26,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-    <ul x-data="{ justifyStyle: 'between' }" x-init="justifyStyle = $el.querySelectorAll('li').length < 3 ? 'start' : 'between'" :class="`flex flex-flow flex-wrap flex-row justify-${justifyStyle} gap-6`">
+    <ul x-data="{ justifyStyle: 'between' }" x-init="justifyStyle = $el.querySelectorAll('li').length < 3 ? 'start' : 'between'" :class="`flex flex-flow flex-wrap flex-row justify-${justifyStyle} gap-6 px-8 desktop:px-0`">

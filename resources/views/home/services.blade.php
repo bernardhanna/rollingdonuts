@@ -7,7 +7,7 @@
  */
 ?>
 <!-- Services Section -->
-<section class="services">
+<section class="services px-8">
     <!-- Service Splide Slider Container -->
     <div class="service-splide splide w-full relative pt-16 max-md:pb-12 pb-20 lg:visible">
         <!-- Splide Track for Slides -->
@@ -32,14 +32,14 @@
                     <!-- AlpineJS: On mouse over, set 'isHovered' to true and play the video -->
                     <!-- AlpineJS: On mouse out, set 'isHovered' to false and pause the video -->
                     <div
-                        class="relative w-[200] h-[200] cursor-pointer"
+                        class="relative w-[150] h-[150] xxl:w-[200] xxl:h-[200] cursor-pointer"
                         @mouseover="isHovered = true; $refs.videoElement.play()"
                         @mouseout="isHovered = false; $refs.videoElement.pause()"
                     >
                         <!-- Service Image -->
                         <!-- AlpineJS: Conditional class to control image opacity based on hover state -->
                         <img
-                            class="absolute top-0 left-0 w-full h-full z-10 transition-opacity duration-300"
+                            class="w-[150] h-[150] xxl:w-[200] xxl:h-[200] absolute top-0 left-0 w-full h-full z-10 transition-opacity duration-300"
                             :class="{ 'opacity-0': isHovered, 'opacity-100': !isHovered }"
                             src="{{ $service['image']['url'] }}"
                             alt="{{ $service['image']['alt'] }}"

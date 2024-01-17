@@ -97,8 +97,11 @@ if (window.location.pathname === '/') {
     gap: '1.5rem',  // Add this line
     breakpoints: {
         1084: {
-            perPage: 1,
+            perPage: 2,
         },
+        768: {
+          perPage: 1,
+      },
     },
     arrows: true,
   }).mount();

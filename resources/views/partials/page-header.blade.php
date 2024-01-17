@@ -33,6 +33,8 @@
         @endif
 
         <div class="px-4 lg:p-0 mx-auto lg:max-w-max-1549 absolute h-full left-0 right-0 top-0 w-full">
+            <?php
+            if ( ! is_woocommerce() ) { ?>
                 <div class="w-full flex items-start justify-start">
                     @php
                     if ( function_exists('yoast_breadcrumb') ) {
@@ -40,6 +42,7 @@
                     }
                     @endphp
                 </div>
+             <?php }   ?>
                 <div class="flex justify-center flex-col">
                     <h1 class="text-white lg:text-center lg:text-xl-font xl:text-xxxl-font font-reg420">
                         @if (is_home())

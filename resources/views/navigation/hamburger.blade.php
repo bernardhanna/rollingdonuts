@@ -6,7 +6,7 @@
  * @Last Modified time: 2023-07-18 16:54:43
  */
 ?>
-<button @click="open = !open" class="lg:hidden relative ml-2 mr-4 h-10 w-10 ">
+<button @click="open = !open" class="laptop:hidden relative ml-2 mr-4 h-10 w-10 ">
     <div :class="{ 'change': open }" class="flex relative z-10">
         <template x-if="!open">
             <svg xmlns="http://www.w3.org/2000/svg" width="43" height="40" viewBox="0 0 43 40" fill="none">

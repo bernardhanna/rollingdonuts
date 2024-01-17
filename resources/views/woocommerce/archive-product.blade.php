@@ -13,13 +13,13 @@
     do_action('get_header', 'shop');
     do_action('woocommerce_before_main_content');
   @endphp
-  <div class="mt-32 lg:mt-72"></div>
+  <div class="mt-0 space-top-sub"></div>
     @include('woocommerce.custom.woocommerce-header')
     @php
     $shop_bg_url = get_field('shop_bg', 'option');
     @endphp
 
-    <div class="bg-cover bg-no-repeat" style="{{ $shop_bg_url ? 'background-image: url(' . $shop_bg_url . ');' : '' }}">
+    <div class="bg-cover bg-no-repeat py-24" style="{{ $shop_bg_url ? 'background-image: url(' . $shop_bg_url . ');' : '' }}">
         <div class="mx-auto lg:max-w-max-1549">
             @if (woocommerce_product_loop())
                 @php

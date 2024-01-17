@@ -276,6 +276,14 @@ function remove_wc_breadcrumbs() {
     }
 }
 
+add_action( 'woocommerce_before_main_content', 'remove_wc_breadcrumbs_on_shop_page', 20 );
+
+function remove_wc_breadcrumbs_on_shop_page() {
+    if ( is_post_type_archive( 'product' ) || is_shop() || is_product_category() || is_product_tag() ) {
+        remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+    }
+}
+
 //Remove Price from Single Product Body
 add_action( 'wp', 'remove_single_product_price' );
 function remove_single_product_price() {

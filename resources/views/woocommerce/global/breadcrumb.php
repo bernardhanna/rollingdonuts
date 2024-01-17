@@ -25,8 +25,10 @@
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
+
+
 if ( ! empty( $breadcrumb ) ) {
-    echo '<nav class="breadcrumb-nav pt-4">';
+    echo '<nav class="breadcrumb-nav disable pt-4">';
     foreach ( $breadcrumb as $key => $crumb ) {
         echo '<span class="breadcrumb-item ' . (end($breadcrumb) === $crumb ? 'text-yellow-primary font-bolder' : 'text-white') . '">'; // Example Tailwind classes
         if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 ) {
@@ -41,4 +43,3 @@ if ( ! empty( $breadcrumb ) ) {
     }
     echo '</nav>';
 }
-

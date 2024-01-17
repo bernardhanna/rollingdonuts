@@ -6,13 +6,13 @@
  * @Last Modified time: 2023-07-19 10:45:29
  */
 ?>
-<ul class="nav-right w-100 hidden lg:relative lg:-left-4 lg:flex lg:justify-end one-xl:justify-start items-center lg:mr-4 one-xl:mr-0" role="menubar">
+<ul class="nav-right w-100 hidden laptop:relative laptop:-left-4 laptop:flex laptop:justify-end one-xl:justify-start items-center laptop:mr-4 one-xl:mr-0" role="menubar">
     @php
         $counter = 0;
     @endphp
     @foreach ($navigation_right as $item)
         @if ($counter < 4)
-            <li x-data="{ open: false }" class="lg:pl-6 one-xl:pl-12 relative group" role="none">
+            <li x-data="{ open: false }" class="laptop:pl-6 one-xl:pl-12 relative group" role="none">
                 <div @mouseenter="open = true" @mouseleave="open = false">
                     <a class="text-reg-font font-reg420 text-black-full whitespace-nowrap flex items-center hover:underline {{ $item->classes ?? '' }}"
                         href="{{ $item->url }}" role="menuitem" aria-haspopup="{{ $item->children ? 'true' : 'false' }}">

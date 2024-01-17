@@ -1,1 +1,1 @@
-<div class="space-top"></div>
+<div class="space-top laptop:mt-29"></div>

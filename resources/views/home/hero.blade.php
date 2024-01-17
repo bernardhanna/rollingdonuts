@@ -20,7 +20,7 @@ $hero_link = get_field('hero_link');
 
 @if(is_array($bannerLeft) && isset($bannerLeft['url']) && is_array($bannerRight) && isset($bannerRight['url']))
 <section class="home-hero hero-curve w-full relative">
-    <div class="flex flex-col-reverse lg:flex-row">
+    <div class="w-full flex flex-col-reverse lg:flex-row">
         <div class="max-lg:h-[450px] w-full flex items-center justify-center flex-col bg-black-full h-hero-mob lg:w-heroleft lg:h-hero-height"
              x-data="{ isMobile: false, getBackgroundImage() {
                      if (this.isMobile && '{{ $banner_top_mobile['url'] }}') {

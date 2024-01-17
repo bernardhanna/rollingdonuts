@@ -6,7 +6,7 @@
  * @Last Modified time: 2023-07-17 17:06:56
  */
 ?>
-<div class="flex justify-between lg:hidden max-w-max-128 w-full ml-4 mr-4">
+<div class="flex justify-between laptop:hidden max-w-max-128 w-full ml-4 mr-4">
     <a class="text-reg-font flex align-center flex-row" href="{{ wc_get_page_permalink('myaccount') }}">
         <span :class="{ 'hidden': open }" class="iconify h-8 w-8" data-icon="ion:search"></span>
     </a>
