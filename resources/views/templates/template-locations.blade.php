@@ -17,10 +17,14 @@ $shop_bg_url = get_field('shop_bg', 'option');
     @include('partials.space')
     @include('partials.page-header')
     @include('components.map')
-    <div class="bg-cover bg-no-repeat" style="{{ $shop_bg_url ? 'background-image: url(' . $shop_bg_url . ');' : '' }}">
-        <div class="mx-auto px-4 lg:max-w-max-1549">
+    <div x-data="{ windowWidth: window.innerWidth }"
+    x-init="$watch('windowWidth', width => windowWidth = width);
+            window.addEventListener('resize', () => windowWidth = window.innerWidth)"
+    class="w-full bg-cover bg-no-repeat"
+    :style="windowWidth > 575 && '{{ $shop_bg_url }}' ? 'background-image: url({{ $shop_bg_url }})' : ''">
+        <div class="mx-auto px-4 max-w-max-1571">
             {{-- Include the page content partial  --}}
-            <section class="relative -top-20">
+            <section class="relative -top-20 location-content">
               @include('partials.content-page')
             </section>
             {{-- Include the Locations list --}}

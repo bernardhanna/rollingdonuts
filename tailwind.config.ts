@@ -146,6 +146,8 @@ export default {
         'hero-28': '28rem',
         'hero-height' : '36.8em',
         'hero-mob': '50vh',
+        'nav': '165px',
+        'header': '220px',
       },
       width: {
         'inherit': 'inherit',
@@ -162,6 +164,7 @@ export default {
         '55': '55%',
         '56': '56%',
         '47': '47%',
+        '30' : '30%',
         '31-5': '31.5%',
         '35' : '35%',
         '40': '40%',
@@ -194,6 +197,7 @@ export default {
         'max-1000': '62rem', //1000px
         'max-1200': '75rem', //1200px
         'max-1300': '81.25rem', //1300px
+        'max-1341': '83.8125rem', //1341px
         'max-1467': '91.6875rem', //1467px
         'max-1504': '94rem', //1504px
         'max-1514': '94.625rem', //1514px
@@ -221,6 +225,7 @@ export default {
       },
       borderRadius: {
         'tl-lg': '0.5rem 0.5rem 0rem 0rem',
+        'one': '1rem',
         'md-20': '20px',
         'md-32' : '32px',
         'md-40' : '40px',

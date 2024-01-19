@@ -14,7 +14,7 @@ $mobile_menu_bg = get_field('mobile_menu_bg', 'option');
         <ul>
             @foreach ($navigation as $item)
                 <li class="my-8" x-data="{ open: false }">
-                    <a class="text-sm-md-font font-medium text-white flex items-center justify-center {{ $item->classes ?? '' }}" href="{{ $item->url }}" role="menuitem" aria-haspopup="{{ $item->children ? 'true' : 'false' }}" aria-expanded="false" @click.prevent="open = !open">
+                    <a class="text-sm-md-font font-medium text-white flex items-center justify-center {{ $item->classes ?? '' }}" href="{{ $item->url }}" role="menuitem" aria-haspopup="{{ $item->children ? 'true' : 'false' }}" aria-expanded="false">
                         {{ $item->label }}
                         @if ($item->children)
                             <span class="iconify ml-2 text-white" data-icon="basil:caret-right-outline" data-width="32px" data-height="32px" x-show="!open"></span>

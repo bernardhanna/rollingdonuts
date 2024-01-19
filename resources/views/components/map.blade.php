@@ -7,5 +7,5 @@
  */
 ?>
 <section class="relative -top-36 right-0 left-0 w-full">
-    <div id="map" class="h-[600px] w-full z-10"></div>
+    <div id="map" class="h-[500px] mobile:h-[640px] w-full z-10"></div>
 </section>
