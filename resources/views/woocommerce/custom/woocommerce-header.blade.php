@@ -6,7 +6,7 @@
  * @Last Modified time: 2023-10-24 10:23:42
  */
 ?>
-    <section class="relative w-full mb-12 x-data="{ formState: 'login' }">
+    <section class="relative w-full mb-12" x-data="{ formState: 'login' }">
         @php
         //Define Categories
         $args = array(
@@ -44,21 +44,21 @@
                 @endphp
             </div>
             <div class="relative flex items-start justify-between pt-8 px-4 desktop:p-0">
-                <div class="text-blur">
+                <div class="text-container relative inline-block width-fit-content">
+                    <h1 class="z-10 relative left-0 text-white text-mob-xxl-font lg:text-xl-font xl:text-xxxl-font font-reg420">
+                        @if(is_account_page() && !is_user_logged_in())
+                        Sign In
+                        @elseif(is_page_template('templates/template-box-products.blade.php'))
+                        Choose Your Own
+                        @elseif(is_post_type_archive('product')) <!-- Check for the WooCommerce product archive page -->
+                        Our Donuts
+                        @else
+                        @php
+                        the_title();
+                        @endphp
+                        @endif
+                    </h1>
                 </div>
-                <h1 class="left-0 absolute text-white text-mob-xxl-font lg:text-xl-font xl:text-xxxl-font font-reg420">
-                    @if(is_account_page() && !is_user_logged_in())
-                    Sign In
-                    @elseif(is_page_template('templates/template-box-products.blade.php'))
-                    Choose Your Own
-                    @elseif(is_post_type_archive('product')) <!-- Check for the WooCommerce product archive page -->
-                    Our Donuts
-                    @else
-                    @php
-                    the_title();
-                    @endphp
-                    @endif
-                </h1>
                 @if(is_page_template('templates/template-box-products.blade.php') || is_page_template('templates/template-merch-products.blade.php'))
                 <div x-data="{ showFilter: false }">
                     <button @click="showFilter = !showFilter"

@@ -14,17 +14,20 @@ body {
 
 
 @media (width >= 1300px) {
+  .post-menu {
+    position: relative;
+    left: -1rem;
+  }
+}
+
+/*
+@media (width >= 1300px) {
   .space-top-sub {
     margin-top: 14.5rem;
   }
 
   .space-top {
     margin-top: 12.9rem;
-  }
-
-  .post-menu {
-    position: relative;
-    left: -1rem;
   }
 }
 
@@ -33,20 +36,23 @@ body {
     margin-top: 14.5rem;
   }
 }
-
 @media (width <= 1250px) {
   .space-top {
     margin-top: 7rem;
   }
 
-  #donut-thumb-slider-list {
-    gap: 1rem;
-  }
 }
 
 @media (max-width <= 1084px) {
   .space-top {
     margin-top: 10rem;
+  }
+}
+*/
+
+@media (width <= 1250px) {
+  #donut-thumb-slider-list {
+    gap: 1rem;
   }
 }
 
@@ -113,8 +119,6 @@ h3 {
 
 h4 {
   @apply text-lg-font;
-
-  line-height: 68px;
 }
 
 h5 {
@@ -616,6 +620,22 @@ nav .submenu .current_page_item {
   width: 1.2em;
 }
 
+.leaflet-tile-container {
+  filter: saturate(0.7);
+}
+
+@media (width>= 575px) {
+  .text-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    background: black;
+    filter: blur(32px);
+    opacity: 1;
+  }
+}
+
 .shadow-hover {
   text-shadow:
   -1px -1px 0 #000,
@@ -810,5 +830,14 @@ nav .submenu .current_page_item {
     border: 1.383px solid var(--black-key, #000);
     background: var(--white-key, #FFF);
     box-shadow: 0 5px 0 0 rgb(0 0 0 / 25%);
+  }
+}
+
+@media (width >= 1250px) {
+  .location-content p {
+    font-family: Laca;
+    font-size: 32px;
+    line-height: 130%;
+    font-weight: 350;
   }
 }

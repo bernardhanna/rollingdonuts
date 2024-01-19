@@ -66,12 +66,15 @@ add_action('wp_footer', function() {
                     map.scrollWheelZoom.enable();
                 }
             });
+           // Map Styles
+             /*
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+            attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://carto.com/">CartoDB</a>'
+            }).addTo(map); */
 
-            // Add Wikimedia layer
-            L.tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}{r}.png', {
-                attribution: '<a href="https://wikimediafoundation.org/wiki/Maps_Terms_of_Use">Wikimedia</a>',
-                minZoom: 1,
-                maxZoom: 19
+            L.tileLayer('https://{s}.tile.jawg.io/jawg-streets/{z}/{x}/{y}.png?access-token=qmJcZHS9yKXscVXS3eJS7kC3pJs7ZduqFMUzNQHAMKG9Dk2HBz8ksbfeLxe8CX7W', {
+                attribution: 'Map data © <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://www.jawg.io/">Jawg Maps</a>',
+                maxZoom: 22
             }).addTo(map);
 
             // Custom pin
