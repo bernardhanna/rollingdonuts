@@ -24,3 +24,5 @@ cd /var/www/html
 
 git checkout main
 git pull
+
+yarn build

@@ -10,7 +10,7 @@ global $product;
 $rd_product_type = get_rd_product_type($product->get_id());
 
 ?>
-<li <?php wc_product_class('product-small-device flex flex-col relative pb-12 w-48 lg:w-31-5', $product); ?>  x-data="{ showAllergens: false }">
+<li <?php wc_product_class('w-48 lg:w-31-5 product-small-device flex flex-col relative pb-12', $product); ?>  x-data="{ showAllergens: false }">
     <?php
     $product_allergens = get_field('product_allergens', $product->get_id());
     $allergen_text = '';

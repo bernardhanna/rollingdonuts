@@ -15,7 +15,7 @@
         @else
             @include('partials.page-header')
         @endif
-        <div class="mx-auto px-4 lg:max-w-max-1549 pt-12 pb-20">
+        <div class="mx-auto px-0 mobile:px-4 lg:max-w-max-1549 pt-12 pb-20">
             @includeFirst(['partials.content-page', 'partials.content'])
         </div>
     @endwhile

@@ -57,7 +57,19 @@ body {
 }
 
 .post-type-archive-product .site-main  > .breadcrumb-nav {
-  display: none;
+  display: none!important;
+}
+
+.page-template-template-merch-products  > .breadcrumb-nav {
+  display: none!important;
+}
+
+.page-template-template-box-products  > .breadcrumb-nav {
+  display: none!important;
+}
+
+.page-template-template-box-products > .breadcrumb-nav {
+  display: none!important;
 }
 
 .w-full  > .breadcrumb-nav {
@@ -833,6 +845,12 @@ nav .submenu .current_page_item {
   }
 }
 
+@media (width <= 480px) {
+  .product-small-device {
+    width: 100%!important;
+  }
+}
+
 @media (width >= 1250px) {
   .location-content p {
     font-family: Laca;
@@ -840,4 +858,8 @@ nav .submenu .current_page_item {
     line-height: 130%;
     font-weight: 350;
   }
+}
+
+.top-150 {
+  top: 150%;
 }

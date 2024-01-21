@@ -226,3 +226,10 @@ function reading_time($content) {
     $reading_time = ceil($word_count / 250); // Assuming 250 words per minute reading speed.
     return $reading_time;
 }
+
+// Disable Breadcrumbs in header
+function disable_woocommerce_breadcrumbs() {
+    remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+}
+
+add_action( 'wp', 'disable_woocommerce_breadcrumbs' );
