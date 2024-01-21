@@ -49,7 +49,7 @@
                             @if (is_home())
                                 Blog
                             @else
-                            {{ get_the_title() }}
+                              {{ html_entity_decode(get_the_title()) }}
                             @endif
                         </h1>
                     </div>

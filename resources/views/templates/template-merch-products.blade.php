@@ -24,7 +24,7 @@ Template Name: Merch Orders
     @include('partials.space')
     @include('woocommerce.custom.woocommerce-header')
 
-    <div class="bg-cover bg-no-repeat" style="{{ $shop_bg_url ? 'background-image: url(' . $shop_bg_url . ');' : '' }}">
+    <div class="bg-cover bg-no-repeat py-24" style="{{ $shop_bg_url ? 'background-image: url(' . $shop_bg_url . ');' : '' }}">
         <div class="mx-auto px-4 pb-20 lg:max-w-max-1549">
             <ul class="filter products columns-3 flex flex-row flex-wrap w-full">
                 @php
