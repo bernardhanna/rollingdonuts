@@ -10,11 +10,9 @@
 Template Name: Sitemap
 --}}
 @extends('layouts.app')
-
 @section('content')
-@include('partials.space')
-<div class="mx-auto px-4 lg:max-w-max-1549">
-    <h1>Sitemap</h1>
+<div class="mx-auto py-20 px-4 lg:max-w-max-1549">
+    <h1 class="text-lg-font laptop:text-xl-font font-reg420">Sitemap</h1>
 
     @php
         use Log1x\Navi\Navi;
@@ -25,19 +23,19 @@ Template Name: Sitemap
     @endphp
 
     @if (isset($navigation) && !empty($navigation))
-        <ul class="sitemap-menu">
+        <ul class="sitemap-menu relative left-8">
             @foreach ($navigation as $item)
-                <li class="sitemap-menu-item {{ $item->classes ?? '' }} {{ $item->active ? 'active' : '' }}">
-                    <a href="{{ $item->url }}">
-                        {{ $item->label }}
+                <li class="sitemap-menu-item list-disc {{ $item->classes ?? '' }} {{ $item->active ? 'active' : '' }}">
+                    <a class="text-mob-xl-font font-laca font-light" href="{{ $item->url }}">
+                        {!! $item->label !!}
                     </a>
 
                     @if ($item->children)
                         <ul class="sitemap-sub-menu">
                             @foreach ($item->children as $child)
                                 <li class="sitemap-sub-menu-item {{ $child->classes ?? '' }} {{ $child->active ? 'active' : '' }}">
-                                    <a href="{{ $child->url }}">
-                                        {{ $child->label }}
+                                    <a class="text-sm-md-font font-laca font-light" href="{{ $child->url }}">
+                                        {!! $child->label !!}
                                     </a>
                                 </li>
                             @endforeach

@@ -108,6 +108,11 @@
           "slug": "grey-border"
         },
         {
+          "color": "#d8d7ce",
+          "name": "Grey Input",
+          "slug": "grey-input"
+        },
+        {
           "color": "#59e456",
           "name": "Green Success",
           "slug": "green-success"

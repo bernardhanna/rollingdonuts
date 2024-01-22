@@ -7,8 +7,8 @@
  */
 ?>
 <section class="w-full bg-white bg-cover bg-no-repeat bg-top bg-[url('/images/home/white-bg-donuts.png')]">
-    <div class="py-16 lg:py-28 px-4">
-        <div class="flex flex-col md:flex-row lg:max-w-max-1584 mx-auto">
+    <div class="py-16 lg:py-28">
+        <div class="flex flex-col md:flex-row lg:max-w-max-1584 mx-auto px-4">
             <div class="md:w-1/2 text-left">
             @php
                 $eventImage = get_field('event_image');
@@ -18,7 +18,7 @@
                 <img class="h-[325px] lg:max-w-max-95 lg:max-h-max-645 lg:h-full lg:w-full object-cover border-4 border-black-full lg:border-none rounded-20px w-auto mx-auto shadow-small lg:shadow-none" src="{{ $eventImage['url'] }}" alt="{{ $eventImage['alt'] }}">
             @endif
             </div>
-            <div class="content md:w-1/2 desktop:pt-8 desktop:pt-24 lg:flex lg:flex-col lg:pl-8 xxl:pr-37">
+            <div class="content md:w-1/2 desktop:pt-24 lg:flex lg:flex-col lg:pl-8 xxl:pr-37">
                 <h4 class="text-lg-font mt-6 font-reg420 pb-5 leading-3xl">{{ get_field('event_heading') }}</h4>
                 <p class="text-reg-font text-black-font leading-none lg:w-5/6">{{ get_field('event_text') }}</p>
                 @php
@@ -35,14 +35,14 @@
         </div>
     </div>
     <div class="pt-8 lg:pb-24 lg:pt-0 px-4">
-        <div class="flex flex-col md:flex-row-reverse lg:max-w-max-1552 mx-auto">
+        <div class="flex flex-col md:flex-row-reverse lg:max-w-max-1552 mx-auto px-0 lg:px-4">
             <div class="md:w-1/2">
             @php
                 $giftcardImage = get_field('giftcard_image');
             @endphp
 
             @if ($giftcardImage)
-                <img class="mx-auto w-full max-lg:max-w-max-358" src="{{ $giftcardImage['url'] }}" alt="{{ $giftcardImage['alt'] }}">
+                <img class="mx-auto w-full max-lg:max-w-max-358 max-w-max-750" src="{{ $giftcardImage['url'] }}" alt="{{ $giftcardImage['alt'] }}">
             @endif
             </div>
             <div class="content md:w-1/2 lg:flex lg:flex-col lg:justify-center lg:pl-0 xxl:pr-44">

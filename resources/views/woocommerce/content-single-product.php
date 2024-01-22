@@ -38,7 +38,7 @@ if ( post_password_required() ) {
 	return;
 }
 ?>
-<div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'max-w-max-1467 mx-auto flex lg:flex-row lg:justify-between', $product ); ?>>
+<div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'max-w-max-1370 mx-auto flex flex-col lg:flex-row lg:justify-between', $product ); ?>>
 
 	<?php
 	/**
@@ -50,7 +50,7 @@ if ( post_password_required() ) {
 	do_action( 'woocommerce_before_single_product_summary' );
 	?>
 
-	<div class="summary entry-summary lg:w-47">
+	<div class="summary entry-summary w-full px-8 lg:px-0 lg:w-48 relative desktop:left-20">
 		<?php
 		/**
 		 * Hook: woocommerce_single_product_summary.
@@ -68,14 +68,16 @@ if ( post_password_required() ) {
 		?>
 	</div>
 </div>
-<?php
-	/**
-	 * Hook: woocommerce_after_single_product_summary.
-	 *
-	 * @hooked woocommerce_output_product_data_tabs - 10
-	 * @hooked woocommerce_upsell_display - 15
-	 * @hooked woocommerce_output_related_products - 20
-	 */
-	do_action( 'woocommerce_after_single_product_summary' );
-	?>
+<div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'max-w-max-1584 mx-auto flex flex-col lg:flex-row lg:justify-between px-4 lg:px-0 ', $product ); ?>>
+    <?php
+        /**
+         * Hook: woocommerce_after_single_product_summary.
+         *
+         * @hooked woocommerce_output_product_data_tabs - 10
+         * @hooked woocommerce_upsell_display - 15
+         * @hooked woocommerce_output_related_products - 20
+         */
+        do_action( 'woocommerce_after_single_product_summary' );
+        ?>
+</div>
 <?php do_action( 'woocommerce_after_single_product' ); ?>

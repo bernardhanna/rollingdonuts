@@ -27,7 +27,7 @@ $wrapper_classes   = apply_filters(
 	)
 );
 ?>
-<div class="lg:w-47 <?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>" data-columns="<?php echo esc_attr( $columns ); ?>">
+<div class="w-full lg:w-49 <?php echo esc_attr( implode( ' ', array_map( 'sanitize_html_class', $wrapper_classes ) ) ); ?>" data-columns="<?php echo esc_attr( $columns ); ?>">
     <!-- Main Slider -->
     <?php if ( $post_thumbnail_id || ! empty( $image_ids ) ): ?>
     <div class="merch__single splide woocommerce-product-gallery__wrapper" id="main-slider">
@@ -36,23 +36,26 @@ $wrapper_classes   = apply_filters(
                 <?php
                 if ( $post_thumbnail_id ) {
                     $image_src = wp_get_attachment_image_src( $post_thumbnail_id, 'full' )[0];
+                    $srcset = wp_get_attachment_image_srcset( $post_thumbnail_id, 'full' );
                     $alt_text = get_post_meta($post_thumbnail_id, '_wp_attachment_image_alt', true);
-                    echo '<div class="w-full'. (empty($image_ids) ? '' : 'splide__slide') .'"><img class="main-slide-img object-cover lg:h-[520px] w-full" src="' . esc_url( $image_src ) . '" alt="' . esc_attr( $alt_text ) . '" /></div>';
+                    echo '<div class="w-full'. (empty($image_ids) ? '' : 'splide__slide') .'"><img class="main-slide-img object-cover w-full h-[520px]" src="' . esc_url( $image_src ) . '" srcset="' . esc_attr( $srcset ) . '" alt="' . esc_attr( $alt_text ) . '" /></div>';
                 }
 
                 foreach ( $image_ids as $image_id ) {
                     $image_src = wp_get_attachment_image_src( $image_id, 'full' )[0];
+                    $srcset = wp_get_attachment_image_srcset( $image_id, 'full' );
                     $alt_text = get_post_meta($image_id, '_wp_attachment_image_alt', true);
-                    echo '<div class="splide__slide"><img class="main-slide-img object-cover lg:h-[520px] w-full" src="' . esc_url( $image_src ) . '" alt="' . esc_attr( $alt_text ) . '" /></div>';
+                    echo '<div class="splide__slide"><img class="main-slide-img object-cover h-[520px] w-full" src="' . esc_url( $image_src ) . '" srcset="' . esc_attr( $srcset ) . '" alt="' . esc_attr( $alt_text ) . '" /></div>';
                 }
                 ?>
             </div>
         </div>
     </div>
-    <?php endif; ?>
+<?php endif; ?>
+
     <!-- Thumbnail Slider -->
     <?php if ( ! empty( $image_ids ) ): ?>
-    <div class="splide" id="thumbnail-slider">
+    <div class="splide max-lg:hidden" id="thumbnail-slider">
         <div class="splide__track">
             <div class="splide__list">
                 <?php

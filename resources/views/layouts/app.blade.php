@@ -25,11 +25,11 @@
 
             @include('sections.header')
 
-       
-                <div class="mx-auto">
-                    @yield('content')
-                </div>
- 
+
+            <div class="{{ is_account_page() && is_user_logged_in() ? 'bg-black-full' : 'mx-auto' }}">
+                @yield('content')
+            </div>
+
 
             @include('sections.footer')
         </div>

@@ -25,7 +25,7 @@ Template Name: Box Orders
     @include('woocommerce.custom.woocommerce-header')
 
     <div class="bg-cover bg-no-repeat" style="{{ $shop_bg_url ? 'background-image: url(' . $shop_bg_url . ');' : '' }}">
-        <div class="mx-auto px-4 pb-20  lg:max-w-max-1549">
+        <div class="mx-auto px-4 pt-7 pb-20 lg:max-w-max-100">
             <ul class="filter products columns-3 flex flex-row flex-wrap justify-between">
             @if ($ordered_categories && (is_array($ordered_categories) || is_object($ordered_categories)))
                 @foreach ($ordered_categories as $product_category)
@@ -51,7 +51,7 @@ Template Name: Box Orders
                         $box_products = new WP_Query($args);
                     @endphp
                     @if ($box_products->have_posts())
-                        <h4 class="product-category-title font-edmondsans text-xl-font font-reg420 pb-6 w-full">{{ $product_category->name }}</h4>
+                        <h4 class="product-category-title font-edmondsans text-xl-font font-reg420 w-full">{{ $product_category->name }}</h4>
                         @php
                             remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
                             remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30);
