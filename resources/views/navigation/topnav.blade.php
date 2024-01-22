@@ -6,6 +6,7 @@
  * @Last Modified time: 2023-10-24 09:57:59
  */
 ?>
+@unless(is_cart() || is_checkout())
 <div class="top-nav w-full md:max-w-max-1549 laptop:max-w-max-95 py-4 hidden laptop:flex md:justify-between laptop:justify-end relative top-0 laptop:mb-[-4]">
     <div class="md:flex md:items-center md:justify-between md:px-4 md:w-full">
     <div class="md:pl-4">
@@ -38,3 +39,4 @@
     </div>
     </div>
 </div>
+@endunless
