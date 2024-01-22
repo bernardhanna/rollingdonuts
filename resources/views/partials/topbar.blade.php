@@ -6,6 +6,7 @@
  * @Last Modified time: 2023-08-01 16:57:23
  */
 ?>
+@unless(is_cart() || is_checkout())
 @php
 $topbar_text = get_field('topbar_text', 'option');
 $discount_text = get_field('discount_text', 'option');
@@ -35,3 +36,4 @@ $discount_text = get_field('discount_text', 'option');
     </div>
 </section>
 @endif
+@endunless
