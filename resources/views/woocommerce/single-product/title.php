@@ -12,10 +12,9 @@
  * This template can be overridden by copying it to yourtheme/woocommerce/single-product/product-title.php.
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates
  * @version 3.6.0
  */
 
 defined('ABSPATH') || exit;
 
-the_title('<h1 class="text-xxxl-font font-bold entry-titles">', '</h1>');
+the_title('<h2 class="text-lg-font desktop:text-xxxl-font macbook:text-xxl-font laptop:text-xl-font font-bold entry-titles py-8">', '</h2>');

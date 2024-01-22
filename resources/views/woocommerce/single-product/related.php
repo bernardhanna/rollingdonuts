@@ -49,8 +49,8 @@ $related_products = new WP_Query( $args );
 
 if ( $related_products->have_posts() ) : ?>
 
-	<div class="related rd-related-product pt-12 pb-8 product overflow-hidden w-full">
-		<h4 class="text-black-full text-lg-font font-reg420 pt-12 pb-4">
+	<div class="related rd-related-product pb-5-5rem product overflow-hidden w-full">
+		<h4 class="text-black-full text-sm-md-font lg:text-lg-font font-reg420 pt-12 pb-4">
             <?php
             if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
                 $product_type = get_term( $terms[0], 'rd_product_type' )->name;
@@ -76,7 +76,7 @@ global $product;
 $rd_product_type = get_rd_product_type($product->get_id());
 
 ?>
-<li <?php wc_product_class('flex flex-col relative lg:w-23 lg:h-492', $product); ?>  x-data="{ showAllergens: false }">
+<li <?php wc_product_class('flex flex-col relative lg:w-23 w-full mobile:w-48 lg:h-492 h-auto', $product); ?>  x-data="{ showAllergens: false }">
     <?php
     $product_allergens = get_field('product_allergens', $product->get_id());
     $allergen_text = '';
@@ -134,7 +134,7 @@ $rd_product_type = get_rd_product_type($product->get_id());
      <?php endif; ?>
      <a class="related-post w-full h-full related-shadow cursor-pointer relative bg-white border-2 border-solid border-black hover:border-yellow-primary rounded-sm-8" href="<?php the_permalink(); ?>">
         <div class="absolute inset-0 light-black-gradient opacity-50 z-10 h-[157px] lg:h-[200px]"></div>
-        <?php echo woocommerce_get_product_thumbnail('related', array('class' => 'w-full object-cover related-post-img h-[157px] lg:h-[200px] m-0')); ?>
+        <?php echo woocommerce_get_product_thumbnail('related', array('class' => 'w-full object-cover rounded-sm-8 related-post-img h-[157px] lg:h-[200px] m-0')); ?>
         <div class="relative top-0 left-0 z-10 p-4 w-full bg-white">
             <div class="w-full flex flex-col justify-between lg:h-[245px]">
                 <h4 class="text-black-full text-sm-md-font font-reg420 font-edmondsans"><?php the_title(); ?></h4>
@@ -145,7 +145,7 @@ $rd_product_type = get_rd_product_type($product->get_id());
                     echo $product_description;
                     ?>
                     </p>
-                    <span class="text-black-full font-laca font-reg420 text-md-font text-left"><?php woocommerce_template_loop_price(); ?></span>
+                    <span class="text-black-full font-laca font-reg420 text-md-font text-left pb-4"><?php woocommerce_template_loop_price(); ?></span>
                     <button
                     href="<?php the_permalink(); ?>"
                     class="button w-full text-base-font font-reg420 h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary"

@@ -6,7 +6,7 @@
  * @Last Modified time: 2023-10-24 10:23:42
  */
 ?>
-    <section class="relative w-full md:mb-12" x-data="{ formState: 'login' }">
+    <section class="relative w-full z-50 lg:mb-12 mb-0" x-data="{ formState: 'login' }">
         @php
         //Define Categories
         $args = array(
@@ -37,13 +37,13 @@
         </div>
         @endif
 
-        <div class="px-4 desktop:p-0 mx-auto lg:max-w-max-1549 absolute h-full left-0 right-0 top-0 w-full">
-            <div class="w-full">
+        <div class="px-4 desktop:p-0 mx-auto max-w-max-1485 absolute h-full left-0 right-0 top-0 w-full">
+            <div class="w-full lg:max-w-max-1485">
                 @php
                     woocommerce_breadcrumb();
                 @endphp
             </div>
-            <div class="relative flex items-start justify-between mobile:pt-8 px-2 mobile:px-4 desktop:p-0">
+            <div class="relative flex items-start justify-between mobile:pt-8 px-2 mobile:px-4 desktop:p-0 desktop:pt-6">
                 <div class="text-container relative inline-block width-fit-content">
                     <h1 class="z-10 relative left-0 text-white text-mob-xxl-font lg:text-xl-font xl:text-xxxl-font font-reg420">
                         @if(is_account_page() && !is_user_logged_in())
@@ -60,7 +60,7 @@
                     </h1>
                 </div>
                 @if(is_page_template('templates/template-box-products.blade.php') || is_page_template('templates/template-merch-products.blade.php'))
-                <div x-data="{ showFilter: false }">
+                <div class="mt-4" x-data="{ showFilter: false }">
                     <button @click="showFilter = !showFilter"
                     :class="{'bg-yellow-primary': showFilter, 'lg:bg-white': !showFilter}"
                     class="active:bg-yellow-primary flex items-center justify-between lg:px-10 lg:py-4">
@@ -72,17 +72,17 @@
                     <!-- Filter -->
                         <div x-show="showFilter" class="absolute w-full text-black-full flex justify-center items-center top-150 left-0 right-0">
                             <ul id="custom-filter" class="flex flex-wrap flex-row justify-around items-center gap-2">
-                                <li><a class="rounded-113xl border-solid border-3 border-black-full bg-white text-sm-md-font py-4 px-8 text-black-full font-reg420 hover:bg-yellow-primary focus:outline-none focus:ring focus:ring-violet-300 focus:bg-yellow-primary active:bg-yellow-primary" href="#" data-filter="all">All</a></li>
+                                <li><a class="rounded-113xl border-solid border-3 border-black-full bg-white text-mob-md-font py-4 px-8 text-black-full font-reg420 hover:bg-yellow-primary focus:outline-none focus:ring focus:ring-violet-300 focus:bg-yellow-primary active:bg-yellow-primary" href="#" data-filter="all">All</a></li>
                                 @if ($ordered_categories && (is_array($ordered_categories) || is_object($ordered_categories)))
                                     @foreach ($ordered_categories as $product_category)
-                                        <li><a class="rounded-113xl border-solid border-3 border-black-full bg-white text-sm-md-font py-4 px-8 text-black-full font-reg420 hover:bg-yellow-primary focus:outline-none focus:ring focus:ring-violet-300 focus:bg-yellow-primary active:bg-yellow-primary" href="#" data-filter="{{ $product_category->term_id }}">{{ $product_category->name }}</a></li>
+                                        <li><a class="rounded-113xl border-solid border-3 border-black-full bg-white text-mob-md-font py-4 px-8 text-black-full font-reg420 hover:bg-yellow-primary focus:outline-none focus:ring focus:ring-violet-300 focus:bg-yellow-primary active:bg-yellow-primary" href="#" data-filter="{{ $product_category->term_id }}">{{ $product_category->name }}</a></li>
                                     @endforeach
                                 @endif
                             </ul>
                         </div>
                 </div>
                 @elseif(is_singular('product'))
-                <div class="">
+                <div class="text-container">
                     @php
                     global $product;
                     $product = wc_get_product(get_the_ID());
@@ -91,7 +91,7 @@
                         $currency = get_woocommerce_currency_symbol();
                     @endphp
                         <div class="product-price text-white text-lg-font font-medium">
-                            <bdi>{!! $currency !!}{{ $price }}</bdi>
+                            <bdi class="z-50 relative">{!! $currency !!}{{ $price }}</bdi>
                         </div>
                     @php
                     } else {

@@ -7,7 +7,7 @@
  */
 ?>
 <section class="faq-section py-20 w-full bg-grey-background">
-    <div class="flex flex-col sm:flex-row lg:max-w-max-1568 mx-auto items-center">
+    <div class="flex flex-col sm:flex-row lg:max-w-max-1568 mx-auto items-center px-4 desktop:px-0">
         @php
             $faqImage = get_field('faq_image');
             $faqButton = get_field('faq_button');
