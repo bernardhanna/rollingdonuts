@@ -951,7 +951,6 @@ nav .submenu .current_page_item {
 .woocommerce-privacy-policy-text, .woocommerce-info {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  font-family: Laca;
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 350;
@@ -1030,7 +1029,6 @@ nav .submenu .current_page_item {
   border-radius: 10px;
   border: var(--Item-counter, 1px) solid var(--yellow-disabled, #D8D7CE);
   padding-left: 1.5rem;
-  font-family: Laca;
   font-size: 14px;
   font-style: normal;
   font-weight: 350;
