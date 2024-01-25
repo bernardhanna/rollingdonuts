@@ -19,9 +19,6 @@ Template Name: Merch Orders
         $shop_bg_url = get_field('shop_bg', 'option');
         $ordered_categories = get_field('merch_ordered_categories'); // Fetch the ordered categories using ACF
     @endphp
-
-
-    @include('partials.space')
     @include('woocommerce.custom.woocommerce-header')
 
     <div class="bg-cover bg-no-repeat py-24" style="{{ $shop_bg_url ? 'background-image: url(' . $shop_bg_url . ');' : '' }}">

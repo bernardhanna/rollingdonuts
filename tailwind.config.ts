@@ -114,7 +114,9 @@ export default {
       'sm': '0.125rem',
       DEFAULT: '0.25rem',
       'md': '0.375rem',
+      'form' : '2.5rem',
       'lg-x': '4.5rem',
+      'normal': '0.5rem',
       'large': '8.25rem',
       'full': '100%',
     },
@@ -203,6 +205,7 @@ export default {
         'max-1000': '62rem', //1000px
         'max-1200': '75rem', //1200px
         'max-1300': '81.25rem', //1300px
+        'max-1336': '83.5rem', //1336px
         'max-1341': '83.8125rem', //1341px
         'max-1370': '85.625rem', //1370px
         'max-1405': '87.8125rem', //1405px

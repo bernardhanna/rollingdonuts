@@ -1,12 +1,3 @@
-footer
-blog and single post
-Things like flash of unstyled content and Notifications
-Mobile Menu
-
-==================
-missing homepage elements
-donuts mobile
-
 git checkout develop
 git add .           
 git commit -am "17-jan-2024"
@@ -16,6 +7,9 @@ git checkout main
 git pull origin main        
 git merge develop
 
+====================
+Digital Ocean
+====================
 
 cd /var/www/html
 

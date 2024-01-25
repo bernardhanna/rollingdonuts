@@ -14,7 +14,6 @@
 $shop_bg_url = get_field('shop_bg', 'option');
 @endphp
 @section('content')
-    @include('partials.space')  
     {{-- Include the Page Header partial  --}}
     @include('partials.page-header')
     <div class="bg-cover bg-no-repeat" style="{{ $shop_bg_url ? 'background-image: url(' . $shop_bg_url . ');' : '' }}">

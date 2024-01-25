@@ -18,8 +18,8 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 <div class="shop_div woocommerce-checkout-review-order-div border-2 border-solid border-black-full rounded-20px boxshadow w-full">
-		<div class="bg-grey-disabled flex justify-between p-4">
-			<div class="product-name text-left bg-grey-disabled text-base-font font-reg420 py-[8px] px-2 w-1/2"><?php esc_html_e( 'Product', 'woocommerce' ); ?></div>
+		<div class="bg-gray-disabled bg-grey-disabled relative -z-1 rounded-tl-[10px] rounded-tr-[10px] flex justify-between px-8 pt-4">
+			<div class="product-name text-left bg-grey-disabled text-base-font font-reg420 w-1/2"><?php esc_html_e( 'Product', 'woocommerce' ); ?></div>
 			<div class="product-total text-right bg-grey-disabled text-base-font font-reg420 py-[8px] px-2 w-1/2"><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></div>
 		</div>
 	<div class="">
@@ -31,7 +31,7 @@ defined( 'ABSPATH' ) || exit;
 
 			if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_checkout_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
 				?>
-				<div class="<?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item flex justify-between p-4 w-full', $cart_item, $cart_item_key ) ); ?>">
+				<div class="<?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item flex justify-between px-8 py-4 w-full border-b border-neutral-200', $cart_item, $cart_item_key ) ); ?>">
 					<div class="product-name">
 						<?php echo wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) ) . '&nbsp;'; ?>
 						<?php echo apply_filters( 'woocommerce_checkout_cart_item_quantity', ' <strong class="product-quantity">' . sprintf( '&times;&nbsp;%s', $cart_item['quantity'] ) . '</strong>', $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
@@ -50,7 +50,7 @@ defined( 'ABSPATH' ) || exit;
 	</div>
 	<div>
 
-		<div class="cart-subtotal flex justify-between p-4">
+		<div class="cart-subtotal flex justify-between px-8 py-4 border-b border-neutral-200">
 			<div><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></div>
 			<div><?php wc_cart_totals_subtotal_html(); ?></div>
   </div>
@@ -73,7 +73,7 @@ defined( 'ABSPATH' ) || exit;
 		<?php endif; ?>
 
 		<?php foreach ( WC()->cart->get_fees() as $fee ) : ?>
-			<div class="fee flex justify-between p-4">
+			<div class="fee flex justify-between px-8 py-4">
 				<div><?php echo esc_html( $fee->name ); ?></div>
 				<div><?php wc_cart_totals_fee_html( $fee ); ?></div>
     </div>
@@ -88,7 +88,7 @@ defined( 'ABSPATH' ) || exit;
         </div>
 				<?php endforeach; ?>
 			<?php else : ?>
-				<div class="tax-total flex justify-between p-4">
+				<div class="tax-total flex justify-between px-8 py-4">
 					<div><?php echo esc_html( WC()->countries->tax_or_vat() ); ?></div>
 					<div><?php wc_cart_totals_taxes_total_html(); ?></div>
       </div>
@@ -97,7 +97,7 @@ defined( 'ABSPATH' ) || exit;
 
 		<?php do_action( 'woocommerce_review_order_before_order_total' ); ?>
 
-		<div class="order-total flex justify-between">
+		<div class="order-total flex justify-between px-8 py-4">
 			<div><?php esc_html_e( 'Total', 'woocommerce' ); ?></div>
 			<div><?php wc_cart_totals_order_total_html(); ?></div>
       </div>

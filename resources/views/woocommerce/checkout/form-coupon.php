@@ -30,8 +30,8 @@ if ( ! wc_coupons_enabled() ) { // @codingStandardsIgnoreLine.
 
 ?>
 <div class="mx-auto max-w-max-1568 flex justify-start text-left flex-col">
-<h1 class="text-black-full text-xl-font font-reg420 mb-4"><?php _e('Check Out', 'rolling-donut'); ?></h1>
-<span class="text-sm-md-font font-reg420 mb-6"><?php _e('Please Note: Delivery in Dublin area only', 'rolling-donut'); ?></span>
+<h1 class="text-black-full text-xl-font font-reg420 mb-2"><?php _e('Check out', 'rolling-donut'); ?></h1>
+<span class="text-sm-md-font font-light mb-6"><?php _e('Please Note: Delivery in Dublin area only', 'rolling-donut'); ?></span>
 <div class="woocommerce-form-coupon-toggle">
 	<?php wc_print_notice( apply_filters( 'woocommerce_checkout_coupon_message', esc_html__( 'Have a coupon?', 'woocommerce' ) . ' <a href="#" class="showcoupon">' . esc_html__( 'Click here to enter your code', 'woocommerce' ) . '</a>' ), 'notice' ); ?>
 </div>
