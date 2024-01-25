@@ -66,3 +66,4 @@ text-mob-xs-font font-laca font-light pl-11 flex w-full" name="username" id="use
     </form>
 </div>
 </div>
+<?php wc_print_notices(); ?>

@@ -1063,9 +1063,30 @@ nav .submenu .current_page_item {
   display: flex;
 }
 
-@media (width >= 993px) {
+@media (width >= 1300px) {
+  .name-field {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .name-field .single-field-wrapper  {
+    max-width: 300px;
+  }
+}
+
+@media (width >= 1640px) {
   .name-field .single-field-wrapper  {
     max-width: 362px;
+  }
+}
+
+@media (width <= 1300px) {
+  .name-field {
+    flex-direction: column;
+  }
+
+  .name-field .single-field-wrapper  {
+    max-width: 100%;
   }
 }
 
