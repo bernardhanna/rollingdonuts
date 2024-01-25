@@ -36,13 +36,13 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 ?>
 <div class="pb-24 mb-10">
-    <form name="checkout" method="post" class="checkout woocommerce-checkout mx-auto max-w-max-1568 flex flex-flow flex-row lg:justify-between" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
+    <form name="checkout" method="post" class="checkout woocommerce-checkout mx-auto max-w-max-1568 flex lg:flex-row flex-col lg:justify-between" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
 
         <?php if ( $checkout->get_checkout_fields() ) : ?>
 
             <?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
 
-            <div class="w-full md:w-3/5 xxl:w-[772px]" id="customer_details">
+            <div class="xxl:w-1/2 desktop:w-[772px] w-full" id="customer_details">
                 <div class="col-1">
                     <?php do_action( 'woocommerce_checkout_billing' ); ?>
                 </div>
@@ -55,7 +55,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
             <?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
 
         <?php endif; ?>
-        <div class="w-full md:w-2/5 xxl:w-[640px]">
+        <div class="xxl:w-1/2 desktop:w-[640px] w-full ">
             <?php do_action( 'woocommerce_checkout_before_order_review_heading' ); ?>
 
             <h3 class="text-md-font font-reg420 mb-6" id="order_review_heading"><?php esc_html_e( 'Your order', 'woocommerce' ); ?></h3>

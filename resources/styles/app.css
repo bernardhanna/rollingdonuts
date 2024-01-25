@@ -1,6 +1,6 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss/utilities';;
 @import '@splidejs/splide/dist/css/splide.min.css';
 
 html {
@@ -351,6 +351,10 @@ nav .submenu .current_page_item {
 
 .woocommerce .woocommerce-breadcrumb a {
   color: #fff;
+}
+
+.rd-notice {
+  z-index: 1000;
 }
 
 .featured-donuts .splide__arrow svg {
@@ -1036,7 +1040,7 @@ nav .submenu .current_page_item {
 }
 
 .single-field-wrapper {
-  padding-bottom: 1rem;
+  padding-bottom: 1rem!important;
 }
 
 .woocommerce-account-fields p label {
@@ -1069,6 +1073,13 @@ nav .submenu .current_page_item {
   padding-bottom: 0;
 }
 
-#shipping_address_1, #shipping_postcode, #shipping_phone, #shipping_email {
-  margin-bottom: 1rem;
+.select2-container {
+  left: unset!important;
+  right:  unset!important;
 }
+
+.select2-container--open .select2-dropdown {
+  left: 0;
+  right: 0;
+}
+
