@@ -31,7 +31,7 @@ if ( ! $notices ) {
 }
 
 ?>
-<div class="rd-notice woocommerce-error w-full" role="alert">
+<div class="rd-notice woocommerce-error w-full fixed bottom-0 left-0 right-0 z-90" role="alert">
 	<?php foreach ( $notices as $notice ) : ?>
         <?php
         // Get the image URL from Theme Options using ACF's get_field function

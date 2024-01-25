@@ -254,8 +254,29 @@ add_action('woocommerce_before_single_product_summary', 'customize_single_produc
 function custom_add_to_cart_button() {
     global $product;
 
-    echo '<form class="cart py-8" action="' . esc_url($product->add_to_cart_url()) . '" method="post" enctype="multipart/form-data">';
-    echo '<button type="submit" name="add-to-cart" value="' . esc_attr($product->get_id()) . '" class="single_add_to_cart_button h-[58px] text-sm-md-font font-reg420 text-yellow-primary hover:text-black-full bg-black-full hover:bg-yellow-primary rounded-lg-x border-2 border-yellow-primary w-full max-w-max-368">Add to Basket</button>';
+    // Get the RD product type
+    $rd_product_type = get_rd_product_type($product->get_id());
+
+    // Determine the action URL and button text based on the RD product type
+    $action_url = esc_url($product->add_to_cart_url());
+    $button_text = 'Order now'; // Default text
+
+    switch ($rd_product_type) {
+        case 'Donut':
+            $action_url = '/donut-box/';
+            $button_text = 'Order Now';
+            break;
+        case 'Merch':
+            $button_text = 'Add to Basket';
+            break;
+        case 'Box':
+            $button_text = 'Add to Box';
+            break;
+    }
+
+    // Output the form and button with dynamic action URL and button text
+    echo '<form class="cart py-8" action="' . $action_url . '" method="post" enctype="multipart/form-data">';
+    echo '<button type="submit" name="add-to-cart" value="' . esc_attr($product->get_id()) . '" class="single_add_to_cart_button h-[58px] text-sm-md-font font-reg420 text-yellow-primary hover:text-black-full bg-black-full hover:bg-yellow-primary rounded-lg-x border-2 border-yellow-primary w-full max-w-max-368">' . esc_html($button_text) . '</button>';
     echo '</form>';
 }
 
@@ -391,7 +412,7 @@ remove_action( 'woocommerce_before_single_product', 'wc_print_notices', 10 );
 add_action( 'woocommerce_before_shop_loop', 'custom_woocommerce_notices_output', 10 );
 add_action( 'woocommerce_before_single_product', 'custom_woocommerce_notices_output', 10 );
 
-//Only Donuts products on teh WooCOmmerce Shop page/ Our Donuts page
+//Only Donuts products on the WooCOmmerce Shop page/ Our Donuts page
 add_action( 'pre_get_posts', 'filter_products_by_rd_product_type' );
 
 function filter_products_by_rd_product_type( $query ) {
@@ -407,7 +428,6 @@ function filter_products_by_rd_product_type( $query ) {
         $query->set( 'tax_query', $tax_query );
     }
 }
-
 /*
  ****************************************************************
  * BREADCRUMB EDITS
@@ -603,7 +623,7 @@ function custom_woocommerce_form_field_args( $args, $key, $value ) {
             $args['placeholder'] = 'First Name';
             $args['input_class'][] = 'lg:w-99';
             $args['wrapper_class'] = 'first-name-wrapper';
-            $args['before_field'] = '<div class="billing-name-wrapper flex w-full flex-wrap flex-row justify-between items-center">';  //
+            $args['before_field'] = '<div class="billing-name-wrapper flex w-full flex-wrap flex-col md:flex-row md:justify-between items-center">';  //
             break;
 
         case 'billing_last_name':
@@ -698,7 +718,7 @@ function change_woocommerce_field_markup($field, $key, $args, $value) {
 
     // Wrap first and last name fields together for both billing and shipping
     if ($key === 'billing_first_name' || $key === 'shipping_first_name') {
-        $field = '<div class="name-field w-full flex flex-flow flex-row lg:justify-between">' . $field;
+        $field = '<div class="name-field w-full flex flex-col lg:flex-row lg:justify-between">' . $field;
     } else if ($key === 'billing_last_name' || $key === 'shipping_last_name') {
         $field = $field . '</div>';
     }
@@ -851,3 +871,28 @@ function override_default_address_checkout_fields( $address_fields ) {
     $address_fields['email']['class'][] = 'icon-email';
     return $address_fields;
 }
+
+
+function custom_woocommerce_login_form_field_args( $args, $key, $value ) {
+    // Add Tailwind classes to form fields
+    if ( in_array( $key, array( 'username', 'password' ) ) ) {
+        $args['input_class'] = array('border', 'border-gray-300', 'p-2', 'rounded');
+        $args['label_class'] = array('block', 'text-sm', 'font-medium', 'mb-1');
+    }
+
+    return $args;
+}
+add_filter( 'woocommerce_form_field_args', 'custom_woocommerce_login_form_field_args', 10, 3 );
+
+function custom_login_button_styles() {
+    $custom_css = "
+        .woocommerce-form-login .woocommerce-button {
+            background-color: #3182ce; /* Tailwind blue-500 */
+            color: #ffffff;
+            padding: 12px;
+            border-radius: 0.25rem;
+        }
+    ";
+    wp_add_inline_style( 'your-main-stylesheet-handle', $custom_css );
+}
+add_action( 'wp_enqueue_scripts', 'custom_login_button_styles' );

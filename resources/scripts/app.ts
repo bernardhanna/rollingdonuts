@@ -154,5 +154,3 @@ if (window.location.pathname === '/') {
   }
 });
 
-
-
