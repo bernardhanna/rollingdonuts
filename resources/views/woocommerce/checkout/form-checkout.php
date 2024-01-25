@@ -42,7 +42,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
             <?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
 
-            <div class="xxl:w-1/2 desktop:w-[772px] w-full" id="customer_details">
+            <div class="xxl:w-1/2 desktop:w-[772px] w-full pr-0 md:pr-8 desktop:pr-0" id="customer_details">
                 <div class="col-1">
                     <?php do_action( 'woocommerce_checkout_billing' ); ?>
                 </div>

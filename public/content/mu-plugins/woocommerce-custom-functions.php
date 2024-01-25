@@ -718,7 +718,7 @@ function change_woocommerce_field_markup($field, $key, $args, $value) {
 
     // Wrap first and last name fields together for both billing and shipping
     if ($key === 'billing_first_name' || $key === 'shipping_first_name') {
-        $field = '<div class="name-field w-full flex flex-col lg:flex-row lg:justify-between">' . $field;
+        $field = '<div class="name-field w-full flex flex-col xl:flex-row xl:justify-between">' . $field;
     } else if ($key === 'billing_last_name' || $key === 'shipping_last_name') {
         $field = $field . '</div>';
     }
