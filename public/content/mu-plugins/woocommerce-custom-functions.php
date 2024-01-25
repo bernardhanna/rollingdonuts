@@ -493,10 +493,10 @@ function customize_my_account_address_fields($args, $key, $value) {
     if (is_account_page()) {
         // Add custom class to all input fields
         $args['input_class'][] = 'rounded-lg-x h-input text-black-secondary
-        text-mob-xs-font font-laca font-light pl-11 w-full flex mb-4';
+        text-mob-xs-font font-laca font-light pl-11 w-full flex';
 
         // Add custom class to all labels
-        $args['label_class'][] = 'mt-4 ml-2 text-mob-xs-font font-reg420';
+        $args['label_class'][] = 'ml-2 text-mob-xs-font font-reg420';
 
         // Define custom placeholders for specific fields
         $custom_placeholders = array(
@@ -507,6 +507,7 @@ function customize_my_account_address_fields($args, $key, $value) {
             'billing_postcode' => 'Eircode',
             'billing_phone' => 'Phone Number',
             'billing_email' => 'Email Address',
+
         );
 
         // If there's a custom placeholder for this field, use it
@@ -515,6 +516,36 @@ function customize_my_account_address_fields($args, $key, $value) {
         }
     }
     return $args;
+}
+//SHIPPING FORM
+add_filter('woocommerce_shipping_fields', 'customize_checkout_shipping_fields', 20, 1);
+function customize_checkout_shipping_fields($shipping_fields) {
+    // Define custom placeholders for specific fields
+    $custom_placeholders = array(
+        'shipping_first_name' => 'First name',
+        'shipping_last_name'  => 'Surname',
+        'shipping_company'    => 'Company Name',
+        'shipping_address_1'  => 'Enter your address',
+        'shipping_postcode'   => 'Eircode',
+        'shipping_phone'      => 'Phone Number',
+        'shipping_email'      => 'Email Address',
+    );
+
+    // Iterate over the shipping fields and apply changes
+    foreach ($shipping_fields as $key => $field) {
+        // Add custom class to all input fields
+        $shipping_fields[$key]['input_class'][] = 'rounded-lg-x h-input text-black-secondary text-mob-xs-font font-laca font-light pl-11 w-full flex';
+
+        // Add custom class to all labels
+        $shipping_fields[$key]['label_class'][] = 'mt-4 ml-2 text-mob-xs-font font-reg420';
+
+        // If there's a custom placeholder for this field, use it
+        if (isset($custom_placeholders[$key])) {
+            $shipping_fields[$key]['placeholder'] = $custom_placeholders[$key];
+        }
+    }
+
+    return $shipping_fields;
 }
 // EDIT BUTTON ON BILLING ON MY ACCOUNT
 function custom_woocommerce_button_classes( $button, $product ) {
@@ -563,8 +594,8 @@ function custom_woocommerce_thumbnail_size( $size ) {
 function custom_woocommerce_form_field_args( $args, $key, $value ) {
 
     //Styling Form Fields Using Filters
-    $args['label_class'][] = 'ml-2 text-mob-xs-font font-reg420 block py-2';
-    $args['input_class'][] = 'woocommerce-Input woocommerce-Input--text input-text rounded-lg-x h-input text-black-secondary text-mob-xs-font font-laca font-light pl-11 flex w-full mb-4';
+    $args['label_class'][] = 'ml-2 text-mob-xs-font font-reg420 block pb-2';
+    $args['input_class'][] = 'woocommerce-Input woocommerce-Input--text input-text rounded-lg-x h-input text-black-secondary text-mob-xs-font font-laca font-light pl-11 flex w-full';
 
     // Check if the key matches any of our conditions
     switch($key) {
@@ -620,28 +651,60 @@ function custom_woocommerce_form_field_args( $args, $key, $value ) {
             $args['placeholder'] = 'Email';
             break;
 
+
+            case 'shipping_company':
+                $args['placeholder'] = 'Company';
+                break;
+
+            case 'shipping_address_1':
+                $args['placeholder'] = 'House Number and street name';
+                break;
+
+            case 'shipping_address_2':
+                $args['placeholder'] = 'Apartment, suite, unit etc (Optional)';
+                break;
+
+            case 'shipping_city':
+                $args['placeholder'] = 'Town/ City';
+                break;
+
+            case 'shipping_state':
+                $args['placeholder'] = 'County';
+                break;
+
+            case 'shipping_postcode':
+                $args['placeholder'] = 'Eircode';
+                break;
+
+
+
         default:
             break;
     }
 
     return $args;
 }
-add_filter( 'woocommerce_form_field_args', 'custom_woocommerce_form_field_args', 10, 3 );
-//WRAP FIRST AND LAST NAME FIELD
-function change_woocommerce_field_markup($field, $key, $args, $value) {
 
+//STYLE NAMES FIELD
+add_filter( 'woocommerce_form_field_args', 'custom_woocommerce_form_field_args', 10, 3 );
+add_filter( 'woocommerce_form_field', 'change_woocommerce_field_markup', 10, 4 );
+
+function change_woocommerce_field_markup($field, $key, $args, $value) {
+    // Remove 'form-row' class from the field
     $field = str_replace('form-row', '', $field);
 
-    $field = '<div class="single-field-wrapper w-full" data-priority="' . $args['priority'] .
-    '">' . $field . '</div>';
+    // Wrap each field with a div
+    $field = '<div class="single-field-wrapper w-full" data-priority="' . $args['priority'] . '">' . $field . '</div>';
 
-     if($key === 'billing_first_name')
-        $field = '<div class="w-full flex flex-flow flex-row lg:justify-between">'.$field;
-     else if ($key === 'billing_last_name')
-        $field = $field.'</div>';
+    // Wrap first and last name fields together for both billing and shipping
+    if ($key === 'billing_first_name' || $key === 'shipping_first_name') {
+        $field = '<div class="name-field w-full flex flex-flow flex-row lg:justify-between">' . $field;
+    } else if ($key === 'billing_last_name' || $key === 'shipping_last_name') {
+        $field = $field . '</div>';
+    }
 
     return $field;
-  }
+}
 
 add_filter("woocommerce_form_field","change_woocommerce_field_markup", 10, 4);
 //Only ALlow Dublin as an Option
@@ -737,3 +800,54 @@ function assign_shipping_zone_based_on_postcode($zone, $package) {
     return $zone;
 }
 */
+/*
+ ****************************************************************
+ * CART TOTALS
+ ***********************************************************\
+*/
+/*
+ ****************************************************************
+ * PAYMENTS
+ ***********************************************************\
+*/
+//Payment button
+function change_woocommerce_order_button_text( $order_button_text ) {
+    return 'Pay now'; // Change the button text to "Pay now"
+}
+
+add_filter( 'woocommerce_order_button_text', 'change_woocommerce_order_button_text' );
+
+function custom_woocommerce_order_button_html( $button_html ) {
+    // Retrieve the order button text
+    $order_button_text = apply_filters( 'woocommerce_order_button_text', __('Place order', 'woocommerce') );
+
+    // Define custom classes
+    $custom_classes = 'btn text-black-full hover:text-yellow-primary text-mob-lg-font lg:text-sm-md-font font-medium h-[66px] bg-yellow-primary rounded-lg-x w-full rd-border hover:bg-black-primary woocommerce-button button woocommerce-form-login__submit ml-auto mr-auto max-w-max-704 mt-6';
+
+    // Build the button HTML
+    $button_html = '<button type="submit" class="button alt ' .
+        esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ) . ' ' .
+        $custom_classes . '" name="woocommerce_checkout_place_order" id="place_order" value="' .
+        esc_attr( $order_button_text ) . '" data-value="' .
+        esc_attr( $order_button_text ) . '">' . esc_html( $order_button_text ) . '</button>';
+
+    return $button_html;
+}
+
+add_filter( 'woocommerce_order_button_html', 'custom_woocommerce_order_button_html' );
+// ADD ICONS TO FIELDS
+add_filter('woocommerce_default_address_fields', 'override_default_address_checkout_fields', 20, 1);
+function override_default_address_checkout_fields( $address_fields ) {
+    $address_fields['first_name']['class'][] = 'icon-first-name';
+    $address_fields['last_name']['class'][] = 'icon-last-name';
+    $address_fields['company']['class'][] = 'icon-company';
+    $address_fields['address_1']['class'][] = 'icon-address-1';
+    $address_fields['address_2']['class'][] = 'icon-address-2';
+    $address_fields['city']['class'][] = 'icon-city';
+    $address_fields['state']['class'][] = 'icon-state';
+    $address_fields['postcode']['class'][] = 'icon-postcode';
+    $address_fields['country']['class'][] = 'icon-country';
+    $address_fields['phone']['class'][] = 'icon-phone';
+    $address_fields['email']['class'][] = 'icon-email';
+    return $address_fields;
+}

@@ -25,7 +25,7 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
-<div class="cart_totals w-full max-w-max-503 <?php echo ( WC()->customer->has_calculated_shipping() ) ? 'calculated_shipping' : ''; ?>">
+<div class="px-4 md:px-0 cart_totals w-full md:max-w-max-503 <?php echo ( WC()->customer->has_calculated_shipping() ) ? 'calculated_shipping' : ''; ?>">
 
 	<?php do_action( 'woocommerce_before_cart_totals' ); ?>
     <div class="border-b-2 border-black-full py-4 text-left">
@@ -104,7 +104,7 @@ defined( 'ABSPATH' ) || exit;
 
 		<?php do_action( 'woocommerce_cart_totals_before_order_total' ); ?>
 
-		<div class="order-total text-black-full text-base-font font-reg420 w-full flex justify-between items-center border-b border-black-full border-solid">
+		<div class="order-total text-black-full text-base-font font-reg420 w-full flex justify-between items-center border-b-2 border-black-full border-solid">
 			<div class="pl-6 text-left bg-grey-background py-5 w-1/2"><?php esc_html_e( 'Total', 'woocommerce' ); ?></div>
 			<div data-title="<?php esc_attr_e( 'Total', 'woocommerce' ); ?>"><?php wc_cart_totals_order_total_html(); ?></div>
 		</div>

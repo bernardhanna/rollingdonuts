@@ -43,7 +43,7 @@
                     @endphp
                 </div>
              <?php }   ?>
-                <div class="flex justify-start mobile:justify-center flex-col">
+                <div class="flex justify-center flex-col">
                     <div class="text-container relative inline-block width-fit-content mobile:m-auto">
                         <h1 class="z-10 relative text-left mobile:text-center text-white text-mob-xxl-font lg:text-xl-font xl:text-xxxl-font font-reg420">
                             @if (is_home())
@@ -56,11 +56,13 @@
                     @php
                     $description = get_post_field('post_excerpt', get_the_ID());
                     @endphp
-                    <span class="text-white lg:text-center lg:text-sm-font xl:text-md-font font-reg420">
-                        @if (!empty($description))
-                            {{ $description }}
-                        @endif
-                    </span>
+                    @if (!empty($description))
+                        <div class="w-auto mobile:m-auto z-50 relative">
+                            <span class="text-white font-Laca text-mob-md-font font-normal font-extrabold:350 leading-130 z-50 relative w-fit">
+                                    {{ $description }}
+                            </span>
+                        </div>
+                    @endif
                 </div>
             </div>
     </section>

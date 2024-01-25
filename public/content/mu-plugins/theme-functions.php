@@ -55,7 +55,7 @@ function generate_breadcrumb_output($links) {
         $isLastItem = ($index === $lastIndex);
         $colorClass = $isLastItem ? 'text-yellow-primary font-bolder' : 'text-white';
 
-        $breadcrumb .= '<span class="breadcrumb-item text-white"><a class="' . $colorClass . ' font-laca text-sm-font" href="' . esc_url($link['url']) . '">' . esc_html($link['text']) . '</a></span>';
+        $breadcrumb .= '<span class="breadcrumb-item text-white"><a class="' . $colorClass . 'font-medium font-laca text-sm-font" href="' . esc_url($link['url']) . '">' . esc_html($link['text']) . '</a></span>';
 
         if ($index < $lastIndex) {
             $breadcrumb .= '<span class="mx-2 text-white font-laca text-sm-font"> > </span>';

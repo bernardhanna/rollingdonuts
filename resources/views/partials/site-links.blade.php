@@ -14,7 +14,7 @@
             $hideSection = '';
     }
     @endphp
-<section class="my-8 lg:max-w-max-1341 lg:mx-auto sitelinks flex flex-col px-6 lg:p-0 {{ $hideSection }} lg:grid lg:grid-rows-3 grid-flow-col gap-3">
+<section class="my-8 lg:max-w-max-1341 lg:mx-auto sitelinks flex flex-col px-4 md:px-6 lg:p-0 {{ $hideSection }} lg:grid lg:grid-rows-3 grid-flow-col gap-3">
     @php
     $site_links = get_field('site_links', 'option');
   @endphp

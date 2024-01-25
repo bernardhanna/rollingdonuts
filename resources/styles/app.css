@@ -118,13 +118,21 @@ h6 {
 }
 
 p {
-  @apply text-reg-font font-regular;
+  @apply text-reg-font font-light;
 }
 
 @media (width <= 1084px) {
   p {
     @apply text-sm-font font-light;
   }
+}
+
+[type='text'], [type='email'], [type='url'], [type='password'], [type='number'], [type='date'], [type='datetime-local'], [type='month'], [type='search'], [type='tel'], [type='time'], [type='week'], [multiple], textarea, select {
+  background-color: #fff;
+  border-radius: 12.5rem;
+  border: var(--Item-counter, 1px) solid var(--yellow-disabled, #D8D7CE);
+
+  --tw-shadow: 0 0 rgb(0 0 0 / 0%);
 }
 
 input {
@@ -535,7 +543,12 @@ nav .submenu .current_page_item {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 26px;
+  font-weight: bold;
+  position: relative;
+  padding-top: 1.1px;
+  padding-left: 1.1px;
+  cursor: pointer;
 }
 
 .remove:hover {
@@ -550,6 +563,10 @@ nav .submenu .current_page_item {
 }
 
 #billing_country_field {
+  display: none;
+}
+
+#shipping_country_field {
   display: none;
 }
 
@@ -921,4 +938,140 @@ nav .submenu .current_page_item {
   list-style: disc!important;
   left: 1rem;
   position: relative;
+}
+
+.-z-1 {
+  z-index: -1;
+}
+
+.woocommerce {
+  width: 100%;
+}
+
+.woocommerce-privacy-policy-text, .woocommerce-info {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-family: Laca;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 350;
+  line-height: 130%;
+}
+
+.woocommerce .has-icon .woocommerce-input-wrapper {
+  position: relative;
+}
+
+/* Repeat and adjust for different fields */
+.woocommerce-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.woocommerce .woocommerce-input-wrapper::before {
+  position: absolute;
+  margin: auto;
+  z-index: 100;
+  height: 19.5px;
+  width: 19.5px;
+  left: 1rem;
+}
+
+.woocommerce .icon-first-name .woocommerce-input-wrapper::before {
+  content: url('https://api.iconify.design/ph/user-light.svg?width=22&height=22');
+}
+
+.woocommerce .icon-last-name .woocommerce-input-wrapper::before {
+  content: url('https://api.iconify.design/ph/user-light.svg?width=22&height=22');
+}
+
+.woocommerce .icon-company .woocommerce-input-wrapper::before {
+  content: url('https://api.iconify.design/carbon/location-company.svg?width=22&height=22');
+}
+
+.woocommerce .icon-address-1 .woocommerce-input-wrapper::before {
+  content: url('https://api.iconify.design/octicon/home-24.svg?width=22&height=22');
+}
+
+.woocommerce .icon-address-2 .woocommerce-input-wrapper::before {
+  display: none;
+}
+
+.woocommerce .icon-address-2 .input-text, .woocommerce .icon-postcode .input-text {
+  padding-left: 1.5rem;
+}
+
+.woocommerce .icon-city .woocommerce-input-wrapper::before {
+  content: url('https://api.iconify.design/ph/map-pin.svg?width=22&height=22');
+}
+
+.woocommerce .icon-email .woocommerce-input-wrapper::before {
+  position: absolute;
+  margin: auto;
+  z-index: 100;
+  height: 19.5px;
+  width: 19.5px;
+  left: 1rem;
+  content: url('https://api.iconify.design/carbon/email.svg?width=22&height=22');
+}
+
+.woocommerce-input-wrapper #billing_email::before {
+  position: absolute;
+  margin: auto;
+  z-index: 100;
+  height: 19.5px;
+  width: 19.5px;
+  left: 1rem;
+  content: url('https://api.iconify.design/icon-park-twotone/phone-telephone.svg?width=22&height=22');
+}
+
+#order_comments {
+  border-radius: 10px;
+  border: var(--Item-counter, 1px) solid var(--yellow-disabled, #D8D7CE);
+  padding-left: 1.5rem;
+  font-family: Laca;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 350;
+  line-height: 130%;
+}
+
+.single-field-wrapper {
+  padding-bottom: 1rem;
+}
+
+.woocommerce-account-fields p label {
+ display: flex;
+ align-items: center;
+}
+
+.woocommerce-account-field {
+  margin-top: 1rem;
+}
+
+.woocommerce-account-fields label span {
+  font-family: Edmondsans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 410;
+  line-height: 20px;
+}
+
+.woocommerce-shipping-fields label {
+  display: flex;
+}
+
+@media (width >= 993px) {
+  .name-field .single-field-wrapper  {
+    max-width: 362px;
+  }
+}
+
+.woocommerce-shipping-fields .single-field-wrapper {
+  padding-bottom: 0;
+}
+
+#shipping_address_1, #shipping_postcode, #shipping_phone, #shipping_email {
+  margin-bottom: 1rem;
 }
