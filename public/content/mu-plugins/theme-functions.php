@@ -35,6 +35,7 @@ function should_remove_breadcrumbs() {
            is_account_page() ||
            is_cart() ||
            is_checkout() ||
+           is_single() ||
            is_page_template('templates/template-sitemap.blade.php');
 }
 

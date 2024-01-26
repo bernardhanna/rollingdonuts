@@ -6,7 +6,7 @@
  * @Last Modified time: 2023-11-01 15:24:55
  */
 ?>
- @if (!is_cart() && !is_checkout())
+ @if (!is_cart() && !is_checkout() && !is_single())
     <section class="relative w-full z-20">
         @php
         // DESKTOP
