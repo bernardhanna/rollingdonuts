@@ -8,7 +8,6 @@
 ?>
 @extends('layouts.app')
 @section('content')
-@include('partials.space')
     @while(have_posts()) @php(the_post())
         @if (is_account_page())
             @include('woocommerce.custom.woocommerce-header')

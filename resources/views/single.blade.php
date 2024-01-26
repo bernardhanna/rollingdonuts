@@ -7,17 +7,37 @@
  */
 ?>
 @extends('layouts.app')
+
 @section('content')
-@include('partials.space')
-@include('partials.page-header')
-<div class="mx-auto max-w-max-1571 flex flex-col lg:flex-row py-12">
-    <div class="w-full lg:w-3/4">
-        @while(have_posts()) @php(the_post())
-            @includeFirst(['partials.content-single-' . get_post_type(), 'partials.content-single'])
-        @endwhile
-    </div>
-    <div class="w-full lg:w-1/4">
-        @include('blog.related')
-    </div>
-</div>
+    @include('partials.page-header')
+
+    @while(have_posts()) @php(the_post())
+        <div class="w-full relative">
+            {{-- Check if the post has a featured image and display it --}}
+            @if(has_post_thumbnail())
+                    {!! wp_get_attachment_image(get_post_thumbnail_id(), 'full', false, ['class' => 'w-full object-cover h-[300px] sm-mob:h-[500px] max-w-max-sitewidth margin-auto']) !!}
+            @endif
+                <div class="h-auto sm-mob:h-full after:relative sm-mob:absolute top-0 left-0 right-0 w-full mx-auto max-w-[1296px] flex items-start sm-mob:items-center px-4 xl:px-0">
+                    <div class="bg-white w-full lg:w-[517px] h-auto p-5 rounded-normal">
+                        <h1 class="text-xl-font font-reg420 leading-[56px] mb-6">
+                            {!! get_the_title() !!}
+                        </h1>
+                        <div class="p-summary text-base mb-6">
+                            {!! get_the_excerpt() !!}
+                        </div>
+                        @include('partials.entry-meta')
+                    </div>
+                </div>
+            </div>
+
+        <div class="mx-auto max-w-[1296px] flex flex-col lg:flex-row py-12  px-4 xl:px-0">
+            <div class="w-full lg:w-3/4">
+                @includeFirst(['partials.content-single-' . get_post_type(), 'partials.content-single'])
+            </div>
+            <div class="w-full lg:w-sidebar">
+                @include('blog.related')
+            </div>
+        </div>
+    @endwhile
 @endsection
+

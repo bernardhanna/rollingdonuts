@@ -1,25 +1,15 @@
-footer
+Max height 100%
 blog and single post
-Things like flash of unstyled content and Notifications
+flash of unstyled content
+All Notifications
 Mobile Menu
+Products on mobile
+Animations
+Fix Single button displaying notification
 
-==================
-missing homepage elements
-donuts mobile
+===========================================
+Home Page elements
+About Page
+Wedding PAge
+Allergen page
 
-git checkout develop
-git add .           
-git commit -am "17-jan-2024"
-git push
-
-git checkout main   
-git pull origin main        
-git merge develop
-
-
-cd /var/www/html
-
-git checkout main
-git pull
-
-yarn build

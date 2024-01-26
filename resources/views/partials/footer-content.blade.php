@@ -29,7 +29,7 @@
             @endphp
                 <div class="space-x-8 my-6 text-center flex max-lg:justify-center lg:text-left">
                     @if ($twitterProfileUrl)
-                        <a href="{{ $twitterProfileUrl }}" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" class="text-white h-8 leading-none hover:text-yellow-primary" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path class="fill-white hover:fill-yellow-primary" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></a>
+                        <a href="{{ $twitterProfileUrl }}" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" class="text-white h-8 leading-none hover:text-yellow-primary" viewBox="0 0 512 512"><path class="fill-white hover:fill-yellow-primary" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></a>
                     @endif
 
                     @if ($facebookProfileUrl)
@@ -95,9 +95,9 @@
          </div>
         </div>
     </div>
-    <div class="h-[2px] bg-white ml-auto mr-auto mt-4 mb-4 w-11/12 lg:max-w-max-1552"></div>
-    <div class="copyright flex-col-reverse flex-col one-xl:flex-row flex items-center justify-items-center one-xl:justify-between pl-4 pr-4 one-xl:max-w-max-1549 one-xl:mx-auto one-xl:pl-0 one-xl:pr-0 lg:pb-6">
-        <div class="order-last one-xl:order-first mb-[10px] lg:mb-0 flex items-center flex-col lg:flex-row">
+    <div class="px-4 h-[2px] bg-white ml-auto mr-auto my-4 lg:max-w-max-1552"></div>
+    <div class="px-4 copyright flex-col laptop:flex-row flex items-center justify-items-center laptop:justify-between pl-4 pr-4 macbook:max-w-max-1549 macbook:mx-auto desktop:pl-0 desktop:pr-0 lg:pb-6">
+        <div class="order-last laptop:order-first mb-[10px] lg:mb-0 flex items-center flex-col lg:flex-row">
             <span class="text-white text-mob-xs-font font-lighter">&copy; {{ date('Y') }} {{ get_field('copyright_text', 'option') }}</span>
             @php
             $copyrightMenu = get_field('copyright_menu_four', 'option');
@@ -113,7 +113,7 @@
             </div>
         @endif
         </div>
-        <div class="w-1/2 flex flex-col items-center lg:flex-row max-md:items-center justify-between">
+        <div class="w-full laptop:w-40 macbook:1/2 flex flex-col items-center lg:flex-row max-md:items-center justify-between">
             <div class="my-4 lg:my-0">
                 @php
                 $copyrightLogoImage = get_field('copyright_logo', 'option');

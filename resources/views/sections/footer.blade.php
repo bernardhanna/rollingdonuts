@@ -6,7 +6,7 @@
  * @Last Modified time: 2023-08-23 16:58:01
  */
 ?>
-<footer class="footer w-full relative z-1 overflow-hidden">
+<footer class="footer w-full relative bottom-0 left-0 right-0 z-1 overflow-hidden">
     @include('partials.newsletter')
     @include('partials.footer-content')
 

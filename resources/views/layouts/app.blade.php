@@ -26,7 +26,7 @@
             @include('sections.header')
 
 
-            <div class="{{ is_account_page() && is_user_logged_in() ? 'bg-black-full' : 'mx-auto' }}">
+            <div class="{{ is_account_page() && is_user_logged_in() ? 'bg-black-full' : 'mx-auto min-h-full' }}">
                 @yield('content')
             </div>
 

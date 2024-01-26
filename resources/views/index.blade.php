@@ -8,7 +8,6 @@
 ?>
 @extends('layouts.app')
 @section('content')
-@include('partials.space')
 @include('partials.page-header')
     <div class="mx-auto max-w-max-1571">
         @include('blog.featured')

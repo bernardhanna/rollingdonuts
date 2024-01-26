@@ -96,35 +96,53 @@ body {
   top: -.3rem;
 }
 
+.light-grey {
+  color: rgb(0 0 0 / 40%);
+}
+
 /* TYPOGRAPHY */
 b {
   @apply font-bold;
 }
 
-h3 {
-  @apply text-xl-font;
+.e-content h1 {
+  @apply text-xl-font font-edmondsans font-regular leading-[3.5rem];
 }
 
-h4 {
-  @apply text-lg-font;
+.e-content h2 {
+  @apply text-xl-font font-edmondsans font-regular leading-[3.5rem];
 }
 
-h5 {
-  @apply text-md-font;
+.e-content h3 {
+  @apply text-xl-font font-edmondsans font-regular leading-[3.5rem];
 }
 
-h6 {
-  @apply text-sm-font;
+.e-content h4 {
+  @apply text-md-font font-edmondsans font-reg420 leading-[3.5rem];
 }
 
-p {
-  @apply text-reg-font font-light;
+.e-content h5 {
+  @apply text-font-28 font-edmondsans font-reg420 leading-[3.5rem];
 }
 
-@media (width <= 1084px) {
-  p {
-    @apply text-sm-font font-light;
-  }
+.e-content h6 {
+  @apply text-sm-md-font font-edmondsans font-reg420 leading-[3.5rem];
+}
+
+.e-content p {
+  @apply font-laca text-sm-font font-light leading-[1.3rem];
+}
+
+.reading-time::after {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 16 16'%3E%3Cpath fill='black' fill-rule='evenodd' d='M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 0.5em;
+  position: relative;
 }
 
 [type='text'], [type='email'], [type='url'], [type='password'], [type='number'], [type='date'], [type='datetime-local'], [type='month'], [type='search'], [type='tel'], [type='time'], [type='week'], [multiple], textarea, select {
