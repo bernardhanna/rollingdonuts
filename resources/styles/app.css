@@ -19,6 +19,12 @@ body {
     left: -1rem;
   }
 }
+@media (width <= 1084px) {
+  .mob-no-b-border {
+    border-bottom-left-radius: 0!important;
+    border-bottom-right-radius: 0!important;
+  }
+}
 
 /*
 @media (width >= 1300px) {

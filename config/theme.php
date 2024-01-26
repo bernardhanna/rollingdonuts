@@ -19,6 +19,8 @@ return [
      */
     'image_sizes' => [
         'related' => [200, 200, true],
+        'medium_large' => [768, 0, false],
+        'custom-small' => [9999, 250, false],
         'small' => [309, 309, true],
         'large' => [800, 800, true],
     ],
