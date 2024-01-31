@@ -11,7 +11,7 @@ import type { Bud } from "@roots/bud";
 export default async (bud: Bud) => {
   bud
   .proxy(`https://rollingdonuts.lndo.site`)
-  .serve(`http://localhost:3000`)
+  .serve(`http://localhost:3002`)
     .watch([bud.path(`resources/views`), bud.path(`app`)])
 
     .entry(`app`, [`@scripts/app`, `@styles/app`])
