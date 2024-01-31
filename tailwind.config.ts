@@ -95,6 +95,7 @@ export default {
       'md': '768px',
       'tablet-sm': '993px',
       'lg': '1084px',
+      'notebook': '1180px',
       'laptop': '1250px',
       'xl': '1280px',
       'macbook': '1300px',

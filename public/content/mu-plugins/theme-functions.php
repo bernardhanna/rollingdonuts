@@ -119,6 +119,9 @@ function custom_admin_styles() {
             background-color: #ffed56!important;
             color: #000000!important;
         }
+        .login #login .admin-email-confirm-form .admin-email__details {
+            color: #ffffff!important;
+        }
     </style>';
 }
 add_action('admin_head', 'custom_admin_styles');
