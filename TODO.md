@@ -1,5 +1,4 @@
-Max height 100%
-blog and single post
+
 flash of unstyled content
 All Notifications
 Mobile Menu

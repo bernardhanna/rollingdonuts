@@ -18,4 +18,6 @@
             @includeFirst(['partials.content-page', 'partials.content'])
         </div>
     @endwhile
+    {{-- Include the Instagram partial  --}}
+    @include('partials.instagram-slider')
 @endsection

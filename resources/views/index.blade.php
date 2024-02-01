@@ -9,7 +9,7 @@
 @extends('layouts.app')
 @section('content')
 @include('partials.page-header')
-    <div class="mx-auto max-w-max-1571">
+    <div class="mx-auto max-w-max-1596 px-4 desktop:px-0">
         @include('blog.featured')
         @if (! have_posts())
             <x-alert type="warning">
@@ -85,7 +85,7 @@
                     6 => 'notebook:h-[437px]',
                     7 => 'notebook:h-[565px]',
                     8 => 'notebook:h-[437px]',
-                    9 => 'notebook:h-[581px]',
+                    9 => 'notebook:h-[565px]',
                 ];
                   $image_height = $image_heights[$counter] ?? 'notebook:h-auto'; // Default to auto height if not specified
 
@@ -104,11 +104,11 @@
                 @endphp
 
                     <a href="{{ $post_link }}" @php(post_class("border-2 boxshadow-three border-solid border-black-full rounded-sm-10 p-4 {$item_height} {$item_center_class} {$margin_top}"))>
-                        <img class="rounded-sm-10 w-full {{ $image_height }} object-cover" src="{{ get_the_post_thumbnail_url($post_id, 'full') }}" alt="{{ $post_title }}" />
-                        <h2 class="post-title text-black-full text-base-font font-reg420 pb-6">{{ $post_title }}</h2>
-                        <span class="reading-time text-sm-font text-black-full font-regular">{{ $reading_time }} min read</span>
-                        <div class="flex flex-row flex-wrap justify-between items-center py-4">
-                            <span class="post-date text-sm-font text-black-full font-regular">{{ $post_date }}</span>
+                        <img class="rounded-normal w-full {{ $image_height }} object-cover" src="{{ get_the_post_thumbnail_url($post_id, 'full') }}" alt="{{ $post_title }}" />
+                        <h4 class="post-title text-black-full text-sm-md-font font-reg420 leading-[1.625rem] pt-4 pb-3 relative">{{ $post_title }}</h4>
+                        <span class="reading-time text-reg-font text-black-full underline font-medium flex items-center">{{ $reading_time }} min read</span>
+                        <div class="flex flex-row flex-wrap justify-between items-center py-2">
+                            <span class="post-date text-reg-font light-grey font-regular">{{ $post_date }}</span>
                         </div>
                     </a>
                     <?php $counter++; ?>
@@ -117,5 +117,8 @@
             </div>
         {!! custom_pagination() !!}
     </div>
+    {{-- Include the Instagram partial  --}}
+    @include('partials.instagram-slider')
 </div>
 @endsection
+

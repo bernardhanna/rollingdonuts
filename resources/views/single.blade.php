@@ -38,6 +38,8 @@
                 @include('blog.related')
             </div>
         </div>
+        {{-- Include the Instagram partial  --}}
+        @include('partials.instagram-slider')
     @endwhile
 @endsection
 

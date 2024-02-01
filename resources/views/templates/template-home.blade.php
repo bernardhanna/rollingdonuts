@@ -28,7 +28,8 @@
     @include('partials.trust-pilot')--}}
     {{-- Include the Faqs partial  --}}
     @include('partials.faqs')
-
+    {{-- Include the Instagram partial  --}}
+    @include('partials.instagram-slider')
     {{-- Include the Site Links partial  --}}
     @include('partials.site-links')
   {{-- Use the content from the template-home.blade.php --}}
