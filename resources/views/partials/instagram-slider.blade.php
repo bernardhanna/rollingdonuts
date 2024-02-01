@@ -6,6 +6,7 @@
  * @Last Modified time: 2023-09-19 16:38:15
  */
 ?>
+@if(function_exists('do_shortcode') && get_field('instagram_username', 'option'))
 <section class="w-full instagram-posts relative lg:overflow-hidden">
     <div class="lg:max-w-max-1571 mx-auto pb-20 px-4 overflow-hidden">
         <div class="py-8 flex flex-col justify-start items-start">
@@ -26,3 +27,4 @@
         {!! do_shortcode('[insta-gallery id="0"]') !!}
     </div>
 </section>
+@endif
