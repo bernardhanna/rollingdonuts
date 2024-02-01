@@ -12,6 +12,9 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('partials.space')  
+    @include('partials.space')
     @include('partials.page-header')
+
+    {{-- Include the Instagram partial  --}}
+    @include('partials.instagram-slider')
 @endsection

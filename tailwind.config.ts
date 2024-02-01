@@ -100,6 +100,7 @@ export default {
       'xl': '1280px',
       'macbook': '1300px',
       'xxl': '1440px',
+      'insta-flow': '1590px',
       'desktop': '1628px',
       'xxxl': '1920px',
       'xxxxl': '2500px',
@@ -223,6 +224,7 @@ export default {
         'max-1571': '98.1875rem', //1571px;
         'max-1578': '98.625rem', //1578px
         'max-1584': '99rem', //1584px
+        'max-1596': '99.75rem', //1590px
         'max-100': '100rem',
         'sitewidth': '107.875rem', //1726px
         'max-95': '95%', //95%

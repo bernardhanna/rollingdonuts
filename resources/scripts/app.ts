@@ -24,6 +24,33 @@ function updateSlideCounts(currentSlide: number) {
     });
 }
 
+
+function initializeFeaturedPostsSplide() {
+  if (window.innerWidth <= 1580) {
+      return new Splide('.featured-posts-wrapper', {
+          type: 'slide',
+          perPage: 4.5,
+          gap: '1rem',
+          loop: true,
+          pagination: false,
+          arrows: false,
+          drag: true,
+          breakpoints: {
+            1440: {
+              perPage: 3.5,
+            },
+            1180: {
+                perPage: 2.5,
+            },
+            820: {
+                perPage: 1.5,
+            },
+        },
+      }).mount();
+  }
+  return null;
+}
+
 function initializeServiceSplide() {
     if (window.location.pathname === '/' && window.innerWidth <= 1084) {
         return new Splide('.service-splide', {
@@ -54,9 +81,11 @@ function handleResize(serviceSplide: Splide | null) {
 // DOMContentLoaded Event Listener
 document.addEventListener('DOMContentLoaded', function () {
     let serviceSplide = initializeServiceSplide();
+    let featuredPostsSplide = initializeFeaturedPostsSplide();
 
     window.addEventListener('resize', () => {
         serviceSplide = handleResize(serviceSplide);
+        featuredPostsSplide = handleFeaturedPostsResize(featuredPostsSplide);
     });
 
     // FEATURED DONUT SLIDER
@@ -154,3 +183,16 @@ if (window.location.pathname === '/') {
   }
 });
 
+function handleFeaturedPostsResize(featuredPostsSplide: Splide | null) {
+  if (window.innerWidth <= 1580) {
+      if (!featuredPostsSplide) {
+          return initializeFeaturedPostsSplide();
+      }
+  } else {
+      if (featuredPostsSplide) {
+          featuredPostsSplide.destroy();
+          return null;
+      }
+  }
+  return featuredPostsSplide;
+}

@@ -71,22 +71,36 @@ class ThemeOptions extends Field
             'return_format' => 'url', // Return image URL
         ])
 
+        ->addTab('Instagram')
+        ->addText('instagram_feed_title', [
+            'label' => 'Section Title'
+        ])
+        ->addText('instagram_feed_subtitle', [
+            'label' => 'Section Subtitle'
+        ])
+        ->addText('instagram_username', [
+            'label' => 'Instagram Username'
+        ])
+        ->addText('instagram_profile_url_option', [
+            'label' => 'Instagram Profile Url',
+        ])
+
         ->addTab('Header')
         ->addImage('icon_image', [
             'label' => 'Icon Image',
-            'return_format' => 'url', // Return image URL
+            'return_format' => 'url',
         ])
         ->addText('topbar_text', [
-            'label' => 'Topbar Text'
+            'label' => 'Topbar Text',
         ])
         ->addLink('signup_link', [
-            'label' => 'Sign Up Link'
+            'label' => 'Sign Up Link',
         ])
         ->addText('discount_text', [
             'label' => 'Discount Text'
         ])
         ->addText('office_telephone', [
-            'label' =>'Telephone Number'
+            'label' =>'Telephone Number',
         ])
 
         ->addTab('Footer')
