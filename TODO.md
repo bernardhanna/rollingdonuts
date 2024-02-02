@@ -1,10 +1,5 @@
-
-flash of unstyled content
-
-All Notifications
-Mobile Menu
 Products on mobile
-
+slider issue
 Animations
 Fix Single button displaying notification
 

@@ -27,7 +27,7 @@ $shop_bg_url = get_field('shop_bg', 'option');
             {{-- Include the Site Links partial  --}}
             @include('partials.site-links')
         </div>
+        {{-- Include the Instagram partial  --}}
+        @include('partials.instagram-slider')
     </div>
-    {{-- Include the Instagram partial  --}}
-    @include('partials.instagram-slider')
 @endsection

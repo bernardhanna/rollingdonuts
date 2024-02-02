@@ -25,32 +25,6 @@ function updateSlideCounts(currentSlide: number) {
 }
 
 
-function initializeFeaturedPostsSplide() {
-  if (window.innerWidth <= 1580) {
-      return new Splide('.featured-posts-wrapper', {
-          type: 'slide',
-          perPage: 4.5,
-          gap: '1rem',
-          loop: true,
-          pagination: false,
-          arrows: false,
-          drag: true,
-          breakpoints: {
-            1440: {
-              perPage: 3.5,
-            },
-            1180: {
-                perPage: 2.5,
-            },
-            820: {
-                perPage: 1.5,
-            },
-        },
-      }).mount();
-  }
-  return null;
-}
-
 function initializeServiceSplide() {
     if (window.location.pathname === '/' && window.innerWidth <= 1084) {
         return new Splide('.service-splide', {
@@ -61,6 +35,35 @@ function initializeServiceSplide() {
         }).mount();
     }
     return null;
+}
+
+function initializeFeaturedPostsSplide() {
+  return new Splide('.featured-posts-wrapper', {
+      type: 'slide',
+      perPage: 5,
+      loop: true,
+      pagination: false,
+      arrows: false,
+      drag: true,
+      breakpoints: {
+        1590: {
+          perPage: 4,
+          gap: '1rem',
+        },
+        1440: {
+          perPage: 3.5,
+          gap: '1rem',
+        },
+        1180: {
+            perPage: 2.5,
+            gap: '1rem',
+        },
+        820: {
+            perPage: 1.5,
+            gap: '1rem',
+        },
+    },
+  }).mount();
 }
 
 function handleResize(serviceSplide: Splide | null) {
@@ -183,15 +186,17 @@ if (window.location.pathname === '/') {
   }
 });
 
-function handleFeaturedPostsResize(featuredPostsSplide: Splide | null) {
+function handleFeaturedPostsResize(featuredPostsSplide) {
   if (window.innerWidth <= 1580) {
       if (!featuredPostsSplide) {
-          return initializeFeaturedPostsSplide();
+          // Initialize the Splide slider when the window width is 1580px or below
+          featuredPostsSplide = initializeFeaturedPostsSplide();
       }
   } else {
       if (featuredPostsSplide) {
+          // Destroy the Splide slider when the window width exceeds 1580px
           featuredPostsSplide.destroy();
-          return null;
+          featuredPostsSplide = null;
       }
   }
   return featuredPostsSplide;
