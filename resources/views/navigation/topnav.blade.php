@@ -34,6 +34,7 @@
         <div class="nav-line  hidden laptop:flex"></div>
         <a class="z-50 reg-font hidden laptop:flex align-center flex-row items-center " href="{{ wc_get_cart_url() }}">
             <span class="iconify" data-icon="grommet-icons:basket" data-width="32" data-height="32"></span>
+            <span class="text-tiny font-reg420 bg-red-critical w-[14px] h-[14px] flex items-center justify-center rounded-full border-2 border-black- border-solid p-2 basket-detail">{{ WC()->cart->get_cart_contents_count() }}</span>
             <span class="ml-2 text-reg-font font-reg420">{!! wc_price(WC()->cart->get_total('edit')) !!}</span>
         </a>
     </div>
