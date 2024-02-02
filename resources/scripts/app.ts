@@ -37,35 +37,6 @@ function initializeServiceSplide() {
     return null;
 }
 
-function initializeFeaturedPostsSplide() {
-  return new Splide('.featured-posts-wrapper', {
-      type: 'slide',
-      perPage: 5,
-      loop: true,
-      pagination: false,
-      arrows: false,
-      drag: true,
-      breakpoints: {
-        1590: {
-          perPage: 4,
-          gap: '1rem',
-        },
-        1440: {
-          perPage: 3.5,
-          gap: '1rem',
-        },
-        1180: {
-            perPage: 2.5,
-            gap: '1rem',
-        },
-        820: {
-            perPage: 1.5,
-            gap: '1rem',
-        },
-    },
-  }).mount();
-}
-
 function handleResize(serviceSplide: Splide | null) {
     if (window.innerWidth <= 1084 && !serviceSplide) {
         return new Splide('.service-splide', {
@@ -84,11 +55,9 @@ function handleResize(serviceSplide: Splide | null) {
 // DOMContentLoaded Event Listener
 document.addEventListener('DOMContentLoaded', function () {
     let serviceSplide = initializeServiceSplide();
-    let featuredPostsSplide = initializeFeaturedPostsSplide();
 
     window.addEventListener('resize', () => {
         serviceSplide = handleResize(serviceSplide);
-        featuredPostsSplide = handleFeaturedPostsResize(featuredPostsSplide);
     });
 
     // FEATURED DONUT SLIDER
@@ -185,19 +154,3 @@ if (window.location.pathname === '/') {
     }
   }
 });
-
-function handleFeaturedPostsResize(featuredPostsSplide) {
-  if (window.innerWidth <= 1580) {
-      if (!featuredPostsSplide) {
-          // Initialize the Splide slider when the window width is 1580px or below
-          featuredPostsSplide = initializeFeaturedPostsSplide();
-      }
-  } else {
-      if (featuredPostsSplide) {
-          // Destroy the Splide slider when the window width exceeds 1580px
-          featuredPostsSplide.destroy();
-          featuredPostsSplide = null;
-      }
-  }
-  return featuredPostsSplide;
-}
