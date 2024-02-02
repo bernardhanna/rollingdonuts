@@ -139,6 +139,13 @@ b {
   @apply font-laca text-sm-font font-light leading-[1.3rem];
 }
 
+.basket-detail {
+  position: relative;
+  right: 0;
+  margin-top: -10px;
+  margin-left: -10px;
+}
+
 .reading-time::after {
   content: "";
   display: inline-block;
@@ -388,6 +395,16 @@ nav .submenu .current_page_item {
   visibility: visible;
 }
 
+.woocommerce-error a {
+  color: #ffed56;
+  font-weight: 420;
+  margin-left: .5rem;
+}
+
+.woocommerce-error a:hover {
+  text-decoration: underline;
+}
+
 .woocommerce .woocommerce-breadcrumb a {
   color: #fff;
 }
@@ -592,6 +609,10 @@ nav .submenu .current_page_item {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='0 0 17 17' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.93124 15.6548C5.66723 15.9188 5.23918 15.9188 4.97516 15.6548L4.0283 14.7079C3.76449 14.4441 3.76426 14.0165 4.02778 13.7524L9.73028 8.03741L4.02778 2.32245C3.76426 2.05836 3.76449 1.63071 4.0283 1.3669L4.97517 0.420034C5.23918 0.156022 5.66723 0.156022 5.93124 0.420034L13.5486 8.03741L5.93124 15.6548Z' fill='white'/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.instagram-gallery-item:hover .instagram-gallery-item__media-mask {
+  opacity: .3;
 }
 
 /* WOO COMMERCE OVERRIDES */
@@ -1169,3 +1190,4 @@ nav .submenu .current_page_item {
 .instagram-gallery-feed {
   overflow: hidden;
 }
+

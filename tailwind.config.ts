@@ -77,6 +77,7 @@ export default {
       'mob-sm-font': '16px',
       'mob-xs-font': '14px',
       'mob-xxs-font': '12px',
+      'tiny': '10px',
     },
     fontWeight: {
       lighter: '300',
