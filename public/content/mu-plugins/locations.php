@@ -79,7 +79,7 @@ add_action('wp_footer', function() {
 
             // Custom pin
             var customPin = L.icon({
-                iconUrl: 'https://rollingdonuts.lndo.site/content/uploads/2023/09/13-1.png',
+                iconUrl: '/content/uploads/2023/09/13-1.png',
                 iconSize: [75,75],
             });
 
