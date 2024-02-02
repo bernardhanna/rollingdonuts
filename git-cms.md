@@ -14,6 +14,9 @@ Digital Ocean
 cd /var/www/html
 
 git checkout main
+git add .
+git commit -m "todays changes"
 git pull
 
 yarn build
+dd

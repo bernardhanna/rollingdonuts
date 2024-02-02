@@ -6,10 +6,13 @@
  * @Last Modified time: 2023-11-02 09:21:19
  */
 ?>
+@php
+$shop_bg_url = get_field('shop_bg', 'option');
+@endphp
 @extends('layouts.app')
 @section('content')
 @include('partials.page-header')
-    <div class="mx-auto max-w-max-1596 px-4 desktop:px-0">
+    <div class="bg-cover bg-no-repeat"  class="mx-auto max-w-max-1596 px-4 desktop:px-0">
         @include('blog.featured')
         @if (! have_posts())
             <x-alert type="warning">
@@ -41,7 +44,7 @@
             @endforeach
         </ul>
 
-        <div x-data="{ columnCount: 3 }" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-max-1300 ml-auto mr-auto">
+        <div x-data="{ columnCount: 3 }" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-max-1300 ml-auto mr-auto bg-white">
 
             <!-- WordPress standard loop -->
             @if (have_posts())
