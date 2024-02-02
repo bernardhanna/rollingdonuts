@@ -33,7 +33,7 @@ $shop_bg_url = get_field('shop_bg', 'option');
         ));
         @endphp
     <div class="px-4">
-        <ul class="categories-filter flex flex-wrap flex-row justify-center items-cente gap-4 my-20" id="post-filter">
+        <ul class="categories-filter flex flex-nowrap overflow-x-auto flex-row justify-start sm:justify-center items-center lg:justify-center gap-4 my-20" id="post-filter">
             <li class="h-[56px] flex items-center justify-center rounded-113xl border-solid border-3 border-black-full bg-white text-sm-md-font py-4 px-8 text-black-full font-reg420 hover:bg-yellow-primary focus:outline-none focus:ring focus:ring-violet-300 focus:bg-yellow-primary active:bg-yellow-primary">
                 <a href="{{ get_permalink(get_option('page_for_posts')) }}">All</a>
             </li>

@@ -1191,3 +1191,12 @@ nav .submenu .current_page_item {
   overflow: hidden;
 }
 
+
+
+/* Hide the default scrollbar and style it */
+@media (width <= 48em) {
+  ::-webkit-scrollbar {
+    width: 0!important;
+    height: 0!important;
+}
+}

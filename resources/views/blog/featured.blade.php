@@ -11,9 +11,9 @@
 $featured_posts = get_field('featured_posts', get_option('page_for_posts'));
 @endphp
 @if ($featured_posts)
-<div class="splide featured-posts-wrapper flex flex-flow flex-row justify-between items-center my-12 px-4 bg-white">
-    <div class="splide__track w-full pb-4">
-        <ul class="splide__list flex flex-flow flex-row justify-between items-center w-full bg-white lg:gap-0">
+<div class="flex flex-flow flex-row justify-between items-center my-12 lg:px-4 bg-white">
+    <div class="w-full pb-4">
+        <ul class="flex flex-flow flex-nowrap overflow-x-auto flex-row justify-between items-center w-full bg-white lg:gap-0">
             @foreach ($featured_posts as $featured_post)
                 @php
                 // Fetch post details using the post ID
@@ -41,7 +41,7 @@ $featured_posts = get_field('featured_posts', get_option('page_for_posts'));
                 $word_count = str_word_count($stripped_content);
                 $reading_time = ceil($word_count / 250);
                 @endphp
-                <li class="splide__slide featured-post insta-flow:border-2 border-solid border-black-full rounded-sm-10 p-4 mobile:boxshadow-three">
+                <li class="featured-post insta-flow:border-2 border-solid border-black-full rounded-sm-10 p-4 mobile:boxshadow-three min-w-[280px]">
                     <a href="{{ $post_link }}" class="w-full h-full">
                         <img class="rounded-sm-10 w-full h-[300px] object-cover" src="{{ $post_image_url }}" srcset="{{ $post_image_srcset }}" sizes="(max-width: 267px) 100vw, 267px" alt="{{ $post_title }}" />
                         <div class="flex flex-row flex-wrap justify-between items-center pt-4">
