@@ -11,7 +11,7 @@ Template Name: Sitemap
 --}}
 @extends('layouts.app')
 @section('content')
-<div class="mx-auto py-20 px-4 lg:max-w-max-1549">
+<div class="mx-auto py-20 px-4 lg:max-w-max-1549 overflow-hidden">
     <h1 class="text-lg-font laptop:text-xl-font font-reg420">Sitemap</h1>
 
     @php
@@ -23,7 +23,7 @@ Template Name: Sitemap
     @endphp
 
     @if (isset($navigation) && !empty($navigation))
-        <ul class="sitemap-menu relative left-8">
+        <ul class="sitemap-menu relative left-8 overflow-hidden">
             @foreach ($navigation as $item)
                 <li class="sitemap-menu-item list-disc {{ $item->classes ?? '' }} {{ $item->active ? 'active' : '' }}">
                     <a class="text-mob-xl-font font-laca font-light" href="{{ $item->url }}">

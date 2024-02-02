@@ -112,7 +112,7 @@ function get_rd_product_type($product_id) {
 }
 // Add Product Types to Products on backend
 add_filter('manage_edit-product_columns', function($columns) {
-    $columns['rd_product_type'] = __('RD Product Type', 'rolling-donut');
+    $columns['rd_product_type'] = __('RD Product Type', 'rollingdonuts');
     return $columns;
 });
 
@@ -896,3 +896,29 @@ function custom_login_button_styles() {
     wp_add_inline_style( 'your-main-stylesheet-handle', $custom_css );
 }
 add_action( 'wp_enqueue_scripts', 'custom_login_button_styles' );
+
+
+/*
+ ****************************************************************
+ * NOTICES
+ ***********************************************************\
+*/
+add_filter('wc_add_to_cart_message_html', 'customize_wc_add_to_cart_message_with_tailwind', 10, 2);
+
+function customize_wc_add_to_cart_message_with_tailwind($message, $products) {
+    $productNames = array_map(function ($productId) {
+        return get_the_title($productId);
+    }, array_keys($products));
+
+    $productName = $productNames[0];
+
+    $viewCartButtonClasses = 'text-yellow-primary text-sm-md-font font-reg42 hover:underline';
+    $productNameClasses = 'font-laca text-white text-sm-md-font font-light';
+
+    $styledProductName = "<span class=\"$productNameClasses\">$productName</span>";
+    $message = str_replace("“{$productName}”", $styledProductName, $message);
+
+    $styledViewCartLink = str_replace('class="button wc-forward"', "class=\"$viewCartButtonClasses\"", $message);
+
+    return $styledViewCartLink;
+}

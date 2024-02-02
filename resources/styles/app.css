@@ -208,7 +208,18 @@ input {
   height: 32px;
   position: relative;
   right: 0.4rem;
+  transition: all 0.3s ease;
 }
+
+.btn-top:hover::before {
+  content: url('/images/icons/yellowdonut.png');
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  position: relative;
+  right: 0.4rem;
+}
+
 
 .hoverno-underline {
   text-decoration: none!important;
@@ -335,6 +346,10 @@ nav .submenu .current_page_item {
   box-shadow: 0 8px 0 0 rgb(0 0 0 / 25%);
 }
 
+.close-shadow {
+  box-shadow: 0 4px 0 0 rgb(0 0 0 / 25%);
+}
+
 .display-md {
   display: none;
 }
@@ -375,6 +390,10 @@ nav .submenu .current_page_item {
 
 .woocommerce .woocommerce-breadcrumb a {
   color: #fff;
+}
+
+.woo-notice-shadow {
+  box-shadow: 0 8px 0 0 rgb(0 0 0 / 20%);
 }
 
 .rd-notice {
