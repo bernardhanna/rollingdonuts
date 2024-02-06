@@ -19,4 +19,3 @@ git commit -m "todays changes"
 git pull
 
 yarn build
-dd

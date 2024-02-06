@@ -23,7 +23,7 @@ $featuredDonuts = get_field('donuts');
                             <div class="w-full lg:w-45 left-feature">
                                  <img
                                     id="featuredImage"
-                                    class="w-full h-[300px] mobile:h-full object-cover xyz-in xyz-n10"
+                                    class="featured-image transition duration-150 ease-in-out w-full h-[300px] mobile:h-full object-cover xyz-in xyz-n10"
                                     xyz="fade up big"
                                     src="{{ get_the_post_thumbnail_url($donut->ID) }}"
                                     sizes="(max-width: 640px) 309px, 800px"
@@ -32,8 +32,10 @@ $featuredDonuts = get_field('donuts');
                             <div class="w-full lg:w-1/2 h-auto laptop:h-[800px]" style="background-color: {{ $bgColor }}">
                                 <div class="h-full flex flex-col items-center">
                                     <div class="relative max-lg:p-8 w-full lg:px-24 mt-12 xxl:mt-32 flex items-start flex-col">
-                                    <p class="slide-count text-md-font lg:text-mob-xxl-font"><span id="current-slide" class="start-count font-reg420">1</span>/{{ count($featuredDonuts) }}</p>
-                                    <h3 class="text-lg-font lg:text-xl-font font-reg420">{{ $donut->post_title }}</h3>
+                                    <p class="slide-count text-md-font lg:text-mob-xxl-font">
+                                        <span id="current-slide" class="start-count font-reg420">1</span>/{{ count($featuredDonuts) }}
+                                    </p>
+                                    <h3 class="text-lg-font lg:text-xl-font font-reg420 transition delay-700 duration-300 ease-in-out">{{ $donut->post_title }}</h3>
                                     <p class="text-sm-font lg:text-base-font text-left w-full max-w-max-573">{{ get_the_excerpt($donut->ID) }}</p>
                                     <span class="text-lg-font lg:text-xl-font font-reg420 pt-8 pb-4">Allergens</span>
                                     @if ($allergens)
@@ -54,7 +56,7 @@ $featuredDonuts = get_field('donuts');
                     </div>
                 @endforeach
             </div>
-        </div> 
+        </div>
         <div class="lg:w-[100px] lg:mx-auto laptop:h-[700px] lg:absolute top-0 max-laptop:left-12 left-0 laptop:right-38 lg:right-[11.5rem] splide hidden lg:flex lg:items-center lg:justify-center lg:flex-col h-full" id="donut-thumb-slider">
             <div class="splide__track lg:h-full lg:justify-between lg:items-center flex">
                 <div class="splide__list flex flex-col">
