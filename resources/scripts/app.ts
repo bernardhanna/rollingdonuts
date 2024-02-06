@@ -62,19 +62,51 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // FEATURED DONUT SLIDER
     if (window.location.pathname === '/') {
-        const featuredSplide = new Splide('#featured-slider', {
-            type: 'fade',
-            perPage: 1,
-            arrows: true,
-            pagination: true,
-        });
+      let initialLoad = true;
+
+      const featuredSplide = new Splide('#featured-slider', {
+        type: 'fade',
+        perPage: 1,
+        arrows: true,
+        pagination: true,
+      }).mount();
 
         featuredSplide.on('moved', () => {
             const currentSlide = featuredSplide.index + 1;
             updateSlideCounts(currentSlide);
+            if (!initialLoad) { // Check if it's not the initial load
+              animateFeaturedImages('down');
+           }
         });
 
-        featuredSplide.mount();
+        setTimeout(() => {
+          initialLoad = false;
+       }, 5000);
+
+       document.querySelectorAll('.splide__arrow').forEach(button => {
+        button.addEventListener('click', () => {
+            animateFeaturedImages('up');
+        });
+      });
+
+      function animateFeaturedImages(direction) {
+        document.querySelectorAll('.featured-image').forEach((img) => {
+          // Reset animations
+          img.classList.remove('animate-up', 'animate-down');
+
+          // Apply the appropriate animation based on the direction
+          if (direction === 'up') {
+              img.classList.add('animate-up');
+          } else if (direction === 'down') {
+              img.classList.add('animate-down');
+          }
+
+          // Optional: Remove the class after animation to enable re-triggering
+          setTimeout(() => {
+              img.classList.remove('animate-up', 'animate-down');
+          }, 300); // Adjusted to match the CSS transition time
+      });
+     }
 
         const donutThumbnailSlider = new Splide('#donut-thumb-slider', {
             cover: false,

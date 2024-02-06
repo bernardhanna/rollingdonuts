@@ -1200,3 +1200,38 @@ nav .submenu .current_page_item {
     height: 0!important;
 }
 }
+
+/* ANIMATIONS */
+.featured-image.animate-up, .featured-image.animate-down {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.featured-image.animate-up {
+  transform: translateY(-50%); /* Adjust translation as needed */
+  opacity: 0;
+}
+
+.featured-image.animate-down {
+  transform: translateY(50%); /* Adjust translation as needed */
+  opacity: 0;
+}
+
+@keyframes rollDown {
+  0% {
+      transform: translateY(-100%);
+      opacity: 0;
+  }
+
+  50% {
+      opacity: 0.5;
+  }
+
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+.roll-down-animation {
+  animation: rollDown 0.2s ease forwards;
+}
