@@ -88,37 +88,32 @@ document.addEventListener('DOMContentLoaded', function () {
             animateFeaturedImages('up');
         });
       });
-
+      /* eslint-disable no-inner-declarations */
       function animateFeaturedImages(direction) {
         document.querySelectorAll('.featured-image').forEach((img) => {
-          // Reset animations
           img.classList.remove('animate-up', 'animate-down');
-
-          // Apply the appropriate animation based on the direction
           if (direction === 'up') {
               img.classList.add('animate-up');
           } else if (direction === 'down') {
               img.classList.add('animate-down');
           }
-
-          // Optional: Remove the class after animation to enable re-triggering
           setTimeout(() => {
               img.classList.remove('animate-up', 'animate-down');
-          }, 300); // Adjusted to match the CSS transition time
+          }, 300);
       });
      }
+    /* eslint-enable no-inner-declarations */
+    const donutThumbnailSlider = new Splide('#donut-thumb-slider', {
+        cover: false,
+        isNavigation: true,
+        focus: 'center',
+        pagination: false,
+        arrows: false,
+        drag: false,
+    }).mount();
 
-        const donutThumbnailSlider = new Splide('#donut-thumb-slider', {
-            cover: false,
-            isNavigation: true,
-            focus: 'center',
-            pagination: false,
-            arrows: false,
-            drag: false,
-        }).mount();
-
-        featuredSplide.sync(donutThumbnailSlider);
-        updateSlideCounts(1);
+      featuredSplide.sync(donutThumbnailSlider);
+      updateSlideCounts(1);
     }
 
 //Best Sellers Slider
