@@ -127,6 +127,14 @@ b {
   @apply text-md-font font-edmondsans font-reg420 leading-[3.5rem];
 }
 
+a:hover h4 {
+  transition: all 0.1s linear;
+}
+
+button {
+  transition: all 0.3s linear;
+}
+
 .e-content h5 {
   @apply text-font-28 font-edmondsans font-reg420 leading-[3.5rem];
 }
@@ -785,6 +793,23 @@ nav .submenu .current_page_item {
   color: white;
   font-size: 24px;
 }
+
+#productContentTwo {
+  transition: all 0.4s ease;
+}
+
+@media (width >= 1200px) {
+  #productContentTwo {
+    height: 150px;
+  }
+}
+
+@media (width >= 1550px) {
+  #productContentTwo {
+    height: 100px;
+  }
+}
+
 
 #productContentTwo bdi {
   font-weight: 420;

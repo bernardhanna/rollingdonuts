@@ -241,6 +241,7 @@ add_action('wp_ajax_nopriv_filter_products', 'filter_products');
  ****************************************************************
  * SINGLE PRODUCT MODS
  ***********************************************************/
+
 // Customize the product summary on single product pages.
 function customize_single_product_summary() {
     // Remove the quantity field.
@@ -257,27 +258,31 @@ function custom_add_to_cart_button() {
     // Get the RD product type
     $rd_product_type = get_rd_product_type($product->get_id());
 
-    // Determine the action URL and button text based on the RD product type
-    $action_url = esc_url($product->add_to_cart_url());
+    // Determine the button text based on the RD product type
     $button_text = 'Order now'; // Default text
 
-    switch ($rd_product_type) {
-        case 'Donut':
-            $action_url = '/donut-box/';
-            $button_text = 'Order Now';
-            break;
-        case 'Merch':
-            $button_text = 'Add to Basket';
-            break;
-        case 'Box':
-            $button_text = 'Add to Box';
-            break;
-    }
+    if (strcasecmp($rd_product_type, 'Donut') === 0) {
+        // For Donut, change button behavior to a direct link instead of form submission
+        $action_url = home_url('/donut-box/');
+        $button_html = '<a href="' . esc_url($action_url) . '" class="single_add_to_cart_button button alt h-[58px] text-sm-md-font font-reg420 text-yellow-primary hover:text-black-full bg-black-full hover:bg-yellow-primary rounded-lg-x border-2 border-yellow-primary w-full flex items-center justify-center max-w-max-368">' . esc_html($button_text) . '</a>';
+        echo $button_html;
+    } else {
+        // For other products, keep the standard add to cart functionality
+        $action_url = esc_url($product->add_to_cart_url());
+        switch ($rd_product_type) {
+            case 'Merch':
+                $button_text = 'Add to Basket';
+                break;
+            case 'Box':
+                $button_text = 'Add to Box';
+                break;
+        }
 
-    // Output the form and button with dynamic action URL and button text
-    echo '<form class="cart py-8" action="' . $action_url . '" method="post" enctype="multipart/form-data">';
-    echo '<button type="submit" name="add-to-cart" value="' . esc_attr($product->get_id()) . '" class="single_add_to_cart_button h-[58px] text-sm-md-font font-reg420 text-yellow-primary hover:text-black-full bg-black-full hover:bg-yellow-primary rounded-lg-x border-2 border-yellow-primary w-full max-w-max-368">' . esc_html($button_text) . '</button>';
-    echo '</form>';
+        // Output the form and button with dynamic action URL and button text for non-Donut products
+        echo '<form class="cart py-8" action="' . $action_url . '" method="post" enctype="multipart/form-data">';
+        echo '<button type="submit" name="add-to-cart" value="' . esc_attr($product->get_id()) . '" class="single_add_to_cart_button h-[58px] text-sm-md-font font-reg420 text-yellow-primary hover:text-black-full bg-black-full hover:bg-yellow-primary rounded-lg-x border-2 border-yellow-primary w-full max-w-max-368">' . esc_html($button_text) . '</button>';
+        echo '</form>';
+    }
 }
 
 // Change text on single product page
@@ -921,4 +926,20 @@ function customize_wc_add_to_cart_message_with_tailwind($message, $products) {
     $styledViewCartLink = str_replace('class="button wc-forward"', "class=\"$viewCartButtonClasses\"", $message);
 
     return $styledViewCartLink;
+}
+
+//DISABLE FOR SINGLE DONUTS
+add_filter('woocommerce_add_to_cart_message_html', 'disable_added_to_cart_notification_for_donuts', 10, 3);
+
+function disable_added_to_cart_notification_for_donuts($message, $products, $show_qty) {
+    foreach ($products as $product_id => $qty) {
+        // Check if the product has the RD type of Donut
+        $product_type = get_rd_product_type($product_id);
+        if (strcasecmp($product_type, 'Donut') === 0) {
+            // If yes, return an empty string to disable the notification
+            return '';
+        }
+    }
+    // Otherwise, return the default message
+    return $message;
 }

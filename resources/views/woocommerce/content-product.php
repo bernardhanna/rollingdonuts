@@ -69,10 +69,11 @@ $rd_product_type = get_rd_product_type($product->get_id());
      <a class="relative w-full max-md:rounded-t-lg" href="<?php the_permalink(); ?>" x-data="{ isHovered: false }">
         <div class="max-md:hidden absolute inset-0 light-black-gradient opacity-50 z-10 md:h-[386px] rounded-sm-10"></div>
         <?php echo woocommerce_get_product_thumbnail('medium', array('class' => 'w-full h-max-max-125 md:max-h-full object-cover h-[125px] md:h-[386px] md:border-2 md:border-solid md:border-black md:rounded-sm-8 m-0')); ?>
-        <div id="productContentOne" class="absolute top-0 left-0 h-[386px] z-10 p-4 w-full" @mouseenter="isHovered = true" @mouseleave="isHovered = false">
+        <div id="productContentOne" class="absolute top-0 left-0 h-[386px] z-10 p-4 w-full" @mouseenter="isHovered = true" @mouseleave="isHovered = false" x-transition.duration.500ms>
             <div class="h-full w-full flex flex-col justify-end">
-                <h4 class="text-white text-md-font font-reg420 font-edmondsans"><?php the_title(); ?></h4>
-                <div id="productInfo" class="flex justify-between items-end w-full" x-show="isHovered">
+                <h4 class="text-white text-md-font font-reg420 font-edmondsans"
+                ><?php the_title(); ?></h4>
+                <div id="productInfo" class="flex justify-between items-end w-full" x-show="isHovered" x-transition.duration.500ms>
                     <p class="text-white text-left font-laca font-light text-sm-md-font"> <?php
                 $product_description = custom_truncate_product_description($product->get_short_description());
                 echo $product_description;
@@ -81,15 +82,22 @@ $rd_product_type = get_rd_product_type($product->get_id());
                 </div>
             </div>
         </div>
-        <div id="productContentTwo" class="flex flex-col pt-4" @mouseenter="isHovered = true" @mouseleave="isHovered = false">
-            <div class="mt-2 flex justify-between" x-show="!isHovered">
+        <div id="productContentTwo" class="flex flex-col pt-4"
+            >
+            <div class="mt-2 flex justify-between"
+                x-show="!isHovered"
+            >
                 <p class="font-laca font-light text-sm-md-font pr-4"> <?php
                     $product_description = custom_truncate_product_description($product->get_short_description());
                     echo $product_description;
                     ?></p>
                 <span class="text-black-full font-reg420 text-sm-md-font"><?php woocommerce_template_loop_price(); ?></span>
             </div>
-            <div class="mt-2 relative" x-show="isHovered">
+            <div class="mt-2 relative"
+                x-show="isHovered"
+                x-show.transition="isHovered"
+                x-transition:enter.duration.500ms
+                x-transition:leave.duration.400ms>
                 <button
                     href="<?php the_permalink(); ?>"
                     class="button w-full sm-md-font font-reg420 h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary"

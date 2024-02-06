@@ -59,16 +59,19 @@ $wrapper_classes   = apply_filters(
         <div class="splide__track">
             <div class="splide__list">
                 <?php
+                $index = 0; // Initialize index for thumbnails
                 if ( $post_thumbnail_id ) {
-                    echo '<div class="splide__slide main-thumb">' . wc_get_gallery_image_html( $post_thumbnail_id, true ) . '</div>';
+                    // Ensure the main image is also clickable in thumbnails
+                    echo '<div class="splide__slide main-thumb"><a href="#" data-splide-index="' . $index++ . '">' . wc_get_gallery_image_html( $post_thumbnail_id, true ) . '</a></div>';
                 }
 
                 foreach ( $image_ids as $image_id ) {
-                    echo '<div class="splide__slide main-thumb">' . wc_get_gallery_image_html( $image_id, true ) . '</div>';
+                    echo '<div class="splide__slide main-thumb"><a href="#" data-splide-index="' . $index++ . '">' . wc_get_gallery_image_html( $image_id, true ) . '</a></div>';
                 }
                 ?>
             </div>
         </div>
     </div>
     <?php endif; ?>
+
 </div>
