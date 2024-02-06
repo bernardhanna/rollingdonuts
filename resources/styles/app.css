@@ -430,6 +430,10 @@ nav .submenu .current_page_item {
   border: 3px solid #000!important;
 }
 
+.featured-donuts .splide__arrow:hover .trans {
+  fill: transparent;
+}
+
 .woocommerce-product-gallery--with-images .splide__arrow {
   background: #FFED56;
   border: 2px solid black;
@@ -1216,7 +1220,7 @@ nav .submenu .current_page_item {
   opacity: 0;
 }
 
-@keyframes rollDown {
+@keyframes roll-down {
   0% {
       transform: translateY(-100%);
       opacity: 0;
@@ -1233,5 +1237,5 @@ nav .submenu .current_page_item {
 }
 
 .roll-down-animation {
-  animation: rollDown 0.2s ease forwards;
+  animation: roll-down 0.2s ease forwards;
 }
