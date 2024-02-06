@@ -65,12 +65,11 @@ document.addEventListener('DOMContentLoaded', function () {
       let initialLoad = true;
 
       const featuredSplide = new Splide('#featured-slider', {
-        type: 'fade',
+        type: 'fade', // Default to fade
         perPage: 1,
         arrows: true,
         pagination: true,
       }).mount();
-
         featuredSplide.on('moved', () => {
             const currentSlide = featuredSplide.index + 1;
             updateSlideCounts(currentSlide);
@@ -90,30 +89,36 @@ document.addEventListener('DOMContentLoaded', function () {
       });
       /* eslint-disable no-inner-declarations */
       function animateFeaturedImages(direction) {
+       // Check if the viewport width is below 1200px
+          if (window.innerWidth < 1200) {
+            return; // Exit the function early if under 1200px
+        }
+
         document.querySelectorAll('.featured-image').forEach((img) => {
-          img.classList.remove('animate-up', 'animate-down');
-          if (direction === 'up') {
-              img.classList.add('animate-up');
-          } else if (direction === 'down') {
-              img.classList.add('animate-down');
-          }
-          setTimeout(() => {
-              img.classList.remove('animate-up', 'animate-down');
-          }, 300);
-      });
+            img.classList.remove('animate-up', 'animate-down');
+            if (direction === 'up') {
+                img.classList.add('animate-up');
+            } else if (direction === 'down') {
+                img.classList.add('animate-down');
+            }
+            // Remove the animation classes after a delay to allow the animation to play out
+            setTimeout(() => {
+                img.classList.remove('animate-up', 'animate-down');
+            }, 300);
+        });
      }
     /* eslint-enable no-inner-declarations */
-    const donutThumbnailSlider = new Splide('#donut-thumb-slider', {
-        cover: false,
-        isNavigation: true,
-        focus: 'center',
-        pagination: false,
-        arrows: false,
-        drag: false,
-    }).mount();
+      const donutThumbnailSlider = new Splide('#donut-thumb-slider', {
+          cover: false,
+          isNavigation: true,
+          focus: 'center',
+          pagination: false,
+          arrows: false,
+          drag: false,
+      }).mount();
 
-      featuredSplide.sync(donutThumbnailSlider);
-      updateSlideCounts(1);
+        featuredSplide.sync(donutThumbnailSlider);
+        updateSlideCounts(1);
     }
 
 //Best Sellers Slider
@@ -179,5 +184,6 @@ if (window.location.pathname === '/') {
         });
       });
     }
+
   }
 });

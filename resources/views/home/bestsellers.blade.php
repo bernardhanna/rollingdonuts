@@ -78,15 +78,18 @@
                                 })
                             }"
                             x-bind:style="(isLargeScreen && isHovered) ? 'background-color: transparent;' : (isLargeScreen ? 'background-color: white;' : 'background-color: transparent;')"
-                            class="relative max-sm:px-6 px-12 lg:px-0 w-full lg:rounded-sm-10 bg-transparent">
+                            class="relative max-sm:px-6 px-12 lg:px-0 w-full lg:rounded-sm-10 bg-transparent"
+                            >
                             <a href="<?php echo get_permalink($product->ID); ?>">
                                 <div class="absolute inset-0 light-black-gradient opacity-50 z-10 h-[386px] rounded-sm-10"></div>
                                 <img class="bestseller_image object-cover border-3 border-solid border-black-full rounded-sm-8 relative w-full h-[386px]" src="<?php echo get_the_post_thumbnail_url($product->ID); ?>" alt="<?php echo $product->post_title; ?>">
 
-                                <div id="productContentOne" class="z-40 h-[386px] absolute inset-0 flex flex-col items-center  lg:items-start justify-end p-4" @mouseenter="isLargeScreen && (isHovered = true)" @mouseleave="isLargeScreen && (isHovered = false)">
+                                <div id="productContentOne" class="z-40 h-[386px] absolute inset-0 flex flex-col items-center  lg:items-start justify-end p-4" @mouseenter="isLargeScreen && (isHovered = true)" @mouseleave="isLargeScreen && (isHovered = false)" x-transition:enter.duration.500ms
+                                x-transition:leave.duration.400ms>
                                     <h4 class="z-10 text-white text-sm-md-font lg:text-md-font font-regular text-center pb-0 lg:pb-6 lg:font-reg420 lg:md-font lg:text-left"><?php echo $product->post_title; ?></h4>
                                     <button href="{{ get_permalink($product->ID) }}" class="animate-button btn btn-primary text-black-full bg-white hover:bg-yellow-primary text-mob-md-font lg:text-reg-font font-medium text-center w-[257px] h-[56px] flex justify-center items-center rounded-lg-x mb-4 lg:mb-10 lg:hidden">Select and Customise</button>
-                                    <div id="productInfo" class="flex justify-between items-end w-full" x-show="isHovered">
+                                    <div id="productInfo" class="flex justify-between items-end w-full" x-show.transition="isHovered" x-transition:enter.duration.500ms
+                                    x-transition:leave.duration.400ms>
                                         <p class="text-white text-left font-laca font-light text-sm-md-font">
                                             <?php
                                             if (function_exists('wc_get_product')) {
@@ -100,8 +103,9 @@
                                 </div>
 
                                 <div id="productContentTwo" class="flex flex-col" @mouseenter="isLargeScreen && (isHovered = true)" @mouseleave="isLargeScreen && (isHovered = false)">
-                                    <div x-bind:style="isHovered && isLargeScreen ? 'background-color: transparent;' : 'background-color: white;'" class="relative hidden lg:flex p-4 flex-row justify-between w-full py-4 h-[100px] rounded-bl-sm-8 rounded-br-sm-8" x-show="!isHovered">
-                                        <p class="font-laca text-black-full text-sm-md-font font-light text-left w-2/3">
+                                    <div x-bind:style="isHovered && isLargeScreen ? 'background-color: transparent;' : 'background-color: white;'" class="relative hidden lg:flex p-4 flex-row justify-between w-full py-4  rounded-bl-sm-8 rounded-br-sm-8" x-show="!isHovered">
+                                        <p
+                                        class="font-laca text-black-full text-sm-md-font font-light text-left w-2/3">
                                             <?php
                                             if (function_exists('wc_get_product')) {
                                                 $wc_product = wc_get_product($product->ID);
@@ -111,8 +115,13 @@
                                         </p>
                                         <span class="font-edmondsans text-black-full text-sm-md-font font-reg420 text-right w-1/3">€<?php echo number_format(get_post_meta($product->ID, '_price', true), 2, '.', ','); ?></span>
                                     </div>
-                                    <div class="mt-2 relative" x-show="isHovered">
-                                        <a href="<?php the_permalink(); ?>" class="button w-full sm-md-font font-reg420 h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary">Select and Customise</a>
+                                    <div class="relative mt-2"
+                                    >
+                                        <a
+                                        x-show.transition="isHovered"
+                                        x-transition:enter.duration.500ms
+                                        x-transition:leave.duration.400ms
+                                        href="<?php the_permalink(); ?>" class="button w-full sm-md-font font-reg420 h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary">Select and Customise</a>
                                     </div>
                                 </div>
                             </a>
