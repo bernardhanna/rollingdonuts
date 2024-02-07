@@ -48,9 +48,10 @@
                 do_action('woocommerce_no_products_found')
                 @endphp
             @endif
-        </div> <!-- End of my-custom-products-wrapper -->
+        </div>
+        @include('partials.site-links')
+        @include('partials.instagram-slider')
     </div>
-
   @php
     do_action('woocommerce_after_main_content');
 
@@ -58,3 +59,4 @@
     do_action('get_footer', 'shop');
   @endphp
 @endsection
+

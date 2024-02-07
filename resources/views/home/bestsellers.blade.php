@@ -84,9 +84,9 @@
                                 <div class="absolute inset-0 light-black-gradient opacity-50 z-10 h-[386px] rounded-sm-10"></div>
                                 <img class="bestseller_image object-cover border-3 border-solid border-black-full rounded-sm-8 relative w-full h-[386px]" src="<?php echo get_the_post_thumbnail_url($product->ID); ?>" alt="<?php echo $product->post_title; ?>">
 
-                                <div id="productContentOne" class="z-40 h-[386px] absolute inset-0 flex flex-col items-center  lg:items-start justify-end p-4" @mouseenter="isLargeScreen && (isHovered = true)" @mouseleave="isLargeScreen && (isHovered = false)" x-transition:enter.duration.500ms
+                                <div id="productContentOne" class="z-40 h-[386px] absolute inset-0 flex flex-col items-center  lg:items-start justify-end p-4" @mouseenter="isLargeScreen && (isHovered = true)" @mouseleave="isLargeScreen && (isHovered = false)" x-transition:enter.duration.500ms.delay.50ms
                                 x-transition:leave.duration.400ms>
-                                    <h4 class="z-10 text-white text-sm-md-font lg:text-md-font font-regular text-center pb-0 lg:pb-6 lg:font-reg420 lg:md-font lg:text-left"><?php echo $product->post_title; ?></h4>
+                                    <h4 class="z-10 text-white text-sm-md-font lg:text-md-font font-regular text-center pb-0 lg:pb-6 lg:font-reg420 lg:md-font lg:text-left" x-transition.delay.150ms><?php echo $product->post_title; ?></h4>
                                     <button href="{{ get_permalink($product->ID) }}" class="animate-button btn btn-primary text-black-full bg-white hover:bg-yellow-primary text-mob-md-font lg:text-reg-font font-medium text-center w-[257px] h-[56px] flex justify-center items-center rounded-lg-x mb-4 lg:mb-10 lg:hidden">Select and Customise</button>
                                     <div id="productInfo" class="flex justify-between items-end w-full" x-show.transition="isHovered" x-transition:enter.duration.500ms
                                     x-transition:leave.duration.400ms>
@@ -120,7 +120,6 @@
                                         <a
                                         x-show.transition="isHovered"
                                         x-transition:enter.duration.500ms
-                                        x-transition:leave.duration.400ms
                                         href="<?php the_permalink(); ?>" class="button w-full sm-md-font font-reg420 h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary">Select and Customise</a>
                                     </div>
                                 </div>

@@ -6,14 +6,22 @@
  * @Last Modified time: 2023-09-07 15:07:31
  */
 ?>
-    @php
-    $hideSection = 'lg:hidden';  // Default to hide
-    // Show on large devices for these templates:
-    if (is_page_template('templates/template-locations.blade.php') ||
-        is_page_template('templates/template-contact.blade.php')) {
-            $hideSection = '';
-    }
-    @endphp
+
+@php
+$hideSection = 'lg:hidden';  // Default to hide
+
+// Show on large devices for these templates or WooCommerce archive pages:
+if (is_page_template('templates/template-locations.blade.php') ||
+    is_page_template('templates/template-faqs.blade.php') ||
+    is_page_template('templates/template-flexi.blade.php') ||
+    is_page_template('templates/template-contact.blade.php') ||
+    is_woocommerce() || // For any WooCommerce page
+    is_shop() || // Specifically for the shop page
+    is_product_category() || // For product category pages
+    is_product_tag()) { // For product tag pages
+        $hideSection = '';
+}
+@endphp
 <section class="my-8 lg:max-w-max-1341 lg:mx-auto sitelinks flex flex-col px-4 md:px-6 lg:p-0 {{ $hideSection }} lg:grid lg:grid-rows-3 grid-flow-col gap-3">
     @php
     $site_links = get_field('site_links', 'option');
