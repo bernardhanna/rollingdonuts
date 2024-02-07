@@ -2,6 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';;
 @import '@splidejs/splide/dist/css/splide.min.css';
+@import 'nice-select2/dist/css/nice-select2.css';
 
 html {
   max-width: 1729px;
@@ -970,16 +971,46 @@ nav .submenu .current_page_item {
 
 .pagination {
   gap: .5rem;
-  padding-top: 6rem;
 }
 
 .pagination .page-item {
-  padding: 1rem;
-  border: 2px solid black;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  padding: 12px 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 6px;
+  border: 2px solid var(--black-key, #000);
+  background: #FFF;
+}
+
+.pagination .page-item a {
+  color: var(--black-key, #000);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 420;
+  line-height: 20px
 }
 
 .pagination .page-item:hover {
   cursor: pointer;
+  background: var(--yellow-primary, #FFED56);
+}
+
+.pagination .page-item.current-item {
+  background: var(--yellow-primary, #FFED56);
+  font-weight: 420;
+}
+
+.pagination .page-item.next-page-item, .pagination .page-item.prev-page-item {
+  display: flex;
+  flex-direction:  row;
+  width: auto;
+  border: none;
+  background: transparent;
 }
 
 @media (width <= 768px) {

@@ -76,7 +76,7 @@ global $product;
 $rd_product_type = get_rd_product_type($product->get_id());
 
 ?>
-<li <?php wc_product_class('flex flex-col relative lg:w-23 w-full mobile:w-48 lg:h-492 h-auto', $product); ?>  x-data="{ showAllergens: false }">
+<li <?php wc_product_class('flex flex-col w-full relative lg:w-23 max-xs:w-full sm-mob:w-48 lg:h-492 h-auto', $product); ?>  x-data="{ showAllergens: false }">
     <?php
     $product_allergens = get_field('product_allergens', $product->get_id());
     $allergen_text = '';
@@ -137,18 +137,18 @@ $rd_product_type = get_rd_product_type($product->get_id());
         <?php echo woocommerce_get_product_thumbnail('related', array('class' => 'w-full object-cover rounded-sm-8 related-post-img h-[157px] lg:h-[200px] m-0')); ?>
         <div class="relative top-0 left-0 z-10 p-4 w-full bg-white">
             <div class="w-full flex flex-col justify-between lg:h-[245px]">
-                <h4 class="text-black-full text-sm-md-font font-reg420 font-edmondsans"><?php the_title(); ?></h4>
+                <h4 class="text-black-full text-md-fon md:text-sm-md-font font-reg420 font-edmondsans"><?php the_title(); ?></h4>
                 <div class="flex flex-col w-full">
-                    <p class="text-black-full text-left font-laca font-light text-base-font">
+                    <p class="hidden md:block text-black-full text-left font-laca font-light text-base-font">
                         <?php
                     $product_description = custom_truncate_product_description($product->get_short_description());
                     echo $product_description;
                     ?>
                     </p>
-                    <span class="text-black-full font-laca font-reg420 text-md-font text-left pb-4"><?php woocommerce_template_loop_price(); ?></span>
+                    <span class="text-black-full font-laca font-reg420 text-sm-md-font md:text-md-font text-left pb-4"><?php woocommerce_template_loop_price(); ?></span>
                     <button
                     href="<?php the_permalink(); ?>"
-                    class="button w-full text-base-font font-reg420 h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary"
+                    class="button w-full text-mob-xs-font  md:text-base-font font-reg420 h-[32px] md:h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary"
                 >
                     <?php
                     if ($rd_product_type == 'Donut') {

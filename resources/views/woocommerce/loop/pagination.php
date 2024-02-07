@@ -37,22 +37,22 @@ if ( $total <= 1 ) {
 ?>
 <nav aria-label="Page navigation example">
     <?php
-    $paginate_links =  paginate_links(
-        apply_filters( 'woocommerce_pagination_args',
-            array(
-                'base'         => $base,
-                'format'       => $format,
-                'add_args'     => false,
-                'current'      => max( 1, $current ),
-                'total'        => $total,
-                'prev_text'    => '&larr;',
-                'next_text'    => '&rarr;',
-                'type'         => 'array',
-                'end_size'     => 3,
-                'mid_size'     => 3,
-            )
+$paginate_links =  paginate_links(
+    apply_filters( 'woocommerce_pagination_args',
+        array(
+            'base'         => $base,
+            'format'       => $format,
+            'add_args'     => false,
+            'current'      => max( 1, $current ),
+            'total'        => $total,
+            'prev_text'    => '<span class="pagination-prev"><i class="fa-solid fa-chevron-left text-xxs-font text-grey-subdued mr-2"></i> Prev</span>',
+            'next_text'    => '<span class="pagination-next">Next <i class="ml-2 fa-solid fa-chevron-right text-xxs-font text-grey-subdued"></i></span>',
+            'type'         => 'array',
+            'end_size'     => 3,
+            'mid_size'     => 3,
         )
-    );
+    )
+);
 
 
     if ( is_array( $paginate_links ) ) {

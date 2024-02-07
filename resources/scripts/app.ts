@@ -187,3 +187,23 @@ if (window.location.pathname === '/') {
 
   }
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Continue with your current JS for 'current' class
+  const currentPages = document.querySelectorAll('.page-link.current');
+  currentPages.forEach(function(page) {
+      page.closest('.page-item').classList.add('current-item');
+  });
+
+  // New JS for adding classes to 'prev' and 'next' li elements
+  const prevLink = document.querySelector('.pagination-prev');
+  if (prevLink) {
+      prevLink.closest('.page-item').classList.add('prev-page-item');
+  }
+
+  const nextLink = document.querySelector('.pagination-next');
+  if (nextLink) {
+      nextLink.closest('.page-item').classList.add('next-page-item');
+  }
+});

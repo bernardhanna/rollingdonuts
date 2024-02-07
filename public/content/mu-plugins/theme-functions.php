@@ -202,19 +202,23 @@ function custom_pagination() {
         'end_size' => 1,
         'mid_size' => 2,
         'prev_next' => true,
-        'prev_text' => __('Prev'),
-        'next_text' => __('Next'),
+        'prev_text' => '<span class="pagination-prev"><i class="fa-solid fa-chevron-left text-xxs-font text-grey-subdued mr-2"></i> Prev</span>',
+        'next_text' => '<span class="pagination-next">Next <i class="ml-2 fa-solid fa-chevron-right text-xxs-font text-grey-subdued"></i></span>',
         'add_args' => false,
         'add_fragment' => '',
     ));
 
     if (is_array($pages)) {
         $paged = (get_query_var('paged') == 0) ? 1 : get_query_var('paged');
-        echo '<div class="pagination w-full py-12 flex justify-center items-center">';
+        echo '<nav aria-label="Page navigation">';
+        echo '<ul class="pagination flex justify-center items-center w-full flex-row pt-20">';
         foreach ($pages as $page) {
-            echo $page;
+            // Ensure the 'page-numbers' class is replaced with 'page-link' for consistency
+            $page = str_replace('page-numbers', 'page-link', $page);
+            echo "<li class=\"page-item\">$page</li>";
         }
-        echo '</div>';
+        echo '</ul>';
+        echo '</nav>';
     }
 }
 //BLOG FILTER
