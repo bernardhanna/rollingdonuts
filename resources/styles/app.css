@@ -420,11 +420,6 @@ nav .submenu .current_page_item {
   box-shadow: 0 8px 0 0 rgb(0 0 0 / 20%);
 }
 
-.woocommerce-input-wrapper {
-  border-radius: 200px;
-  border: var(--Item-counter, 1px) solid var(--yellow-disabled, #D8D7CE);
-}
-
 .rd-notice {
   z-index: 1000;
 }
@@ -777,7 +772,6 @@ nav .submenu .current_page_item {
 
 /* Chevron down icon */
 .select2-container--default .select2-selection--single .select2-selection__arrow::after {
-  font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f078";
   font-size: 12px;
@@ -1188,6 +1182,8 @@ nav .submenu .current_page_item {
   position: relative;
   display: flex;
   align-items: center;
+  border-radius: 200px;
+  border: var(--Item-counter, 1px) solid var(--yellow-disabled, #D8D7CE);
 }
 
 .woocommerce .woocommerce-input-wrapper::before {
