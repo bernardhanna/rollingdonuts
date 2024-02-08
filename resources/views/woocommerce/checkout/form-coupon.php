@@ -49,7 +49,6 @@ if ( ! wc_coupons_enabled() ) { // @codingStandardsIgnoreLine.
 	<p><?php esc_html_e( 'If you have a coupon code, please apply it below.', 'woocommerce' ); ?></p>
     <div class="flex flex-col md:flex-row w-full items-center py-4 md:w-3/5 xxl:w-[772px]">
         <div class="form-row form-row-first w-full">
-            <label for="coupon_code hidden" class="screen-reader-text"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></label>
             <input type="text" name="coupon_code" class="input-text woocommerce-Input woocommerce-Input--text input-text rounded-lg-x h-input text-black-secondary text-mob-xs-font font-laca font-light pl-11 flex w-full lg:w-99 mr-4" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" id="coupon_code" value="" />
         </div>
 

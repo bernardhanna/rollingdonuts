@@ -7,27 +7,33 @@
  */
 namespace App\Fields\Partials;
 
-use Log1x\AcfComposer\Partial;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class FlexiBlocks extends Partial
+class FlexiBlocks
 {
     /**
-     * The partial field group.
+     * Initialize the FlexiBlocks fields.
      *
-     * @return \StoutLogic\AcfBuilder\FieldsBuilder
+     * @return FieldsBuilder
      */
-    public function fields()
+    public static function fields()
     {
-        $flexiblocks = new FieldsBuilder('flexi_blocks');
+        $flexiBlocks = new FieldsBuilder('flexi_blocks');
 
-        $flexiblocks
-        ->addImage('banner_left_test', [
-            'label' => 'Banner Left Image',
-            'return_format' => 'array',
-            'preview_size' => 'medium',
-        ]);
+        $flexiBlocks
+            ->addImage('video_thumbnail', [
+                'label' => 'Video Thumbnail',
+                'instructions' => 'Upload the thumbnail image for the video.',
+                'return_format' => 'array', // or 'url' or 'id', depending on your needs
+                'preview_size' => 'medium', // Adjust according to your needs
+                'library' => 'all',
+            ])
+            ->addText('youtube_video_id', [
+                'label' => 'YouTube Video ID',
+                'instructions' => 'Enter the YouTube video ID.',
+                'placeholder' => 'e.g., nAkD44-velk',
+            ]);
 
-        return $flexiblocks;
+        return $flexiBlocks;
     }
 }

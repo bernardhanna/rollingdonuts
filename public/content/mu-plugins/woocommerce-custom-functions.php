@@ -714,6 +714,7 @@ function custom_woocommerce_form_field_args( $args, $key, $value ) {
 add_filter( 'woocommerce_form_field_args', 'custom_woocommerce_form_field_args', 10, 3 );
 add_filter( 'woocommerce_form_field', 'change_woocommerce_field_markup', 10, 4 );
 
+
 function change_woocommerce_field_markup($field, $key, $args, $value) {
     // Remove 'form-row' class from the field
     $field = str_replace('form-row', '', $field);
@@ -754,6 +755,7 @@ function custom_woocommerce_states( $states ) {
     return $states;
 }
 add_filter( 'woocommerce_states', 'custom_woocommerce_states' );
+
 /*
  ****************************************************************
  * SHIPPING ZONES SET UP

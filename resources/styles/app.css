@@ -2,10 +2,8 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';;
 @import '@splidejs/splide/dist/css/splide.min.css';
-@import 'nice-select2/dist/css/nice-select2.css';
 
 html {
-  max-width: 1729px;
   margin: auto;
 }
 
@@ -422,6 +420,11 @@ nav .submenu .current_page_item {
   box-shadow: 0 8px 0 0 rgb(0 0 0 / 20%);
 }
 
+.woocommerce-input-wrapper {
+  border-radius: 200px;
+  border: var(--Item-counter, 1px) solid var(--yellow-disabled, #D8D7CE);
+}
+
 .rd-notice {
   z-index: 1000;
 }
@@ -710,11 +713,91 @@ nav .submenu .current_page_item {
   background: #ffed56;
 }
 
-/*
-.woocommerce-billing-fields #billing_state_field {
-  display: none!important;
+#billing_state_field .woocommerce-input-wrapper {
+  height: 3.5rem;
 }
-*/
+
+#shipping_state_field .woocommerce-input-wrapper {
+  height: 3.5rem;
+}
+
+#billing_state_field .select2-selection--single {
+    height: 3.5rem;
+    border: none;
+    border-radius: 200px;
+    background: transparent;
+}
+
+#shipping_state_field .select2-selection--single {
+  height: 3.5rem;
+  border: none;
+  border-radius: 200px;
+  background: transparent;
+}
+
+#billing_state_field .woocommerce-input-wrapper::before {
+  position: absolute;
+  margin: auto;
+  z-index: 100;
+  height: 19.5px;
+  width: 19.5px;
+  left: 1rem;
+  content: url("https://api.iconify.design/ph/map-pin.svg?width=22&height=22");
+}
+
+#shipping_state_field .woocommerce-input-wrapper::before {
+  position: absolute;
+  margin: auto;
+  z-index: 100;
+  height: 19.5px;
+  width: 19.5px;
+  left: 1rem;
+  content: url("https://api.iconify.design/ph/map-pin.svg?width=22&height=22");
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: var(--black-primary, #291F19);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 350;
+  line-height: 130%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 2.75rem;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 100%;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+  display: none;
+}
+
+/* Chevron down icon */
+.select2-container--default .select2-selection--single .select2-selection__arrow::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f078";
+  font-size: 12px;
+  color: #888;
+  position: absolute;
+  top: calc(50% - 6px);
+  right: 10px;
+}
+
+/* Chevron up icon */
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow::after {
+  content: '\f077';
+}
+
+.select2-container--default .select2-results>.select2-results__options {
+  max-height: 350px;
+  overflow-y: auto;
+  box-shadow: 0 4px 0 0 rgb(0 0 0 / 25%);
+}
+
 .merch-product .quantity {
   display: none !important;
 }
@@ -1100,10 +1183,6 @@ nav .submenu .current_page_item {
   line-height: 130%;
 }
 
-.woocommerce .has-icon .woocommerce-input-wrapper {
-  position: relative;
-}
-
 /* Repeat and adjust for different fields */
 .woocommerce-input-wrapper {
   position: relative;
@@ -1239,8 +1318,47 @@ nav .submenu .current_page_item {
 }
 
 .select2-container--open .select2-dropdown {
-  left: 0;
   right: 0;
+}
+
+@media (width <= 1733px) {
+  .select2-container--open .select2-dropdown {
+    left: 5.5rem!important;
+    right: 0!important;
+  }
+}
+
+@media (width <= 1680px) {
+  .select2-container--open .select2-dropdown {
+    left: 3.5rem!important;
+    right: 0!important;
+  }
+}
+
+
+@media (width <= 1560px) {
+  .select2-container--open .select2-dropdown {
+    left: 1rem!important;
+    right: 0!important;
+  }
+}
+
+@media (width >= 1733px) {
+  .select2-container--open .select2-dropdown {
+    left: 6rem!important;
+    right: 0!important;
+  }
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected], .select2-container--default .select2-results__option--highlighted[data-selected] {
+  background-color: #ffed56;
+  color: #000;
+  border-bottom: 1px solid #000;
+}
+
+.select2-results__option[aria-selected], .select2-results__option[data-selected] {
+  cursor: pointer;
+  border-bottom: 1px solid black;
 }
 
 .swiper-container.swiper-container-initialized.swiper-container-horizontal {

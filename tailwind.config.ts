@@ -103,6 +103,7 @@ export default {
       'xxl': '1440px',
       'insta-flow': '1590px',
       'desktop': '1628px',
+      'site': '1726px',
       'xxxl': '1920px',
       'xxxxl': '2500px',
       'xxxxxl': '2750px',
@@ -116,6 +117,7 @@ export default {
     borderRadius: {
       'none': '0',
       'sm': '0.125rem',
+      'video': '1.04088rem',
       DEFAULT: '0.25rem',
       'md': '0.375rem',
       'form' : '2.5rem',
@@ -212,6 +214,7 @@ export default {
         'max-1200': '75rem', //1200px
         'max-1300': '81.25rem', //1300px
         'max-1336': '83.5rem', //1336px
+        'max-1359': '84.9375rem', //1359px
         'max-1341': '83.8125rem', //1341px
         'max-1370': '85.625rem', //1370px
         'max-1405': '87.8125rem', //1405px

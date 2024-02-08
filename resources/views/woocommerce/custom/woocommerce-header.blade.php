@@ -6,7 +6,21 @@
  * @Last Modified time: 2023-10-24 10:23:42
  */
 ?>
-    <section class="relative w-full z-50 lg:mb-12 mb-0" x-data="{ formState: 'login' }">
+    <section class="relative w-full z-50 lg:mb-12 mb-0"
+        x-data="{
+            formState: 'login',
+            activeTab: 'sign-in',
+            isAccountPage: <?php echo is_account_page() ? 'true' : 'false'; ?>,
+            isLoggedIn: <?php echo is_user_logged_in() ? 'true' : 'false'; ?>,
+            isTemplateBoxProducts: <?php echo is_page_template('templates/template-box-products.blade.php') ? 'true' : 'false'; ?>,
+            isProductArchive: <?php echo is_post_type_archive('product') ? 'true' : 'false'; ?>,
+            pageTitle: '<?php the_title(); ?>',
+            init() {
+                window.addEventListener('update-active-tab', (event) => {
+                    this.activeTab = event.detail.tab;
+                });
+            }
+        }">
         @php
         //Define Categories
         $args = array(
@@ -32,7 +46,7 @@
                 isMobile = window.innerWidth <= 575;
             });
         }">
-            <img x-show="!isMobile" class="object-cover w-full mobile:h-[243px]" src="{{ $image_url }}" alt="{{ $image_alt }}" srcset="{{ $image_srcset }}" sizes="(min-width: 575px) 100vw">
+            <img x-show="!isMobile" class="object-cover w-full max-site:h-[243px]" src="{{ $image_url }}" alt="{{ $image_alt }}" srcset="{{ $image_srcset }}" sizes="(min-width: 575px) 100vw">
             <img x-show="isMobile" class="w-full" src="{{ $image_url_mobile }}" alt="{{ $image_alt_mobile }}" srcset="{{ $image_srcset_mobile }}" sizes="(max-width: 575px) 100vw">
         </div>
         @endif
@@ -45,18 +59,8 @@
             </div>
             <div class="relative flex items-start justify-between mobile:pt-8 px-2 mobile:px-4 desktop:p-0 desktop:pt-6">
                 <div class="text-container relative inline-block width-fit-content px-4 desktop:p-0">
-                    <h1 class="z-10 relative left-0 text-white text-mob-xxl-font lg:text-xl-font xl:text-xxxl-font font-reg420">
-                        @if(is_account_page() && !is_user_logged_in())
-                        Sign In
-                        @elseif(is_page_template('templates/template-box-products.blade.php'))
-                        Choose Your Own
-                        @elseif(is_post_type_archive('product')) <!-- Check for the WooCommerce product archive page -->
-                        Our Donuts
-                        @else
-                        @php
-                        the_title();
-                        @endphp
-                        @endif
+                    <h1 class="z-10 relative left-0 text-white text-mob-xxl-font lg:text-xl-font xl:text-xxxl-font font-reg420" x-text="activeTab === 'register' ? 'Register' : isAccountPage && !isLoggedIn ? 'Sign In' : isTemplateBoxProducts ? 'Choose Your Own' : isProductArchive ? 'Our Donuts' : pageTitle">
+                        <!-- Dynamic content will be inserted here based on x-text directive -->
                     </h1>
                 </div>
                 @if(is_page_template('templates/template-box-products.blade.php') || is_page_template('templates/template-merch-products.blade.php'))

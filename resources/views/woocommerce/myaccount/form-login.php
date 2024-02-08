@@ -34,14 +34,14 @@ do_action('woocommerce_before_customer_login_form');
             <div class="text-sm font-medium text-center">
                 <ul class="flex flex-wrap -mb-px text-md-font font-reg420 signin-tabs pb-2 ml-auto mr-auto lg:w-[639px]">
                     <li class="w-1/2 relative">
-                        <a href="#"
+                        <a id="signInTab" href="#"
                             @click="activeTab = 'sign-in'; showLostPassword = false"
                             :class="{ 'active-tab': activeTab === 'sign-in', 'inactive-tab': activeTab !== 'sign-in' }"
                             x-text="showLostPassword ? 'Forgot Password' : 'Sign In'">
                         </a>
                     </li>
                     <li class="w-1/2 relative">
-                        <a href="#"
+                        <a id="registerTab" href="#"
                             @click="activeTab = 'register'; showLostPassword = false"
                             :class="{ 'active-tab': activeTab === 'register', 'inactive-tab': activeTab !== 'register' }">
                             Register

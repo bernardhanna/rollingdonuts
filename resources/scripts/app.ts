@@ -9,6 +9,7 @@ import 'flowbite/dist/flowbite.js';
 import '@iconify/iconify';
 import Splide from '@splidejs/splide';
 
+
 Object.assign(window, { Alpine: Alpine }).Alpine.start();
 
 import.meta.webpackHot?.accept(console.error);
@@ -205,5 +206,62 @@ document.addEventListener('DOMContentLoaded', function() {
   const nextLink = document.querySelector('.pagination-next');
   if (nextLink) {
       nextLink.closest('.page-item').classList.add('next-page-item');
+  }
+});
+
+//Video Flexi Block
+document.addEventListener("DOMContentLoaded", function() {
+  const playButtons = document.querySelectorAll('.play-button');
+
+  playButtons.forEach(function(playButton) {
+      const videoContainer = playButton.closest('.flexi-video');
+      const videoThumbnail = videoContainer.querySelector('.video-thumbnail');
+      const videoPlayer = videoContainer.querySelector('iframe');
+
+      playButton.addEventListener('click', function() {
+          playButton.classList.add('opacity-0', 'invisible');
+          videoThumbnail.classList.add('opacity-0', 'invisible');
+          videoPlayer.classList.remove('hidden'); // Make sure it is not `display: none;`
+
+          setTimeout(() => {
+              playButton.classList.add('hidden'); // Hide after transition
+              videoThumbnail.classList.add('hidden'); // Hide after transition
+          }, 500); // Ensure this matches the transition duration
+
+          // Start playing the video
+          videoPlayer.src += "&autoplay=1";
+      });
+
+      videoPlayer.addEventListener('ended', function() {
+          playButton.classList.remove('opacity-0', 'invisible', 'hidden');
+          videoThumbnail.classList.remove('opacity-0', 'invisible', 'hidden');
+          videoPlayer.classList.add('hidden'); // Hide the player
+
+          // Reset the video player source to stop autoplay
+          videoPlayer.src = videoPlayer.src.replace("&autoplay=1", "");
+      });
+  });
+});
+
+
+//chnage header text on tab click
+document.addEventListener('DOMContentLoaded', function () {
+  const signInTab = document.getElementById('signInTab');
+  const registerTab = document.getElementById('registerTab');
+
+  // Listen for clicks on the Sign In tab
+  if (signInTab) {
+      signInTab.addEventListener('click', function(event) {
+          event.preventDefault();
+          window.dispatchEvent(new CustomEvent('update-active-tab', { detail: { tab: 'sign-in' } }));
+      });
+  }
+
+  // Listen for clicks on the Register tab
+  if (registerTab) {
+      registerTab.addEventListener('click', function(event) {
+          event.preventDefault();
+          window.dispatchEvent(new CustomEvent('update-active-tab', { detail: { tab: 'register' } }));
+      });
   }
 });
