@@ -27,7 +27,7 @@
                 isMobile = window.innerWidth <= 575;
             });
         }">
-            <img x-show="!isMobile" class="object-cover w-full mobile:h-header" src="{{ $image_url }}" alt="{{ $image_alt }}" srcset="{{ $image_srcset }}" sizes="(min-width: 575px) 100vw">
+            <img x-show="!isMobile" class="object-cover w-full max-site:h-header" src="{{ $image_url }}" alt="{{ $image_alt }}" srcset="{{ $image_srcset }}" sizes="(min-width: 575px) 100vw">
             <img x-show="isMobile" class="w-full" src="{{ $image_url_mobile }}" alt="{{ $image_alt_mobile }}" srcset="{{ $image_srcset_mobile }}" sizes="(max-width: 575px) 100vw">
         </div>
         @endif
