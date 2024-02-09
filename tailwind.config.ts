@@ -259,6 +259,7 @@ export default {
         '1': '1px',
         '3': '3px',
         'nornmal': '1.5rem',
+        'normal': '1.5rem',
         '113xl': '132px',
         '3xs': '10px',
         '20px': '20px',

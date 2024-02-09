@@ -25,7 +25,7 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
-<div class="px-4 md:px-0 cart_totals w-full md:max-w-max-503 <?php echo ( WC()->customer->has_calculated_shipping() ) ? 'calculated_shipping' : ''; ?>">
+<div class="px-4 md:px-0 cart_totals w-full lg:max-w-max-503 <?php echo ( WC()->customer->has_calculated_shipping() ) ? 'calculated_shipping' : ''; ?>">
 
 	<?php do_action( 'woocommerce_before_cart_totals' ); ?>
     <div class="border-b-2 border-black-full py-4 text-left">
