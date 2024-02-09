@@ -21,7 +21,7 @@ $eventButton = get_sub_field('event_button');
             <h4 class="text-lg-font mt-6 font-reg420 pb-5 leading-3xl">{{ $eventHeading }}</h4>
             <p class="text-reg-font text-black-font leading-none lg:w-5/6">{!! $eventText !!}</p>
             @if ($eventButton)
-                <a class="btn mt-16 w-full h-[56px] max-w-[318px] text-white text-mob-lg-font lg:text-md-font font-420 bg-black-full border-radius-large py-4 font-reg420 hover:bg-yellow-primary hover:text-black-full lg:w-full" href="{{ $eventButton['url'] }}" class="button">{{ $eventButton['title'] }}</a>
+                <a class="btn mt-16 w-full h-[56px] max-w-[318px] text-white text-sm-md-font lg:mob-lg-font font-420 bg-black-full border-radius-large py-4 font-reg420 hover:bg-yellow-primary hover:text-black-full lg:w-full" href="{{ $eventButton['url'] }}" class="button">{{ $eventButton['title'] }}</a>
             @endif
         </div>
     </div>
