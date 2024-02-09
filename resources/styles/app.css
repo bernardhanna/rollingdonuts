@@ -672,6 +672,8 @@ nav .submenu .current_page_item {
 .woocommerce-notices-wrapper {
   position: fixed;
   bottom: 0;
+  left: 0;
+  right: 0;
   width: 100%;
   z-index: 1000;
 }
@@ -1408,4 +1410,61 @@ nav .submenu .current_page_item {
 
 .roll-down-animation {
   animation: roll-down 0.2s ease forwards;
+}
+
+
+.woocommerce-cart .product-quantity .quantity label {
+    display: none !important;
+}
+
+.input-text.qty.text.hasQtyButtons {
+  border-radius: 72px;
+  border: 1px solid var(--black-full, #000);
+  text-align: center;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 420;
+  width: 100%;
+}
+
+.quantity {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.quantity_input {
+  width: 167px;
+  height: 44px;
+}
+
+.product-remove .screen-reader-text {
+  visibility: hidden;
+}
+
+.product-thumbnai .screen-reader-text {
+  visibility: hidden;
+}
+
+
+.decrement-btn {
+  box-shadow: 0 4px 0 0 rgb(0 0 0 / 25%);
+  height: 29px;
+  width: 29px;
+  border-radius: 4px;
+}
+
+.increment-btn {
+  box-shadow: 0 4px 0 0 rgb(0 0 0 / 25%);
+  height: 29px;
+  width: 29px;
+  border-radius: 4px;
+}
+
+.woocommerce-cart .instagram-posts {
+  display: none;
+}
+
+.woocommerce-checkout .instagram-posts {
+  display: none;
 }

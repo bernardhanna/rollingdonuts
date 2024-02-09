@@ -14,12 +14,12 @@
 @section('content')
     @include('partials.space')
     @include('partials.page-header')
-     @while(have_rows('flexible_content')) @php(the_row())
-        @if(get_row_layout() === 'flexi_blocks')
-            {{-- Include the blade template to render the flexible content --}}
-            @include('flexible.video')
-        @endif
-      @endwhile
+    @while(have_rows('flexible_content')) @php(the_row())
+        @includeWhen(get_row_layout() === 'text_block', 'flexible.text')
+        @includeWhen(get_row_layout() === 'image_block', 'flexible.image')
+        @includeWhen(get_row_layout() === 'video_block', 'flexible.video')
+        @includeWhen(get_row_layout() === 'imagewithtext_block', 'flexible.imagewithtext')
+    @endwhile
     @include('partials.site-links')
     @include('partials.instagram-slider')
 @endsection

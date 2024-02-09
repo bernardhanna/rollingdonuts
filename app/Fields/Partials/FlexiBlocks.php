@@ -7,33 +7,69 @@
  */
 namespace App\Fields\Partials;
 
+use Log1x\AcfComposer\Partial;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class FlexiBlocks
+class FlexiBlocks extends Partial
 {
     /**
-     * Initialize the FlexiBlocks fields.
+     * The partial field group.
      *
-     * @return FieldsBuilder
+     * @return \StoutLogic\AcfBuilder\FieldsBuilder
      */
-    public static function fields()
+    public function fields()
     {
-        $flexiBlocks = new FieldsBuilder('flexi_blocks');
+        $flexiblocks = new FieldsBuilder('flexi_blocks');
 
-        $flexiBlocks
-            ->addImage('video_thumbnail', [
-                'label' => 'Video Thumbnail',
-                'instructions' => 'Upload the thumbnail image for the video.',
-                'return_format' => 'array', // or 'url' or 'id', depending on your needs
-                'preview_size' => 'medium', // Adjust according to your needs
-                'library' => 'all',
-            ])
-            ->addText('youtube_video_id', [
-                'label' => 'YouTube Video ID',
-                'instructions' => 'Enter the YouTube video ID.',
-                'placeholder' => 'e.g., nAkD44-velk',
-            ]);
+        $flexiblocks
+            ->addFlexibleContent('flexible_content')
+            ->addLayout('text_block')
+                ->addTextarea('text_content', [
+                    'label' => 'Text Content',
+                    'new_lines' => 'wpautop', // Automatically add paragraphs
+                ])
+            ->addLayout('image_block')
+                ->addImage('image_content', [
+                    'label' => 'Image Content',
+                    'return_format' => 'url',
+                ])
 
-        return $flexiBlocks;
+            ->addLayout('imagewithtext_block')
+                ->addTrueFalse('reverse_layout', [
+                    'label' => 'Reverse Layout',
+                    'instructions' => 'Check this to reverse the layout.',
+                    'ui' => 1,
+                ])
+                ->addImage('event_image', [
+                    'label' => 'Event Image',
+                    'return_format' => 'array',
+                    'preview_size' => 'medium',
+                ])
+                ->addText('event_heading', [
+                    'label' => 'Event Heading',
+                ])
+                ->addTextarea('event_text', [
+                    'label' => 'Event Text',
+                    'new_lines' => 'wpautop',
+                ])
+                ->addLink('event_button', [
+                    'label' => 'Event Button',
+                ])
+
+            ->addLayout('video_block')
+                ->addImage('video_thumbnail', [
+                    'label' => 'Video Thumbnail',
+                    'instructions' => 'Upload the thumbnail image for the video.',
+                    'return_format' => 'array',
+                    'preview_size' => 'medium',
+                    'library' => 'all',
+                ])
+                ->addText('youtube_video_id', [
+                    'label' => 'YouTube Video ID',
+                    'instructions' => 'Enter the YouTube video ID.',
+                    'placeholder' => 'e.g., nAkD44-velk',
+                ]);
+
+        return $flexiblocks;
     }
 }

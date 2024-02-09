@@ -610,6 +610,80 @@ function custom_woocommerce_thumbnail_size( $size ) {
     // If it's not the cart page, return the original size
     return $size;
 }
+// Add Increment and Decrement Buttons
+function custom_quantity_update_script_with_svg_and_wrapper() {
+    ?>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            function addQuantityButtons() {
+                $('input.qty').not('.hasQtyButtons').each(function() {
+                    var $input = $(this);
+                    $input.addClass('hasQtyButtons');
+
+                    // Create wrapper div and add 'relative' class
+                    var $wrapper = $('<div class="relative flex items-center justify-between quantity_input"></div>');
+
+                    // Move the input inside the wrapper
+                    $input.wrap($wrapper);
+
+                    // Get the new wrapper reference
+                    $wrapper = $input.parent();
+
+                    var decrementSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="19" height="4" viewBox="0 0 19 4" fill="none"><path d="M18.0553 2.26316C18.0553 3.2175 17.2816 3.99116 16.3273 3.99116H2.0073C1.05295 3.99116 0.279297 3.2175 0.279297 2.26316C0.279297 1.30881 1.05295 0.535156 2.0073 0.535156H16.3273C17.2816 0.535156 18.0553 1.30881 18.0553 2.26316Z" fill="#291F19"/></svg>';
+                    var $decrementBtn = $('<button type="button" class="border border-solid border-black rounded bg-white h-[29px] w-[29px] ml-4 flex items-center justify-center decrement-btn absolute left-0 hover:bg-yellow-primary"></button>').click(function(e) {
+                        e.preventDefault();
+                        var value = parseInt($input.val()) - 1;
+                        $input.val(value >= 1 ? value : 1);
+                        $input.trigger('change');
+                        triggerCartUpdate($input);
+                    });
+
+                    var incrementSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="13" viewBox="0 0 12 13" fill="none"><path d="M2.08737 8.00708C1.13303 8.00708 0.359375 7.23343 0.359375 6.27908C0.359375 5.32473 1.13303 4.55108 2.08738 4.55108H4.42338V2.18308C4.42338 1.22873 5.19703 0.455078 6.15137 0.455078C7.10572 0.455078 7.87937 1.22873 7.87937 2.18308V4.55108H10.2474C11.2017 4.55108 11.9754 5.32473 11.9754 6.27908C11.9754 7.23343 11.2017 8.00708 10.2474 8.00708H7.87937V10.3431C7.87937 11.2974 7.10572 12.0711 6.15137 12.0711C5.19703 12.0711 4.42338 11.2974 4.42338 10.3431V8.00708H2.08737Z" fill="#291F19"/></svg>';
+                    var $incrementBtn = $('<button type="button" class="border border-solid border-black rounded bg-white h-[29px] w-[29px] mr-4 flex items-center justify-center increment-btn absolute right-0 hover:bg-yellow-primary"></button>').click(function(e) {
+                        e.preventDefault();
+                        var value = parseInt($input.val()) + 1;
+                        $input.val(value);
+                        $input.trigger('change');
+                        triggerCartUpdate($input);
+                    });
+
+                    // Add SVG icons directly
+                    $decrementBtn.html(decrementSvg);
+                    $incrementBtn.html(incrementSvg);
+
+                    // Append buttons to the wrapper
+                    $wrapper.append($decrementBtn);
+                    $wrapper.append($incrementBtn);
+                });
+            }
+
+            function triggerCartUpdate($input) {
+                var $form = $input.closest('form');
+
+                $.ajax({
+                    type: 'POST',
+                    url: $form.attr('action'),
+                    data: $form.serialize() + '&update_cart=Update Cart',
+                    success: function() {
+                        $(document.body).trigger('updated_cart_totals');
+                    },
+                    error: function() {
+                        console.error('Failed to update cart.');
+                    }
+                });
+            }
+
+            addQuantityButtons();
+
+            $(document.body).on('updated_cart_totals', function() {
+                addQuantityButtons();
+            });
+        });
+    </script>
+    <?php
+}
+add_action('wp_footer', 'custom_quantity_update_script_with_svg_and_wrapper');
+
 /*
  ****************************************************************
  * Checkout  page

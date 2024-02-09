@@ -33,7 +33,7 @@ if ( ! $notices ) {
 ?>
 
 <?php foreach ( $notices as $notice ) : ?>
-  <div id="custom-woocommerce-notice" x-data="{ show: true }" x-show="show" x-init="setTimeout(() => { show = false }, 7000)" class="woocommerce-noticeslgrapper fixed bottom-0 left-0 right-0 z-50 bg-transparent text-center p-4 flex w-full">
+  <div id="custom-woocommerce-notice" x-data="{ show: true }" x-init="setTimeout(() => { show = false }, 7000)" class="woocommerce-noticeslgrapper fixed bottom-0 left-0 right-0 z-50 bg-transparent text-center p-4 flex w-full">
         <div class="woocommerce-message woo-notice-shadow bg-black-full rounded-t-sm-12 border-t-2 border-x-2  border-t-yellow-primary border-l-yellow-primary border-r-yellow-primary w-full " role="alert">
         <?php
         // Get the image URL from Theme Options using ACF's get_field function
