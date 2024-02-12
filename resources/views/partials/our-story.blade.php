@@ -115,7 +115,7 @@
     <div class="relative h-full mx-auto max-w-7xl flex flex-row items-start justify-center">
         <ul class="cards relative flex justify-start items-center w-full lg:w-6/12 p-5 space-x-5 list-none m-auto h-full">
             <li class="current relative w-full max-w-xs h-full max-h-[400px] p-5 z-30 opacity-100 transform -translate-x-full rotate-3 scale-95 transition-all duration-700 ease-in-out" title="Image 1">
-                <img src="https://rollingdonuts.lndo.site/content/uploads/2024/02/storyour-1.png" class="w-full h-full object-cover rounded-[10px] max-w-[658.515px] h-[426.499px] border-8 border-white"/>
+                <img src="https://picsum.photos/600/?1" class="w-full h-full object-cover rounded-[10px] max-w-[658.515px] h-[426.499px] border-8 border-white"/>
             </li>
             <li class="relative w-full max-w-xs h-full max-h-[400px] p-5 z-20 opacity-0 transform -translate-x-full rotate-3 scale-95 transition-all duration-700 ease-in-out" title="Image 2">
                 <img src="https://picsum.photos/600/?2" class="w-full h-full object-cover rounded-[10px] max-w-[658.515px] h-[426.499px] border-8 border-white"/>
