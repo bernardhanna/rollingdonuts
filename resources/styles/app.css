@@ -110,7 +110,7 @@ b {
   @apply font-bold;
 }
 
-.e-content h1 {
+.e-content h1, h1.wp-block-heading {
   @apply text-xl-font font-edmondsans font-regular leading-[3.5rem];
 }
 
@@ -118,11 +118,17 @@ b {
   @apply text-xl-font font-edmondsans font-regular leading-[3.5rem];
 }
 
-.e-content h3 {
+h2.wp-block-heading {
+  @apply text-xl-font font-edmondsans font-regular leading-[3.5rem];
+
+  padding-bottom: 1rem;
+}
+
+.e-content h3, h3.wp-block-heading {
   @apply text-xl-font font-edmondsans font-regular leading-[3.5rem];
 }
 
-.e-content h4 {
+.e-content h4, h4.wp-block-heading {
   @apply text-md-font font-edmondsans font-reg420 leading-[3.5rem];
 }
 
@@ -134,15 +140,15 @@ button {
   transition: all 0.3s linear;
 }
 
-.e-content h5 {
+.e-content h5, h5.wp-block-heading {
   @apply text-font-28 font-edmondsans font-reg420 leading-[3.5rem];
 }
 
-.e-content h6 {
+.e-content h6, h6.wp-block-heading {
   @apply text-sm-md-font font-edmondsans font-reg420 leading-[3.5rem];
 }
 
-.e-content p {
+.e-content p, .gutenburg p {
   @apply font-laca text-sm-font font-light leading-[1.3rem];
 }
 
@@ -1467,4 +1473,11 @@ nav .submenu .current_page_item {
 
 .woocommerce-checkout .instagram-posts {
   display: none;
+}
+
+
+.story-arrows {
+  top: 40%;
+  width: 120%;
+  left: -4rem;
 }

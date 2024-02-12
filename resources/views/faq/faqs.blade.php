@@ -6,14 +6,14 @@
                     $faqButton = get_field('faq_button');
                     $selectedFaqs = get_field('selected_faqs');
                     $bodyClasses = get_body_class();
-                    $isContactPage = in_array('contact-us', $bodyClasses); // Check if it's the contact page
+                    $isContactPage = in_array('contact-us', $bodyClasses);
                 @endphp
 
                 <h4 class="pt-10 pb-4 lg:pt-0 lg:p-0 lg:text-lg-font text-lg-font font-reg420 lg:text-leading-10">
                     @if ($isContactPage)
-                        {{ get_field('faq_title') }} <!-- Display contact page title -->
+                        {{ get_field('faq_title') }}
                     @else
-                        FAQs<!-- Display FAQs title -->
+                        FAQs
                     @endif
                 </h4>
 
@@ -21,10 +21,10 @@
                     @if ($isContactPage)
                         @if ($selectedFaqs && is_array($selectedFaqs))
                             @foreach ($selectedFaqs as $index => $faq)
-                                @include('components.accordion', ['faq' => $faq['faq'], 'index' => $index]) <!-- Include the accordion component -->
+                                @include('components.accordion', ['faq' => $faq['faq'], 'index' => $index])
                             @endforeach
                         @endif
-                    @else <!-- For (FAQs page) -->
+                    @else
                     @php
                     $faqs = new WP_Query(['post_type' => 'faq', 'posts_per_page' => -1]);
                     $index = 0; // Initialize the $index variable

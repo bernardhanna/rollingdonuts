@@ -11,7 +11,7 @@ use Log1x\AcfComposer\Field;
 use App\Fields\Partials\Faqs;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Faq extends Field
+class About extends Field
 {
     /**
      * The field group.
@@ -20,15 +20,15 @@ class Faq extends Field
      */
     public function fields()
     {
-        $faqPage = new FieldsBuilder('faqPage');
+        $aboutPage = new FieldsBuilder('aboutPage');
 
-        $faqPage
-        ->setLocation('page_template', '==', 'templates/template-faqs.blade.php');
+        $aboutPage
+        ->setLocation('page_template', '==', 'templates/template-about.blade.php');
 
-        $faqPage
+        $aboutPage
         ->addTab('Faqs')
             ->addFields($this->get(Faqs::class));
 
-        return $faqPage->build();
+        return $aboutPage->build();
     }
 }
