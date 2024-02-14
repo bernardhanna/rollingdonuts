@@ -9,6 +9,7 @@ namespace App\Fields;
 
 use Log1x\AcfComposer\Field;
 use App\Fields\Partials\Faqs;
+use App\Fields\Partials\OurStory;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
 class About extends Field
@@ -26,6 +27,9 @@ class About extends Field
         ->setLocation('page_template', '==', 'templates/template-about.blade.php');
 
         $aboutPage
+        ->addTab('Our Story')
+            ->addFields($this->get(OurStory::class))
+
         ->addTab('Faqs')
             ->addFields($this->get(Faqs::class));
 

@@ -102,6 +102,7 @@ export default {
       'macbook': '1300px',
       'xxl': '1440px',
       'insta-flow': '1590px',
+      'one-xl': '1600px',
       'desktop': '1628px',
       'site': '1726px',
       'xxxl': '1920px',
@@ -137,10 +138,6 @@ export default {
       },
       textShadow: {
         'medium' : '2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;',
-      },
-      screens: {
-        'lg' : '1085px',
-        'one-xl': '1600px',
       },
       zIndex: {
         '99': '99',
@@ -184,6 +181,7 @@ export default {
         '57': '57%',
         '60': '60%',
         '85': '85%',
+        '90': '90%',
       },
       minWidth: {
         'min-208': '208px',
@@ -217,6 +215,7 @@ export default {
         'max-1336': '83.5rem', //1336px
         'max-1359': '84.9375rem', //1359px
         'max-1341': '83.8125rem', //1341px
+        'max-1364': '85.25rem', //1364px
         'max-1370': '85.625rem', //1370px
         'max-1405': '87.8125rem', //1405px
         'max-1467': '91.6875rem', //1467px
@@ -231,6 +230,7 @@ export default {
         'max-1584': '99rem', //1584px
         'max-1596': '99.75rem', //1590px
         'max-100': '100rem',
+        'max-1616': '101rem', //1616px
         'sitewidth': '107.875rem', //1726px
         'max-95': '95%', //95%
       },
@@ -246,11 +246,13 @@ export default {
       },
       borderWidth: {
         '3': '3px',
+        '12' : '12px',
       },
       borderRadius: {
         'tl-lg': '0.5rem 0.5rem 0rem 0rem',
         'one': '1rem',
         'md-20': '20px',
+        'img': '24px',
         'md-32' : '32px',
         'md-40' : '40px',
         'sm-8': '8px',

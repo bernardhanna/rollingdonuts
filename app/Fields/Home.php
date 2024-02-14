@@ -14,7 +14,7 @@ use App\Fields\Partials\FeaturedDonuts;
 use App\Fields\Partials\BestSellers;
 use App\Fields\Partials\ContentImageLeft;
 use App\Fields\Partials\ContentImageRight;
-use  App\Fields\Partials\StorySlider;
+use App\Fields\Partials\OurStory;
 use App\Fields\Partials\Heading;
 use App\Fields\Partials\Faqs;
 use StoutLogic\AcfBuilder\FieldsBuilder;
@@ -48,8 +48,8 @@ class Home extends Field
             ->addFields($this->get(ContentImageLeft::class))
         ->addTab('Gift Card')
             ->addFields($this->get(ContentImageRight::class))
-        ->addTab('Story Slider')
-            ->addFields($this->get(StorySlider::class))
+        ->addTab('Our Story')
+            ->addFields($this->get(OurStory::class))
         ->addTab('Trust Pilot')
             ->addFields($this->get(Heading::class))
         ->addTab('Faqs')
