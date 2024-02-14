@@ -22,8 +22,8 @@
     @include('home.bestsellers')
     {{-- Include the Info partial --}}
     @include('home.info')
-    {{-- Include the StorySlider partial
-    @include('home.storyslider')--}}
+    {{-- Include the StorySlider partial--}}
+    @include('partials.our-story')
     {{-- Include the TrustPilot partial
     @include('partials.trust-pilot')--}}
     {{-- Include the Faqs partial  --}}

@@ -6,7 +6,7 @@
  * @Last Modified time: 2023-07-18 17:05:26
  */
 ?>
-<a class="nav-center flex justify-center items-center z-10 w-1/3 laptop:w-1/6 laptop:relative laptop:bottom-4 hide-md" href="{{ home_url('/') }}">
+<a class="cursor-pointer nav-center flex justify-center items-center z-10 w-1/3 laptop:w-1/6 laptop:relative laptop:bottom-4 hide-md" href="{{ home_url('/') }}">
     @php
         $main_logo_id = attachment_url_to_postid(get_field('main_logo', 'option'));
         $main_alt_text = get_post_meta($main_logo_id, '_wp_attachment_image_alt', true);
