@@ -4,8 +4,208 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "788a10638ec17c9e354aa88ee344723e",
+    "content-hash": "afb25d174da0b2861afd11156390ad5c",
     "packages": [
+        {
+            "name": "bernardhanna/gravityforms",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bernardhanna/gravityforms.git",
+                "reference": "a43dbd383b3fe2e1ddb782f62aff9c254fa43201"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bernardhanna/gravityforms/zipball/a43dbd383b3fe2e1ddb782f62aff9c254fa43201",
+                "reference": "a43dbd383b3fe2e1ddb782f62aff9c254fa43201",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "GravityForms\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernard Hanna",
+                    "email": "bernard@matrixinternet.ie"
+                }
+            ],
+            "description": "Gravity Forms Package",
+            "support": {
+                "source": "https://github.com/bernardhanna/gravityforms/tree/main",
+                "issues": "https://github.com/bernardhanna/gravityforms/issues"
+            },
+            "time": "2024-02-15T15:31:37+00:00"
+        },
+        {
+            "name": "bernardhanna/mt-future-orders",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bernardhanna/mt-future-orders.git",
+                "reference": "8e1f3d3c1100387c5dc771ffc63b661d09121309"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bernardhanna/mt-future-orders/zipball/8e1f3d3c1100387c5dc771ffc63b661d09121309",
+                "reference": "8e1f3d3c1100387c5dc771ffc63b661d09121309",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "MemoTech\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernard Hanna",
+                    "email": "bernard@matrixinternet.ie"
+                }
+            ],
+            "description": "Rolling Donut future orders by Memotech.",
+            "support": {
+                "source": "https://github.com/bernardhanna/mt-future-orders/tree/main",
+                "issues": "https://github.com/bernardhanna/mt-future-orders/issues"
+            },
+            "time": "2024-02-15T14:51:29+00:00"
+        },
+        {
+            "name": "bernardhanna/mt-memotech-fixes",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bernardhanna/mt-memotech-fixes.git",
+                "reference": "5f75bfdfd2e52f358ad1466c90c052cccb6183b8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bernardhanna/mt-memotech-fixes/zipball/5f75bfdfd2e52f358ad1466c90c052cccb6183b8",
+                "reference": "5f75bfdfd2e52f358ad1466c90c052cccb6183b8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "MemoTechFixes\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernard Hanna",
+                    "email": "bernard@matrixinternet.ie"
+                }
+            ],
+            "description": "Patch for Rolling Donut future orders by Memotech.",
+            "support": {
+                "source": "https://github.com/bernardhanna/mt-memotech-fixes/tree/main",
+                "issues": "https://github.com/bernardhanna/mt-memotech-fixes/issues"
+            },
+            "time": "2024-02-15T14:55:48+00:00"
+        },
+        {
+            "name": "bernardhanna/mt-woo-sales-by-country-reports",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bernardhanna/mt-woo-sales-by-country-reports.git",
+                "reference": "4e134859d49cba8f77ef1431d85259f4fd49c455"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bernardhanna/mt-woo-sales-by-country-reports/zipball/4e134859d49cba8f77ef1431d85259f4fd49c455",
+                "reference": "4e134859d49cba8f77ef1431d85259f4fd49c455",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "MtWooSalesByCountryReports\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernard Hanna",
+                    "email": "bernard@matrixinternet.ie"
+                }
+            ],
+            "description": "mt woo sales by country reports.",
+            "support": {
+                "source": "https://github.com/bernardhanna/mt-woo-sales-by-country-reports/tree/main",
+                "issues": "https://github.com/bernardhanna/mt-woo-sales-by-country-reports/issues"
+            },
+            "time": "2024-02-15T15:06:52+00:00"
+        },
+        {
+            "name": "bernardhanna/updraftplus",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bernardhanna/updraftplus.git",
+                "reference": "7584d25ffa672c0dbc90fe2b9e5cf5e3d264cf95"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bernardhanna/updraftplus/zipball/7584d25ffa672c0dbc90fe2b9e5cf5e3d264cf95",
+                "reference": "7584d25ffa672c0dbc90fe2b9e5cf5e3d264cf95",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "UpdraftPlus\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernard Hanna",
+                    "email": "bernard@matrixinternet.ie"
+                }
+            ],
+            "description": "UpdraftPlus WordPress backup plugin",
+            "support": {
+                "source": "https://github.com/bernardhanna/updraftplus/tree/main",
+                "issues": "https://github.com/bernardhanna/updraftplus/issues"
+            },
+            "time": "2024-02-15T14:36:08+00:00"
+        },
         {
             "name": "bernardhanna/woo-local-pickup",
             "version": "dev-main",
@@ -45,6 +245,166 @@
                 "issues": "https://github.com/bernardhanna/woo-local-pickup/issues"
             },
             "time": "2023-08-24T08:37:31+00:00"
+        },
+        {
+            "name": "bernardhanna/woocommerce-customer-order-csv-export",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bernardhanna/woocommerce-customer-order-csv-export.git",
+                "reference": "ceea2e8d8c6bbf7776769bb86b12938245b09078"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bernardhanna/woocommerce-customer-order-csv-export/zipball/ceea2e8d8c6bbf7776769bb86b12938245b09078",
+                "reference": "ceea2e8d8c6bbf7776769bb86b12938245b09078",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "WoocommerceCustomerOrderCsvExport\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernard Hanna",
+                    "email": "bernard@matrixinternet.ie"
+                }
+            ],
+            "description": "Woo Custom Order CSV Export.",
+            "support": {
+                "source": "https://github.com/bernardhanna/woocommerce-customer-order-csv-export/tree/main",
+                "issues": "https://github.com/bernardhanna/woocommerce-customer-order-csv-export/issues"
+            },
+            "time": "2024-02-15T15:10:44+00:00"
+        },
+        {
+            "name": "bernardhanna/woocommerce-delivery-area-pro",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bernardhanna/woocommerce-delivery-area-pro.git",
+                "reference": "8e3b6a6328b82983483803bbebde0ee0eb16e4ad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bernardhanna/woocommerce-delivery-area-pro/zipball/8e3b6a6328b82983483803bbebde0ee0eb16e4ad",
+                "reference": "8e3b6a6328b82983483803bbebde0ee0eb16e4ad",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "WoocommerceDeliveryAreaPro\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernard Hanna",
+                    "email": "bernard@matrixinternet.ie"
+                }
+            ],
+            "description": "Woocommerce Delivery Area Pro",
+            "support": {
+                "source": "https://github.com/bernardhanna/woocommerce-delivery-area-pro/tree/main",
+                "issues": "https://github.com/bernardhanna/woocommerce-delivery-area-pro/issues"
+            },
+            "time": "2024-02-15T15:21:52+00:00"
+        },
+        {
+            "name": "bernardhanna/woocommerce-pdf-ips-pro",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bernardhanna/woocommerce-pdf-ips-pro.git",
+                "reference": "4c9b71eac33aba7dd88fb27cae97793c89500b80"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bernardhanna/woocommerce-pdf-ips-pro/zipball/4c9b71eac33aba7dd88fb27cae97793c89500b80",
+                "reference": "4c9b71eac33aba7dd88fb27cae97793c89500b80",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "WoocommercePdfIpsPro\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernard Hanna",
+                    "email": "bernard@matrixinternet.ie"
+                }
+            ],
+            "description": "Woocommerce Pdf Ips Pro.",
+            "support": {
+                "source": "https://github.com/bernardhanna/woocommerce-pdf-ips-pro/tree/main",
+                "issues": "https://github.com/bernardhanna/woocommerce-pdf-ips-pro/issues"
+            },
+            "time": "2024-02-15T15:26:29+00:00"
+        },
+        {
+            "name": "bernardhanna/woocommerce-shipping-local-pickup-plus",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bernardhanna/woocommerce-shipping-local-pickup-plus.git",
+                "reference": "97de1079b926121d8c912871dc0ed9d07dc32aef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bernardhanna/woocommerce-shipping-local-pickup-plus/zipball/97de1079b926121d8c912871dc0ed9d07dc32aef",
+                "reference": "97de1079b926121d8c912871dc0ed9d07dc32aef",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "WoocommerceShippingLocalPickupPlus\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernard Hanna",
+                    "email": "bernard@matrixinternet.ie"
+                }
+            ],
+            "description": "woocommerce shipping local pickup plus.",
+            "support": {
+                "source": "https://github.com/bernardhanna/woocommerce-shipping-local-pickup-plus/tree/main",
+                "issues": "https://github.com/bernardhanna/woocommerce-shipping-local-pickup-plus/issues"
+            },
+            "time": "2024-02-15T15:15:05+00:00"
         },
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -253,16 +613,16 @@
         },
         {
             "name": "carbonphp/carbon-doctrine-types",
-            "version": "3.1.0",
+            "version": "3.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CarbonPHP/carbon-doctrine-types.git",
-                "reference": "a31d3358a2a5d6ae947df1691d1f321418a5f3d5"
+                "reference": "18ba5ddfec8976260ead6e866180bd5d2f71aa1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CarbonPHP/carbon-doctrine-types/zipball/a31d3358a2a5d6ae947df1691d1f321418a5f3d5",
-                "reference": "a31d3358a2a5d6ae947df1691d1f321418a5f3d5",
+                "url": "https://api.github.com/repos/CarbonPHP/carbon-doctrine-types/zipball/18ba5ddfec8976260ead6e866180bd5d2f71aa1d",
+                "reference": "18ba5ddfec8976260ead6e866180bd5d2f71aa1d",
                 "shasum": ""
             },
             "require": {
@@ -302,7 +662,7 @@
             ],
             "support": {
                 "issues": "https://github.com/CarbonPHP/carbon-doctrine-types/issues",
-                "source": "https://github.com/CarbonPHP/carbon-doctrine-types/tree/3.1.0"
+                "source": "https://github.com/CarbonPHP/carbon-doctrine-types/tree/3.2.0"
             },
             "funding": [
                 {
@@ -318,7 +678,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-10T15:33:53+00:00"
+            "time": "2024-02-09T16:56:22+00:00"
         },
         {
             "name": "composer/installers",
@@ -7029,78 +7389,6 @@
             "time": "2022-03-08T17:03:00+00:00"
         },
         {
-            "name": "wpackagist-plugin/acf-content-analysis-for-yoast-seo",
-            "version": "3.1",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/acf-content-analysis-for-yoast-seo/",
-                "reference": "tags/3.1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/acf-content-analysis-for-yoast-seo.3.1.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/acf-content-analysis-for-yoast-seo/"
-        },
-        {
-            "name": "wpackagist-plugin/advanced-forms",
-            "version": "1.9.3.2",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/advanced-forms/",
-                "reference": "tags/1.9.3.2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/advanced-forms.1.9.3.2.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/advanced-forms/"
-        },
-        {
-            "name": "wpackagist-plugin/connect-sendgrid-for-emails",
-            "version": "1.11.12",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/connect-sendgrid-for-emails/",
-                "reference": "tags/1.11.12"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/connect-sendgrid-for-emails.1.11.12.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/connect-sendgrid-for-emails/"
-        },
-        {
-            "name": "wpackagist-plugin/force-regenerate-thumbnails",
-            "version": "2.1.3",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/force-regenerate-thumbnails/",
-                "reference": "tags/2.1.3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/force-regenerate-thumbnails.2.1.3.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/force-regenerate-thumbnails/"
-        },
-        {
             "name": "wpackagist-plugin/hcaptcha-for-forms-and-more",
             "version": "3.9.0",
             "source": {
@@ -7191,6 +7479,24 @@
             "homepage": "https://wordpress.org/plugins/updraftplus/"
         },
         {
+            "name": "wpackagist-plugin/wc-multiple-email-recipients",
+            "version": "1.4.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wc-multiple-email-recipients/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wc-multiple-email-recipients.zip?timestamp=1687280986"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/wc-multiple-email-recipients/"
+        },
+        {
             "name": "wpackagist-plugin/woocommerce",
             "version": "7.9.0",
             "source": {
@@ -7209,16 +7515,70 @@
             "homepage": "https://wordpress.org/plugins/woocommerce/"
         },
         {
-            "name": "wpackagist-plugin/wordfence",
-            "version": "7.11.1",
+            "name": "wpackagist-plugin/woocommerce-gateway-stripe",
+            "version": "7.9.3",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wordfence/",
-                "reference": "tags/7.11.1"
+                "url": "https://plugins.svn.wordpress.org/woocommerce-gateway-stripe/",
+                "reference": "tags/7.9.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordfence.7.11.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/woocommerce-gateway-stripe.7.9.3.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/woocommerce-gateway-stripe/"
+        },
+        {
+            "name": "wpackagist-plugin/woocommerce-pdf-invoices",
+            "version": "3.1.9",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/woocommerce-pdf-invoices/",
+                "reference": "tags/3.1.9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/woocommerce-pdf-invoices.3.1.9.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/woocommerce-pdf-invoices/"
+        },
+        {
+            "name": "wpackagist-plugin/woocommerce-pdf-invoices-packing-slips",
+            "version": "2.16.0",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/woocommerce-pdf-invoices-packing-slips/",
+                "reference": "tags/2.16.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/woocommerce-pdf-invoices-packing-slips.2.16.0.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/woocommerce-pdf-invoices-packing-slips/"
+        },
+        {
+            "name": "wpackagist-plugin/wordfence",
+            "version": "7.11.3",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wordfence/",
+                "reference": "tags/7.11.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wordfence.7.11.3.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -7261,6 +7621,21 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wp-mail-smtp/"
+        },
+        {
+            "name": "wpengine/advanced-custom-fields-pro",
+            "version": "6.2.6.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://connect.advancedcustomfields.com/v2/plugins/composer_download?p=pro&t=6.2.6.1"
+            },
+            "require": {
+                "composer/installers": "~1.0 || ~2.0"
+            },
+            "replace": {
+                "wpackagist-plugin/advanced-custom-fields": "self.version"
+            },
+            "type": "wordpress-plugin"
         }
     ],
     "packages-dev": [
@@ -7557,16 +7932,16 @@
         },
         {
             "name": "laravel/pint",
-            "version": "v1.13.10",
+            "version": "v1.13.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/pint.git",
-                "reference": "e2b5060885694ca30ac008c05dc9d47f10ed1abf"
+                "reference": "60a163c3e7e3346a1dec96d3e6f02e6465452552"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/pint/zipball/e2b5060885694ca30ac008c05dc9d47f10ed1abf",
-                "reference": "e2b5060885694ca30ac008c05dc9d47f10ed1abf",
+                "url": "https://api.github.com/repos/laravel/pint/zipball/60a163c3e7e3346a1dec96d3e6f02e6465452552",
+                "reference": "60a163c3e7e3346a1dec96d3e6f02e6465452552",
                 "shasum": ""
             },
             "require": {
@@ -7577,13 +7952,13 @@
                 "php": "^8.1.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.47.1",
-                "illuminate/view": "^10.41.0",
+                "friendsofphp/php-cs-fixer": "^3.49.0",
+                "illuminate/view": "^10.43.0",
                 "larastan/larastan": "^2.8.1",
                 "laravel-zero/framework": "^10.3.0",
                 "mockery/mockery": "^1.6.7",
                 "nunomaduro/termwind": "^1.15.1",
-                "pestphp/pest": "^2.31.0"
+                "pestphp/pest": "^2.33.6"
             },
             "bin": [
                 "builds/pint"
@@ -7619,7 +7994,7 @@
                 "issues": "https://github.com/laravel/pint/issues",
                 "source": "https://github.com/laravel/pint"
             },
-            "time": "2024-01-22T09:04:15+00:00"
+            "time": "2024-02-13T17:20:13+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -8592,12 +8967,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "46df6ad81f884380745ace4b61175d2b7a78bcae"
+                "reference": "683c8e7acb9c333990683edd7faed421c87d3954"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/46df6ad81f884380745ace4b61175d2b7a78bcae",
-                "reference": "46df6ad81f884380745ace4b61175d2b7a78bcae",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/683c8e7acb9c333990683edd7faed421c87d3954",
+                "reference": "683c8e7acb9c333990683edd7faed421c87d3954",
                 "shasum": ""
             },
             "conflict": {
@@ -8679,8 +9054,8 @@
                 "codeigniter4/framework": "<=4.4.2",
                 "codeigniter4/shield": "<1.0.0.0-beta8",
                 "codiad/codiad": "<=2.8.4",
-                "composer/composer": "<1.10.27|>=2,<2.2.22|>=2.3,<2.6.4",
-                "concrete5/concrete5": "<9.2.3",
+                "composer/composer": "<1.10.27|>=2,<2.2.23|>=2.3,<2.7",
+                "concrete5/concrete5": "<9.2.5",
                 "concrete5/core": "<8.5.8|>=9,<9.1",
                 "contao-components/mediaelement": ">=2.14.2,<2.21.1",
                 "contao/contao": ">=4,<4.4.56|>=4.5,<4.9.40|>=4.10,<4.11.7|>=4.13,<4.13.21|>=5.1,<5.1.4",
@@ -8701,7 +9076,7 @@
                 "dbrisinajumi/d2files": "<1",
                 "dcat/laravel-admin": "<=2.1.3.0-beta",
                 "derhansen/fe_change_pwd": "<2.0.5|>=3,<3.0.3",
-                "derhansen/sf_event_mgt": "<4.3.1|>=5,<5.1.1",
+                "derhansen/sf_event_mgt": "<4.3.1|>=5,<5.1.1|>=7,<7.4",
                 "desperado/xml-bundle": "<=0.1.7",
                 "directmailteam/direct-mail": "<6.0.3|>=7,<7.0.3|>=8,<9.5.2",
                 "doctrine/annotations": "<1.2.7",
@@ -8716,8 +9091,8 @@
                 "dolibarr/dolibarr": "<18.0.2",
                 "dompdf/dompdf": "<2.0.4",
                 "doublethreedigital/guest-entries": "<3.1.2",
-                "drupal/core": "<9.5.11|>=10,<10.0.11|>=10.1,<10.1.4",
-                "drupal/drupal": ">=6,<6.38|>=7,<7.80|>=8,<8.9.16|>=9,<9.1.12|>=9.2,<9.2.4",
+                "drupal/core": ">=6,<6.38|>=7,<7.96|>=8,<10.1.8|>=10.2,<10.2.2",
+                "drupal/drupal": ">=5,<5.11|>=6,<6.38|>=7,<7.80|>=8,<8.9.16|>=9,<9.1.12|>=9.2,<9.2.4",
                 "duncanmcclean/guest-entries": "<3.1.2",
                 "dweeves/magmi": "<=0.7.24",
                 "ec-cube/ec-cube": "<2.4.4",
@@ -8845,7 +9220,7 @@
                 "joomla/archive": "<1.1.12|>=2,<2.0.1",
                 "joomla/filesystem": "<1.6.2|>=2,<2.0.1",
                 "joomla/filter": "<1.4.4|>=2,<2.0.1",
-                "joomla/framework": ">=2.5.4,<=3.8.12",
+                "joomla/framework": "<1.5.4|>=2.5.4,<=3.8.12",
                 "joomla/input": ">=2,<2.0.2",
                 "joomla/joomla-cms": ">=2.5,<3.9.12",
                 "joomla/session": "<1.3.1",
@@ -8882,7 +9257,7 @@
                 "liftkit/database": "<2.13.2",
                 "limesurvey/limesurvey": "<3.27.19",
                 "livehelperchat/livehelperchat": "<=3.91",
-                "livewire/livewire": ">2.2.4,<2.2.6|>=3,<3.0.4",
+                "livewire/livewire": ">2.2.4,<2.2.6",
                 "lms/routes": "<2.1.1",
                 "localizationteam/l10nmgr": "<7.4|>=8,<8.7|>=9,<9.2",
                 "luyadev/yii-helpers": "<1.2.1",
@@ -8973,6 +9348,7 @@
                 "passbolt/passbolt_api": "<2.11",
                 "paypal/merchant-sdk-php": "<3.12",
                 "pear/archive_tar": "<1.4.14",
+                "pear/auth": "<1.2.4",
                 "pear/crypt_gpg": "<1.6.7",
                 "pear/pear": "<=1.10.1",
                 "pegasus/google-for-jobs": "<1.5.1|>=2,<2.1.1",
@@ -9004,7 +9380,7 @@
                 "pimcore/ecommerce-framework-bundle": "<1.0.10",
                 "pimcore/perspective-editor": "<1.5.1",
                 "pimcore/pimcore": "<11.1.1",
-                "pixelfed/pixelfed": "<=0.11.4",
+                "pixelfed/pixelfed": "<0.11.11",
                 "plotly/plotly.js": "<2.25.2",
                 "pocketmine/bedrock-protocol": "<8.0.2",
                 "pocketmine/pocketmine-mp": "<=4.23|>=5,<5.3.1",
@@ -9145,7 +9521,7 @@
                 "symfony/security-guard": ">=2.8,<3.4.48|>=4,<4.4.23|>=5,<5.2.8",
                 "symfony/security-http": ">=2.3,<2.3.41|>=2.4,<2.7.51|>=2.8,<2.8.50|>=3,<3.4.26|>=4,<4.2.12|>=4.3,<4.3.8|>=4.4,<4.4.7|>=5,<5.0.7|>=5.1,<5.2.8|>=5.3,<5.3.2|>=5.4,<5.4.31|>=6,<6.3.8",
                 "symfony/serializer": ">=2,<2.0.11|>=4.1,<4.4.35|>=5,<5.3.12",
-                "symfony/symfony": "<4.4.51|>=5,<5.4.31|>=6,<6.3.8",
+                "symfony/symfony": ">=2,<4.4.51|>=5,<5.4.31|>=6,<6.3.8",
                 "symfony/translation": ">=2,<2.0.17",
                 "symfony/twig-bridge": ">=2,<4.4.51|>=5,<5.4.31|>=6,<6.3.8",
                 "symfony/ux-autocomplete": "<2.11.2",
@@ -9153,7 +9529,7 @@
                 "symfony/var-exporter": ">=4.2,<4.2.12|>=4.3,<4.3.8",
                 "symfony/web-profiler-bundle": ">=2,<2.3.19|>=2.4,<2.4.9|>=2.5,<2.5.4",
                 "symfony/webhook": ">=6.3,<6.3.8",
-                "symfony/yaml": ">=2,<2.0.22|>=2.1,<2.1.7",
+                "symfony/yaml": ">=2,<2.0.22|>=2.1,<2.1.7|>=2.2.0.0-beta1,<2.2.0.0-beta2",
                 "symphonycms/symphony-2": "<2.6.4",
                 "t3/dce": "<0.11.5|>=2.2,<2.6.2",
                 "t3g/svg-sanitizer": "<1.0.3",
@@ -9181,13 +9557,13 @@
                 "ttskch/pagination-service-provider": "<1",
                 "twig/twig": "<1.44.7|>=2,<2.15.3|>=3,<3.4.3",
                 "typo3/cms": "<9.5.29|>=10,<10.4.35|>=11,<11.5.23|>=12,<12.2",
-                "typo3/cms-backend": "<4.1.14|>=4.2,<4.2.13|>=4.3,<4.3.4|>=4.4,<4.4.1|>=7,<=7.6.50|>=8,<=8.7.39|>=9,<=9.5.24|>=10,<=10.4.13|>=11,<=11.1",
-                "typo3/cms-core": "<8.7.55|>=9,<9.5.44|>=10,<10.4.41|>=11,<11.5.33|>=12,<12.4.8",
+                "typo3/cms-backend": "<4.1.14|>=4.2,<4.2.15|>=4.3,<4.3.7|>=4.4,<4.4.4|>=7,<=7.6.50|>=8,<=8.7.39|>=9,<=9.5.24|>=10,<=10.4.13|>=11,<=11.1",
+                "typo3/cms-core": "<=8.7.56|>=9,<=9.5.45|>=10,<=10.4.42|>=11,<=11.5.34|>=12,<=12.4.10|==13",
                 "typo3/cms-extbase": "<6.2.24|>=7,<7.6.8|==8.1.1",
                 "typo3/cms-fluid": "<4.3.4|>=4.4,<4.4.1",
                 "typo3/cms-form": ">=8,<=8.7.39|>=9,<=9.5.24|>=10,<=10.4.13|>=11,<=11.1",
-                "typo3/cms-frontend": "<4.1.14|>=4.2,<4.2.13|>=4.3,<4.3.4|>=4.4,<4.4.1",
-                "typo3/cms-install": "<4.1.14|>=4.2,<4.2.13|>=4.3,<4.3.4|>=4.4,<4.4.1|>=12.2,<12.4.8",
+                "typo3/cms-frontend": "<4.3.9|>=4.4,<4.4.5",
+                "typo3/cms-install": "<4.1.14|>=4.2,<4.2.16|>=4.3,<4.3.9|>=4.4,<4.4.5|>=12.2,<12.4.8",
                 "typo3/cms-rte-ckeditor": ">=9.5,<9.5.42|>=10,<10.4.39|>=11,<11.5.30",
                 "typo3/flow": ">=1,<1.0.4|>=1.1,<1.1.1|>=2,<2.0.1|>=2.3,<2.3.16|>=3,<3.0.12|>=3.1,<3.1.10|>=3.2,<3.2.13|>=3.3,<3.3.13|>=4,<4.0.6",
                 "typo3/html-sanitizer": ">=1,<=1.5.2|>=2,<=2.1.3",
@@ -9245,12 +9621,13 @@
                 "yikesinc/yikes-inc-easy-mailchimp-extender": "<6.8.6",
                 "yoast-seo-for-typo3/yoast_seo": "<7.2.3",
                 "yourls/yourls": "<=1.8.2",
+                "yuan1994/tpadmin": "<=1.3.12",
                 "zencart/zencart": "<=1.5.7.0-beta",
                 "zendesk/zendesk_api_client_php": "<2.2.11",
                 "zendframework/zend-cache": ">=2.4,<2.4.8|>=2.5,<2.5.3",
                 "zendframework/zend-captcha": ">=2,<2.4.9|>=2.5,<2.5.2",
                 "zendframework/zend-crypt": ">=2,<2.4.9|>=2.5,<2.5.2",
-                "zendframework/zend-db": ">=2,<2.0.99|>=2.1,<2.1.99|>=2.2,<2.2.10|>=2.3,<2.3.5",
+                "zendframework/zend-db": "<2.2.10|>=2.3,<2.3.5",
                 "zendframework/zend-developer-tools": ">=1.2.2,<1.2.3",
                 "zendframework/zend-diactoros": "<1.8.4",
                 "zendframework/zend-feed": "<2.10.3",
@@ -9275,7 +9652,7 @@
                 "zendframework/zendservice-slideshare": "<2.0.2",
                 "zendframework/zendservice-technorati": "<2.0.2",
                 "zendframework/zendservice-windowsazure": "<2.0.2",
-                "zendframework/zendxml": "<1.0.1",
+                "zendframework/zendxml": ">=1,<1.0.1",
                 "zenstruck/collection": "<0.2.1",
                 "zetacomponents/mail": "<1.8.2",
                 "zf-commons/zfc-user": "<1.2.2",
@@ -9319,7 +9696,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-02-07T19:03:53+00:00"
+            "time": "2024-02-14T16:04:39+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -10723,7 +11100,16 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "bernardhanna/gravityforms": 20,
+        "bernardhanna/mt-future-orders": 20,
+        "bernardhanna/mt-memotech-fixes": 20,
+        "bernardhanna/mt-woo-sales-by-country-reports": 20,
+        "bernardhanna/woocommerce-customer-order-csv-export": 20,
+        "bernardhanna/woocommerce-shipping-local-pickup-plus": 20,
+        "bernardhanna/woocommerce-delivery-area-pro": 20,
+        "bernardhanna/woocommerce-pdf-ips-pro": 20,
         "bernardhanna/woo-local-pickup": 20,
+        "bernardhanna/updraftplus": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,

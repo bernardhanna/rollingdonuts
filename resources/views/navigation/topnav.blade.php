@@ -11,11 +11,11 @@
     <div class="md:flex md:items-center md:justify-between md:px-4 md:w-full">
     <div class="md:pl-4">
         @php
-        $main_logo_id = attachment_url_to_postid(get_field('main_logo', 'option'));
+$main_logo_id = attachment_url_to_postid(get_field('main_logo', 'option'));
         $main_alt_text = get_post_meta($main_logo_id, '_wp_attachment_image_alt', true);
     @endphp
         <a class="display-md" href="{{ home_url('/') }}">
-        <img class="logo desktop-logo" src="{{ get_field('main_logo', 'option') }}" alt="{{ $main_alt_text }}"></a>
+<img class="logo desktop-logo" src="{{ get_field('main_logo', 'option') }}" alt="{{ $main_alt_text }}"></a>
     </div>
 
     <div class="flex flex-row justify-space-between align-center justify-end w-full space-x-5 z-50">

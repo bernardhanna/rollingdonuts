@@ -8,7 +8,7 @@
 ?>
 <section class="trustpilot">
     <div>
-        <h4>{{ get_field('heading_global') }}</h4>
+<h4>{{ get_field('heading_global') }}</h4>
         <div class="iframe"></div>
     </div>
 </section>

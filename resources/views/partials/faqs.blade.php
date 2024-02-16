@@ -9,7 +9,7 @@
 <section class="faq-section py-20 w-full bg-grey-background">
     <div class="flex flex-col sm:flex-row lg:max-w-max-1568 mx-auto items-start px-4">
         @php
-            $faqImage = get_field('faq_image');
+$faqImage = get_field('faq_image');
             $faqButton = get_field('faq_button');
         @endphp
 
@@ -21,11 +21,11 @@
 
         <div class="content flex flex-col justify-between lg:bg-white w-full h-full px-4 py-4 lg:pl-8 lg:pr-10 lg:w-55">
             <div class="top">
-            <h4 class="font-reg420 lg:pb-4 lg:pt-0 lg:p-0 lg:text-mob-xxl-font text-sm-md-font lg:text-leading-10">{{ get_field('faq_title') }}</h4>
+<h4 class="font-reg420 lg:pb-4 lg:pt-0 lg:p-0 lg:text-mob-xxl-font text-sm-md-font lg:text-leading-10">{{ get_field('faq_title') }}</h4>
 
             <div id="accordion-open" data-accordion="open">
                 @php
-                    $selectedFaqs = get_field('selected_faqs');
+$selectedFaqs = get_field('selected_faqs');
                 @endphp
                     @if ($selectedFaqs && is_array($selectedFaqs))
                     @foreach ($selectedFaqs as $index => $faq)

@@ -27,7 +27,7 @@
     @while($query->have_posts()) @php $query->the_post(); @endphp
         @php
             $post_id = get_the_ID();  // Get the current post ID
-            $fields = get_fields();
+$fields = get_fields();
         @endphp
         <div class="location-item pt-10 mobile:pt-0 mb-4 relative mobile:border-black mobile:border-4 mobile:border-solid mobile:rounded-md-32 flex flex-col mobile:flex-row bg-white tablet-sm:pt-6 tablet-sm:pb-3">
             <div class="mobile:p-4 lg:p-0 flex flex-col tablet-sm:mr-auto tablet-sm:ml-auto lg:w-30">
@@ -45,7 +45,7 @@
                 <div class="flex flex-col pt-10 mobile:pt-0">
                     <h4 class="max-mobile:order-1 max-mobile:hidden pt-3 leading-normal text-font-28 tablet-sm:text-md-font font-reg420 text-black-full w-full">{{ get_the_title() }}</h4> <!-- Title -->
                     @php
-                        $fields = get_fields(); // This will return all ACF fields for the post
+$fields = get_fields(); // This will return all ACF fields for the post
                     @endphp
                     <div class="max-mobile:order-2 flex pt-0 tablet-sm:pt-5 max-mobile:flex-wrap tablet-sm:justify-between flex-col mobile:flex-row tablet-sm:flex-row w-full">
                         <span class="flex items-start tablet-sm:items-center font-laca text-reg-font tablet-sm:text-sm-md-font text-black-primary font-medium"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">

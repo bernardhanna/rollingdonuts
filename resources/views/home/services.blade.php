@@ -16,7 +16,7 @@
             <div class="w-full lg:flex lg:justify-center lg:flex-row lg:max-w-max-1514 mx-auto items-center splide__list">
                 <!-- Fetching the services list from ACF (Advanced Custom Fields) -->
                 @php
-                $servicesList = get_field('services_list');
+$servicesList = get_field('services_list');
                 @endphp
                 <!-- Check if there are services to display -->
                 @if ($servicesList)

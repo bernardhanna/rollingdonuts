@@ -297,7 +297,7 @@ function custom_add_to_cart_text() {
 //Remove the Breadcrumbs from Body
 add_action( 'wp', 'remove_wc_breadcrumbs' );
 function remove_wc_breadcrumbs() {
-    if ( is_product() ) {
+    if ( function_exists('is_product') && is_product() ) {
         remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
     }
 }
@@ -313,7 +313,7 @@ function remove_wc_breadcrumbs_on_shop_page() {
 //Remove Price from Single Product Body
 add_action( 'wp', 'remove_single_product_price' );
 function remove_single_product_price() {
-    if ( is_product() ) {
+    if ( function_exists('is_product') && is_product() ) {
         remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
     }
 }

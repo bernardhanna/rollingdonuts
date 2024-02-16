@@ -78,7 +78,7 @@ $rd_product_type = get_rd_product_type($product->get_id());
 ?>
 <li <?php wc_product_class('flex flex-col w-full relative lg:w-23 max-xs:w-full sm-mob:w-48 lg:h-492 h-auto', $product); ?>  x-data="{ showAllergens: false }">
     <?php
-    $product_allergens = get_field('product_allergens', $product->get_id());
+                $product_allergens = get_field('product_allergens', $product->get_id());
     $allergen_text = '';
     if ($product_allergens) {
         foreach ($product_allergens as $allergen) {
@@ -115,7 +115,7 @@ $rd_product_type = get_rd_product_type($product->get_id());
             <div class="w-full mt-4">
                     <div class="w-full flex flex-wrap flex-row">
                         <?php
-                        $product_allergens = get_field('product_allergens', $product->get_id());
+            $product_allergens = get_field('product_allergens', $product->get_id());
                         if ($product_allergens) {
                             foreach ($product_allergens as $allergen) {
                                 $allergen_id = $allergen->ID;
