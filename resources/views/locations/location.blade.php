@@ -77,7 +77,7 @@ $fields = get_fields(); // This will return all ACF fields for the post
                     </button>
                     </span>
                     <div x-show="isOpen" id="accordion-collapse-body-{{ $post_id }}" aria-labelledby="accordion-collapse-heading-{{ $post_id }}">
-                    <div class="pl-5 pr-5 dark:bg-gray-900">
+<div class="pl-5 pr-5 pt-1 dark:bg-gray-900">
                         <div class="bg-grey-background rounded-sm-8 flex items-center justify-between p-2"><span class="text-base-font font-medium text-black-full">Monday - Friday</span><span class="text-grey-font text-base-font font-regular">{{ $fields['mon_fri_opening_hours'] }}</span></div>
                         <div class="bg-white rounded-sm-8 flex items-center justify-between  p-2"><span class="text-base-font font-medium text-black-full">Saturday</span> <span class="text-grey-font text-base-font font-regular">{{ $fields['sat_opening_hours'] }}</span></div>
                         <div class="bg-grey-background rounded-sm-8 flex items-center justify-between p-2"><span class="text-base-font font-medium text-black-full">Sunday</span><span x-bind:class="{'text-white': $fields['sun_opening_hours'] !== 'Closed', 'text-red-500': $fields['sun_opening_hours'] === 'Closed'}" class="text-red-critical text-base-font font-bold">{{ $fields['sun_opening_hours'] }}</span></div>
@@ -87,7 +87,7 @@ $fields = get_fields(); // This will return all ACF fields for the post
             </div>
                 <div class="max-mobile:order-3 flex mt-4 tablet-sm:flex-row flex-col justify-between max-w-max-691">
 <div x-data="{ isHovered: false }">
-    <a target="_blank" class="max-tablet-sm:mb-4 w-full tablet-sm:w-[340px] tablet-sm:h-[56px] justify-center rounded-btn-72 bg-black-full hover:bg-yellow-primary flex items-center border-black border-solid border-3 text-base-font text-white hover:text-black-full font-medium btn-icon-fill" href="{{ $fields['get_directions_link'] }}" @mouseenter="isHovered = true" @mouseleave="isHovered = false">
+<a target="_blank" class="max-tablet-sm:mb-4 w-full tablet-sm:w-[340px] h-[48px] tablet-sm:h-[56px] justify-center rounded-btn-72 bg-black-full hover:bg-yellow-primary flex items-center border-black border-solid border-2 text-base-font text-white hover:text-black-full font-medium btn-icon-fill" href="{{ $fields['get_directions_link'] }}" @mouseenter="isHovered = true" @mouseleave="isHovered = false">
         <span>Get Directions</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
 <path :fill="isHovered ? 'black' : 'white'"
@@ -96,7 +96,7 @@ $fields = get_fields(); // This will return all ACF fields for the post
 </svg>
 </a>
 </div>
-                    <a class="max-tablet-sm:mb-4 w-full tablet-sm:w-[340px] tablet-sm:h-[56px] flex justify-center rounded-btn-72 bg-yellow-primary hover:bg-white border-black border-solid border-3 items-center" href="{{ $fields['order_for_collection_link']['url'] }}" target="{{ $fields['order_for_collection_link']['target'] }}">
+<a class="max-tablet-sm:mb-4 w-full tablet-sm:w-[340px] h-[48px] tablet-sm:h-[56px] flex justify-center rounded-btn-72 bg-yellow-primary hover:bg-white border-black border-solid border-3 items-center" href="{{ $fields['order_for_collection_link']['url'] }}" target="{{ $fields['order_for_collection_link']['target'] }}">
                         <span class="text-black-full text-base-font font-medium">Order for Collection</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="33" height="32" viewBox="0 0 33 32" fill="none">
                             <path d="M8.74967 25.3346H12.7497V17.3346H20.7497V25.3346H24.7497V13.3346L16.7497 7.33464L8.74967 13.3346V25.3346ZM8.74967 28.0013C8.01634 28.0013 7.38879 27.7404 6.86701 27.2186C6.34434 26.696 6.08301 26.068 6.08301 25.3346V13.3346C6.08301 12.9124 6.17767 12.5124 6.36701 12.1346C6.55545 11.7569 6.81634 11.4457 7.14967 11.2013L15.1497 5.2013C15.3941 5.02352 15.6497 4.89019 15.9163 4.8013C16.183 4.71241 16.4608 4.66797 16.7497 4.66797C17.0386 4.66797 17.3163 4.71241 17.583 4.8013C17.8497 4.89019 18.1052 5.02352 18.3497 5.2013L26.3497 11.2013C26.683 11.4457 26.9443 11.7569 27.1337 12.1346C27.3221 12.5124 27.4163 12.9124 27.4163 13.3346V25.3346C27.4163 26.068 27.1555 26.696 26.6337 27.2186C26.111 27.7404 25.483 28.0013 24.7497 28.0013H18.083V20.0013H15.4163V28.0013H8.74967Z" fill="#291F19"/>
