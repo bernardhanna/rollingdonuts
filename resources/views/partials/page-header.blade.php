@@ -6,33 +6,33 @@
  * @Last Modified time: 2023-11-01 15:24:55
  */
 ?>
- @if (!is_cart() && !is_checkout() && !is_single())
-    <section class="relative w-full z-20">
-        @php
-        // DESKTOP
-$image_id = get_field('page_header_bg', 'option', false);
-        $image_url = wp_get_attachment_url($image_id);
-        $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
-        $image_srcset = wp_get_attachment_image_srcset($image_id);
-        // MOBILE
-$image_id_mobile = get_field('page_header_mobile_bg', 'option', false);
-        $image_url_mobile = wp_get_attachment_url($image_id_mobile);
-        $image_alt_mobile = get_post_meta($image_id_mobile, '_wp_attachment_image_alt', true);
-        $image_srcset_mobile = wp_get_attachment_image_srcset($image_id_mobile);
-        @endphp
+@if (!is_cart() && !is_checkout() && !is_single())
+<section class="relative w-full z-20">
+    @php
+    // DESKTOP
+    $image_id = get_field('page_header_bg', 'option', false);
+    $image_url = wp_get_attachment_url($image_id);
+    $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+    $image_srcset = wp_get_attachment_image_srcset($image_id);
+    // MOBILE
+    $image_id_mobile = get_field('page_header_mobile_bg', 'option', false);
+    $image_url_mobile = wp_get_attachment_url($image_id_mobile);
+    $image_alt_mobile = get_post_meta($image_id_mobile, '_wp_attachment_image_alt', true);
+    $image_srcset_mobile = wp_get_attachment_image_srcset($image_id_mobile);
+    @endphp
 
-        @if($image_url || $image_url_mobile )
-        <div x-data="{ isMobile: window.innerWidth <= 575 }" x-init="() => {
+@if($image_url || $image_url_mobile)
+<div x-data="{ isMobile: window.innerWidth <= 575 }" x-init="() => {
             window.addEventListener('resize', () => {
                 isMobile = window.innerWidth <= 575;
             });
-        }">
-            <img x-show="!isMobile" class="object-cover w-full max-site:h-header" src="{{ $image_url }}" alt="{{ $image_alt }}" srcset="{{ $image_srcset }}" sizes="(min-width: 575px) 100vw">
-            <img x-show="isMobile" class="w-full" src="{{ $image_url_mobile }}" alt="{{ $image_alt_mobile }}" srcset="{{ $image_srcset_mobile }}" sizes="(max-width: 575px) 100vw">
-        </div>
-        @endif
+}" :style="isMobile ? 'background-image: url({{ $image_url_mobile }}); min-height: 200px; background-size: cover; background-position: center center;' : ''">
+        <!-- Only display the img element on non-mobile devices -->
+        <img x-show="!isMobile" class="object-cover w-full max-site:h-header" src="{{ $image_url }}" alt="{{ $image_alt }}" srcset="{{ $image_srcset }}" sizes="(min-width: 575px) 100vw">
+</div>
+@endif
 
-        <div class="px-4 desktop:p-0 mx-auto lg:max-w-max-1549 absolute h-full left-0 right-0 top-0 w-full">
+<div class="px-4 desktop:p-0 mx-auto lg:max-w-max-1549 absolute h-full left-0 right-0 top-0 w-full">
             <?php
             if ( ! is_woocommerce() ) { ?>
                 <div class="w-full flex items-start justify-start">
