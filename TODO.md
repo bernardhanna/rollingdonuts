@@ -4,3 +4,4 @@ Thank You page
 WIP
 Wedding PAge
 Allergen page
+Notifcations on Checkout
