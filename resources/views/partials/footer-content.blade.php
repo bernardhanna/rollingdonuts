@@ -12,17 +12,17 @@
         <div class="w-full lg:w-35 flex flex-col max-lg:items-center lg:flex-row justify-between">
             <a class="w-full max-w-max-40" href="{{ home_url('/') }}">
             @php
-              $footerLogoImage = get_field('footer_logo', 'option');
+$footerLogoImage = get_field('footer_logo', 'option');
               $footerLogoAlt = '';
             @endphp
             <img class="h-[139px] w-[149px] mb-6 lg:mb-2" src="{{ $footerLogoImage }}" alt="{{ $footerLogoAlt }}">
             </a>
             <div class="flex flex-col">
               <p class="text-white text-xs-font font-lighter font-laca pr-4 lg:px-0 lg:text-left lg:max-w-max-358">
-                  {{ get_field('footer_about_text', 'option') }}
+{{ get_field('footer_about_text', 'option') }}
               </p>
               @php
-                $twitterProfileUrl = get_field('twitter_profile_url', 'option');
+$twitterProfileUrl = get_field('twitter_profile_url', 'option');
                 $facebookProfileUrl = get_field('facebook_profile_url', 'option');
                 $tiktokProfileUrl = get_field('tiktok_profile_url', 'option');
                 $instagramProfileUrl = get_field('instagram_profile_url', 'option');
@@ -47,7 +47,7 @@
              </div></div>
          <div class="mt-8 lg:mt-0 lg:w-60 lg:flex lg:flex-row lg:justify-around lg:items-start">
             @php
-                $footerMenuOne = get_field('footer_menu_one', 'option');
+$footerMenuOne = get_field('footer_menu_one', 'option');
                 $footerMenuTwo = get_field('footer_menu_two', 'option');
                 $footerMenuThree = get_field('footer_menu_three', 'option');
                 $footerMenuFour = get_field('footer_menu_four', 'option');
@@ -98,9 +98,9 @@
     <div class="px-4 h-[2px] bg-white ml-auto mr-auto my-4 lg:max-w-max-1552"></div>
     <div class="px-4 copyright flex-col laptop:flex-row flex items-center justify-items-center laptop:justify-between pl-4 pr-4 macbook:max-w-max-1549 macbook:mx-auto desktop:pl-0 desktop:pr-0 lg:pb-6">
         <div class="order-last laptop:order-first mb-[10px] lg:mb-0 flex items-center flex-col lg:flex-row">
-            <span class="text-white text-mob-xs-font font-lighter">&copy; {{ date('Y') }} {{ get_field('copyright_text', 'option') }}</span>
+<span class="text-white text-mob-xs-font font-lighter">&copy; {{ date('Y') }} {{ get_field('copyright_text', 'option') }}</span>
             @php
-            $copyrightMenu = get_field('copyright_menu_four', 'option');
+$copyrightMenu = get_field('copyright_menu_four', 'option');
         @endphp
         @if ($copyrightMenu)
             <div class="copyright-menu">
@@ -116,7 +116,7 @@
         <div class="w-full laptop:w-40 macbook:1/2 flex flex-col items-center lg:flex-row max-md:items-center justify-between">
             <div class="my-4 lg:my-0">
                 @php
-                $copyrightLogoImage = get_field('copyright_logo', 'option');
+$copyrightLogoImage = get_field('copyright_logo', 'option');
                 $copyrightLogoAlt = '';
                 @endphp
                 <img src="{{ $copyrightLogoImage }}" alt="{{ $copyrightLogoAlt }}">
@@ -124,7 +124,7 @@
 
             <div class="text-white text-mob-xs-font font-lighter font-laca text-center mb-2 lg:mb-0">
             @php
-                $copyrightTextArea = get_field('copyright_text_area', 'option');
+$copyrightTextArea = get_field('copyright_text_area', 'option');
             @endphp
                 {{ $copyrightTextArea }}
             </div>

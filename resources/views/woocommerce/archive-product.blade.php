@@ -16,7 +16,7 @@
   <div class="mt-0 space-top-sub"></div>
     @include('woocommerce.custom.woocommerce-header')
     @php
-    $shop_bg_url = get_field('shop_bg', 'option');
+$shop_bg_url = get_field('shop_bg', 'option');
     @endphp
 
     <div class="bg-cover bg-no-repeat py-24" style="{{ $shop_bg_url ? 'background-image: url(' . $shop_bg_url . ');' : '' }}">

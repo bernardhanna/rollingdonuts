@@ -1,0 +1,6 @@
+<?php exit('Access denied'); __halt_compiler(); ?>
+******************************************************************
+This file is used by the Wordfence Web Application Firewall. Read 
+more at https://docs.wordfence.com/en/Web_Application_Firewall_FAQ
+******************************************************************
+a:24:{s:6:"apiKey";b:0;s:6:"isPaid";b:0;s:7:"siteURL";s:34:"https://rollingdonuts.lndo.site/wp";s:7:"homeURL";s:31:"https://rollingdonuts.lndo.site";s:14:"whitelistedIPs";s:0:"";s:9:"howGetIPs";s:0:"";s:25:"howGetIPs_trusted_proxies";N;s:33:"howGetIPs_trusted_proxies_unified";s:0:"";s:13:"pluginABSPATH";s:15:"/app/public/wp/";s:11:"other_WFNet";b:1;s:9:"serverIPs";s:27:"["172.19.0.7","172.20.0.3"]";s:15:"blockCustomText";s:0:"";s:23:"advancedBlockingEnabled";N;s:20:"disableWAFIPBlocking";b:0;s:13:"patternBlocks";N;s:13:"countryBlocks";N;s:11:"otherBlocks";N;s:8:"lockouts";N;s:21:"whitelistedServiceIPs";s:155:"{"private":["10.0.0.0\/8","127.0.0.0\/8","172.16.0.0\/12","192.0.0.0\/29","192.168.0.0\/16"],"wordfence":["54.68.32.247","44.235.211.232","54.71.203.174"]}";s:25:"detectProxyRecommendation";s:0:"";s:16:"wordpressVersion";b:0;s:23:"wordpressPluginVersions";b:0;s:22:"wordpressThemeVersions";b:0;s:6:"WPLANG";s:5:"en_GB";}

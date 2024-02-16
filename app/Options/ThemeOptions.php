@@ -193,7 +193,16 @@ class ThemeOptions extends Field
         ->addImage('shop_bg', [
             'label' => 'Shop Background',
             'return_format' => 'url', // Return image URL
-        ]);
+        ])
+        ->addTab('404')
+            ->addImage('bg_404', [
+                'label' => '404 Background',
+                'return_format' => 'url', // Return image URL
+            ])
+            ->addImage('img_404', [
+                'label' => 'Image',
+                'return_format' => 'url', // Return image URL
+            ]);
 
         return $themeOptions->build();
     }

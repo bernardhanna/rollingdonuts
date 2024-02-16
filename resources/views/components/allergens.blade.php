@@ -1,5 +1,5 @@
 <?php
-    $product_allergens = get_field('product_allergens', $product->get_id());
+$product_allergens = get_field('product_allergens', $product->get_id());
     $allergen_text = '';
     if ($product_allergens) {
         foreach ($product_allergens as $allergen) {
@@ -36,7 +36,7 @@
             <div class="w-full mt-4">
                     <div class="w-full flex flex-wrap flex-row">
                         <?php
-                        $product_allergens = get_field('product_allergens', $product->get_id());
+$product_allergens = get_field('product_allergens', $product->get_id());
                         if ($product_allergens) {
                             foreach ($product_allergens as $allergen) {
                                 $allergen_id = $allergen->ID;

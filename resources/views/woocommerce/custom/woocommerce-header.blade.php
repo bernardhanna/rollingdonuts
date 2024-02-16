@@ -29,12 +29,12 @@
         );
         $categories = get_terms($args);
         // DESKTOP
-        $image_id = get_field('woo_header_bg', 'option', false);
+$image_id = get_field('woo_header_bg', 'option', false);
         $image_url = wp_get_attachment_url($image_id);
         $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
         $image_srcset = wp_get_attachment_image_srcset($image_id);
         // MOBILE
-        $image_id_mobile = get_field('woo_mobile_bg', 'option', false);
+$image_id_mobile = get_field('woo_mobile_bg', 'option', false);
         $image_url_mobile = wp_get_attachment_url($image_id_mobile);
         $image_alt_mobile = get_post_meta($image_id_mobile, '_wp_attachment_image_alt', true);
         $image_srcset_mobile = wp_get_attachment_image_srcset($image_id_mobile);

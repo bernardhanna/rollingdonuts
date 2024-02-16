@@ -7,17 +7,17 @@
  * @Last Modified time: 2023-10-05 11:57:56
  */
 ?>
-<section class="bestsellers-slider relative bg-repeat" @if (get_field('bg_image'))style="background-image: url('{{ get_field('bg_image')['url'] }}');"@endif>
+<section class="bestsellers-slider relative bg-repeat" @if (get_field('bg_image'))style="background-image: url('{{ get_field('bg_image')['url'] }}');" @endif>
     <div class="overlay">
         <div class="max-desktop:px-6 content relative top-0 flex flex-col align-center w-full pt-4 pb-20 lg:max-w-max-1578 lg:mx-auto">
-            @if (get_field('text_image'))
-                <img class="text-image w-full h-[86px] lg:h-full max-w-max-1000 mx-auto object-contain" src="{{ get_field('text_image')['url'] }}" alt="{{ get_field('text_image')['alt'] }}" />
+@if (get_field('text_image'))
+<img class="text-image w-full h-[86px] lg:h-full max-w-max-1000 mx-auto object-contain" src="{{ get_field('text_image')['url'] }}" alt="{{ get_field('text_image')['alt'] }}" />
             @endif
-            @if (get_field('heading'))
-                <h2 class="text-mob-xxl-font lg:text-lg-font font-regular text-white text-center md:pb-14 relative lg:-top-14">{{ get_field('heading') }}</h2>
+@if (get_field('heading'))
+<h2 class="text-mob-xxl-font lg:text-lg-font font-regular text-white text-center md:pb-14 relative lg:-top-14">{{ get_field('heading') }}</h2>
             @endif
             @php
-                $bestsellersList = get_field('product');
+$bestsellersList = get_field('product');
             @endphp
             <div class="bestseller-splide splide lg:pt-8">
                 <div class="splide__track mx-0 lg:mx-4 xl:mx-4 xxl:mx-0">
@@ -25,7 +25,7 @@
                         @foreach($bestsellersList as $product)
                         <div class="splide__slide item flex lg:p-0"  x-data="{ showAllergens: false }">
                             @php
-                            $product_allergens = get_field('product_allergens', $product->ID);
+$product_allergens = get_field('product_allergens', $product->ID);
                         @endphp
 
                         @if($product_allergens)

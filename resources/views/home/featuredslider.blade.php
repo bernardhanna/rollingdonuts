@@ -15,7 +15,7 @@ $featuredDonuts = get_field('donuts');
             <div class="splide__list">
                 @foreach($featuredDonuts as $donut)
                     @php
-                        $bgColor = get_field('featured_donut_bg_color', $donut->ID);
+$bgColor = get_field('featured_donut_bg_color', $donut->ID);
                         $allergens = get_field('product_allergens', $donut->ID);
                     @endphp
                     <div class="splide__slide" style="background-color: {{ $bgColor }}">
@@ -62,7 +62,7 @@ $featuredDonuts = get_field('donuts');
                 <div class="splide__list flex flex-col">
                     @foreach($featuredDonuts as $donut)
                         <div class="splide__slide donut-indicator border-4 border-solid border-black-full rounded-full p-2.5 bg-white">
-                            <img src="{{ get_field('thumb_image', $donut->ID) }}" alt="{{ $donut->post_title }} Thumbnail" height="48px" width="48px">
+<img src="{{ get_field('thumb_image', $donut->ID) }}" alt="{{ $donut->post_title }} Thumbnail" height="48px" width="48px">
                         </div>
                     @endforeach
                 </div>

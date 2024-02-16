@@ -7,9 +7,11 @@
  */
 ?>
 @php
+if (function_exists('get_field')) {
 $telephone = get_field('office_telephone', 'option');
 $currentUserId = get_current_user_id();
 $isUserLoggedIn = !empty($currentUserId);
+}
 @endphp
 <div x-data="{ open: false }" class="relative">
     <section class="navbar max-lg:py-4 laptop:h-nav max-laptop:flex max-laptop:items-center">

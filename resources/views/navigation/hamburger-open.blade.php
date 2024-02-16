@@ -9,7 +9,8 @@
 @php
 $mobile_menu_bg = get_field('mobile_menu_bg', 'option');
 @endphp
-<div x-show="open" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform -translate-y-full" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-full" class="fixed z-1 h-full w-full top-0 left-0 flex items-center justify-center bg-black-full text-white" style="background-image: url('{{ $mobile_menu_bg }}'); background-repeat: no-repeat; background-size: cover; background-position: center; z-index: 9;">
+<div x-cloak x-show="open" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform -translate-y-full" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-full" class="fixed z-1 h-full w-full top-0 left-0 flex items-center justify-center bg-black-full text-white"
+    style="background-image: url('{{ $mobile_menu_bg }}'); background-repeat: no-repeat; background-size: cover; background-position: center; z-index: 9;">
     <div class="text-center">
         <ul>
             @foreach ($navigation as $item)
