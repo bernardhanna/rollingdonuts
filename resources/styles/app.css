@@ -1631,3 +1631,21 @@ nav .submenu .current_page_item {
   background-color: white;
   clip-path: path('M0 0 Q 0 150, 500 150 T 1000 150 V 0 H 0');
 }
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in{
+  animation: fade-in 0.9s ease-out forwards;
+}
+
+.border-top-40 {
+  border-radius: 40px 40px 0 0;
+}

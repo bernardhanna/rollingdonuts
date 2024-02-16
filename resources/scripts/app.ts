@@ -266,7 +266,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const prev = document.querySelector(".arrow.prev");
   const next = document.querySelector(".arrow.next");
   const cards = document.querySelectorAll(".cards li");
@@ -278,25 +278,34 @@ document.addEventListener("DOMContentLoaded", function() {
   const updateSlider = () => {
     if (!isSliderEnabled) return;
 
-    cards.forEach((card, index) => {
-      card.classList.remove("current");
-      textContents[index].style.display = "none";
+    cards.forEach((card) => card.classList.remove("current"));
+    textContents.forEach((textContent) => {
+      textContent.style.display = "none"; // Initially hide all text contents
+      // Reset animation state by removing the class
+      textContent.querySelectorAll("*").forEach((child) => {
+        child.classList.remove("animate-fade-in");
+      });
+    });
+
+    // Show and animate the current text content
+    const activeContent = textContents[currentIndex];
+    activeContent.style.display = "flex";
+    // Add the fade-in animation class to all child elements immediately
+    const children = activeContent.querySelectorAll("h3, span, p");
+    children.forEach((child) => {
+      child.classList.add("animate-fade-in");
     });
 
     cards[currentIndex].classList.add("current");
-    textContents[currentIndex].classList.add("active");
-    textContents[currentIndex].style.display = "flex";
 
-    prev.classList.toggle('disabled', currentIndex === 0);
-    next.classList.toggle('disabled', currentIndex === cards.length - 1);
+    prev.classList.toggle("disabled", currentIndex === 0);
+    next.classList.toggle("disabled", currentIndex === cards.length - 1);
   };
 
-  const resizeListener = () => {
+  window.addEventListener("resize", () => {
     isSliderEnabled = window.innerWidth > 1250;
     updateSlider();
-  };
-
-  window.addEventListener('resize', resizeListener);
+  });
 
   prev.addEventListener("click", (event) => {
     event.preventDefault();
@@ -312,5 +321,5 @@ document.addEventListener("DOMContentLoaded", function() {
     updateSlider();
   });
 
-  updateSlider();
+  updateSlider(); // Initialize the slider
 });
