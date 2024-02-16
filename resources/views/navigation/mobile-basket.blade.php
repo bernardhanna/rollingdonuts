@@ -1,5 +1,5 @@
-<div class="fixed bottom-0 left-0 right-0 z-50 pt-4 px-4 pb-1 bg-transparent laptop:hidden">
-    <div class="flex justify-between items-center w-full mobile:w-8/12 lg:w-1/2 m-auto">
+<div class="fixed bottom-0 left-0 right-0 z-50 pt-4 px-4 pb-1 laptop:hidden bg-black-full border-top-40">
+    <div class="flex justify-between items-center w-full max-w-[450px] mobile:w-8/12 lg:w-1/2 m-auto">
     <a href="{{ wc_get_cart_url() }}" class="m-4 border-2 border-black-full border-solid flex items-center justify-center bg-red-500 text-black-full bg-white hover:bg-yellow-primary w-[270px] py-2 rounded-lg-x relative">
       <span class="mr-2 text-black-full text-mob-md-font font-reg420">Checkout</span>
       <span class="iconify" data-icon="grommet-icons:basket" data-width="24" data-height="24"></span>

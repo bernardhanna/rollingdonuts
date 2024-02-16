@@ -4,8 +4,8 @@ $our_stories = get_field('stories') ?: []; // Add a fallback empty array
 @endphp
 
 @if ($our_stories)
-<section id="ourstory" class="our-story relative bg-black-full h-auto laptop:h-[900px]" style="background-image: url('{{ $our_story_bg }}'); background-size: cover; background-position: center;">
-    <div class="relative h-full mx-auto max-w-max-site flex flex-col-reverse laptop:flex-row items-start justify-center">
+<section id="ourstory" class="max-lg:mt-20 z-40 our-story relative bg-black-full h-auto laptop:h-[900px]" style="background-image: url('{{ $our_story_bg }}'); background-size: cover; background-position: center;">
+    <div class="z-40 relative h-full mx-auto max-w-max-site flex flex-col-reverse laptop:flex-row items-start justify-center">
       <ul class="cards relative h-full w-full laptop:w-3/5 xxl:w-3/5 insta-flow:w-6/12 list-none laptop:m-auto laptop:flex items-start laptop:items-center inline-flex flex-flow flex-nowrap overflow-x-auto flex-row justify-start laptop:justify-between">
         <svg class="yellow_donut" xmlns="http://www.w3.org/2000/svg" width="123" height="122" viewBox="0 0 123 122" fill="none">
             <path d="M64.7208 0.108263C63.5148 0.0344478 62.3039 0 61.0782 0C27.3658 0 0.0390625 27.2084 0.0390625 60.7748C0.0390625 94.3411 27.3658 121.55 61.0782 121.55C91.1184 121.55 116.088 99.9462 121.168 71.4928C121.791 68.0136 122.117 64.4311 122.117 60.7748C122.117 28.4288 96.7379 1.98318 64.7208 0.108263ZM61.0782 84.1989C48.4503 84.1989 38.2194 74.0074 38.2194 61.4391C38.2194 48.8708 48.4503 38.6793 61.0782 38.6793C73.7062 38.6793 83.937 48.8708 83.937 61.4391C83.937 74.0074 73.7012 84.1989 61.0782 84.1989Z" fill="#FBEF57"/>
@@ -35,12 +35,12 @@ $our_stories = get_field('stories') ?: []; // Add a fallback empty array
       </ul>
       <div class="text-contents px-4 laptop:px-0 w-full laptop:w-4/12 relative h-full laptop:-left-16 xxl:-left-24 flex items-center justify-center">
         @foreach ($our_stories as $index => $story)
-          <div class="text-content{{ $index === 0 ? ' active' : '' }} w-full flex flex-col items-center justify-center h-full laptop:pl-16 laptop:pr-20 relative" data-index="{{ $index }}">
-            <h3 class="text-mob-xxl-font text-lg font-reg420 text-white pb- w-full flex">{{ $story['title'] }}</h3>
-            <span class="text-white text-sm-md-font font-medium font-laca pb-2 w-full flex">{{ $story['span_one'] }}</span>
-            <span class="text-white text-sm-md-font font-bolder laptop:font-medium font-laca pb-4 w-full flex">{{ $story['span_two'] }}</span>
-            <p class="text-white text-sm-font font-lighter laptop:font-light font-laca w-full flex">{{ $story['description'] }}</p>
-          </div>
+<div class="text-content{{ $index === 0 ? ' active' : '' }} w-full flex flex-col items-center justify-center h-full laptop:pl-16 laptop:pr-20 relative" data-index="{{ $index }}">
+<h3 class="animate-fade-in-up text-mob-xxl-font text-lg font-reg420 text-white pb- w-full flex ease-in duration-300">{{ $story['title'] }}</h3>
+<span class="animate-fade-in-up text-white text-sm-md-font font-medium font-laca pb-2 w-full flex ease-in duration-300">{{ $story['span_one'] }}</span>
+<span class="animate-fade-in-up text-white text-sm-md-font font-bolder laptop:font-medium font-laca pb-4 w-full flex ease-in duration-300">{{ $story['span_two'] }}</span>
+<p class="animate-fade-in-up text-white text-sm-font font-lighter laptop:font-light font-laca w-full flex ease-in duration-300">{{ $story['description'] }}</p>
+</div>
         @endforeach
         <div class="absolute w-full hidden laptop:flex justify-between items-center story-arrows">
           <a href="#" class="arrow prev h-[47px] w-[47px] bg-white hover:bg-yellow-primary absolute left-0 top-1/2 transform -translate-y-1/2 text-sm-md-font font-bold z-50 rounded-full cursor-pointer flex items-center justify-center">‹</a>
@@ -63,5 +63,69 @@ $our_stories = get_field('stories') ?: []; // Add a fallback empty array
             </svg>
       </div>
     </div>
+<div class="hidden z-50 laptop:block absolute -bottom-4 w-full left-0 right-0 overflow-hidden">
+    <svg width="100%" height="117" viewBox="0 0 1726 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_2369_18787)">
+            <ellipse cx="863" cy="409" rx="1481" ry="405" fill="white" />
+        </g>
+        <defs>
+            <clipPath id="clip0_2369_18787">
+                <rect width="100%" height="117" fill="white" />
+            </clipPath>
+        </defs>
+    </svg>
+</div>
 </section>
 @endif
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+  const prev = document.querySelector(".arrow.prev");
+  const next = document.querySelector(".arrow.next");
+  const cards = document.querySelectorAll(".cards li");
+  const textContents = document.querySelectorAll(".text-content");
+
+  let currentIndex = 0;
+  let isSliderEnabled = window.innerWidth > 1250;
+
+  const updateSlider = () => {
+    if (!isSliderEnabled) return;
+
+    cards.forEach((card, index) => {
+      card.classList.remove("current");
+      textContents[index].style.display = "none";
+    });
+
+    cards[currentIndex].classList.add("current");
+    textContents[currentIndex].classList.add("active");
+    textContents[currentIndex].style.display = "flex";
+
+    prev.classList.toggle('disabled', currentIndex === 0);
+    next.classList.toggle('disabled', currentIndex === cards.length - 1);
+  };
+
+  const resizeListener = () => {
+    isSliderEnabled = window.innerWidth > 1250;
+    updateSlider();
+  };
+
+  window.addEventListener('resize', resizeListener);
+
+  prev.addEventListener("click", (event) => {
+    event.preventDefault();
+    if (!isSliderEnabled) return;
+    currentIndex = Math.max(0, currentIndex - 1);
+    updateSlider();
+  });
+
+  next.addEventListener("click", (event) => {
+    event.preventDefault();
+    if (!isSliderEnabled) return;
+    currentIndex = Math.min(cards.length - 1, currentIndex + 1);
+    updateSlider();
+  });
+
+  updateSlider();
+});
+
+</script>
