@@ -1,4 +1,9 @@
-<div class="fixed bottom-0 left-0 right-0 z-50 pt-4 px-4 pb-1 laptop:hidden bg-black-full border-top-40">
+<div x-data="{ atBottom: false }" x-init="window.addEventListener('scroll', () => {
+         let scrollPosition = window.scrollY + window.innerHeight;
+         let footerTop = document.body.scrollHeight - document.querySelector('.footer').offsetHeight;
+         atBottom = scrollPosition >= footerTop;
+     })">
+    <div class="fixed bottom-0 left-0 right-0 z-50 pt-4 px-4 pb-1 laptop:hidden bg-black-full border-top-40 transition-opacity duration-500" x-bind:class="{ 'opacity-0': atBottom, 'opacity-100': !atBottom }">
     <div class="flex justify-between items-center w-full max-w-[450px] mobile:w-8/12 lg:w-1/2 m-auto">
     <a href="{{ wc_get_cart_url() }}" class="m-4 border-2 border-black-full border-solid flex items-center justify-center bg-red-500 text-black-full bg-white hover:bg-yellow-primary w-[270px] py-2 rounded-lg-x relative">
       <span class="mr-2 text-black-full text-mob-md-font font-reg420">Checkout</span>
@@ -14,3 +19,4 @@
         </a>
     </div>
   </div>
+</div>
