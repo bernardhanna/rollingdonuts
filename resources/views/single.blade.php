@@ -22,7 +22,7 @@
                         <h1 class="text-xl-font font-reg420 leading-[56px] mb-6">
                             {!! get_the_title() !!}
                         </h1>
-                        <div class="p-summary text-base mb-6">
+<div class="max-mobile:hidden p-summary text-base mb-6">
                             {!! get_the_excerpt() !!}
                         </div>
                         @include('partials.entry-meta')
