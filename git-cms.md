@@ -17,5 +17,4 @@ git checkout main
 git add .
 git commit -m "todays changes"
 git pull
-
 yarn build

@@ -1661,7 +1661,7 @@ nav .submenu .current_page_item {
 }
 
 .wc-stripe-payment-request-button-separator {
-  display: none;
+  display: none!important;
 }
 
 label[for="payment_method_stripe"] {
