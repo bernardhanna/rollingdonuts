@@ -13,7 +13,7 @@ $discount_text = get_field('discount_text', 'option');
 @endphp
 
 @if($topbar_text || $discount_text)
-<section class="topbar bg-black-full hidden laptop:flex">
+<section class="topbar bg-black-full hidden laptop:flex max-w-sitewidth ml-auto mr-auto relative">
     <div class="{{ $containerClasses }}">
         <div class="relative mx-auto flex justify-center items-center gap-2 laptop:h-[40px]">
 <img class="icon relative" src="{{ get_field('icon_image', 'option') }}" alt="Rolling Donuts Dublin" width="28" height="28">

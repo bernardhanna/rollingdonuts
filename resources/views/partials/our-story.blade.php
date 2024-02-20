@@ -36,10 +36,10 @@ $our_stories = get_field('stories') ?: []; // Add a fallback empty array
       <div class="text-contents px-4 laptop:px-0 w-full laptop:w-4/12 relative h-full laptop:-left-16 xxl:-left-24 flex items-center justify-center">
         @foreach ($our_stories as $index => $story)
 <div class="text-content{{ $index === 0 ? ' active' : '' }} w-full flex flex-col items-center justify-center h-full laptop:pl-16 laptop:pr-20 relative" data-index="{{ $index }}">
-<h3 class="animate-fade-in-up text-mob-xxl-font text-lg font-reg420 text-white pb- w-full flex ease-in duration-300">{{ $story['title'] }}</h3>
-<span class="animate-fade-in-up text-white text-sm-md-font font-medium font-laca pb-2 w-full flex ease-in duration-300">{{ $story['span_one'] }}</span>
-<span class="animate-fade-in-up text-white text-sm-md-font font-bolder laptop:font-medium font-laca pb-4 w-full flex ease-in duration-300">{{ $story['span_two'] }}</span>
-<p class="animate-fade-in-up text-white text-sm-font font-lighter laptop:font-light font-laca w-full flex ease-in duration-300">{{ $story['description'] }}</p>
+<h3 class="animate-fade text-mob-xxl-font text-lg font-reg420 text-white pb- w-full flex ease-in duration-300">{{ $story['title'] }}</h3>
+<span class="animate-fade text-white text-sm-md-font font-medium font-laca pb-2 w-full flex ease-in duration-300">{{ $story['span_one'] }}</span>
+<span class="animate-fade text-white text-sm-md-font font-bolder laptop:font-medium font-laca pb-4 w-full flex ease-in duration-300">{{ $story['span_two'] }}</span>
+<p class="animate-fade text-white text-sm-font font-lighter laptop:font-light font-laca w-full flex ease-in duration-300">{{ $story['description'] }}</p>
 </div>
         @endforeach
         <div class="absolute w-full hidden laptop:flex justify-between items-center story-arrows">
