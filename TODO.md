@@ -1,4 +1,4 @@
-Search bar and features
+Search bar
 
 WIP
 Wedding PAge
