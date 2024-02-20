@@ -55,8 +55,7 @@
     "nice-select2": "^2.1.0",
     "postcss-loader": "^7.3.3",
     "postcss-scss": "^4.0.6",
-    "sharp": "^0.33.2",
-    "slick-carousel": "^1.8.1",
+    "tailwindcss-animated": "^1.0.1",
     "tailwindcss-pseudo": "^1.0.3"
   }
 }

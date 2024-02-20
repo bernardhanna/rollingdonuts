@@ -102,7 +102,7 @@ $product_allergens = get_field('product_allergens', $product->ID);
                                     </div>
                                 </div>
 
-                                <div id="productContentTwo" class="flex flex-col" @mouseenter="isLargeScreen && (isHovered = true)" @mouseleave="isLargeScreen && (isHovered = false)">
+<div id="productContentTwo" class="animate-fade flex flex-col" @mouseenter="isLargeScreen && (isHovered = true)" @mouseleave="isLargeScreen && (isHovered = false)">
                                     <div x-bind:style="isHovered && isLargeScreen ? 'background-color: transparent;' : 'background-color: white;'" class="relative hidden lg:flex p-4 flex-row justify-between w-full py-4  rounded-bl-sm-8 rounded-br-sm-8" x-show="!isHovered">
                                         <p
                                         class="font-laca text-black-full text-sm-md-font font-light text-left w-2/3">
@@ -120,7 +120,7 @@ $product_allergens = get_field('product_allergens', $product->ID);
                                         <a
                                         x-show.transition="isHovered"
                                         x-transition:enter.duration.500ms
-                                        href="<?php the_permalink(); ?>" class="button w-full sm-md-font font-reg420 h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary">Select and Customise</a>
+href="<?php the_permalink(); ?>" class="animate-fade button w-full sm-md-font font-reg420 h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary">Select and Customise</a>
                                     </div>
                                 </div>
                             </a>

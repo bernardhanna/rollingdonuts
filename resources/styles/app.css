@@ -3,6 +3,7 @@
 @import 'tailwindcss/utilities';;
 @import '@splidejs/splide/dist/css/splide.min.css';
 
+
 html {
   margin: auto;
   max-width: 1730px;
@@ -11,7 +12,6 @@ html {
 body {
   font-family: edmondsans, sans-serif;
 }
-
 
 @media (width >= 1300px) {
   .post-menu {
@@ -965,9 +965,7 @@ nav .submenu .current_page_item {
     display: none;
   }
 }
-
-
-@media screen and (width >= ¸) and (width <= 1280px) {
+@media screen and (width >= 1024px) and (width <= 1280px) {
   .woocommerce ul.products {
     gap: 1rem;
   }
@@ -976,6 +974,7 @@ nav .submenu .current_page_item {
     display: block !important;
   }
 }
+
 
 @media (width => 1084px) {
   .mobile-logo {
