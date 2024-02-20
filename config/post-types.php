@@ -55,16 +55,6 @@ return [
                 'slug' => 'locations',
             ]
         ],
-        'Team-Member' => [
-            'menu_icon' => 'dashicons-star-filled',
-            'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail'],
-            'show_in_rest' => true,
-            'names' => [
-                'singular' => __('Team Member', 'rollingdonuts'),
-                'plural' => __('Team Members', 'rollingdonuts'),
-                'slug' => 'team',
-            ]
-        ],
         'Testimonial' => [
             'menu_icon' => 'dashicons-star-filled',
             'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail'],

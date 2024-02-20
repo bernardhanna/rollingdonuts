@@ -1193,6 +1193,16 @@ nav .submenu .current_page_item {
   line-height: 130%;
 }
 
+.cart-empty.woocommerce-info {
+    display: flex;
+    justify-content: center;
+}
+
+.return-to-shop {
+    display: flex;
+    justify-content: center;
+}
+
 /* Repeat and adjust for different fields */
 .woocommerce-input-wrapper {
   position: relative;
@@ -1648,4 +1658,58 @@ nav .submenu .current_page_item {
 
 .border-top-40 {
   border-radius: 40px 40px 0 0;
+}
+
+.wc-stripe-payment-request-button-separator {
+  display: none;
+}
+
+label[for="payment_method_stripe"] {
+    color: var(--black-full, #000);
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 410;
+    line-height: 1.625rem;
+    display: flex;
+}
+
+label[for="payment_method_stripe"]::after {
+    content: url('/images/checkout/card-icons.png');
+    display: inline-block;
+    width: 30px;
+    height: 20px;
+    background-size: cover;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="stripe-cvc-element"] {
+  color: var(--black-secondary, #2D2A2A);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 420;
+  line-height: 18px;
+}
+
+
+#stripe-payment-data p {
+  display: none
+}
+
+#stripe-card-element, #stripe-exp-element, #stripe-cvc-element {
+     border-radius: 12.5rem;
+    border: var(--Item-counter, 1px) solid var(--yellow-disabled, #D8D7CE);
+    background: #FFF;
+    color: var(--black-primary, #291F19);
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 350;
+    line-height: 130%;
+    height: 3.5rem;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.woocommerce-checkout #payment ul.payment_methods li .stripe-credit-card-brand  {
+  right: 1.5rem;
 }

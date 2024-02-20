@@ -14,7 +14,7 @@
         @else
             @include('partials.page-header')
         @endif
-        <div class="mx-auto px-4 lg:max-w-max-1568 pt-12 pb-20">
+<div class="{{ is_wc_endpoint_url('order-received') ? 'mx-auto lg:max-w-max-1568' : 'mx-auto lg:max-w-max-1568 px-4 pt-12 pb-20' }}">
             @includeFirst(['partials.content-page', 'partials.content'])
         </div>
     @endwhile

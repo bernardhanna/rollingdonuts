@@ -194,6 +194,15 @@ class ThemeOptions extends Field
             'label' => 'Shop Background',
             'return_format' => 'url', // Return image URL
         ])
+        ->addImage('ty_bg', [
+            'label' => 'Thank You page Background',
+            'return_format' => 'url', // Return image URL
+        ])
+        ->addImage('ty_image', [
+            'label' => 'Order Received Image',
+            'return_format' => 'url', // Return image URL
+        ])
+
         ->addTab('404')
             ->addImage('bg_404', [
                 'label' => '404 Background',
