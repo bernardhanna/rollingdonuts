@@ -3,7 +3,6 @@
 @import 'tailwindcss/utilities';;
 @import '@splidejs/splide/dist/css/splide.min.css';
 
-
 html {
   margin: auto;
   max-width: 1730px;
