@@ -5,7 +5,8 @@
  * @Last Modified time: 2023-10-24 12:03:14
  */
 import type { Config } from 'tailwindcss';
-
+import forms from "@tailwindcss/forms";
+import tailwindcssAnimated from "tailwindcss-animated";
 
 export default {
   content: [
@@ -286,5 +287,5 @@ export default {
     },
     fill: ["hover", "focus"],
   },
-  plugins: [require("@tailwindcss/forms"), require("tailwindcss-animated")],
+  plugins: [forms, tailwindcssAnimated],
 } satisfies Config;
