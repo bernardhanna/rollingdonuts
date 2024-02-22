@@ -33,7 +33,7 @@ $hero_link = get_field('hero_link');
              :style="{ backgroundImage: getBackgroundImage() }">
              <div class="w-full h-full bg-[#000000b5] flex justify-center items-center">
                 <div class="max-sm:h-full max-sm:justify-around flex flex-col relative xxl:mr-48 xl:mx-auto xxl:right-8">
-                    <div class="hidden lg:block">
+<div class="hidden lg:block animate-fade-right animate-once animate-ease-in">
                         @if($neon['url'])
                             <img src="{{ $neon['url'] }}" alt="{{ $neon['alt'] ?? 'Rolling Donut Signature' }}" class="w-auto object-contain mx-auto relative -top-2">
                         @endif
@@ -45,11 +45,11 @@ $hero_link = get_field('hero_link');
                     </div>
                     @if($hero_text)
                     <div class="w-full max-w-max-529 px-12 mx-auto lg:px-0 block relative -top-8">
-                      <p class="text-white text-base-font font-laca text-center font-lighter mx-auto max-w-max-529">{{ $hero_text }}</p>
+<p class="text-white text-base-font font-laca text-center font-lighter mx-auto max-w-max-529 animate-fade-right animate-once animate-ease-in">{{ $hero_text }}</p>
                     </div>
                    @endif
                    @if($hero_link)
-                    <div class="w-full px-12 lg:px-0 mt-4 z-10 relative -top-8">
+<div class="w-full px-12 lg:px-0 mt-4 z-10 relative -top-8 animate-fade-right animate-once animate-ease-in">
                         <a class="mx-auto btn-width btn-icon-yellow rounded-btn-72 border-3 border-color-yellow-primary bg-black-full text-yellow-primary text-sm-md-font font-reg420 w-full max-sm:w-[280px] max-md:w-[342px] md:w-[322px] h-[64px] flex flex-row items-center justify-center hover:bg-yellow-primary hover:text-black-full lg:bg-white lg:text-black-full lg:border-none" href="{{ $hero_link['url'] }}">
                             <svg class="yellow-donut mr-4 fill-yellow-primary lg:fill-black-full hover:fill-black-full" xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
                                 <path d="M32 17C32 25.2843 25.2843 32 17 32V34C26.3888 34 34 26.3888 34 17H32ZM17 2C25.2843 2 32 8.71573 32 17H34C34 7.61116 26.3888 0 17 0V2ZM2 17C2 8.71573 8.71573 2 17 2V0C7.61116 0 0 7.61116 0 17H2ZM17 32C8.71573 32 2 25.2843 2 17H0C0 26.3888 7.61116 34 17 34V32ZM21.3333 17C21.3333 19.3932 19.3932 21.3333 17 21.3333V23.3333C20.4978 23.3333 23.3333 20.4978 23.3333 17H21.3333ZM17 12.6667C19.3932 12.6667 21.3333 14.6068 21.3333 17H23.3333C23.3333 13.5022 20.4978 10.6667 17 10.6667V12.6667ZM12.6667 17C12.6667 14.6068 14.6068 12.6667 17 12.6667V10.6667C13.5022 10.6667 10.6667 13.5022 10.6667 17H12.6667ZM17 21.3333C14.6068 21.3333 12.6667 19.3932 12.6667 17H10.6667C10.6667 20.4978 13.5022 23.3333 17 23.3333V21.3333Z" fill="fill-yellow-primary hover:fill-black-full"/>
@@ -74,7 +74,7 @@ $hero_link = get_field('hero_link');
              x-init="setTimeout(() => { isMobile = window.innerWidth < 1084 }, 0); window.addEventListener('resize', () => { isMobile = window.innerWidth < 1084 })"
              :style="{ backgroundImage: getBackgroundImage() }">
              @if($hazelnut['url'])
-               <img src="{{ $hazelnut['url'] }}" alt="{{ $hazelnut['alt'] ?? 'Rolling Donut' }}" class="h-[308px] lg:h-[430px] relative inset-0 mx-auto -mb-10 lg:mb-4 px-4 lg:px-0 lg:mr-auto lg:-ml-28">
+<img src="{{ $hazelnut['url'] }}" alt="{{ $hazelnut['alt'] ?? 'Rolling Donut' }}" class="h-[308px] lg:h-[430px] relative inset-0 mx-auto -mb-10 lg:mb-4 px-4 lg:px-0 lg:mr-auto lg:-ml-28 animate-spin animate-once animate-ease-in animate-alternate-reverse">
               @endif
         </div>
     </div>

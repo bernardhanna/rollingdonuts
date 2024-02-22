@@ -7,7 +7,7 @@
  */
 ?>
 <div class="flex justify-between laptop:hidden max-w-max-128 w-full ml-4 mr-4">
-    <a class="text-reg-font flex align-center flex-row" href="{{ get_permalink(get_page_by_title('Search Page')) }}">
+<a class="text-reg-font flex align-center flex-row" @click="showSearch = !showSearch">
         <span :class="{ 'hidden': open }" class="iconify h-8 w-8" data-icon="ion:search"></span>
     </a>
     <a class="flex align-center flex-row" href="{{ wc_get_page_permalink('myaccount') }}">

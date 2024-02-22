@@ -171,7 +171,7 @@ button {
   position: relative;
 }
 
-[type='text'], [type='email'], [type='url'], [type='password'], [type='number'], [type='date'], [type='datetime-local'], [type='month'], [type='search'], [type='tel'], [type='time'], [type='week'], [multiple], textarea, select {
+[type='text'], [type='email'], [type='url'], [type='password'], [type='number'], [type='date'], [type='datetime-local'], [type='month'], [type='tel'], [type='time'], [type='week'], [multiple], textarea, select {
   background-color: #fff;
   border-radius: 12.5rem;
   border: var(--Item-counter, 1px) solid var(--yellow-disabled, #D8D7CE);
@@ -1710,4 +1710,102 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
 
 .woocommerce-checkout #payment ul.payment_methods li .stripe-credit-card-brand  {
   right: 1.5rem;
+}
+
+.dgwt-wcas-style-pirx .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input {
+    padding: 13px 24px 13px 48px;
+    font-family: inherit;
+    background-color: #fff;
+    border: 2px solid black;
+    color: var(--grey-subdued, #484848);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 410;
+    line-height: 26px;
+    max-width: 1182px;
+    height: 80px;
+    align-items: center;
+    border-radius: 72px;
+    width: 100%;
+    display: flex;
+}
+
+@media (width <= 768px) {
+  .dgwt-wcas-style-pirx .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input {
+    background-color: black;
+    border: 2px solid white;
+    color: white;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 350;
+    line-height: 130%
+  }
+
+  .dgwt-wcas-style-pirx .dgwt-wcas-sf-wrapp {
+    background-color: transparent;
+  }
+
+  .dgwt-wcas-style-pirx.dgwt-wcas-has-submit .dgwt-wcas-search-submit svg path {
+    fill: #fff;
+  }
+
+  .dgwt-wcas-search-wrapp.dgwt-wcas-has-submit.woocommerce.dgwt-wcas-style-pirx.js-dgwt-wcas-layout-classic.dgwt-wcas-layout-classic.js-dgwt-wcas-mobile-overlay-disabled.dgwt-wcas-active .dgwt-wcas-search-submit svg path {
+    fill: #000;
+  }
+
+}
+
+
+.dgwt-wcas-style-pirx .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit {
+    background: transparent;
+    border-radius: 100%;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    min-height: 33px;
+    min-width: 33px;
+    left: 23px;
+    top: 0;
+    pointer-events: none;
+    transition: none;
+    height: 100%;
+    display: inline-flex;
+    font-weight: bold;
+    width: 32px;
+    align-items: center;
+    justify-content: center;
+}
+
+.dgwt-wcas-search-wrapp {
+    max-width: 1182px;
+}
+
+.dgwt-wcas-style-pirx .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input:hover {
+    background-color: #fff;
+}
+
+.dgwt-wcas-style-pirx .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit svg {
+    width: 28px;
+    height: 28px;
+}
+
+.dgwt-wcas-ico-magnifier, .dgwt-wcas-ico-magnifier-handler {
+    max-width: 24px;
+}
+
+
+.dgwt-wcas-open .dgwt-wcas-style-pirx .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input {
+	border-radius: 72px!important;
+}
+
+.dgwt-wcas-has-headings .dgwt-wcas-suggestion {
+    border-bottom: 1px solid black;
+}
+
+
+@media (width <= 768px) {
+    .search-bar-container {
+        background-image: var(--mobile-bg-image);
+    }
 }

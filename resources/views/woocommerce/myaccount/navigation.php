@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @Author: Bernard Hanna
  * @Date:   2023-10-23 12:14:14
@@ -22,23 +23,23 @@
  * @version 2.6.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+if (!defined('ABSPATH')) {
+    exit;
 }
 ?>
-<div class="<?php echo is_user_logged_in() ? 'bg-black-full pb-12' : 'bg-white'; ?>">
-<?php do_action( 'woocommerce_before_account_navigation' ); ?>
+<div class="<?php echo is_user_logged_in() ? 'pb-12' : 'bg-white'; ?>">
+    <?php do_action('woocommerce_before_account_navigation'); ?>
     <div class="mx-auto lg:max-w-max-1549 pt-10">
         <nav class="woocommerce-MyAccount-navigation">
             <ul class="w-full flex flex-row justify-center">
-                <?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
-                    <li class="active:text-yellow-primary border-solid border-grey-subdued border-b-2 active:border-yellow-primary px-4 pt-4 <?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
-                        <a class="text-white hover:text-yellow-primary text-sm-md-font opacity-40 hover:opacity-100" href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?php echo esc_html( $label ); ?></a>
+                <?php foreach (wc_get_account_menu_items() as $endpoint => $label) : ?>
+                    <li class="active:text-yellow-primary border-solid border-grey-subdued border-b-2 active:border-yellow-primary px-4 pt-4 <?php echo wc_get_account_menu_item_classes($endpoint); ?>">
+                        <a class="text-white hover:text-yellow-primary text-sm-md-font opacity-40 hover:opacity-100" href="<?php echo esc_url(wc_get_account_endpoint_url($endpoint)); ?>"><?php echo esc_html($label); ?></a>
                     </li>
                 <?php endforeach; ?>
             </ul>
         </nav>
 
-        <?php do_action( 'woocommerce_after_account_navigation' ); ?>
+        <?php do_action('woocommerce_after_account_navigation'); ?>
 
     </div>
