@@ -10,7 +10,7 @@
 <script>
     var isCartOrCheckoutPage = <?php echo (is_cart() || is_checkout()) ? 'true' : 'false'; ?>;
 </script>
-    <div class="animate-fade-up z-50 bg-white top-0 left-0 right-0 transition-opacity duration-700" :class="{ 'opacity-0': isSticky, 'opacity-100': !isSticky }" x-show="!isSticky">
+<div class="animate-fade-up z-50 bg-white top-0 left-0 right-0 transition-opacity duration-700" :class="{ 'opacity-0': isSticky, 'opacity-100': !isSticky }" x-show="!isSticky">
         @if (!is_cart() && !is_checkout() || !is_user_logged_in())
 @if(get_field('topbar_text', 'option'))
 @include('partials.topbar')
