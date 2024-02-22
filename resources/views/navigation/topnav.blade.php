@@ -28,7 +28,7 @@ $main_logo_id = attachment_url_to_postid(get_field('main_logo', 'option'));
             <span class="iconify h-8 w-8 place-nav-icon relative" data-icon="uil:user"></span>
         </a>
         <div class="nav-line hidden laptop:flex"></div>
-        <a class="z-50 text-reg-font flex align-center flex-row" href="{{ get_permalink(get_page_by_title('Search Page')) }}">
+<a @click="showSearch = !showSearch" class="z-50 text-reg-font flex align-center flex-row cursor-pointer">
             <span class="iconify h-8 w-8 relative place-nav-icon" data-icon="ion:search"></span>
         </a>
         <div class="nav-line  hidden laptop:flex"></div>

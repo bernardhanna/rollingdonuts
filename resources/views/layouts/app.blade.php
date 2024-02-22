@@ -20,12 +20,14 @@
 
 {{-- Determine if it's the WooCommerce "Thank You" (Order Received) page --}}
 @php
+$is_logged_in = is_user_logged_in();
+$is_account_page = function_exists('is_account_page') && is_account_page() && $is_logged_in; // Now also checks if user is logged in
 $is_thank_you_page = function_exists('is_wc_endpoint_url') && is_wc_endpoint_url('order-received');
 $ty_bg = get_field('ty_bg', 'option');
+$is_special_page = ($is_account_page || $is_thank_you_page) && $ty_bg; // Ensures $ty_bg is not empty
 @endphp
 
-{{-- Apply conditional classes and styles --}}
-<div class="{{ $is_thank_you_page ? 'w-full bg-cover bg-no-repeat bg-black-full' : 'mx-auto min-h-full' }}" style="{{ $is_thank_you_page && $ty_bg ? ' background-image: url('.$ty_bg.');' : '' }}">
+<div class="{{ $is_special_page ? 'w-full bg-cover bg-no-repeat bg-black-full' : 'mx-auto min-h-full' }}" style="{{ $is_special_page ? 'background-image: url('.$ty_bg.');' : '' }}">
     @yield('content')
 </div>
 
