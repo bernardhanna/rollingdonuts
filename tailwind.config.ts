@@ -286,5 +286,5 @@ export default {
     },
     fill: ["hover", "focus"],
   },
-  plugins: [forms],
+  plugins: [require("@tailwindcss/forms"), require("tailwindcss-animated")],
 } satisfies Config;
