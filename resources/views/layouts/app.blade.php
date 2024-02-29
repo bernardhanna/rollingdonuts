@@ -11,7 +11,7 @@
     <?php wp_body_open(); ?>
     <?php do_action('get_header'); ?>
 
-<div id="app">
+<div id="app" class="w-full">
     <a class="sr-only focus:not-sr-only" href="#main">
         {{ __('Skip to content') }}
     </a>

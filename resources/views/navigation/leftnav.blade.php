@@ -6,21 +6,21 @@
  * @Last Modified time: 2023-07-19 10:45:19
  */
 ?>
-<ul class="nav-left w-100 hidden laptop:flex laptop:justify-end one-xl:justify-end laptop:items-center laptop:ml-4 laptop:relative laptop:-left-4 one-xl:ml-0" role="menubar">
+<ul class="nav-left w-100 hidden lg:flex lg:justify-end one-xl:justify-end lg:items-center lg:ml-4 lg:relative lg:-left-4 one-xl:ml-0" role="menubar">
     @php
         $counter = 0;
     @endphp
     @foreach ($navigation_left as $item)
         @if ($counter < 3)
-            <li x-data="{ open: false }" class="lg:pr-6 one-xl:pr-12 relative group" role="none">
+<li x-data="{ open: false }" class="lg:p-2 laptop:pr-6 one-xl:pr-12 relative group" role="none">
                 <div @mouseenter="open = true" @mouseleave="open = false">
                     <a class="text-reg-font font-reg420 text-black-full whitespace-nowrap flex items-center hover:underline {{ (home_url($_SERVER['REQUEST_URI']) == $item->url) ? 'active' : '' }}"
                         href="{{ $item->url }}" role="menuitem" aria-haspopup="{{ $item->children ? 'true' : 'false' }}" aria-expanded="false">
                         {{ $item->label }}
                         @if ($item->children)
-                            <span class="iconify ml-2 group-hover:hidden"
+<span class="iconify laptop:ml-2 group-hover:hidden"
                                 data-icon="basil:caret-down-outline"></span>
-                            <span class="iconify ml-2 hidden group-hover:block"
+<span class="iconify laptop" ml-2 hidden group-hover:block"
                                 data-icon="basil:caret-up-solid"></span>
                         @endif
                     </a>

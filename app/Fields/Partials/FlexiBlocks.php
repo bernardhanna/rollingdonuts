@@ -192,6 +192,19 @@ class FlexiBlocks extends Partial
                     'return_format' => 'array',
                     'preview_size' => 'medium',
                 ])
+            ->addSelect('event_heading_tag', [
+                'label' => 'Title Heading Tag',
+                'choices' => [
+                    'h2' => 'H2',
+                    'h3' => 'H3',
+                    'h4' => 'H4',
+                    'h5' => 'H5',
+                    'h6' => 'H6',
+                ],
+                'default_value' => 'h2',
+                'allow_null' => 0,
+                'multiple' => 0,
+            ])
                 ->addText('event_heading_imgtxt', [
                     'label' => 'Event Heading',
                 ])
@@ -202,6 +215,13 @@ class FlexiBlocks extends Partial
                 ->addLink('event_button_imgtxt', [
                     'label' => 'Event Button',
                 ])
+            ->addTrueFalse('image_border', [
+                'label' => 'Add Border to Image on Mobile',
+                'instructions' => 'Toggle to add or remove the border from the image.',
+                'ui' => 1,
+                'ui_on_text' => 'On',
+                'ui_off_text' => 'Off',
+            ])
                 ->addRepeater('image_dimensions', [
                     'label' => 'Image Dimensions',
                     'instructions' => 'Set custom dimensions for the image at different breakpoints.',
@@ -309,7 +329,127 @@ class FlexiBlocks extends Partial
                     ->addLink('faq_button', [
                         'label' => 'FAQ Button',
                         'return_format' => 'array',
-                    ]);
+            ])
+
+            ->addLayout(
+                'donut_block',
+                [
+                    'label' => 'Donut Block'
+                ]
+            )
+            ->addText('padding_top', [
+                'label' => 'Padding Top',
+                'instructions' => 'Specify the top padding (include unit, e.g., 2rem, 20px).',
+                'default_value' => '',
+            ])
+            ->addText('padding_bottom', [
+                'label' => 'Padding Bottom',
+                'instructions' => 'Specify the bottom padding (include unit, e.g., 2rem, 20px).',
+                'default_value' => '',
+            ])
+            ->addRepeater('donuts', [
+                'label' => 'Donuts',
+                'min' => 0,
+                'max' => 3,
+                'layout' => 'block',
+                'button_label' => 'Add Donut',
+            ])
+            ->addImage('donut_image', [
+                'label' => 'Donut Image',
+                'return_format' => 'url',
+            ])
+            ->addLink('donut_link', [
+                'label' => 'Donut Link',
+            ])
+            ->endRepeater()
+
+            ->addLayout(
+                'kudos_block',
+                [
+                    'label' => 'Testimonials Block'
+                ]
+            )
+            ->addImage('kudos_main_image', [
+                'label' => 'Top Image',
+                'return_format' => 'url',
+                'preview_size' => 'medium',
+            ])
+            ->addText('kudos_title', [
+                'label' => 'Section Title',
+            ])
+            ->addSelect('kudos_heading_tag', [
+                'label' => 'Title Heading Tag',
+                'choices' => [
+                    'h2' => 'H2',
+                    'h3' => 'H3',
+                    'h4' => 'H4',
+                    'h5' => 'H5',
+                    'h6' => 'H6',
+                ],
+                'default_value' => 'h2',
+                'allow_null' => 0,
+                'multiple' => 0,
+            ])
+            ->addText('kudos_text', [
+                'label' => 'Kudos Text',
+            ])
+            ->addRelationship('selected_kudos', [
+                'label' => 'Select Testimonials',
+                'post_type' => ['testimonial'],
+                'return_format' => 'object',
+                'min' => '3',
+                'max' => '12',
+                'ui' => 1,
+            ])
+            ->addLayout(
+                'wedding_block',
+                [
+                    'label' => 'Wedding Slider'
+                ]
+            )
+            ->addText('wedding_title', [
+                'label' => 'Section Title',
+            ])
+            ->addText('wedding_text', [
+                'label' => 'Section Text',
+            ])
+            ->addNumber('wedding_padding_top', [
+                'label' => 'Padding Top (rem)',
+                'instructions' => 'Specify the top padding in rem (e.g., 2 for 2rem).',
+                'default_value' => '',
+                'min' => '',
+                'max' => '',
+                'step' => '0.1',
+            ])
+            ->addNumber('wedding_padding_bottom', [
+                'label' => 'Padding Bottom (rem)',
+                'instructions' => 'Specify the bottom padding in rem (e.g., 2 for 2rem).',
+                'default_value' => '',
+                'min' => '',
+                'max' => '',
+                'step' => '0.1',
+            ])
+            ->addRepeater('wedding_products', [
+                'label' => 'Wedding Products',
+                'min' => 3,
+                'layout' => 'block',
+                'button_label' => 'Add Product',
+            ])
+            ->addImage('wedding_image', [
+                'label' => 'Product Image',
+                'return_format' => 'array',
+                'preview_size' => 'thumbnail',
+            ])
+            ->addText('product_title', [
+                'label' => 'Product Title',
+            ])
+            ->addText('product_desc', [
+                'label' => 'Product Description',
+            ])
+            ->addLink('product_link', [
+                'label' => 'Product Link',
+            ])
+            ->endRepeater();
 
         return $flexiblocks;
     }
