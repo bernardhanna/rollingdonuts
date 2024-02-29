@@ -126,6 +126,15 @@ function custom_admin_styles() {
 }
 add_action('admin_head', 'custom_admin_styles');
 
+add_action('login_head', function () {
+    echo '<style type="text/css">
+        .login #login .admin-email-confirm-form .admin-email__details {
+            font-size: .875rem;
+            color: white !important;
+        }
+    </style>';
+});
+
 // Change Theme Options Brand colors
 add_filter('acf_color_palette', function () {
   return [

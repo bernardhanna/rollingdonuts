@@ -323,3 +323,56 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateSlider(); // Initialize the slider
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  new Splide("#testimonial-slider", {
+    type: "loop",
+    perPage: 2.5,
+    perMove: 1,
+    gap: "2rem",
+    arrows: false,
+    pagination: false,
+    breakpoints: {
+      480: {
+        perPage: 1,
+      },
+      575: {
+        perPage: 1.25,
+      },
+      768: {
+        perPage: 1.5,
+      },
+      1024: {
+        perPage: 2.5,
+      },
+    },
+  }).mount();
+});
+/*
+document.addEventListener("DOMContentLoaded", function () {
+  const weddingSlider = new Splide("#weddingSlider", {
+    type: "slide",
+    perPage: 3,
+    focus: "center",
+    gap: "1rem",
+    pagination: false,
+    arrows: true, // Adjust based on your preference
+    autoWidth: true,
+    updateOnMove: true, // Ensure updates occur on move
+  }).mount();
+
+  // Add class to the center slide initially and on slide change
+  function updateCenterSlideClass(slider) {
+    slider.Components.Elements.slides.forEach((slide, i) => {
+      slide.classList.toggle("is-center", i === slider.index);
+    });
+  }
+
+  weddingSlider.on("mounted move", function () {
+    updateCenterSlideClass(weddingSlider);
+  });
+
+  // Initial class update
+  updateCenterSlideClass(weddingSlider);
+});
+*/

@@ -1,5 +1,5 @@
 <section class="faq-section w-full md:mt-8 md:mb-20">
-    <div class="flex flex-col lg:flex-row lg:max-w-max-1514 mx-auto">
+<div class="flex flex-col lg:flex-row lg:max-w-max-1514 mx-auto">
         <div class="content md:boxshadow-two md:rounded-form md:border-3 md:border-black-full md:border-solid flex flex-col justify-between md:bg-white w-full px-4 md:px-12 pt-4 md:pt-12 pb-8 lg:w-full">
             <div class="top">
                 @php

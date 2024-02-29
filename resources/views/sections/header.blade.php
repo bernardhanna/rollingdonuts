@@ -9,7 +9,7 @@
 @php
 $mobile_menu_bg = get_field('mobile_menu_bg', 'option');
 @endphp
-<header x-data="{ isSticky: false, lastScrollY: window.scrollY, showSearch: false }">
+<header class="w-full" x-data="{ isSticky: false, lastScrollY: window.scrollY, showSearch: false }">
 <script>
     var isCartOrCheckoutPage = <?php echo (is_cart() || is_checkout()) ? 'true' : 'false'; ?>;
 </script>
@@ -40,10 +40,9 @@ $mobile_menu_bg = get_field('mobile_menu_bg', 'option');
 lastScrollY = currentScrollY;
 })"
 :class="{
-'fixed z-50 bg-white top-0 left-0 right-0': isSticky && !isCartOrCheckoutPage,
+'fixed z-98 bg-white top-0 left-0 right-0': isSticky && !isCartOrCheckoutPage,
 'hidden': !isSticky || isCartOrCheckoutPage,
 'animate-fade-down transition-opacity duration-700 opacity-100': isSticky && !scrollingUp && !isCartOrCheckoutPage,
-'animate-fade-up transition-opacity duration-700 opacity-100': isSticky && scrollingUp && !isCartOrCheckoutPage,
 }">
     <div class="z-50 bg-white top-0 left-0 right-0 transition-opacity duration-700">
         @include('partials.navigation')

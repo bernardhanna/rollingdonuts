@@ -221,6 +221,15 @@ input {
   @apply btn w-full max-w-max-242 text-white bg-black-full border-radius-large btn-p-lg font-reg420 text-sm-md-font hover:bg-yellow-primary right-0 hover:text-black-full hover:no-underline;
 }
 
+@media (width >= 1085px) and (width <= 1180px) {
+  .btn-menu {
+    font-size: 18px;
+    padding: unset;
+    height: 56px;
+    width: 180px;
+  }
+}
+
 .btn-top::before {
   content: url('/images/icons/top-donut.png');
   display: inline-block;
@@ -625,15 +634,6 @@ nav .submenu .current_page_item {
    opacity: .5;
 }
 
-.instagram-posts .swiper-button-next::after, .instagram-posts .swiper-button-prev::after {
-  content: "";
-  display: inline-block;
-  width: 17px;
-  height: 17px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='17' viewBox='0 0 17 17' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.93124 15.6548C5.66723 15.9188 5.23918 15.9188 4.97516 15.6548L4.0283 14.7079C3.76449 14.4441 3.76426 14.0165 4.02778 13.7524L9.73028 8.03741L4.02778 2.32245C3.76426 2.05836 3.76449 1.63071 4.0283 1.3669L4.97517 0.420034C5.23918 0.156022 5.66723 0.156022 5.93124 0.420034L13.5486 8.03741L5.93124 15.6548Z' fill='white'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
 
 .instagram-gallery-item:hover .instagram-gallery-item__media-mask {
   opacity: .3;
@@ -1808,4 +1808,78 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     .search-bar-container {
         background-image: var(--mobile-bg-image);
     }
+}
+
+.login #login .admin-email-confirm-form .admin-email__details {
+    font-size: .875rem;
+    color: white!important;
+}
+
+
+.z-500 {
+    z-index: 500;
+}
+
+#testimonial-slider {
+  padding-left: 4rem!important;
+}
+
+@media (width <= 1084px) {
+  #testimonial-slider {
+    padding-left: 2rem!important;
+  }
+}
+
+
+@media (width <= 768px) {
+  #testimonial-slider {
+    padding-left: 1rem!important;
+    padding-right: 1rem!important;
+  }
+}
+
+.product-shadow {
+  box-shadow: 0 8px 0 0 rgb(0 0 0 / 20%);
+}
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.z-100 {
+  z-index: 100;
+}
+
+.z-98 {
+  z-index: 98;
+}
+
+@media (width <= 1085px) {
+  .mob-menu-order-btn {
+    background: white;
+    color: black;
+   }
+
+   .mob-menu-order-btn.btn-top::before {
+    display: none;
+   }
+}
+
+.instagram-posts .swiper-button-next::after,
+.instagram-posts .swiper-button-prev::after {
+    content: "";
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    background-image: url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2717%27 height=%2717%27 viewBox=%270 0 17 17%27 fill=%27none%27%3E%3Cpath fill-rule=%27evenodd%27 clip-rule=%27evenodd%27 d=%27M5.93124 15.6548C5.66723 15.9188 5.23918 15.9188 4.97516 15.6548L4.0283 14.7079C3.76449 14.4441 3.76426 14.0165 4.02778 13.7524L9.73028 8.03741L4.02778 2.32245C3.76426 2.05836 3.76449 1.63071 4.0283 1.3669L4.97517 0.420034C5.23918 0.156022 5.66723 0.156022 5.93124 0.420034L13.5486 8.03741L5.93124 15.6548Z%27 fill=%27%23FFFFFF%27/%3E%3C/svg%3E')!important;
+    background-size: contain;
+    background-repeat: no-repeat;
 }

@@ -29,6 +29,9 @@ $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
         @includeWhen(get_row_layout() === 'imagewithtext_block', 'flexible.imagewithtext')
         @includeWhen(get_row_layout() === 'allergens_block', 'flexible.allergens')
         @includeWhen(get_row_layout() === 'faq_block', 'flexible.faq')
+        @includeWhen(get_row_layout() === 'donut_block', 'flexible.donutbox')
+        @includeWhen(get_row_layout() === 'kudos_block', 'flexible.testimonials')
+        @includeWhen(get_row_layout() === 'wedding_block', 'flexible.wedding')
     @endwhile
     @include('partials.site-links')
     @include('partials.instagram-slider')

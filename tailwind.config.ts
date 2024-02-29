@@ -96,7 +96,7 @@ export default {
       sm: "640px",
       md: "768px",
       "tablet-sm": "993px",
-      lg: "1084px",
+      lg: "1085px",
       notebook: "1180px",
       laptop: "1250px",
       xl: "1280px",
