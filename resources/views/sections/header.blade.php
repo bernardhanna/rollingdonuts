@@ -9,7 +9,16 @@
 @php
     $mobile_menu_bg = get_field('mobile_menu_bg', 'option');
 @endphp
-<header class="w-full" x-data="{ isSticky: false, lastScrollY: window.scrollY, showSearch: false }">
+<header class="w-full" x-data="{ isSticky: false, lastScrollY: window.scrollY, showSearch: false }"
+    x-init="
+        $watch('showSearch', value => {
+            if (value) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+    ">
     <style>
         [x-cloak] {
             display: none !important;
@@ -55,7 +64,7 @@
             @include('partials.navigation')
         </div>
     </div>
-    <div class="search-bar-container md:relative absolute max-md:w-full max-md:h-screen max-md:pt-12 z-50"
+    <div class="search-bar-container md:relative absolute max-md:w-full max-md:h-screen max-md:pt-12 z-50 background-cover"
         x-cloak
         x-show="showSearch" x-transition:enter="transition ease-out duration-700"
         x-transition:enter-start="transform opacity-0 -translate-y-12"
@@ -63,7 +72,7 @@
         x-transition:leave="transition ease-in duration-700"
         x-transition:leave-start="transform opacity-100 translate-y-0"
         x-transition:leave-end="transform opacity-0 -translate-y-12"
-        style="--mobile-bg-image: url('{{ $mobile_menu_bg }}');">
+        style="background-size: cover; --mobile-bg-image: url('{{ $mobile_menu_bg }}');">
         <div class="w-full max-w-max-1182 ml-auto mr-auto flex flex-row items-center justify-center px-4">
             <?php echo do_shortcode('[fibosearch]'); ?>
             <button @click="showSearch = false"
