@@ -10,6 +10,9 @@
 $mobile_menu_bg = get_field('mobile_menu_bg', 'option');
 @endphp
 <header class="w-full" x-data="{ isSticky: false, lastScrollY: window.scrollY, showSearch: false }">
+ <style>
+  [x-cloak] { display: none !important; }
+</style>
 <script>
     var isCartOrCheckoutPage = <?php echo (is_cart() || is_checkout()) ? 'true' : 'false'; ?>;
 </script>
