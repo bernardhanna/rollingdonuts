@@ -48,10 +48,8 @@ class Home extends Field
             ->addFields($this->get(ContentImageLeft::class))
         ->addTab('Gift Card')
             ->addFields($this->get(ContentImageRight::class))
-        ->addTab('Our ')
-            ->addFields($this->get(OurStory::class))
-        ->addTab('Trust Pilot')
-            ->addFields($this->get(Heading::class))
+        ->addTab('Our Story')
+        ->addFields($this->get(OurStory::class))
         ->addTab('Faqs')
             ->addFields($this->get(Faqs::class));
 
