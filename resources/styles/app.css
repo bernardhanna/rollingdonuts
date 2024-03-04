@@ -1883,3 +1883,13 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+@media (width <= 575px) {
+  .bestsellers-slider .splide__arrow--next {
+      right: -1rem;
+  }
+
+  .bestsellers-slider .splide__arrow--prev {
+      left: -1rem;
+  }
+}
