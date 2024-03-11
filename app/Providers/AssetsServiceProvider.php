@@ -29,10 +29,17 @@ class AssetsServiceProvider extends ServiceProvider
          */
 
          add_action('wp_enqueue_scripts', function (): void {
-            // Dequeue WooCommerce styles
-            wp_dequeue_style('woocommerce-general');
-            wp_dequeue_style('woocommerce-layout');
-            wp_dequeue_style('woocommerce-smallscreen');
+            if (!is_cart() && !is_checkout() || is_wc_endpoint_url('order-received')) {
+                // Dequeue WooCommerce styles
+                wp_dequeue_style('woocommerce-general');
+                wp_dequeue_style('woocommerce-layout');
+                wp_dequeue_style('woocommerce-smallscreen');
+            } else {
+                // This is either cart or checkout page but not the thank you page, re-enqueue necessary styles
+                wp_enqueue_style('woocommerce-general');
+                wp_enqueue_style('woocommerce-layout');
+                wp_enqueue_style('woocommerce-smallscreen');
+            }
             // Conditionally enqueue Leaflet.js and Leaflet.css for a specific template
             if (is_page_template('templates/template-locations.blade.php')) {
                 wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css', array(), null);

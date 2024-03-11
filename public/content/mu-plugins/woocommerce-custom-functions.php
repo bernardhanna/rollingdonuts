@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @Author: Bernard Hanna
  * @Date:   2023-08-08 15:42:22
@@ -18,21 +19,23 @@ Author: Bernard Hanna
  ***********************************************************
 */
 // NOTICES
-add_filter( 'login_errors', 'custom_login_error_message' );
+add_filter('login_errors', 'custom_login_error_message');
 
-function custom_login_error_message( $error ) {
+function custom_login_error_message($error)
+{
     // Check if the error is related to incorrect password for the email
-    if ( strpos( $error, 'The password you entered for the email address' ) !== false ) {
+    if (strpos($error, 'The password you entered for the email address') !== false) {
         $error = 'Oops! Looks like you have entered the wrong password!';
     }
     return $error;
 }
 
 // Add your custom WooCommerce functions here
-function rd_add_woocommerce_support() {
-    add_theme_support( 'woocommerce' );
+function rd_add_woocommerce_support()
+{
+    add_theme_support('woocommerce');
 }
-add_action( 'after_setup_theme', 'rd_add_woocommerce_support' );
+add_action('after_setup_theme', 'rd_add_woocommerce_support');
 // SET path
 add_filter('woocommerce_locate_template', function ($template, $template_name, $template_path) {
     $blade_template = locate_template("resources/views/woocommerce/{$template_name}");
@@ -44,66 +47,73 @@ add_filter('woocommerce_locate_template', function ($template, $template_name, $
  ***********************************************************
 */
 // Set products per row
-function custom_loop_columns() {
+function custom_loop_columns()
+{
     return 3; // 3 products per row
 }
 add_filter('loop_shop_columns', 'custom_loop_columns', 999);
 
 // STYLE THE ADD TO CART
-add_filter( 'woocommerce_loop_add_to_cart_args', 'customize_add_to_cart_button', 10, 2 );
+add_filter('woocommerce_loop_add_to_cart_args', 'customize_add_to_cart_button', 10, 2);
 
-function customize_add_to_cart_button( $args, $product ) {
+function customize_add_to_cart_button($args, $product)
+{
     $args['class'] = 'bg-white text-mob-xs-font font-edmondsans font-reg420 py-4 px-10 flex items-center justify-center rounded-btn-72 border-1-fix';  // Here you can add your custom classes
     return $args;
 }
 
 // Image Styles
-function custom_woocommerce_image_sizes( $size ) {
+function custom_woocommerce_image_sizes($size)
+{
     // Custom height for single product image on mobile
-    if ( 'woocommerce_single' === $size['name'] ) {
+    if ('woocommerce_single' === $size['name']) {
         $size['height'] = 125;
     }
 
     // Custom height for product thumbnails on mobile
-    if ( 'woocommerce_thumbnail' === $size['name'] ) {
+    if ('woocommerce_thumbnail' === $size['name']) {
         $size['height'] = 125;
     }
 
     // Custom height for product gallery thumbnails on mobile
-    if ( 'woocommerce_gallery_thumbnail' === $size['name'] ) {
+    if ('woocommerce_gallery_thumbnail' === $size['name']) {
         $size['height'] = 125;
     }
 
     return $size;
 }
-add_filter( 'woocommerce_get_image_size', 'custom_woocommerce_image_sizes' );
+add_filter('woocommerce_get_image_size', 'custom_woocommerce_image_sizes');
 
-function custom_large_device_image_sizes( $size ) {
+function custom_large_device_image_sizes($size)
+{
     // Custom height for single product image on large devices
-    if ( wp_is_mobile() === false && 'woocommerce_single' === $size['name'] ) {
+    if (wp_is_mobile() === false && 'woocommerce_single' === $size['name']) {
         $size['height'] = 386;
     }
 
     // Custom height for product thumbnails on large devices
-    if ( wp_is_mobile() === false && 'woocommerce_thumbnail' === $size['name'] ) {
+    if (wp_is_mobile() === false && 'woocommerce_thumbnail' === $size['name']) {
         $size['height'] = 386;
     }
 
     // Custom height for product gallery thumbnails on large devices
-    if ( wp_is_mobile() === false && 'woocommerce_gallery_thumbnail' === $size['name'] ) {
+    if (
+        wp_is_mobile() === false && 'woocommerce_gallery_thumbnail' === $size['name']
+    ) {
         $size['height'] = 386;
     }
 
     return $size;
 }
-add_filter( 'woocommerce_get_image_size', 'custom_large_device_image_sizes' );
+add_filter('woocommerce_get_image_size', 'custom_large_device_image_sizes');
 /*
  ****************************************************************
  * RD PRODUCT TYPE USED FOR FILTERING
  ***********************************************************
 */
 //Product Types Mods
-function get_rd_product_type($product_id) {
+function get_rd_product_type($product_id)
+{
     $terms = get_the_terms($product_id, 'rd_product_type');
     if ($terms && !is_wp_error($terms)) {
         return $terms[0]->name;  // Fetch the term name
@@ -111,12 +121,12 @@ function get_rd_product_type($product_id) {
     return 'No RD Product Type';
 }
 // Add Product Types to Products on backend
-add_filter('manage_edit-product_columns', function($columns) {
+add_filter('manage_edit-product_columns', function ($columns) {
     $columns['rd_product_type'] = __('RD Product Type', 'rollingdonuts');
     return $columns;
 });
 
-add_action('manage_product_posts_custom_column', function($column) {
+add_action('manage_product_posts_custom_column', function ($column) {
     global $post;
     if ($column == 'rd_product_type') {
         $terms = get_the_terms($post->ID, 'rd_product_type');
@@ -132,7 +142,7 @@ add_action('manage_product_posts_custom_column', function($column) {
     }
 });
 // Make the columns filterable
-add_action('restrict_manage_posts', function() {
+add_action('restrict_manage_posts', function () {
     global $typenow;
     if ($typenow == 'product') {
         $taxonomy = 'rd_product_type';
@@ -151,8 +161,9 @@ add_action('restrict_manage_posts', function() {
 });
 
 // Only allow selecting one rd_product_type on quick edit / bulk eidt
-function add_quick_edit_single_checkbox() {
-    ?>
+function add_quick_edit_single_checkbox()
+{
+?>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             // Function to enforce single checkbox
@@ -177,11 +188,11 @@ function add_quick_edit_single_checkbox() {
             });
         });
     </script>
-    <?php
+<?php
 }
 add_action('admin_footer', 'add_quick_edit_single_checkbox');
 
-add_filter('parse_query', function($query) {
+add_filter('parse_query', function ($query) {
     global $pagenow;
     $taxonomy = 'rd_product_type';
     $q_vars = &$query->query_vars;
@@ -194,7 +205,8 @@ add_filter('parse_query', function($query) {
 });
 
 // Orders Page AJAX filter
-function filter_products() {
+function filter_products()
+{
     $category = $_POST['category'];
     $productType = $_POST['productType']; // New parameter
     ob_start();
@@ -243,7 +255,8 @@ add_action('wp_ajax_nopriv_filter_products', 'filter_products');
  ***********************************************************/
 
 // Customize the product summary on single product pages.
-function customize_single_product_summary() {
+function customize_single_product_summary()
+{
     // Remove the quantity field.
     remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
 
@@ -252,7 +265,8 @@ function customize_single_product_summary() {
 }
 add_action('woocommerce_before_single_product_summary', 'customize_single_product_summary', 1);
 
-function custom_add_to_cart_button() {
+function custom_add_to_cart_button()
+{
     global $product;
 
     // Get the RD product type
@@ -286,35 +300,39 @@ function custom_add_to_cart_button() {
 }
 
 // Change text on single product page
-add_filter( 'woocommerce_product_single_add_to_cart_text', 'custom_add_to_cart_text' );
+add_filter('woocommerce_product_single_add_to_cart_text', 'custom_add_to_cart_text');
 
 // Change text on archives/product listings
-add_filter( 'woocommerce_product_add_to_cart_text', 'custom_add_to_cart_text' );
+add_filter('woocommerce_product_add_to_cart_text', 'custom_add_to_cart_text');
 
-function custom_add_to_cart_text() {
-    return __( 'Select and customise', 'woocommerce' );
+function custom_add_to_cart_text()
+{
+    return __('Select and customise', 'woocommerce');
 }
 //Remove the Breadcrumbs from Body
-add_action( 'wp', 'remove_wc_breadcrumbs' );
-function remove_wc_breadcrumbs() {
-    if ( function_exists('is_product') && is_product() ) {
-        remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+add_action('wp', 'remove_wc_breadcrumbs');
+function remove_wc_breadcrumbs()
+{
+    if (function_exists('is_product') && is_product()) {
+        remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
     }
 }
 
-add_action( 'woocommerce_before_main_content', 'remove_wc_breadcrumbs_on_shop_page', 20 );
+add_action('woocommerce_before_main_content', 'remove_wc_breadcrumbs_on_shop_page', 20);
 
-function remove_wc_breadcrumbs_on_shop_page() {
-    if ( is_post_type_archive( 'product' ) || is_shop() || is_product_category() || is_product_tag() ) {
-        remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+function remove_wc_breadcrumbs_on_shop_page()
+{
+    if (is_post_type_archive('product') || is_shop() || is_product_category() || is_product_tag()) {
+        remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
     }
 }
 
 //Remove Price from Single Product Body
-add_action( 'wp', 'remove_single_product_price' );
-function remove_single_product_price() {
-    if ( function_exists('is_product') && is_product() ) {
-        remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+add_action('wp', 'remove_single_product_price');
+function remove_single_product_price()
+{
+    if (function_exists('is_product') && is_product()) {
+        remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
     }
 }
 
@@ -322,35 +340,40 @@ function remove_single_product_price() {
 add_action('woocommerce_single_product_summary', 'the_content', 6);
 
 //Change Button Text to "Add to Basket
-function custom_cart_button_text() {
+function custom_cart_button_text()
+{
     return __('Add to Basket', 'woocommerce');
 }
 add_filter('woocommerce_product_single_add_to_cart_text', 'custom_cart_button_text');
 
 //Remove Tabbed Short Description
-function remove_product_tabs($tabs) {
+function remove_product_tabs($tabs)
+{
     unset($tabs['description']); // Remove the description tab
     return $tabs;
 }
 add_filter('woocommerce_product_tabs', 'remove_product_tabs', 98);
 
 // Remove the additional information tab
-add_action( 'init', 'remove_woocommerce_product_tabs', 99 );
-function remove_woocommerce_product_tabs() {
-    remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+add_action('init', 'remove_woocommerce_product_tabs', 99);
+function remove_woocommerce_product_tabs()
+{
+    remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
 }
 
 // Remove categories display
-add_action( 'woocommerce_single_product_summary', 'remove_product_categories', 1 );
-function remove_product_categories() {
-    remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+add_action('woocommerce_single_product_summary', 'remove_product_categories', 1);
+function remove_product_categories()
+{
+    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
 }
 
 // SINGLE DONUTS
 add_action('woocommerce_before_add_to_cart_button', 'remove_elements_start', 10);
 add_action('woocommerce_after_add_to_cart_button', 'remove_elements_end', 10);
 // Remove the add to cart button and other stuff we don't need
-function remove_elements_start() {
+function remove_elements_start()
+{
     global $product;
 
     $product_id = $product->get_id();
@@ -364,7 +387,8 @@ function remove_elements_start() {
         }
     }
 }
-function remove_elements_end() {
+function remove_elements_end()
+{
     global $product;
 
     $product_id = $product->get_id();
@@ -381,7 +405,8 @@ function remove_elements_end() {
 // Remove the add to cart button for Single Donut
 add_action('woocommerce_single_product_summary', 'remove_attribute_dropdowns', 1);
 
-function remove_attribute_dropdowns() {
+function remove_attribute_dropdowns()
+{
     global $product;
 
     $product_id = $product->get_id();
@@ -396,41 +421,70 @@ function remove_attribute_dropdowns() {
     }
 }
 
-// NOTIFICATION BAR
-function custom_woocommerce_notices_output() {
-    $all_notices  = WC()->session->get( 'wc_notices', array() );
-    $notice_types = apply_filters( 'woocommerce_notice_types', array( 'error', 'success', 'notice' ) );
+//Prevent Single Donut Add to Cart
+add_filter('woocommerce_add_to_cart_validation', 'restrict_single_donut_purchase', 10, 3);
+function restrict_single_donut_purchase($passed, $product_id, $quantity)
+{
+    $product_type = get_rd_product_type($product_id);
+    if (strcasecmp($product_type, 'Donut') === 0) {
+        // Optionally, add a WC notice to inform the user
+        wc_add_notice(__('Donuts can only be purchased as part of a bundle.', 'text-domain'), 'error');
+        return false; // Prevent the add to cart action
+    }
+    return $passed;
+}
 
-    foreach ( $notice_types as $notice_type ) {
-        if ( wc_notice_count( $notice_type ) > 0 ) {
-            wc_get_template( "notices/{$notice_type}.php", array(
-                'notices' => $all_notices[ $notice_type ],
-            ) );
+//Prevent item added to cart on refresh
+function custom_redirect_after_add_to_cart()
+{
+    if (isset($_REQUEST['add-to-cart'])) {
+        $product_id = (int) $_REQUEST['add-to-cart'];
+        $redirect_url = get_permalink($product_id); // Redirect back to the product page
+        // For redirecting to the cart page use wc_get_cart_url() instead of get_permalink($product_id)
+
+        wp_safe_redirect($redirect_url);
+        exit;
+    }
+}
+add_action('template_redirect', 'custom_redirect_after_add_to_cart');
+
+// NOTIFICATION BAR
+function custom_woocommerce_notices_output()
+{
+    $all_notices  = WC()->session->get('wc_notices', array());
+    $notice_types = apply_filters('woocommerce_notice_types', array('error', 'success', 'notice'));
+
+    foreach ($notice_types as $notice_type) {
+        if (wc_notice_count($notice_type) > 0) {
+            wc_get_template("notices/{$notice_type}.php", array(
+                'notices' => $all_notices[$notice_type],
+            ));
         }
     }
 
     wc_clear_notices();
 }
 
-remove_action( 'woocommerce_before_shop_loop', 'wc_print_notices', 10 );
-remove_action( 'woocommerce_before_single_product', 'wc_print_notices', 10 );
-add_action( 'woocommerce_before_shop_loop', 'custom_woocommerce_notices_output', 10 );
-add_action( 'woocommerce_before_single_product', 'custom_woocommerce_notices_output', 10 );
+remove_action('woocommerce_before_shop_loop', 'wc_print_notices', 10);
+remove_action('woocommerce_before_single_product', 'wc_print_notices', 10);
+add_action('woocommerce_before_shop_loop', 'custom_woocommerce_notices_output', 10);
+add_action('woocommerce_before_single_product', 'custom_woocommerce_notices_output', 10);
 
 //Only Donuts products on the WooCOmmerce Shop page/ Our Donuts page
-add_action( 'pre_get_posts', 'filter_products_by_rd_product_type' );
+add_action('pre_get_posts', 'filter_products_by_rd_product_type');
 
-function filter_products_by_rd_product_type( $query ) {
-    if ( ! is_admin() && is_post_type_archive( 'product' ) && $query->is_main_query() ) {
+function filter_products_by_rd_product_type($query)
+{
+    if (!is_admin() && is_post_type_archive('product') && $query->is_main_query()) {
         $tax_query = array(
             array(
                 'taxonomy' => 'rd_product_type',
                 'field'    => 'slug',
-                'terms'    => 'Donut',  // Replace 'donut' with the slug of your rd_product_type
+                'terms'    => 'Donut',
                 'operator' => 'IN',
             ),
         );
-        $query->set( 'tax_query', $tax_query );
+        $query->set('tax_query', $tax_query);
     }
 }
 /*
@@ -439,43 +493,45 @@ function filter_products_by_rd_product_type( $query ) {
  ***********************************************************
 */
 // Change Bread Crumb Delimiter
-function custom_woo_breadcrumbs_delimiter( $defaults ) {
+function custom_woo_breadcrumbs_delimiter($defaults)
+{
     $defaults['delimiter'] = ' &gt; '; // Changes the default " / " delimiter to " > "
     return $defaults;
 }
-add_filter( 'woocommerce_breadcrumb_defaults', 'custom_woo_breadcrumbs_delimiter' );
+add_filter('woocommerce_breadcrumb_defaults', 'custom_woo_breadcrumbs_delimiter');
 
 //Change the breadcrumb catgeory link
-add_filter( 'woocommerce_get_breadcrumb', 'customize_woocommerce_breadcrumbs', 20, 2 );
-function customize_woocommerce_breadcrumbs( $crumbs, $breadcrumb ) {
+add_filter('woocommerce_get_breadcrumb', 'customize_woocommerce_breadcrumbs', 20, 2);
+function customize_woocommerce_breadcrumbs($crumbs, $breadcrumb)
+{
     global $post;
 
-    if ( is_product() ) {
-        $terms = wp_get_post_terms( $post->ID, 'rd_product_type' );
+    if (is_product()) {
+        $terms = wp_get_post_terms($post->ID, 'rd_product_type');
 
-        if ( ! is_wp_error( $terms ) && ! empty( $terms ) ) {
+        if (!is_wp_error($terms) && !empty($terms)) {
             $product_type = $terms[0]->name;
 
-            if ( strcasecmp( $product_type, 'Donut' ) === 0 ) {
+            if (strcasecmp($product_type, 'Donut') === 0) {
                 // Remove the category (second last item)
-                array_splice( $crumbs, -2, 1 );
+                array_splice($crumbs, -2, 1);
 
                 // Insert "Our Donuts" before the last item
-                array_splice( $crumbs, -1, 0, array( array( 'Our Donuts', home_url( '/our-donuts/' ) ) ) );
+                array_splice($crumbs, -1, 0, array(array('Our Donuts', home_url('/our-donuts/'))));
             }
-            if ( strcasecmp( $product_type, 'Merch' ) === 0 ) {
+            if (strcasecmp($product_type, 'Merch') === 0) {
                 // Remove the category (second last item)
-                array_splice( $crumbs, -2, 1 );
+                array_splice($crumbs, -2, 1);
 
                 // Insert "Our Donuts" before the last item
-                array_splice( $crumbs, -1, 0, array( array( 'Our Merch', home_url( '/merch/' ) ) ) );
+                array_splice($crumbs, -1, 0, array(array('Our Merch', home_url('/merch/'))));
             }
-            if ( strcasecmp( $product_type, 'Box' ) === 0 ) {
+            if (strcasecmp($product_type, 'Box') === 0) {
                 // Remove the category (second last item)
-                array_splice( $crumbs, -2, 1 );
+                array_splice($crumbs, -2, 1);
 
                 // Insert "Our Donuts" before the last item
-                array_splice( $crumbs, -1, 0, array( array( 'Our Boxes', home_url( '/donut-box/' ) ) ) );
+                array_splice($crumbs, -1, 0, array(array('Our Boxes', home_url('/donut-box/'))));
             }
         }
     }
@@ -487,7 +543,8 @@ function customize_woocommerce_breadcrumbs( $crumbs, $breadcrumb ) {
  * PRODUCT INDEX
  ***********************************************************/
 // Custom function to limit WooCommerce product descriptions
-function custom_truncate_product_description($description) {
+function custom_truncate_product_description($description)
+{
     $max_length = 70; // Change this to your desired character limit
     if (strlen($description) > $max_length) {
         $description = substr($description, 0, $max_length) . ''; // Add ellipsis if exceeded
@@ -502,7 +559,8 @@ function custom_truncate_product_description($description) {
 //Bypass are you sure you want to log out screen
 add_action('check_admin_referer', 'logout_without_confirmation', 10, 2);
 
-function logout_without_confirmation($action, $result) {
+function logout_without_confirmation($action, $result)
+{
     if ($action == "log-out" && !$result) {
         wp_logout();
         wp_redirect(wc_get_page_permalink('myaccount'));
@@ -513,7 +571,8 @@ function logout_without_confirmation($action, $result) {
 //BILLING FORM
 add_filter('woocommerce_form_field_args', 'customize_my_account_address_fields', 10, 3);
 
-function customize_my_account_address_fields($args, $key, $value) {
+function customize_my_account_address_fields($args, $key, $value)
+{
     // Check if we're on the My Account page
     if (is_account_page()) {
         // Add custom class to all input fields
@@ -544,7 +603,8 @@ function customize_my_account_address_fields($args, $key, $value) {
 }
 //SHIPPING FORM
 add_filter('woocommerce_shipping_fields', 'customize_checkout_shipping_fields', 20, 1);
-function customize_checkout_shipping_fields($shipping_fields) {
+function customize_checkout_shipping_fields($shipping_fields)
+{
     // Define custom placeholders for specific fields
     $custom_placeholders = array(
         'shipping_first_name' => 'First name',
@@ -573,22 +633,24 @@ function customize_checkout_shipping_fields($shipping_fields) {
     return $shipping_fields;
 }
 // EDIT BUTTON ON BILLING ON MY ACCOUNT
-function custom_woocommerce_button_classes( $button, $product ) {
+function custom_woocommerce_button_classes($button, $product)
+{
     global $post;
-    if ( isset($post->post_name) && $post->post_name == 'my-account' ) {
+    if (isset($post->post_name) && $post->post_name == 'my-account') {
         // Example: Add 'bg-blue-500' and 'text-white' classes from Tailwind CSS
-        $button = str_replace( 'class="button ', 'class="button bg-blue-500 text-white ', $button );
+        $button = str_replace('class="button ', 'class="button bg-blue-500 text-white ', $button);
     }
     return $button;
 }
-add_filter( 'woocommerce_loop_add_to_cart_link', 'custom_woocommerce_button_classes', 10, 2 );
+add_filter('woocommerce_loop_add_to_cart_link', 'custom_woocommerce_button_classes', 10, 2);
 
 // REMOVE DOWNLOADS
-function remove_downloads_from_my_account( $items ) {
-    unset( $items['downloads'] );
+function remove_downloads_from_my_account($items)
+{
+    unset($items['downloads']);
     return $items;
 }
-add_filter( 'woocommerce_account_menu_items', 'remove_downloads_from_my_account' );
+add_filter('woocommerce_account_menu_items', 'remove_downloads_from_my_account');
 
 /*
  ****************************************************************
@@ -596,11 +658,12 @@ add_filter( 'woocommerce_account_menu_items', 'remove_downloads_from_my_account'
  ***********************************************************
 */
 //Set Thumbnail size
-add_filter( 'woocommerce_get_image_size_thumbnail', 'custom_woocommerce_thumbnail_size', 10, 2 );
+add_filter('woocommerce_get_image_size_thumbnail', 'custom_woocommerce_thumbnail_size', 10, 2);
 
-function custom_woocommerce_thumbnail_size( $size ) {
+function custom_woocommerce_thumbnail_size($size)
+{
     // Check if it's the cart page
-    if ( is_cart() ) {
+    if (is_cart()) {
         return array(
             'width'  => 64,
             'height' => 64,
@@ -611,8 +674,9 @@ function custom_woocommerce_thumbnail_size( $size ) {
     return $size;
 }
 // Add Increment and Decrement Buttons
-function custom_quantity_update_script_with_svg_and_wrapper() {
-    ?>
+function custom_quantity_update_script_with_svg_and_wrapper()
+{
+?>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             function addQuantityButtons() {
@@ -690,14 +754,15 @@ add_action('wp_footer', 'custom_quantity_update_script_with_svg_and_wrapper');
  ***********************************************************
 */
 // Customise Checkput Fields
-function custom_woocommerce_form_field_args( $args, $key, $value ) {
+function custom_woocommerce_form_field_args($args, $key, $value)
+{
 
     //Styling Form Fields Using Filters
     $args['label_class'][] = 'ml-2 text-mob-xs-font font-reg420 block pb-2';
     $args['input_class'][] = 'woocommerce-Input woocommerce-Input--text input-text rounded-lg-x h-input text-black-secondary text-mob-xs-font font-laca font-light pl-11 flex w-full';
 
     // Check if the key matches any of our conditions
-    switch($key) {
+    switch ($key) {
         case 'billing_first_name':
             $args['placeholder'] = 'First Name';
             $args['input_class'][] = 'lg:w-99';
@@ -751,29 +816,29 @@ function custom_woocommerce_form_field_args( $args, $key, $value ) {
             break;
 
 
-            case 'shipping_company':
-                $args['placeholder'] = 'Company';
-                break;
+        case 'shipping_company':
+            $args['placeholder'] = 'Company';
+            break;
 
-            case 'shipping_address_1':
-                $args['placeholder'] = 'House Number and street name';
-                break;
+        case 'shipping_address_1':
+            $args['placeholder'] = 'House Number and street name';
+            break;
 
-            case 'shipping_address_2':
-                $args['placeholder'] = 'Apartment, suite, unit etc (Optional)';
-                break;
+        case 'shipping_address_2':
+            $args['placeholder'] = 'Apartment, suite, unit etc (Optional)';
+            break;
 
-            case 'shipping_city':
-                $args['placeholder'] = 'Town/ City';
-                break;
+        case 'shipping_city':
+            $args['placeholder'] = 'Town/ City';
+            break;
 
-            case 'shipping_state':
-                $args['placeholder'] = 'County';
-                break;
+        case 'shipping_state':
+            $args['placeholder'] = 'County';
+            break;
 
-            case 'shipping_postcode':
-                $args['placeholder'] = 'Eircode';
-                break;
+        case 'shipping_postcode':
+            $args['placeholder'] = 'Eircode';
+            break;
 
 
 
@@ -785,11 +850,12 @@ function custom_woocommerce_form_field_args( $args, $key, $value ) {
 }
 
 //STYLE NAMES FIELD
-add_filter( 'woocommerce_form_field_args', 'custom_woocommerce_form_field_args', 10, 3 );
-add_filter( 'woocommerce_form_field', 'change_woocommerce_field_markup', 10, 4 );
+add_filter('woocommerce_form_field_args', 'custom_woocommerce_form_field_args', 10, 3);
+add_filter('woocommerce_form_field', 'change_woocommerce_field_markup', 10, 4);
 
 
-function change_woocommerce_field_markup($field, $key, $args, $value) {
+function change_woocommerce_field_markup($field, $key, $args, $value)
+{
     // Remove 'form-row' class from the field
     $field = str_replace('form-row', '', $field);
 
@@ -806,9 +872,10 @@ function change_woocommerce_field_markup($field, $key, $args, $value) {
     return $field;
 }
 
-add_filter("woocommerce_form_field","change_woocommerce_field_markup", 10, 4);
+add_filter("woocommerce_form_field", "change_woocommerce_field_markup", 10, 4);
 //Only ALlow Dublin as an Option
-function custom_woocommerce_states( $states ) {
+function custom_woocommerce_states($states)
+{
     $states['IE'] = array(
         //'' => 'Select Area Code',  // Placeholder
         'D' => __('Dublin', 'woocommerce'),
@@ -828,7 +895,7 @@ function custom_woocommerce_states( $states ) {
     );
     return $states;
 }
-add_filter( 'woocommerce_states', 'custom_woocommerce_states' );
+add_filter('woocommerce_states', 'custom_woocommerce_states');
 
 /*
  ****************************************************************
@@ -912,33 +979,36 @@ function assign_shipping_zone_based_on_postcode($zone, $package) {
  ***********************************************************\
 */
 //Payment button
-function change_woocommerce_order_button_text( $order_button_text ) {
+function change_woocommerce_order_button_text($order_button_text)
+{
     return 'Pay now'; // Change the button text to "Pay now"
 }
 
-add_filter( 'woocommerce_order_button_text', 'change_woocommerce_order_button_text' );
+add_filter('woocommerce_order_button_text', 'change_woocommerce_order_button_text');
 
-function custom_woocommerce_order_button_html( $button_html ) {
+function custom_woocommerce_order_button_html($button_html)
+{
     // Retrieve the order button text
-    $order_button_text = apply_filters( 'woocommerce_order_button_text', __('Place order', 'woocommerce') );
+    $order_button_text = apply_filters('woocommerce_order_button_text', __('Place order', 'woocommerce'));
 
     // Define custom classes
     $custom_classes = 'btn text-black-full hover:text-yellow-primary text-mob-lg-font lg:text-sm-md-font font-medium h-[66px] bg-yellow-primary rounded-lg-x w-full rd-border hover:bg-black-primary woocommerce-button button woocommerce-form-login__submit ml-auto mr-auto max-w-max-704 mt-6';
 
     // Build the button HTML
     $button_html = '<button type="submit" class="button alt ' .
-        esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ) . ' ' .
+        esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : '') . ' ' .
         $custom_classes . '" name="woocommerce_checkout_place_order" id="place_order" value="' .
-        esc_attr( $order_button_text ) . '" data-value="' .
-        esc_attr( $order_button_text ) . '">' . esc_html( $order_button_text ) . '</button>';
+        esc_attr($order_button_text) . '" data-value="' .
+        esc_attr($order_button_text) . '">' . esc_html($order_button_text) . '</button>';
 
     return $button_html;
 }
 
-add_filter( 'woocommerce_order_button_html', 'custom_woocommerce_order_button_html' );
+add_filter('woocommerce_order_button_html', 'custom_woocommerce_order_button_html');
 // ADD ICONS TO FIELDS
 add_filter('woocommerce_default_address_fields', 'override_default_address_checkout_fields', 20, 1);
-function override_default_address_checkout_fields( $address_fields ) {
+function override_default_address_checkout_fields($address_fields)
+{
     $address_fields['first_name']['class'][] = 'icon-first-name';
     $address_fields['last_name']['class'][] = 'icon-last-name';
     $address_fields['company']['class'][] = 'icon-company';
@@ -954,18 +1024,20 @@ function override_default_address_checkout_fields( $address_fields ) {
 }
 
 
-function custom_woocommerce_login_form_field_args( $args, $key, $value ) {
+function custom_woocommerce_login_form_field_args($args, $key, $value)
+{
     // Add Tailwind classes to form fields
-    if ( in_array( $key, array( 'username', 'password' ) ) ) {
+    if (in_array($key, array('username', 'password'))) {
         $args['input_class'] = array('border', 'border-gray-300', 'p-2', 'rounded');
         $args['label_class'] = array('block', 'text-sm', 'font-medium', 'mb-1');
     }
 
     return $args;
 }
-add_filter( 'woocommerce_form_field_args', 'custom_woocommerce_login_form_field_args', 10, 3 );
+add_filter('woocommerce_form_field_args', 'custom_woocommerce_login_form_field_args', 10, 3);
 
-function custom_login_button_styles() {
+function custom_login_button_styles()
+{
     $custom_css = "
         .woocommerce-form-login .woocommerce-button {
             background-color: #3182ce; /* Tailwind blue-500 */
@@ -974,9 +1046,9 @@ function custom_login_button_styles() {
             border-radius: 0.25rem;
         }
     ";
-    wp_add_inline_style( 'your-main-stylesheet-handle', $custom_css );
+    wp_add_inline_style('your-main-stylesheet-handle', $custom_css);
 }
-add_action( 'wp_enqueue_scripts', 'custom_login_button_styles' );
+add_action('wp_enqueue_scripts', 'custom_login_button_styles');
 
 
 /*
@@ -986,7 +1058,8 @@ add_action( 'wp_enqueue_scripts', 'custom_login_button_styles' );
 */
 add_filter('wc_add_to_cart_message_html', 'customize_wc_add_to_cart_message_with_tailwind', 10, 2);
 
-function customize_wc_add_to_cart_message_with_tailwind($message, $products) {
+function customize_wc_add_to_cart_message_with_tailwind($message, $products)
+{
     $productNames = array_map(function ($productId) {
         return get_the_title($productId);
     }, array_keys($products));
@@ -1007,7 +1080,8 @@ function customize_wc_add_to_cart_message_with_tailwind($message, $products) {
 //DISABLE FOR SINGLE DONUTS
 add_filter('woocommerce_add_to_cart_message_html', 'disable_added_to_cart_notification_for_donuts', 10, 3);
 
-function disable_added_to_cart_notification_for_donuts($message, $products, $show_qty) {
+function disable_added_to_cart_notification_for_donuts($message, $products, $show_qty)
+{
     foreach ($products as $product_id => $qty) {
         // Check if the product has the RD type of Donut
         $product_type = get_rd_product_type($product_id);
@@ -1018,4 +1092,152 @@ function disable_added_to_cart_notification_for_donuts($message, $products, $sho
     }
     // Otherwise, return the default message
     return $message;
+}
+
+// Consolidate WC Notices
+function combine_wc_notices_into_one($message, $products)
+{
+    // Get all notices
+    $notices = WC()->session->get('wc_notices', array());
+
+    // Check if there are any "success" notices (you can also check for 'error' or 'notice' types)
+    if (isset($notices['success']) && count($notices['success']) > 1) {
+        // Combine all success messages into one
+        $combined_message = '';
+        foreach ($notices['success'] as $notice) {
+            $combined_message .= $notice['notice'] . ' ';
+        }
+
+        // Clear the individual success notices
+        $notices['success'] = array();
+
+        // Add the combined message as a new single notice
+        wc_add_notice($combined_message, 'success');
+
+        // Since we've modified the notices, set them back in the session
+        WC()->session->set('wc_notices', $notices);
+    }
+
+    // Return the original message - in practice, this will be overridden by the combined notice we set above
+    return $message;
+}
+
+//Fix issue of single donuts not adding to bundle
+function allow_bundles_and_boxes_in_cart($passed, $product_id, $quantity, $variation_id = '', $variations = '')
+{
+    $product = wc_get_product($product_id);
+    $product_type = $product->get_type();
+
+    // Adjust these checks according to your actual product types or identifiers
+    if ($product_type === 'woosb' || $product_type === 'diy_box') {
+        return true;
+    }
+
+    return $passed;
+}
+add_filter('woocommerce_add_to_cart_validation', 'allow_bundles_and_boxes_in_cart', 10, 5);
+
+
+add_action('woocommerce_before_add_to_cart', function () {
+    error_log('Attempting to add to cart');
+});
+
+/*
+ ****************************************************************
+ * Delivery SLot Plugin Edits
+ ***********************************************************\
+*/
+function iconic_modify_delivery_slots_label_for_collection_and_delivery($labels, $order)
+{
+    $labels['date'] = 'Collection / Delivery Date'; // Changing the 'Delivery Date' label
+
+    // You can also customize other labels as needed:
+    $labels['details'] = '';
+    $labels['select_date'] = 'Select a Collection / Delivery date';
+    $labels['choose_date'] = 'Please choose a date for your collection or delivery';
+    $labels['select_date_first'] = 'Please choose a date first';
+    $labels['choose_time_slot'] = 'Please choose a time slot for your collection or delivery';
+
+    return $labels;
+}
+
+add_filter('iconic_wds_labels', 'iconic_modify_delivery_slots_label_for_collection_and_delivery', 10, 2);
+
+
+// MOVE THE SHIPPING OPTIONS BEFORE THE DELIVERY SLOTS
+function custom_move_shipping_options()
+{
+    static $already_run = false;
+
+    // Check if the function has already run
+    if ($already_run) {
+        return;
+    }
+
+    if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) {
+        wc_cart_totals_shipping_html();
+    }
+
+    // Mark the function as having run
+    $already_run = true;
+}
+add_action('iconic_wds_before_checkout_fields', 'custom_move_shipping_options', 10);
+
+
+// FIX TO TIME CHANGING WHEN COUNTY IS CHANGED
+function iconic_save_delivery_time_to_session()
+{
+    if (isset($_POST['jckwds-delivery-time'])) {
+        WC()->session->set('iconic_delivery_time', sanitize_text_field($_POST['jckwds-delivery-time']));
+    }
+}
+add_action('woocommerce_checkout_update_order_review', 'iconic_save_delivery_time_to_session');
+
+function iconic_restore_delivery_time_from_session()
+{
+    $deliveryTime = WC()->session->get('iconic_delivery_time');
+    if (!empty($deliveryTime)) {
+    ?>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var savedDeliveryTime = <?php echo json_encode($deliveryTime); ?>;
+                var deliveryTimeField = document.getElementById('jckwds-delivery-time');
+
+                if (deliveryTimeField && savedDeliveryTime) {
+                    deliveryTimeField.value = savedDeliveryTime;
+                }
+            });
+        </script>
+<?php
+    }
+}
+add_action('woocommerce_after_checkout_form', 'iconic_restore_delivery_time_from_session');
+
+/*
+ ****************************************************************
+ * LOCAL PICKUP  EDITS
+ ***********************************************************\
+*/
+add_filter('wc_local_pickup_plus_get_pickup_location_package_field_html', 'customize_pickup_location_field_html_one', 10, 3);
+
+function customize_pickup_location_field_html_one($field_html, $package_id, $package)
+{
+    // Remove all <br /> tags from the output
+    $field_html = str_replace('<br />', '', $field_html);
+
+    return $field_html;
+}
+
+add_filter('wc_local_pickup_plus_get_pickup_location_package_field_html', 'customize_pickup_location_field_html_two', 10, 3);
+
+function customize_pickup_location_field_html_two($field_html, $package_id, $package)
+{
+    // Add "Collect at: " text before the address within the pickup-location-address div
+    $search = '<div class="pickup-location-address">';
+    $replace = '<div class="pickup-location-address"><strong>Collect at:</strong> ';
+
+    // Using str_replace to insert the text
+    $field_html = str_replace($search, $replace, $field_html);
+
+    return $field_html;
 }

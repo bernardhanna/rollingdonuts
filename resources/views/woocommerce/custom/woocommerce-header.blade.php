@@ -46,7 +46,7 @@ $image_id_mobile = get_field('woo_mobile_bg', 'option', false);
                 isMobile = window.innerWidth <= 575;
             });
         }">
-            <img x-show="!isMobile" class="object-cover w-full max-site:h-[243px]" src="{{ $image_url }}" alt="{{ $image_alt }}" srcset="{{ $image_srcset }}" sizes="(min-width: 575px) 100vw">
+            <img x-show="!isMobile" class="object-cover w-full min-h-[243px] max-site:h-[243px]" src="{{ $image_url }}" alt="{{ $image_alt }}" srcset="{{ $image_srcset }}" sizes="(min-width: 575px) 100vw">
             <img x-show="isMobile" class="w-full" src="{{ $image_url_mobile }}" alt="{{ $image_alt_mobile }}" srcset="{{ $image_srcset_mobile }}" sizes="(max-width: 575px) 100vw">
         </div>
         @endif

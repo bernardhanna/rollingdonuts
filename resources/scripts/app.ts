@@ -376,3 +376,4 @@ document.addEventListener("DOMContentLoaded", function () {
   updateCenterSlideClass(weddingSlider);
 });
 */
+
