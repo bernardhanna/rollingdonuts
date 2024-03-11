@@ -51,6 +51,10 @@
         },
         {
             "type": "vcs",
+            "url": "https://github.com/ibericode/html-forms.git"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/bernardhanna/mt-future-orders.git"
         },
         {
@@ -105,10 +109,10 @@
         "bernardhanna/mt-woo-sales-by-country-reports": "dev-main",
         "bernardhanna/updraftplus": "dev-main",
         "bernardhanna/woocommerce-customer-order-csv-export": "dev-main",
-        "bernardhanna/woocommerce-delivery-area-pro": "dev-main",
         "bernardhanna/woocommerce-pdf-ips-pro": "dev-main",
         "bernardhanna/woo-product-bundle-premium": "dev-main",
         "bernardhanna/woocommerce-shipping-local-pickup-plus": "dev-main",
+        "ibericode/html-forms": "dev-main",
         "blade-ui-kit/blade-heroicons": "^2.1",
         "blade-ui-kit/blade-icons": "^1.5",
         "composer/installers": "^2.2",
@@ -136,7 +140,7 @@
         "stoutlogic/acf-builder": "^1.12",
         "vlucas/phpdotenv": "^5.5",
         "wpackagist-plugin/ajax-search-for-woocommerce": "*",
-        "wpackagist-plugin/html-forms": "^1.3",
+
         "wpackagist-plugin/insta-gallery": "^4.1",
         "wpackagist-plugin/updraftplus": "^1.23",
         "wpackagist-plugin/wc-multiple-email-recipients": "^1.4.0",

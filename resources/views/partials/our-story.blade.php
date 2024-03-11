@@ -21,7 +21,7 @@
         <div
             class="z-40 relative h-auto lg:h-full mx-auto max-w-max-site flex flex-col-reverse laptop:flex-row items-start justify-center">
             <ul
-                class="cards relative h-full w-full laptop:w-3/5 xxl:w-3/5 insta-flow:w-6/12 list-none laptop:m-auto laptop:flex items-center inline-flex flex-flow flex-nowrap overflow-x-auto flex-row justify-start laptop:justify-between">
+                class="cards relative h-full w-full laptop:w-3/5 xxl:w-3/5 insta-flow:w-6/12 list-none laptop:m-auto laptop:flex items-center inline-flex flex-flow flex-nowrap flex-row justify-start laptop:justify-between">
                 <svg class="yellow_donut" xmlns="http://www.w3.org/2000/svg" width="123" height="122"
                     viewBox="0 0 123 122" fill="none">
                     <path
@@ -71,7 +71,7 @@
                     {{ $description_mob }}</p>
             </div>
             <div
-                class="text-contents px-4 laptop:px-0 w-full laptop:w-4/12 relative h-full laptop:-left-16 xxl:-left-24 hidden laptop:flex items-center justify-center">
+                class="text-contents px-4 laptop:px-0 w-full laptop:w-4/12 relative h-full laptop:-left-12 xxl:-left-24 hidden laptop:flex items-center justify-center">
                 @foreach ($our_stories as $index => $story)
                     <div class="text-content{{ $index === 0 ? ' active' : '' }} w-full flex flex-col items-center justify-center h-full laptop:pl-16 laptop:pr-20 relative"
                         data-index="{{ $index }}">
