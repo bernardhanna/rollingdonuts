@@ -1,4 +1,5 @@
-Notifcations on Checkout
+Fix all css issues
+Fix notifications stacking and not closing
 
-
-100.776.28
+Add animations
+Connect the mailing form

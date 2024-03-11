@@ -8,7 +8,7 @@
 ?>
 @unless (is_cart() || is_checkout())
     <div
-        class="top-nav w-full md:max-w-max-1549 xl:max-w-max-95 py-0 mx-auto lg:my-4 hidden lg:flex md:justify-between lg:justify-end relative top-0">
+        class="top-nav w-full md:max-w-max-1549 xl:max-w-max-95 py-0 mx-auto lg:mt-4 lg:mb-0 laptop:my-4 hidden lg:flex md:justify-between lg:justify-end relative top-0 z-100">
         <div class="md:flex md:items-center md:justify-between md:px-4 md:w-full">
             <div class="md:pl-4">
 

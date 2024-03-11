@@ -66,16 +66,6 @@ defined('ABSPATH') || exit;
             </div>
         <?php endforeach; ?>
 
-        <?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : ?>
-
-            <?php do_action('woocommerce_review_order_before_shipping'); ?>
-
-            <?php wc_cart_totals_shipping_html(); ?>
-
-            <?php do_action('woocommerce_review_order_after_shipping'); ?>
-
-        <?php endif; ?>
-
         <?php foreach (WC()->cart->get_fees() as $fee) : ?>
             <div class="fee flex justify-between px-8 py-4">
                 <div><?php echo esc_html($fee->name); ?></div>

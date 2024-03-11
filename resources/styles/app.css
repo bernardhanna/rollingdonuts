@@ -230,7 +230,7 @@ input {
   }
 }
 
-.btn-top::before {
+.btn-menu::before {
   content: url('/images/icons/top-donut.png');
   display: inline-block;
   width: 32px;
@@ -240,7 +240,7 @@ input {
   transition: all 0.3s ease;
 }
 
-.btn-top:hover::before {
+.btn-menu:hover::before {
   content: url('/images/icons/yellowdonut.png');
   display: inline-block;
   width: 32px;
@@ -300,6 +300,12 @@ input {
 .logo {
   width: 152px;
   object-fit: contain;
+}
+
+@media(width <= 1250px) {
+  .logo {
+  width: 115px;
+  }
 }
 
 .mobile-logo {
@@ -1269,7 +1275,8 @@ nav .submenu .current_page_item {
 
 #order_comments {
   border-radius: 10px;
-  border: var(--Item-counter, 1px) solid var(--yellow-disabled, #D8D7CE);
+  border: 0;
+  outline: var(--Item-counter, 1px) solid var(--yellow-disabled, #D8D7CE);
   padding-left: 1.5rem;
   font-size: 14px;
   font-style: normal;
@@ -1892,4 +1899,17 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
   .bestsellers-slider .splide__arrow--prev {
       left: -1rem;
   }
+}
+
+.woocommerce-info {
+    border-top-color: #000;
+}
+
+.woocommerce table.shop_table {
+    border: 0;
+    margin: 0 -1px 24px 0;
+    text-align: left;
+    width: 100%;
+    border-collapse: separate;
+    border-radius: 5px;
 }

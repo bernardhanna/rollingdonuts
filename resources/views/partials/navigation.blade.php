@@ -12,6 +12,12 @@
         $currentUserId = get_current_user_id();
         $isUserLoggedIn = !empty($currentUserId);
     }
+                       $main_logo_id = attachment_url_to_postid(get_field('main_logo', 'option'));
+                            $main_alt_text = get_post_meta($main_logo_id, '_wp_attachment_image_alt', true);
+                    $mobile_logo_id = attachment_url_to_postid(get_field('mobile_logo', 'option'));
+                            $mobile_alt_text = get_post_meta($mobile_logo_id, '_wp_attachment_image_alt', true);
+                    $mobile_logo_open_id = attachment_url_to_postid(get_field('mobile_logo_open', 'option'));
+                            $mobile_logo_open_alt_text = get_post_meta($mobile_logo_open_id, '_wp_attachment_image_alt', true);
 @endphp
 <div x-data="{ open: false }" class="relative">
     <section class="navbar max-lg:py-4  h-auto xl:h-nav max-lg:flex max-lg:items-center">
@@ -34,17 +40,25 @@
             @endphp
             <nav class="flex justify-between items-center w-full relative z-100 {{ is_cart() || is_checkout() ? 'top-8' : 'top-0 lg:-mt-2 xxl:-mt-8 desktop:-mt-10' }} lg:pt-0"
                 role="navigation" id="menu">
-                <div class="w-1/3 lg:w-5/6">
+                <div class="max-lg:w-1/3 laptop:w-5/6">
                     @if (!is_cart() && !is_checkout())
                         @include('navigation.hamburger')
                         @include('navigation.leftnav')
                     @endif
                 </div>
-                @include('navigation.logo')
-                <div class="w-1/3 lg:w-5/6 flex justify-end lg:justify-start">
+
+                <a class="cursor-pointer nav-center flex justify-center items-center z-100 w-1/3 lg:w-1/6 lg:relative lg:bottom-4 hide-md" href="{{ home_url('/') }}">
+                    <img class="logo desktop-logo relative laptop:-left-4 -t-0-3" src="{{ get_field('main_logo', 'option') }}" alt="{{ $main_alt_text }}">
+                        <img x-cloak x-show="!open" class="logo mobile-logo" src="{{ get_field('mobile_logo', 'option') }}" alt="{{ $mobile_alt_text }}">
+                    <img x-cloak x-show="open" class="logo mobile-logo z-100" src="{{ get_field('mobile_logo_open', 'option') }}" alt="{{ $mobile_logo_open_alt_text }}">
+                </a>
+
+
+                <div class="w-1/3 lg:w-full laptop:w-5/6 flex justify-end lg:justify-start">
                     @if (!is_cart() && !is_checkout())
                         @include('navigation.mobile-right')
                         @include('navigation.rightnav')
+                          @include('navigation.combinednav')
                     @endif
                 </div>
             </nav>
