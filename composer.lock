@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "54c7d47d8cc9f5ebe68dc047e48d5566",
+    "content-hash": "74b4593108170c057b5f0bf439797875",
     "packages": [
         {
             "name": "bernardhanna/gravityforms",
@@ -212,12 +212,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:bernardhanna/updraftplus.git",
-                "reference": "7584d25ffa672c0dbc90fe2b9e5cf5e3d264cf95"
+                "reference": "d46080303cb9368b27c1dfaa330ce1c7ce990a72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bernardhanna/updraftplus/zipball/7584d25ffa672c0dbc90fe2b9e5cf5e3d264cf95",
-                "reference": "7584d25ffa672c0dbc90fe2b9e5cf5e3d264cf95",
+                "url": "https://api.github.com/repos/bernardhanna/updraftplus/zipball/d46080303cb9368b27c1dfaa330ce1c7ce990a72",
+                "reference": "d46080303cb9368b27c1dfaa330ce1c7ce990a72",
                 "shasum": ""
             },
             "require": {
@@ -227,7 +227,7 @@
             "type": "wordpress-plugin",
             "autoload": {
                 "psr-4": {
-                    "UpdraftPlus\\": "src/"
+                    "WoocommercePdfIpsPro\\": "src/"
                 }
             },
             "license": [
@@ -239,12 +239,12 @@
                     "email": "bernard@matrixinternet.ie"
                 }
             ],
-            "description": "UpdraftPlus WordPress backup plugin",
+            "description": "Updraft Plus.",
             "support": {
                 "source": "https://github.com/bernardhanna/updraftplus/tree/main",
                 "issues": "https://github.com/bernardhanna/updraftplus/issues"
             },
-            "time": "2024-02-15T14:36:08+00:00"
+            "time": "2024-03-11T14:51:02+00:00"
         },
         {
             "name": "bernardhanna/woo-product-bundle-premium",
@@ -325,46 +325,6 @@
                 "issues": "https://github.com/bernardhanna/woocommerce-customer-order-csv-export/issues"
             },
             "time": "2024-02-15T15:10:44+00:00"
-        },
-        {
-            "name": "bernardhanna/woocommerce-delivery-area-pro",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:bernardhanna/woocommerce-delivery-area-pro.git",
-                "reference": "8e3b6a6328b82983483803bbebde0ee0eb16e4ad"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bernardhanna/woocommerce-delivery-area-pro/zipball/8e3b6a6328b82983483803bbebde0ee0eb16e4ad",
-                "reference": "8e3b6a6328b82983483803bbebde0ee0eb16e4ad",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.4"
-            },
-            "default-branch": true,
-            "type": "wordpress-plugin",
-            "autoload": {
-                "psr-4": {
-                    "WoocommerceDeliveryAreaPro\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bernard Hanna",
-                    "email": "bernard@matrixinternet.ie"
-                }
-            ],
-            "description": "Woocommerce Delivery Area Pro",
-            "support": {
-                "source": "https://github.com/bernardhanna/woocommerce-delivery-area-pro/tree/main",
-                "issues": "https://github.com/bernardhanna/woocommerce-delivery-area-pro/issues"
-            },
-            "time": "2024-02-15T15:21:52+00:00"
         },
         {
             "name": "bernardhanna/woocommerce-pdf-ips-pro",
@@ -1611,6 +1571,72 @@
                 "source": "https://github.com/smarteist/sage-woocommerce/tree/1.0.5"
             },
             "time": "2021-03-03T14:22:02+00:00"
+        },
+        {
+            "name": "ibericode/html-forms",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ibericode/html-forms.git",
+                "reference": "37d06f19970f2ea42dcfbb449e96c99c60d8c2a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ibericode/html-forms/zipball/37d06f19970f2ea42dcfbb449e96c99c60d8c2a1",
+                "reference": "37d06f19970f2ea42dcfbb449e96c99c60d8c2a1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "brain/monkey": "^2.2",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+                "phpunit/phpunit": "^9.0",
+                "wp-coding-standards/wpcs": "^2.1"
+            },
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ],
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "scripts": {
+                "test": [
+                    "php vendor/bin/phpunit --coverage-text"
+                ],
+                "codestyle": [
+                    "php vendor/bin/phpcs -n -s -d error_reporting=24575"
+                ],
+                "fix-codestyle": [
+                    "php vendor/bin/phpcbf -d error_reporting=24575"
+                ]
+            },
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Danny van Kooten",
+                    "homepage": "http://dvk.co"
+                }
+            ],
+            "description": "Fast & flexible forms for your WordPress site.",
+            "homepage": "https://github.com/ibericode/html-forms",
+            "keywords": [
+                "contact form",
+                "form",
+                "wordpress"
+            ],
+            "support": {
+                "source": "https://github.com/ibericode/html-forms/tree/main",
+                "issues": "https://github.com/ibericode/html-forms/issues"
+            },
+            "time": "2024-03-07T19:29:38+00:00"
         },
         {
             "name": "illuminate/bus",
@@ -2860,16 +2886,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.24.0",
+            "version": "3.25.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "b25a361508c407563b34fac6f64a8a17a8819675"
+                "reference": "4c44347133618cccd9b3df1729647a1577b4ad99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/b25a361508c407563b34fac6f64a8a17a8819675",
-                "reference": "b25a361508c407563b34fac6f64a8a17a8819675",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/4c44347133618cccd9b3df1729647a1577b4ad99",
+                "reference": "4c44347133618cccd9b3df1729647a1577b4ad99",
                 "shasum": ""
             },
             "require": {
@@ -2897,7 +2923,7 @@
                 "friendsofphp/php-cs-fixer": "^3.5",
                 "google/cloud-storage": "^1.23",
                 "microsoft/azure-storage-blob": "^1.1",
-                "phpseclib/phpseclib": "^3.0.34",
+                "phpseclib/phpseclib": "^3.0.36",
                 "phpstan/phpstan": "^1.10",
                 "phpunit/phpunit": "^9.5.11|^10.0",
                 "sabre/dav": "^4.6.0"
@@ -2934,7 +2960,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.24.0"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.25.0"
             },
             "funding": [
                 {
@@ -2946,7 +2972,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-02-04T12:10:17+00:00"
+            "time": "2024-03-09T17:06:45+00:00"
         },
         {
             "name": "league/flysystem-local",
@@ -7514,34 +7540,16 @@
             "homepage": "https://wordpress.org/plugins/ajax-search-for-woocommerce/"
         },
         {
-            "name": "wpackagist-plugin/html-forms",
-            "version": "1.3.29",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/html-forms/",
-                "reference": "tags/1.3.29"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/html-forms.1.3.29.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/html-forms/"
-        },
-        {
             "name": "wpackagist-plugin/insta-gallery",
-            "version": "4.3.2",
+            "version": "4.3.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/insta-gallery/",
-                "reference": "tags/4.3.2"
+                "reference": "tags/4.3.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/insta-gallery.4.3.2.zip"
+                "url": "https://downloads.wordpress.org/plugin/insta-gallery.4.3.3.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -9063,12 +9071,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "b011d993ca68a5c59d746b276756051550bbe026"
+                "reference": "bb15a6dc9a8493ace041a6de2929eb63ba0809ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/b011d993ca68a5c59d746b276756051550bbe026",
-                "reference": "b011d993ca68a5c59d746b276756051550bbe026",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/bb15a6dc9a8493ace041a6de2929eb63ba0809ef",
+                "reference": "bb15a6dc9a8493ace041a6de2929eb63ba0809ef",
                 "shasum": ""
             },
             "conflict": {
@@ -9512,7 +9520,7 @@
                 "react/http": ">=0.7,<1.9",
                 "really-simple-plugins/complianz-gdpr": "<6.4.2",
                 "redaxo/source": "<=5.15.1",
-                "remdex/livehelperchat": "<3.99",
+                "remdex/livehelperchat": "<4.29",
                 "reportico-web/reportico": "<=7.1.21",
                 "rhukster/dom-sanitizer": "<1.0.7",
                 "rmccue/requests": ">=1.6,<1.8",
@@ -9601,7 +9609,7 @@
                 "symfony/dependency-injection": ">=2,<2.0.17|>=2.7,<2.7.51|>=2.8,<2.8.50|>=3,<3.4.26|>=4,<4.1.12|>=4.2,<4.2.7",
                 "symfony/error-handler": ">=4.4,<4.4.4|>=5,<5.0.4",
                 "symfony/form": ">=2.3,<2.3.35|>=2.4,<2.6.12|>=2.7,<2.7.50|>=2.8,<2.8.49|>=3,<3.4.20|>=4,<4.0.15|>=4.1,<4.1.9|>=4.2,<4.2.1",
-                "symfony/framework-bundle": ">=2,<2.3.18|>=2.4,<2.4.8|>=2.5,<2.5.2|>=2.7,<2.7.51|>=2.8,<2.8.50|>=3,<3.4.26|>=4,<4.1.12|>=4.2,<4.2.7|>=5.3.14,<=5.3.14|>=5.4.3,<=5.4.3|>=6.0.3,<=6.0.3",
+                "symfony/framework-bundle": ">=2,<2.3.18|>=2.4,<2.4.8|>=2.5,<2.5.2|>=2.7,<2.7.51|>=2.8,<2.8.50|>=3,<3.4.26|>=4,<4.1.12|>=4.2,<4.2.7|>=5.3.14,<5.3.15|>=5.4.3,<5.4.4|>=6.0.3,<6.0.4",
                 "symfony/http-foundation": ">=2,<2.8.52|>=3,<3.4.35|>=4,<4.2.12|>=4.3,<4.3.8|>=4.4,<4.4.7|>=5,<5.0.7",
                 "symfony/http-kernel": ">=2,<4.4.50|>=5,<5.4.20|>=6,<6.0.20|>=6.1,<6.1.12|>=6.2,<6.2.6",
                 "symfony/intl": ">=2.7,<2.7.38|>=2.8,<2.8.31|>=3,<3.2.14|>=3.3,<3.3.13",
@@ -9795,7 +9803,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-03-06T18:04:39+00:00"
+            "time": "2024-03-10T05:04:21+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -11206,10 +11214,10 @@
         "bernardhanna/mt-woo-sales-by-country-reports": 20,
         "bernardhanna/updraftplus": 20,
         "bernardhanna/woocommerce-customer-order-csv-export": 20,
-        "bernardhanna/woocommerce-delivery-area-pro": 20,
         "bernardhanna/woocommerce-pdf-ips-pro": 20,
         "bernardhanna/woo-product-bundle-premium": 20,
         "bernardhanna/woocommerce-shipping-local-pickup-plus": 20,
+        "ibericode/html-forms": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": true,

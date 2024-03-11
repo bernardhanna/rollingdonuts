@@ -1,6 +1,6 @@
 git checkout develop
 git add .           
-git commit -am "29-02-2024"
+git commit -am "11-03-2024"
 git push
 
 git checkout main   
@@ -13,6 +13,7 @@ Digital Ocean
 
 git config --global user.email "bernard@matrixinternet.ie"
 git config --global user.name "bernardhanna"
+cd /var/www/
 sudo chown -R www-data:www-data html
 cd /var/www/html
 

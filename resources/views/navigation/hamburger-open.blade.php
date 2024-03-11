@@ -7,7 +7,7 @@
  */
 ?>
 @php
-    $mobile_menu_bg = get_field('mobile_menu_bg', 'option');
+$mobile_menu_bg = get_field('mobile_menu_bg', 'option');
 @endphp
 <div @resize.window="if (window.innerWidth > 1085) open = false" x-cloak x-show="open"
     x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform -translate-y-full"
@@ -28,10 +28,10 @@
                     :aria-expanded="isOpen.toString()">
                         {{ $item->label }}
                         @if (count($item->children))
-                            <span class="iconify ml-2 text-white" :class="{ 'hidden': isOpen, '!hidden': !isOpen }"
-                                data-icon="basil:caret-right-outline" data-width="32px" data-height="32px"></span>
-                            <span class="iconify ml-2 text-white" :class="{ '!hidden': isOpen, 'hidden': !isOpen }"
-                                data-icon="basil:caret-down-outline" data-width="32px" data-height="32px"></span>
+                            <span x-show="!isOpen" class="iconify ml-2 text-white"
+                                data-icon="mdi:menu-down" data-width="32" data-height="32"></span>
+                            <span x-show="isOpen" class="iconify ml-2 text-white"
+                                data-icon="mdi:menu-up" data-width="32" data-height="32"></span>
                         @endif
                     </a>
                     @if (count($item->children))
