@@ -23,7 +23,7 @@ Template Name: Box Orders
     @include('woocommerce.custom.woocommerce-header')
 
     <div class="bg-cover bg-no-repeat" style="{{ $shop_bg_url ? 'background-image: url(' . $shop_bg_url . ');' : '' }}">
-        <div class="mx-auto px-4 pt-7 pb-20 lg:max-w-max-100">
+        <div class="mx-auto px-2 mobile:px-4 pt-7 pb-20 lg:max-w-max-100">
             <ul class="filter products columns-3 flex flex-row flex-wrap justify-between">
             @if ($ordered_categories && (is_array($ordered_categories) || is_object($ordered_categories)))
                 @foreach ($ordered_categories as $product_category)

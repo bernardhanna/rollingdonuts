@@ -705,6 +705,18 @@ nav .submenu .current_page_item {
   gap: 1.25rem;
 }
 
+@media(width <= 550px) {
+  .woocommerce .products ul {
+    gap: 1rem
+  }
+}
+
+@media (width <= 450px) {
+   .woocommerce ul.products  {
+    margin-top: 4rem;
+  }
+}
+
 .woocommerce ul.products li.product .button {
   margin: 0;
   width: 100%;
@@ -719,6 +731,12 @@ nav .submenu .current_page_item {
   font-style: normal;
   font-weight: 420;
   background: white;
+}
+
+@media (width <= 610px) {
+  .woocommerce ul.products li.product .button {
+    font-size: 14px;
+  }
 }
 
 .related-shadow {
@@ -1912,4 +1930,15 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     width: 100%;
     border-collapse: separate;
     border-radius: 5px;
+}
+
+
+@media (width <= 767px) {
+    .breadcrumb-ellipsis {
+        display: inline-block;
+        max-width: 100px; /* Adjust based on your design needs */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 }

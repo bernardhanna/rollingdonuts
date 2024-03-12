@@ -90,6 +90,7 @@ export default {
       bolder: "700",
     },
     screens: {
+      xxxs: "220px",
       xs: "320px",
       "sm-mob": "480px",
       mobile: "575px",

@@ -41,14 +41,13 @@ $image_id_mobile = get_field('woo_mobile_bg', 'option', false);
         @endphp
 
         @if($image_url || $image_url_mobile )
-        <div x-data="{ isMobile: window.innerWidth <= 575 }" x-init="() => {
-            window.addEventListener('resize', () => {
-                isMobile = window.innerWidth <= 575;
-            });
-        }">
-            <img x-show="!isMobile" class="object-cover w-full min-h-[243px] max-site:h-[243px]" src="{{ $image_url }}" alt="{{ $image_alt }}" srcset="{{ $image_srcset }}" sizes="(min-width: 575px) 100vw">
-            <img x-show="isMobile" class="w-full" src="{{ $image_url_mobile }}" alt="{{ $image_alt_mobile }}" srcset="{{ $image_srcset_mobile }}" sizes="(max-width: 575px) 100vw">
-        </div>
+<div>
+    <!-- Desktop Background -->
+    <img class="object-cover w-full min-h-[243px] max-site:h-[243px] hidden sm:block" src="{{ $image_url }}" alt="{{ $image_alt }}" srcset="{{ $image_srcset }}" sizes="(min-width: 640px) 100vw">
+
+    <!-- Mobile Background -->
+    <img class="w-full block sm:hidden" src="{{ $image_url_mobile }}" alt="{{ $image_alt_mobile }}" srcset="{{ $image_srcset_mobile }}" sizes="(max-width: 639px) 100vw">
+</div>
         @endif
 
         <div class="mx-auto max-w-max-1485 absolute h-full left-0 right-0 top-0 w-full">
@@ -57,9 +56,25 @@ $image_id_mobile = get_field('woo_mobile_bg', 'option', false);
                     woocommerce_breadcrumb();
                 @endphp
             </div>
-            <div class="relative flex items-start justify-between mobile:pt-8 px-2 mobile:px-4 desktop:p-0 desktop:pt-6">
-                <div class="text-container relative inline-block width-fit-content px-4 desktop:p-0">
-                    <h1 class="z-10 relative left-0 text-white text-mob-xxl-font lg:text-xl-font xl:text-xxxl-font font-reg420" x-text="activeTab === 'register' ? 'Register' : isAccountPage && !isLoggedIn ? 'Sign In' : isTemplateBoxProducts ? 'Choose Your Own' : isProductArchive ? 'Our Donuts' : pageTitle">
+            <div class="relative flex items-center justify-between mobile:pt-8 px-2 mobile:px-4 desktop:p-0 desktop:pt-6">
+                <div x-data="{ content: 'Dynamic content based on conditions' }" class="text-container relative inline-block width-fit-content px-4 desktop:p-0">
+                    <h1 :class="{
+                        'text-mob-xxl-font lg:text-lg-font xl:text-lg-font xxl:text-xxxl-font': content.length <= 20,
+                        'insta-flow:text-xxl-font': content.length > 20 && content.length <= 154,
+                        'xxl:text-xl-font': content.length > 20 && content.length <= 254,
+                        'macbook:text-lg-font': content.length > 20 && content.length <= 354,
+                        'xl:text-1lg-font': content.length > 20 && content.length <= 454,
+                        'laptop:text-lg-font': content.length > 20 && content.length <= 554,
+                        'notebook:text-1lg-font': content.length > 20 && content.length <= 654,
+                        'lg:text-md-font': content.length > 20 && content.length <= 754,
+                        'tablet-sm:text-font-28': content.length > 20 && content.length <= 854,
+                        'md:text-font-28': content.length > 20 && content.length <= 954,
+                        'sm:text-base-font': content.length > 20 && content.length <= 1054,
+                        'mobile:text-base-font': content.length > 20 && content.length <= 1154,
+                        'sm-mob:text-sm-font': content.length > 20 && content.length <= 1254,
+                        'xs:text-xs-font': content.length > 20 && content.length <= 1354,
+                        'xxxs:text-tiny': content.length > 20 && content.length <= 1454,
+                    }" class="z-10 relative left-0 text-white font-reg420" x-text="activeTab === 'register' ? 'Register' : isAccountPage && !isLoggedIn ? 'Sign In' : isTemplateBoxProducts ? 'Choose Your Own' : isProductArchive ? 'Our Donuts' : pageTitle">
                         <!-- Dynamic content will be inserted here based on x-text directive -->
                     </h1>
                 </div>
@@ -74,7 +89,7 @@ $image_id_mobile = get_field('woo_mobile_bg', 'option', false);
                         $price = $product->get_price();
                         $currency = get_woocommerce_currency_symbol();
                     @endphp
-                        <div class="product-price text-white text-lg-font font-medium">
+                        <div class="product-price text-white text-sm-md-font xs:text-md-font mobile:text-lg-font font-medium">
                             <bdi class="z-50 relative">{!! $currency !!}{{ $price }}</bdi>
                         </div>
                     @php
