@@ -22,14 +22,31 @@
     @endphp
 
 @if($image_url || $image_url_mobile)
-<div x-data="{ isMobile: window.innerWidth <= 575 }" x-init="() => {
-            window.addEventListener('resize', () => {
-                isMobile = window.innerWidth <= 575;
-            });
-}" :style="isMobile ? 'background-image: url({{ $image_url_mobile }}); min-height: 200px; background-size: cover; background-position: center center;' : ''">
-        <!-- Only display the img element on non-mobile devices -->
-        <img x-show="!isMobile" class="object-cover w-full max-site:h-header" src="{{ $image_url }}" alt="{{ $image_alt }}" srcset="{{ $image_srcset }}" sizes="(min-width: 575px) 100vw">
-</div>
+<div x-data="{
+    isMobile: false, // Default state
+    init() {
+        this.$nextTick(() => {
+            // Immediately check and set the correct background
+            this.isMobile = window.innerWidth <= 575;
+            this.applyBackground();
+
+            // Ensure the element is shown after the background is applied
+            this.$el.removeAttribute('x-cloak');
+        });
+
+        window.addEventListener('resize', () => {
+            // Adjust background on window resize
+            this.isMobile = window.innerWidth <= 575;
+            this.applyBackground();
+        });
+    },
+    applyBackground() {
+        this.$el.style.backgroundImage = this.isMobile ? 'url({{ $image_url_mobile }})' : 'url({{ $image_url }})';
+        this.$el.style.minHeight = '200px';
+        this.$el.style.backgroundSize = 'cover';
+        this.$el.style.backgroundPosition = 'center center';
+    }
+}" x-cloak x-init="init()">
 @endif
 
 <div class="px-4 desktop:p-0 mx-auto lg:max-w-max-1549 absolute h-full left-0 right-0 top-0 w-full">

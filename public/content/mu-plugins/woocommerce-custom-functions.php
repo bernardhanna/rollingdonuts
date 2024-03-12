@@ -288,7 +288,7 @@ function custom_add_to_cart_button()
                 $button_text = 'Add to Basket';
                 break;
             case 'Box':
-                $button_text = 'Add to Box';
+                $button_text = 'Add Box';
                 break;
         }
 

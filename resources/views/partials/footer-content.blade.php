@@ -18,7 +18,7 @@ $footerLogoImage = get_field('footer_logo', 'option');
             <img class="h-[139px] w-[149px] mb-6 lg:mb-2" src="{{ $footerLogoImage }}" alt="{{ $footerLogoAlt }}">
             </a>
             <div class="flex flex-col">
-              <p class="text-white text-xs-font font-lighter font-laca pr-4 lg:px-0 lg:text-left lg:max-w-max-358">
+              <p class="text-white text-xs-font font-lighter max-tablet-sm:text-center font-laca pr-4 lg:px-0 lg:text-left lg:max-w-max-358">
 {{ get_field('footer_about_text', 'option') }}
               </p>
               @php

@@ -18,8 +18,8 @@ class OurStory extends Partial
                 'return_format' => 'url',
             ])
             ->addImage('mobile_background_image', [
-                'label' => 'Monbile Background Image',
-                'instructions' => 'Upload the background image for the "Our Story" section on Mobile',
+            'label' => 'Mobile Background Image',
+            'instructions' => 'Upload the background image for the "Our Story" section on Mobile (optional).',
                 'return_format' => 'url',
             ])
             ->addText('title_mob', [

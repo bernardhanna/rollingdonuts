@@ -27,17 +27,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 
-if ( ! empty( $breadcrumb ) ) {
+if (!empty($breadcrumb)) {
     echo '<nav class="breadcrumb-nav disable pt-4 relative z-50">';
-    foreach ( $breadcrumb as $key => $crumb ) {
-        echo '<span class="breadcrumb-item ' . (end($breadcrumb) === $crumb ? 'text-yellow-primary font-bolder' : 'text-white') . '">'; // Example Tailwind classes
-        if ( ! empty( $crumb[1] ) && sizeof( $breadcrumb ) !== $key + 1 ) {
-            echo '<a class="text-white font-laca text-sm-font" href="' . esc_url( $crumb[1] ) . '">' . esc_html( $crumb[0] ) . '</a>';
+    foreach ($breadcrumb as $key => $crumb) {
+        // Apply the 'breadcrumb-ellipsis' class conditionally
+        $breadcrumb_class = mb_strlen($crumb[0]) > 13 ? 'breadcrumb-ellipsis' : '';
+
+        echo '<span class="breadcrumb-item ' . (end($breadcrumb) === $crumb ? 'text-yellow-primary font-bolder' : 'text-white') . ' ' . $breadcrumb_class . '">'; // Example Tailwind classes + conditionally added class
+        if (!empty($crumb[1]) && sizeof($breadcrumb) !== $key + 1) {
+            echo '<a class="text-white font-laca text-sm-font" href="' . esc_url($crumb[1]) . '">' . esc_html($crumb[0]) . '</a>';
         } else {
-            echo esc_html( $crumb[0] );
+            echo esc_html($crumb[0]);
         }
         echo '</span>';
-        if ( sizeof( $breadcrumb ) !== $key + 1 ) {
+        if (sizeof($breadcrumb) !== $key + 1) {
             echo '<span class="mx-2 text-white font-laca text-sm-font">' . $delimiter .  '</span>'; // Separator with Tailwind margin class
         }
     }
