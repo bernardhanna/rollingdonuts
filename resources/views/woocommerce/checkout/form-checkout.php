@@ -240,8 +240,8 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 
             <?php do_action('woocommerce_checkout_before_customer_details'); ?>
             <div class="xxl:w-1/2 desktop:w-[772px] w-full pr-0 md:pr-8 desktop:pr-0" id="customer_details">
-                <div class="col-1">
-                    <h3 class="text-black-full text-md-font font-reg420"><?php esc_html_e('1. Delivery Method', 'woocommerce'); ?></h3>
+                <div class="col-1 hideText">
+                    <h3 class="text-black-full text-md-font font-reg420 pb-8"><?php esc_html_e('1. Delivery Method', 'woocommerce'); ?></h3>
                     <?php do_action('woocommerce_checkout_billing'); ?>
                 </div>
 
@@ -303,12 +303,24 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
         if (target) observer.observe(target, config);
     });
     document.addEventListener('DOMContentLoaded', function() {
-    // Target the element containing the "Collection" text. This selector might need adjustment.
-    var shippingLabel = document.querySelector('.checkout .col-1 h3');
-    if (shippingLabel && shippingLabel.textContent.includes('Collection')) {
-        shippingLabel.textContent = shippingLabel.textContent.replace('Collection.', '');
-        // Or set to a completely new value
-        // shippingLabel.textContent = '1. Delivery Method';
-    }
-});
+        // Target the element containing the "Collection" text. This selector might need adjustment.
+        var shippingLabel = document.querySelector('.checkout .col-1 h3');
+        if (shippingLabel && shippingLabel.textContent.includes('Collection')) {
+            shippingLabel.textContent = shippingLabel.textContent.replace('Collection.', '');
+            // Or set to a completely new value
+            // shippingLabel.textContent = '1. Delivery Method';
+        }
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        var col1 = document.querySelector('.col-1.hideText'); // Select the container
+
+        if (col1) {
+            // This assumes 'Collection' is a direct text node of .col-1.hideText
+            Array.from(col1.childNodes).forEach(function(node) {
+                if (node.nodeType === 3 && node.textContent.trim() === 'Collection') { // nodeType 3 is a text node
+                    node.remove(); // Removes the 'Collection' text node
+                }
+            });
+        }
+    });
 </script>
