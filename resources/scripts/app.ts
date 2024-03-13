@@ -190,83 +190,102 @@ if (window.location.pathname === '/') {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.location.pathname.includes("/checkout")) {
+    // Exit the script early if on the checkout page
+    return;
+  }
   // Continue with your current JS for 'current' class
-  const currentPages = document.querySelectorAll('.page-link.current');
-  currentPages.forEach(function(page) {
-      page.closest('.page-item').classList.add('current-item');
+  const currentPages = document.querySelectorAll(".page-link.current");
+  currentPages.forEach(function (page) {
+    page.closest(".page-item").classList.add("current-item");
   });
 
   // New JS for adding classes to 'prev' and 'next' li elements
-  const prevLink = document.querySelector('.pagination-prev');
+  const prevLink = document.querySelector(".pagination-prev");
   if (prevLink) {
-      prevLink.closest('.page-item').classList.add('prev-page-item');
+    prevLink.closest(".page-item").classList.add("prev-page-item");
   }
 
-  const nextLink = document.querySelector('.pagination-next');
+  const nextLink = document.querySelector(".pagination-next");
   if (nextLink) {
-      nextLink.closest('.page-item').classList.add('next-page-item');
+    nextLink.closest(".page-item").classList.add("next-page-item");
   }
 });
 
 //Video Flexi Block
-document.addEventListener("DOMContentLoaded", function() {
-  const playButtons = document.querySelectorAll('.play-button');
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.location.pathname.includes("/checkout")) {
+    // Exit the script early if on the checkout page
+    return;
+  }
+  const playButtons = document.querySelectorAll(".play-button");
 
-  playButtons.forEach(function(playButton) {
-      const videoContainer = playButton.closest('.flexi-video');
-      const videoThumbnail = videoContainer.querySelector('.video-thumbnail');
-      const videoPlayer = videoContainer.querySelector('iframe');
+  playButtons.forEach(function (playButton) {
+    const videoContainer = playButton.closest(".flexi-video");
+    const videoThumbnail = videoContainer.querySelector(".video-thumbnail");
+    const videoPlayer = videoContainer.querySelector("iframe");
 
-      playButton.addEventListener('click', function() {
-          playButton.classList.add('opacity-0', 'invisible');
-          videoThumbnail.classList.add('opacity-0', 'invisible');
-          videoPlayer.classList.remove('hidden'); // Make sure it is not `display: none;`
+    playButton.addEventListener("click", function () {
+      playButton.classList.add("opacity-0", "invisible");
+      videoThumbnail.classList.add("opacity-0", "invisible");
+      videoPlayer.classList.remove("hidden"); // Make sure it is not `display: none;`
 
-          setTimeout(() => {
-              playButton.classList.add('hidden'); // Hide after transition
-              videoThumbnail.classList.add('hidden'); // Hide after transition
-          }, 500); // Ensure this matches the transition duration
+      setTimeout(() => {
+        playButton.classList.add("hidden"); // Hide after transition
+        videoThumbnail.classList.add("hidden"); // Hide after transition
+      }, 500); // Ensure this matches the transition duration
 
-          // Start playing the video
-          videoPlayer.src += "&autoplay=1";
-      });
+      // Start playing the video
+      videoPlayer.src += "&autoplay=1";
+    });
 
-      videoPlayer.addEventListener('ended', function() {
-          playButton.classList.remove('opacity-0', 'invisible', 'hidden');
-          videoThumbnail.classList.remove('opacity-0', 'invisible', 'hidden');
-          videoPlayer.classList.add('hidden'); // Hide the player
+    videoPlayer.addEventListener("ended", function () {
+      playButton.classList.remove("opacity-0", "invisible", "hidden");
+      videoThumbnail.classList.remove("opacity-0", "invisible", "hidden");
+      videoPlayer.classList.add("hidden"); // Hide the player
 
-          // Reset the video player source to stop autoplay
-          videoPlayer.src = videoPlayer.src.replace("&autoplay=1", "");
-      });
+      // Reset the video player source to stop autoplay
+      videoPlayer.src = videoPlayer.src.replace("&autoplay=1", "");
+    });
   });
 });
 
-
 //chnage header text on tab click
-document.addEventListener('DOMContentLoaded', function () {
-  const signInTab = document.getElementById('signInTab');
-  const registerTab = document.getElementById('registerTab');
+document.addEventListener("DOMContentLoaded", function () {
+  if (window.location.pathname.includes("/checkout")) {
+    // Exit the script early if on the checkout page
+    return;
+  }
+  const signInTab = document.getElementById("signInTab");
+  const registerTab = document.getElementById("registerTab");
 
   // Listen for clicks on the Sign In tab
   if (signInTab) {
-      signInTab.addEventListener('click', function(event) {
-          event.preventDefault();
-          window.dispatchEvent(new CustomEvent('update-active-tab', { detail: { tab: 'sign-in' } }));
-      });
+    signInTab.addEventListener("click", function (event) {
+      event.preventDefault();
+      window.dispatchEvent(
+        new CustomEvent("update-active-tab", { detail: { tab: "sign-in" } })
+      );
+    });
   }
 
   // Listen for clicks on the Register tab
   if (registerTab) {
-      registerTab.addEventListener('click', function(event) {
-          event.preventDefault();
-          window.dispatchEvent(new CustomEvent('update-active-tab', { detail: { tab: 'register' } }));
-      });
+    registerTab.addEventListener("click", function (event) {
+      event.preventDefault();
+      window.dispatchEvent(
+        new CustomEvent("update-active-tab", { detail: { tab: "register" } })
+      );
+    });
   }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+  if (window.location.pathname.includes("/checkout")) {
+    // Exit the script early if on the checkout page
+    return;
+  }
   const prev = document.querySelector(".arrow.prev");
   const next = document.querySelector(".arrow.next");
   const cards = document.querySelectorAll(".cards li");
@@ -325,6 +344,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+  if (window.location.pathname.includes("/checkout")) {
+    // Exit the script early if on the checkout page
+    return;
+  }
   new Splide("#testimonial-slider", {
     type: "loop",
     perPage: 2.5,

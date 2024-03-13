@@ -449,6 +449,14 @@ function custom_redirect_after_add_to_cart()
 add_action('template_redirect', 'custom_redirect_after_add_to_cart');
 
 // NOTIFICATION BAR
+add_filter('woocommerce_add_success', function ($message) {
+    if (strpos($message, 'Cart updated') !== false) {
+        // Returning an empty string removes the message
+        return '';
+    }
+    return $message; // Return the original message for anything else
+}, 10, 1);
+
 function custom_woocommerce_notices_output()
 {
     $all_notices  = WC()->session->get('wc_notices', array());

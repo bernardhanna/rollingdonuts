@@ -6,7 +6,7 @@
  * @Last Modified time: 2023-07-17 17:06:56
  */
 ?>
-<div class="flex justify-between lg:hidden max-w-max-128 w-full pl-2 xs:ml-4 pr-2 xs:mr-4">
+<div class="flex justify-between lg:hidden max-w-max-128 w-full pl-2 pr-2 ml-0 mr-0 mobile:ml-4 mobile:mr-4">
 <a class="text-reg-font flex align-center flex-row" @click="showSearch = !showSearch">
         <span :class="{ 'hidden': open }" class="iconify h-8 w-8" data-icon="ion:search"></span>
     </a>

@@ -15,7 +15,7 @@
         <div class="w-full relative ">
             {{-- Check if the post has a featured image and display it --}}
             @if(has_post_thumbnail())
-                    {!! wp_get_attachment_image(get_post_thumbnail_id(), 'full', false, ['class' => 'w-full object-cover h-auto mobile:h-[250px] sm-mob:h-[500px] max-w-max-sitewidth margin-auto']) !!}
+                    {!! wp_get_attachment_image(get_post_thumbnail_id(), 'full', false, ['class' => 'w-full object-cover h-[500px] max-w-max-sitewidth margin-auto']) !!}
             @endif
 <div class="h-full absolute items-end lg:items-center top-0 left-0 right-0 w-full mx-auto max-w-[1296px] inline-flex px-4 lg:px-8 macbook:px-0">
                     <div class="bg-white w-full lg:w-[517px] h-auto p-5 mob-no-b-border max-lg:rounded-bl-none max-lg:rounded-br-none rounded-normal">

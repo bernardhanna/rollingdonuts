@@ -14,7 +14,7 @@
 @php
 $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');
 @endphp
-    <div style="background-image: url('{{ $featured_image_url }}'); background-size: cover; background-position: center center; height: 100%%; width: 100%;">
+    <div style="background-image: url('{{ $featured_image_url }}'); background-size: cover; background-position: center center;  width: 100%;">
         @include('partials.page-header')
         @php
             $featured_image_url = get_the_post_thumbnail_url(get_the_ID(), 'full');

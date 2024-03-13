@@ -31,7 +31,7 @@ if (!empty($breadcrumb)) {
     echo '<nav class="breadcrumb-nav disable pt-4 relative z-50">';
     foreach ($breadcrumb as $key => $crumb) {
         // Apply the 'breadcrumb-ellipsis' class conditionally
-        $breadcrumb_class = mb_strlen($crumb[0]) > 13 ? 'breadcrumb-ellipsis' : '';
+        $breadcrumb_class = mb_strlen($crumb[0]) > 8 ? 'breadcrumb-ellipsis' : '';
 
         echo '<span class="breadcrumb-item ' . (end($breadcrumb) === $crumb ? 'text-yellow-primary font-bolder' : 'text-white') . ' ' . $breadcrumb_class . '">'; // Example Tailwind classes + conditionally added class
         if (!empty($crumb[1]) && sizeof($breadcrumb) !== $key + 1) {

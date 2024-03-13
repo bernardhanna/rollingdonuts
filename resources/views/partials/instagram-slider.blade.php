@@ -9,7 +9,7 @@
 @if(!is_checkout() && !is_account_page())
 @if(function_exists('do_shortcode') && get_field('instagram_username', 'option'))
 <section class="w-full instagram-posts relative lg:overflow-hidden">
-<div class="lg:max-w-max-1571 mx-auto pb-20 overflow-hidden px-0 tablet-sm:px-4">
+<div class="lg:max-w-max-1571 mx-auto pb-20 overflow-hidden max-mobile:px-4 tablet-sm:px-4">
     <div class="py-8 px-4 tablet-sm:px-0 flex flex-col justify-start items-start">
         <span class="text-reg-font font-medium text-black-full leading-none">{{ get_field('instagram_feed_title', 'option') }}</span>
         <span class="text-1lg-font font-reg420 text-black-full leading-none py-4">{{ get_field('instagram_feed_subtitle', 'option') }}</span>

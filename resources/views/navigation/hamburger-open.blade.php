@@ -7,7 +7,7 @@
  */
 ?>
 @php
-$mobile_menu_bg = get_field('mobile_menu_bg', 'option');
+    $mobile_menu_bg = get_field('mobile_menu_bg', 'option');
 @endphp
 <div @resize.window="if (window.innerWidth > 1085) open = false" x-cloak x-show="open"
     x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 transform -translate-y-full"
@@ -19,21 +19,24 @@ $mobile_menu_bg = get_field('mobile_menu_bg', 'option');
     <div class="text-center">
         <ul>
             @foreach ($navigation as $item)
-                <li x-data="{ isOpen: false }" class="my-8">
-                    <a @click="if ({{ count($item->children) }} > 0) { isOpen = !isOpen; $event.preventDefault(); }"
-                    href="{{ $item->url }}"
-                    class="text-sm-md-font font-medium text-white flex items-center justify-center {{ $item->classes ?? '' }}"
-                    role="menuitem"
-                    aria-haspopup="{{ count($item->children) ? 'true' : 'false' }}"
-                    :aria-expanded="isOpen.toString()">
+           <li x-data="{ isOpen: false }" class="my-6">
+                <!-- Parent item link -->
+                <div class="flex items-center justify-center">
+                    <a href="{{ $item->url }}"
+                    class="text-sm-md-font font-medium text-white {{ $item->classes ?? '' }}"
+                    role="menuitem">
                         {{ $item->label }}
-                        @if (count($item->children))
-                            <span x-show="!isOpen" class="iconify ml-2 text-white"
-                                data-icon="mdi:menu-down" data-width="32" data-height="32"></span>
-                            <span x-show="isOpen" class="iconify ml-2 text-white"
-                                data-icon="mdi:menu-up" data-width="32" data-height="32"></span>
-                        @endif
                     </a>
+                    @if (count($item->children))
+                        <!-- Chevron icon for toggling dropdown -->
+                        <button @click="isOpen = !isOpen; $event.preventDefault();"
+                                :aria-expanded="isOpen.toString()"
+                                class="ml-2">
+                            <span x-show="!isOpen" class="iconify text-white" data-icon="mdi:chevron-down" data-width="32" data-height="32"></span>
+                            <span x-show="isOpen" class="iconify text-white" data-icon="mdi:chevron-up" data-width="32" data-height="32"></span>
+                        </button>
+                    @endif
+                </div>
                     @if (count($item->children))
                         <ul x-show="isOpen" x-transition:enter="transition ease-in-out duration-500"
                             x-transition:enter-start="opacity-0 transform translate-y-1"
