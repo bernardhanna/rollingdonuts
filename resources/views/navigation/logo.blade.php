@@ -17,5 +17,5 @@ $mobile_logo_open_id = attachment_url_to_postid(get_field('mobile_logo_open', 'o
     @endphp
 <img class="logo desktop-logo relative lg:-left-4 -t-0-3" src="{{ get_field('main_logo', 'option') }}" alt="{{ $main_alt_text }}">
     <img x-cloak x-show="!open" class="logo mobile-logo" src="{{ get_field('mobile_logo', 'option') }}" alt="{{ $mobile_alt_text }}">
-<img x-cloak x-show="open" class="logo mobile-logo z-100" src="{{ get_field('mobile_logo_open', 'option') }}" alt="{{ $mobile_logo_open_alt_text }}">
+    <img x-cloak x-show="open" class="logo mobile-logo z-100" src="{{ get_field('mobile_logo_open', 'option') }}" alt="{{ $mobile_logo_open_alt_text }}">
 </a>

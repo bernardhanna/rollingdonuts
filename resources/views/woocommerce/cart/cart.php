@@ -65,11 +65,6 @@ do_action('woocommerce_before_cart'); ?>
         line-height: 1.5rem !important;
     }
 
-    .coupon button:hover {
-        background: #FFED56 !important;
-        color: #000 !important;
-    }
-
     .update-cart button {
         width: 100% !important;
         max-width: 17.25rem !important;
@@ -102,6 +97,22 @@ do_action('woocommerce_before_cart'); ?>
     .woocommerce-cart .wc-proceed-to-checkout a.checkout-button:hover {
         background: #FFED56 !important;
         color: black !important;
+    }
+
+    @media (max-width: 575px) {
+        .coupon button {
+            margin-top: 1rem !important
+        }
+
+        .update-cart button {
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        .coupon button:hover {
+            background: #FFED56 !important;
+            color: #000 !important;
+        }
     }
 </style>
 <div class="px-4 md:px-0 pb-6 w-full max-w-max-1300 mx-auto">
