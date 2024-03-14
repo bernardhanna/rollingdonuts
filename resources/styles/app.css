@@ -1936,16 +1936,6 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     border-top-color: #000;
 }
 
-.woocommerce table.shop_table {
-    border: 0;
-    margin: 0 -1px 24px 0;
-    text-align: left;
-    width: 100%;
-    border-collapse: separate;
-    border-radius: 5px;
-}
-
-
 @media (width <= 767px) {
     .breadcrumb-ellipsis {
         display: inline-block;
@@ -1975,14 +1965,11 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     border-radius: 20px !important;
 }
 
-.woocommerce table.shop_table {
-  border-collapse: collapse;
-}
-
 .woocommerce table.shop_table  {
     border: 0;
     margin: 0;
     border-radius: 0;
+     border-collapse: collapse;
 }
 
 .woocommerce-orders-table__cell-order-actions {
