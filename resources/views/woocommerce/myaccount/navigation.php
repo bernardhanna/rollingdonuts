@@ -31,10 +31,10 @@ if (!defined('ABSPATH')) {
     <?php do_action('woocommerce_before_account_navigation'); ?>
     <div class="mx-auto lg:max-w-max-1549 pt-10">
         <nav class="woocommerce-MyAccount-navigation">
-            <ul class="w-full flex flex-row justify-center">
+            <ul class="w-full flex justify-start lg:justify-center flex-nowrap overflow-x-auto flex-row ">
                 <?php foreach (wc_get_account_menu_items() as $endpoint => $label) : ?>
                     <li class="active:text-yellow-primary border-solid border-grey-subdued border-b-2 active:border-yellow-primary px-4 pt-4 <?php echo wc_get_account_menu_item_classes($endpoint); ?>">
-                        <a class="text-white hover:text-yellow-primary text-sm-md-font opacity-40 hover:opacity-100" href="<?php echo esc_url(wc_get_account_endpoint_url($endpoint)); ?>"><?php echo esc_html($label); ?></a>
+                        <a class="text-white hover:text-yellow-primary text-sm-md-font opacity-40 hover:opacity-100 whitespace-nowrap" href="<?php echo esc_url(wc_get_account_endpoint_url($endpoint)); ?>"><?php echo esc_html($label); ?></a>
                     </li>
                 <?php endforeach; ?>
             </ul>

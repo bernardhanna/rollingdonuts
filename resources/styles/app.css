@@ -1974,3 +1974,21 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     text-align: left !important;
     border-radius: 20px !important;
 }
+
+.woocommerce table.shop_table {
+  border-collapse: collapse;
+}
+
+.woocommerce table.shop_table  {
+    border: 0;
+    margin: 0;
+    border-radius: 0;
+}
+
+.woocommerce-orders-table__cell-order-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background: white;
+}

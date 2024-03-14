@@ -253,6 +253,9 @@ export default {
         "12": "12px",
       },
       borderRadius: {
+        "left-sides": '0.5rem 0rem 0rem 0.5rem',
+         "right-sides": '0rem 0.5rem 0.5rem 0rem',
+          "all-sides": '0.5rem 0.5rem 0.5rem 0.5rem',
         "tl-lg": "0.5rem 0.5rem 0rem 0rem",
         one: "1rem",
         "md-20": "20px",

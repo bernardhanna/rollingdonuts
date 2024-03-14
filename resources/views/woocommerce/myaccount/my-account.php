@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @Author: Bernard Hanna
  * @Date:   2023-10-23 12:26:00
@@ -22,22 +23,30 @@
  * @version 3.5.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 /**
  * My Account navigation.
  *
  * @since 2.6.0
  */
-do_action( 'woocommerce_account_navigation' ); ?>
+do_action('woocommerce_account_navigation'); ?>
 
-    <div class="woocommerce-MyAccount-content mx-auto lg:max-w-max-750 bg-white rounded-md-40 mt-10 p-10">
-        <?php
-            /** p10
-             * My Account content.
-             *
-             * @since 2.6.0
-             */
-            do_action( 'woocommerce_account_content' );
-        ?>
-    </div>
+<?php
+// Determine if we're on the "Orders" page of the WooCommerce "My Account" area.
+$is_orders_page = function_exists('is_wc_endpoint_url') && is_wc_endpoint_url('orders');
+
+// Apply 'p-0' if on the orders page, otherwise use the default padding classes.
+$padding_class = $is_orders_page ? 'p-0 rounded-none' : 'px-4 py-8 mobile:p-10';
+?>
+<div class="mt-10"></div>
+<div class="flex flex-col justify-center woocommerce-MyAccount-content mx-auto lg:max-w-max-750 lg:bg-white rounded-one <?php echo $padding_class; ?>">
+    <?php
+    /** p10
+     * My Account content.
+     *
+     * @since 2.6.0
+     */
+    do_action('woocommerce_account_content');
+    ?>
+</div>
