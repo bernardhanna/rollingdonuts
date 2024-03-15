@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @Author: Bernard Hanna
  * @Date:   2023-08-23 15:52:36
@@ -22,18 +23,18 @@
  * @version 3.9.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly.
 }
 
-if ( ! $notices ) {
-	return;
+if (!$notices) {
+    return;
 }
 
 ?>
 
-<?php foreach ( $notices as $notice ) : ?>
-	<div class="woocommerce-info"<?php echo wc_get_notice_data_attr( $notice ); ?>>
-		<?php echo wc_kses_notice( $notice['notice'] ); ?>
-	</div>
+<?php foreach ($notices as $notice) : ?>
+    <div class="woocommerce-info" <?php echo wc_get_notice_data_attr($notice); ?>>
+        <?php echo wc_kses_notice($notice['notice']); ?>
+    </div>
 <?php endforeach; ?>

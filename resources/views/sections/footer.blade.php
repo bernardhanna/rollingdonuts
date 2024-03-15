@@ -15,5 +15,4 @@
             <!-- option code -->
     @endif
 </footer>
-
 </div>

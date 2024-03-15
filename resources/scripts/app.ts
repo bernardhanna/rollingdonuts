@@ -14,6 +14,48 @@ Object.assign(window, { Alpine: Alpine }).Alpine.start();
 
 import.meta.webpackHot?.accept(console.error);
 
+
+document.addEventListener("DOMContentLoaded", function () {
+  const notices = document.querySelectorAll("#custom-woocommerce-notice");
+
+  notices.forEach((notice) => {
+    // Automatically close after 2 seconds
+    setTimeout(
+      () => {
+        notice.classList.add("fade-out");
+        // Wait for animation to complete before removing the element
+        setTimeout(() => notice.remove(), 500); // Match the duration of the animation
+      },
+
+      2000
+    );
+
+    // Close on button click
+    notice.querySelector("button").addEventListener("click", function () {
+      notice.classList.add("fade-out");
+      setTimeout(() => notice.remove(), 500); // Match the duration of the animation
+    });
+  });
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const errorNotices = document.querySelectorAll(".woocommerce-error");
+  errorNotices.forEach((notice) => {
+    // Automatically close after 2 seconds
+    setTimeout(() => {
+      notice.classList.add("fade-out");
+      // Wait for animation to complete before removing the element
+      setTimeout(() => notice.remove(), 500); // Match the duration of the animation
+    }, 2000);
+
+    // Close on button click
+    notice.querySelector("button").addEventListener("click", function () {
+      notice.classList.add("fade-out");
+      setTimeout(() => notice.remove(), 500); // Match the duration of the animation
+    });
+  });
+});
+
+
 // Function declarations moved to the root level
 function updateSlideCounts(currentSlide: number) {
     const slideCountElements = document.querySelectorAll('.slide-count');
@@ -399,4 +441,3 @@ document.addEventListener("DOMContentLoaded", function () {
   updateCenterSlideClass(weddingSlider);
 });
 */
-

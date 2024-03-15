@@ -19,7 +19,6 @@
 defined('ABSPATH') || exit;
 
 $available_gateways = WC()->payment_gateways->get_available_payment_gateways();
-
 if ($available_gateways) : ?>
     <form id="add_payment_method" method="post">
         <div id="payment" class="woocommerce-Payment">
