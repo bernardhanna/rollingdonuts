@@ -92,6 +92,7 @@ export default {
     screens: {
       xxxs: "220px",
       xs: "320px",
+      small: "380px",
       "sm-mob": "480px",
       mobile: "575px",
       sm: "640px",
@@ -253,9 +254,9 @@ export default {
         "12": "12px",
       },
       borderRadius: {
-        "left-sides": '0.5rem 0rem 0rem 0.5rem',
-         "right-sides": '0rem 0.5rem 0.5rem 0rem',
-          "all-sides": '0.5rem 0.5rem 0.5rem 0.5rem',
+        "left-sides": "0.5rem 0rem 0rem 0.5rem",
+        "right-sides": "0rem 0.5rem 0.5rem 0rem",
+        "all-sides": "0.5rem 0.5rem 0.5rem 0.5rem",
         "tl-lg": "0.5rem 0.5rem 0rem 0rem",
         one: "1rem",
         "md-20": "20px",

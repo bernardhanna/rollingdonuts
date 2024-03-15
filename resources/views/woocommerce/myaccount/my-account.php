@@ -31,16 +31,31 @@ defined('ABSPATH') || exit;
  * @since 2.6.0
  */
 do_action('woocommerce_account_navigation'); ?>
-
 <?php
-// Determine if we're on the "Orders" page of the WooCommerce "My Account" area.
+// Check if we're on the "Payment Methods" or "Orders" page.
+$is_payment_methods_page = function_exists('is_wc_endpoint_url') && is_wc_endpoint_url('payment-methods');
 $is_orders_page = function_exists('is_wc_endpoint_url') && is_wc_endpoint_url('orders');
 
-// Apply 'p-0' if on the orders page, otherwise use the default padding classes.
-$padding_class = $is_orders_page ? 'p-0 rounded-none' : 'px-4 py-8 mobile:p-10';
+// Specifically check for the "View Order" page.
+$is_view_order_page = function_exists('is_wc_endpoint_url') && is_wc_endpoint_url('view-order');
+
+// Default classes.
+$background_class = 'bg-white'; // Default background class for all pages.
+$padding_class = 'px-4 py-8 mobile:p-10'; // Default padding for most pages.
+
+// Modify classes based on conditions.
+if ($is_orders_page || $is_payment_methods_page) {
+    // Adjust for "Orders" and "Payment Methods" pages.
+    $background_class = 'sm:bg-transparent lg:bg-white';
+    $padding_class = 'p-0 rounded-none';
+} elseif ($is_view_order_page) {
+    // Ensure default padding is applied on "View Order" page, adjust as needed.
+    $padding_class = 'p-0'; // This ensures default padding is retained for "View Order" page.
+}
 ?>
 <div class="mt-10"></div>
-<div class="flex flex-col justify-center woocommerce-MyAccount-content mx-auto lg:max-w-max-750 lg:bg-white rounded-one <?php echo $padding_class; ?>">
+
+<div class="woocommerce-MyAccount-content mx-auto max-w-max-1038 flex flex-col <?php echo esc_attr($padding_class); ?> <?php echo esc_attr($background_class); ?> rounded-one mt-10">
     <?php
     /** p10
      * My Account content.
@@ -50,3 +65,19 @@ $padding_class = $is_orders_page ? 'p-0 rounded-none' : 'px-4 py-8 mobile:p-10';
     do_action('woocommerce_account_content');
     ?>
 </div>
+<div id="movBtn" class="btns"></div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Find the "Add payment method" button.
+        var addPaymentMethodButton = document.querySelector(".add-payment-button-container");
+
+        // Find the target location where you want to move the button.
+        var targetLocation = document.getElementById("movBtn");
+
+        // Check if both elements exist.
+        if (addPaymentMethodButton && targetLocation) {
+            // Move the button to the new location.
+            targetLocation.appendChild(addPaymentMethodButton);
+        }
+    });
+</script>

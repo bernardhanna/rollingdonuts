@@ -1250,5 +1250,79 @@ function customize_pickup_location_field_html_two($field_html, $package_id, $pac
     return $field_html;
 }
 
+/*
+ ****************************************************************
+ * My Account
+ ***********************************************************\
+*/
 
-// Add this to your functions.php
+//REORDER BUTTON
+add_action('woocommerce_order_details_after_order_table', 'remove_default_order_again_button', 1);
+
+function remove_default_order_again_button()
+{
+    // Remove the default WooCommerce 'Order Again' button by unhooking it
+    remove_action('woocommerce_order_details_after_order_table', 'woocommerce_order_again_button');
+}
+
+add_action('woocommerce_order_details_after_order_table', 'custom_add_order_again_button', 30);
+
+// REMOVE The reorder notifications
+
+function custom_add_order_again_button($order)
+{
+    if (!$order || !is_a($order, 'WC_Order')) return;
+    if (!$order->has_status('completed')) return; // Or any other status you wish to check
+
+    $reorder_url = wp_nonce_url(add_query_arg('order_again', $order->get_id(), wc_get_cart_url()), 'woocommerce-order_again');
+
+    // Start session if not already started
+    if (!session_id()) session_start();
+
+    // Set a session flag when the "Order Again" button is generated
+    $_SESSION['custom_order_again_clicked'] = true;
+
+    echo '<div class="w-full max-w-max-1000 px-4 wc-reorder-button-container"><div class="flex justify-start"><a href="' . esc_url($reorder_url) . '" class="mx-auto btn-width rounded-btn-72 border-3 border-color-yellow-primary bg-yellow-primary text-black-full text-sm-md-font font-reg420 w-full max-md:w-[342px] md:w-[322px] h-[64px] flex flex-row items-center justify-center hover:bg-white button wc-reorder-button mt-8"><svg class="mr-2" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M25.9904 15.6191C26.6514 16.5185 27.2976 16.6668 28.2774 16.8904C28.9557 17.0449 29.7451 17.2265 30.547 17.6985C30.6681 16.4568 30.6285 15.2039 30.4296 13.9573C29.8984 10.6263 28.2242 7.5573 25.7149 5.31359C23.4489 3.28857 20.5936 2.00734 17.6 1.66016C17.5889 1.88749 17.5728 2.1 17.5567 2.29027L17.5543 2.3224C17.4764 3.30463 17.4245 3.95452 18.0769 4.84286C18.733 5.73738 19.3742 5.88317 20.3453 6.10556L20.3614 6.10927C21.5611 6.38355 23.0449 6.72209 24.362 8.51606C25.6803 10.3113 25.5592 11.831 25.4616 13.0517C25.3813 14.0586 25.3282 14.7196 25.9892 15.6191H25.9904Z" fill="black"/>
+<path d="M16 0C7.17714 0 0 7.17714 0 16C0 24.8229 7.17714 32 16 32C24.8229 32 32 24.8229 32 16C32 7.17714 24.8229 0 16 0ZM24.3484 8.32618C23.0968 6.62239 21.6871 6.29992 20.5467 6.03923L20.5319 6.03552C19.6102 5.82425 18.9998 5.68587 18.3771 4.83583C17.7569 3.99197 17.8063 3.37421 17.8805 2.44015L17.8829 2.4105C17.8978 2.22888 17.9138 2.02749 17.9237 1.81127C20.7691 2.14116 23.4811 3.35815 25.6346 5.28309C28.0191 7.41436 29.6093 10.3314 30.1146 13.4956C30.3036 14.6792 30.3407 15.8715 30.2258 17.0502C29.4635 16.6005 28.7135 16.4287 28.0686 16.2817C27.1382 16.0692 26.5229 15.9283 25.8953 15.0734C25.2676 14.2184 25.3183 13.5907 25.3937 12.6344C25.4863 11.4743 25.6012 10.03 24.3484 8.32494V8.32618ZM16 30.5174C7.99506 30.5174 1.48263 24.0049 1.48263 16C1.48263 7.99506 7.99506 1.48263 16 1.48263C16.1495 1.48263 16.299 1.4851 16.4473 1.49004C16.4436 1.7705 16.4238 2.04355 16.404 2.29313L16.4015 2.32278C16.3188 3.35568 16.2335 4.4244 17.1812 5.71305C18.1313 7.00788 19.1839 7.24757 20.202 7.47984L20.223 7.48479C21.2547 7.72077 22.2283 7.94317 23.1537 9.20216C24.0791 10.4624 24 11.4607 23.916 12.522C23.832 13.5685 23.7467 14.652 24.7005 15.9506C25.6556 17.2503 26.7144 17.4925 27.7399 17.7273C28.5702 17.9163 29.4276 18.114 30.2246 18.9171C28.8704 25.5283 23.0079 30.5161 16.0025 30.5161L16 30.5174Z" fill="#2D2A2A"/>
+<g clip-path="url(#clip0_2683_11557)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M22.1757 14.3244C22.5174 15.583 22.4665 16.916 22.0297 18.1449C21.5929 19.3737 20.7911 20.4398 19.7317 21.2004L20.9997 21.2004C21.1588 21.2004 21.3114 21.2636 21.4239 21.3761C21.5365 21.4886 21.5997 21.6413 21.5997 21.8004C21.5997 21.9595 21.5365 22.1121 21.4239 22.2247C21.3114 22.3372 21.1588 22.4004 20.9997 22.4004L17.5997 22.4004L17.5997 19.0004C17.5997 18.8413 17.6629 18.6886 17.7754 18.5761C17.8879 18.4636 18.0405 18.4004 18.1997 18.4004C18.3588 18.4004 18.5114 18.4636 18.6239 18.5761C18.7365 18.6886 18.7997 18.8413 18.7997 19.0004L18.7997 20.382C19.7801 19.7553 20.522 18.8179 20.9067 17.7198C21.2914 16.6217 21.2967 15.4262 20.9217 14.3247C20.5467 13.2232 19.8131 12.2793 18.8382 11.644C17.8634 11.0087 16.7037 10.7188 15.5445 10.8205C14.3854 10.9222 13.2939 11.4097 12.4446 12.2051C11.5953 13.0005 11.0373 14.0577 10.8599 15.2077C10.6825 16.3577 10.8959 17.5339 11.466 18.5483C12.0361 19.5626 12.9299 20.3565 14.0045 20.8028C14.1479 20.8662 14.2608 20.9831 14.319 21.1287C14.3772 21.2743 14.3762 21.4369 14.3161 21.5816C14.256 21.7264 14.1416 21.842 13.9974 21.9035C13.8531 21.965 13.6906 21.9676 13.5445 21.9108C12.5408 21.4938 11.6599 20.8282 10.9847 19.9766C10.3096 19.1249 9.86239 18.1154 9.68535 17.0431C9.5083 15.9709 9.60723 14.8712 9.97281 13.8477C10.3384 12.8242 10.9586 11.9107 11.7749 11.1933C12.5912 10.4758 13.5768 9.97808 14.6387 9.74695C15.7007 9.51582 16.804 9.55892 17.8446 9.87218C18.8853 10.1854 19.829 10.7586 20.5869 11.5375C21.3448 12.3164 21.891 13.2755 22.1757 14.3244Z" fill="#2D2A2A"/>
+</g>
+<defs>
+<clipPath id="clip0_2683_11557">
+<rect width="12.8" height="12.8" fill="white" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 22.4 22.4004)"/>
+</clipPath>
+</defs>
+</svg>
+' . esc_html__('Order Again', 'woocommerce') . '</a></div></div>';
+}
+
+add_action('woocommerce_before_cart', 'custom_add_order_again_button');
+
+
+add_action('woocommerce_before_cart', 'custom_disable_wc_notices_on_cart_page');
+
+function custom_disable_wc_notices_on_cart_page()
+{
+    if (is_cart()) {
+        wc_clear_notices();
+    }
+}
+
+
+function customize_payment_methods_columns($columns)
+{
+    // Change 'edit' to the actual column ID of the "Edit" column if it exists
+    // This is just an example; you'll need to adjust it based on the actual setup
+    if (isset($columns['method'])) {
+        $columns['method'] = __('Card', 'woocommerce'); // Changing the title of the 'method' column
+    }
+
+    // If the 'actions' column is where the edit option exists
+    if (isset($columns['actions'])) {
+        $columns['actions'] = __('Edit', 'woocommerce'); // Attempt to rename the actions column, if applicable
+    }
+
+    return $columns;
+}
+add_filter('woocommerce_account_payment_methods_columns', 'customize_payment_methods_columns');

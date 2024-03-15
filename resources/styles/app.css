@@ -1979,3 +1979,52 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     align-items: center;
     background: white;
 }
+
+.wc-item-meta li {
+   display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.wc-item-meta li .wc-item-meta-label {
+  margin-right: .5rem;
+}
+
+.border-top-left-top-right {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+    .woocommerce-noticeslgrapper.fade-out {
+        animation: fade-out-down 0.5s forwards;
+    }
+
+    @keyframes fade-out-down {
+        from {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        to {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+    }
+
+
+.woocommerce-error .fade-out {
+    animation: fade-out-down 0.5s forwards;
+}
+
+@keyframes fade-out-down {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+

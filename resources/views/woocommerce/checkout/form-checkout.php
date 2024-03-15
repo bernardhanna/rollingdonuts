@@ -37,6 +37,10 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 
 ?>
 <style>
+    .hide-on-checkout {
+        display: none !important;
+    }
+
     #jckwds-delivery-date-description {
         display: none !important;
     }
@@ -233,6 +237,7 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
         }
     }
 </style>
+<div id="moveNotice"></div>
 <div class="pb-24 mb-10 pt-8">
     <form name="checkout" method="post" class="checkout woocommerce-checkout mx-auto max-w-max-1568 flex lg:flex-row flex-col lg:justify-between" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
 
@@ -319,6 +324,48 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
             Array.from(col1.childNodes).forEach(function(node) {
                 if (node.nodeType === 3 && node.textContent.trim() === 'Collection') { // nodeType 3 is a text node
                     node.remove(); // Removes the 'Collection' text node
+                }
+            });
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const targetNode = document.body; // You can adjust this to a more specific parent if known
+
+        const config = {
+            childList: true,
+            subtree: true
+        };
+
+        const callback = function(mutationsList, observer) {
+            for (const mutation of mutationsList) {
+                if (mutation.type === "childList") {
+                    const noticeGroup = document.querySelector(".woocommerce-NoticeGroup");
+                    const targetLocation = document.getElementById("moveNotice");
+
+                    if (noticeGroup && targetLocation) {
+                        targetLocation.appendChild(noticeGroup);
+                        observer.disconnect(); // Stop observing once we've moved the element
+                    }
+                }
+            }
+        };
+
+        const observer = new MutationObserver(callback);
+        observer.observe(targetNode, config);
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Target the close button using its class or other identifiable selector
+        var closeButton = document.querySelector('.woocommerce-error .close-button'); // Adjust the selector based on your actual close button's class
+
+        if (closeButton) {
+            // Add click event listener to the close button
+            closeButton.addEventListener('click', function() {
+                // Hide the parent .woocommerce-NoticeGroup when the button is clicked
+                var noticeGroup = closeButton.closest('.woocommerce-NoticeGroup');
+                if (noticeGroup) {
+                    noticeGroup.style.display = 'none';
                 }
             });
         }
