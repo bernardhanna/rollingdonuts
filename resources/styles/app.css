@@ -231,7 +231,7 @@ input {
 }
 
 .btn-menu::before {
-  content: url('https://rollingdonut.matrix-test.com/dist/images/icons/top-donut.png');
+  content: url('https://rollingdonut.matrix-test.com/content/uploads/2024/03/top-donut.png');
   display: inline-block;
   width: 32px;
   height: 32px;
@@ -241,7 +241,7 @@ input {
 }
 
 .btn-menu:hover::before {
-  content: url('https://rollingdonut.matrix-test.com/dist/images/icons/yellowdonut.png');
+  content: url('https://rollingdonut.matrix-test.com/content/uploads/2024/03/yellowdonut.png');
   display: inline-block;
   width: 32px;
   height: 32px;
