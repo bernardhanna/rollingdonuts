@@ -96,7 +96,7 @@
                                         </div>
                                     </div>
                                 @endif
-                                <div x-data="{ isHovered: false, isLargeScreen: window.innerWidth > 1084 }" x-init="$nextTick(() => {
+                                <a href="<?php echo esc_url(get_permalink($product->ID)); ?>" x-data="{ isHovered: false, isLargeScreen: window.innerWidth > 1084 }" x-init="$nextTick(() => {
                                     isLargeScreen = window.innerWidth > 1084;
                                 });
                                 window.addEventListener('resize', () => {
@@ -158,14 +158,13 @@
                                                 class="font-edmondsans text-black-full text-sm-md-font font-reg420 text-right w-1/3">€<?php echo number_format(get_post_meta($product->ID, '_price', true), 2, '.', ','); ?></span>
                                         </div>
                                         <div class="relative mt-2">
-                                            <a x-show.transition="isHovered" x-transition:enter.duration.500ms
+                                            <button x-show.transition="isHovered" x-transition:enter.duration.500ms
                                                 href="<?php the_permalink(); ?>"
-                                                class="animate-fade button w-full sm-md-font font-reg420 h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary">Select
-                                                and Customise</a>
+                                                class="animate-fade button w-full sm-md-font font-reg420 h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary">View Box</button>
                                         </div>
                                     </div>
-                                    </a>
-                                </div>
+
+                                </a>
 
                             </div>
                         @endforeach
