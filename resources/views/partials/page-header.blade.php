@@ -61,8 +61,24 @@
                 </div>
              <?php }   ?>
                 <div class="flex justify-center flex-col">
-                    <div class="text-container relative inline-block width-fit-content mobile:m-auto">
-                        <h1 class="z-10 relative text-left mobile:text-center text-white text-mob-xxl-font lg:text-xl-font xl:text-xxxl-font font-reg420">
+                    <div x-data="{ content: '{{ html_entity_decode(get_the_title()) }}' }" class="text-container relative inline-block width-fit-content mobile:m-auto">
+                    <h1 :class="{
+                        'text-mob-xxl-font lg:text-lg-font xl:text-lg-font xxl:text-xxxl-font': content.length <= 20,
+                        'insta-flow:text-xxl-font': content.length > 20 && content.length <= 154,
+                        'xxl:text-xl-font': content.length > 20 && content.length <= 254,
+                        'macbook:text-lg-font': content.length > 20 && content.length <= 354,
+                        'xl:text-1lg-font': content.length > 20 && content.length <= 454,
+                        'laptop:text-lg-font': content.length > 20 && content.length <= 554,
+                        'notebook:text-1lg-font': content.length > 20 && content.length <= 654,
+                        'lg:text-md-font': content.length > 20 && content.length <= 754,
+                        'tablet-sm:text-font-28': content.length > 20 && content.length <= 854,
+                        'md:text-font-28': content.length > 20 && content.length <= 954,
+                        'sm:text-base-font': content.length > 20 && content.length <= 1054,
+                        'mobile:text-base-font': content.length > 20 && content.length <= 1154,
+                        'sm-mob:text-sm-font': content.length > 20 && content.length <= 1254,
+                        'xs:text-xs-font': content.length > 20 && content.length <= 1354,
+                        'xxxs:text-tiny': content.length > 20 && content.length <= 1454,
+                    }" class="z-10 relative left-0 text-white font-reg420">
                             @if (is_home())
                                 Blog
                             @else
