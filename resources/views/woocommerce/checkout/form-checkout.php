@@ -37,6 +37,10 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 
 ?>
 <style>
+    .woocommerce-error {
+        height: max-content !important;
+    }
+
     .hide-on-checkout {
         display: none !important;
     }
@@ -239,7 +243,7 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 </style>
 <div id="moveNotice"></div>
 <div class="pb-24 mb-10 pt-8">
-    <form name="checkout" method="post" class="checkout woocommerce-checkout mx-auto max-w-max-1568 flex lg:flex-row flex-col lg:justify-between" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
+    <form name="checkout" method="post" class="checkout woocommerce-checkout woo-move-notice mx-auto max-w-max-1568 flex lg:flex-row flex-col lg:justify-between" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
 
         <?php if ($checkout->get_checkout_fields()) : ?>
 
@@ -368,6 +372,53 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
                     noticeGroup.style.display = 'none';
                 }
             });
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Function to move the WooCommerce notice
+        function moveWooCommerceNotice() {
+            var noticeGroup = document.querySelector('.woocommerce-NoticeGroup.woocommerce-NoticeGroup-checkout');
+            var checkoutForm = document.querySelector('.checkout.woocommerce-checkout');
+
+            if (noticeGroup && checkoutForm) {
+                checkoutForm.parentNode.insertBefore(noticeGroup, checkoutForm);
+            }
+        }
+
+        // Initially move the notice
+        moveWooCommerceNotice();
+
+        // Optional: Listen for changes and move the notice again
+        // Useful if your checkout page triggers notices dynamically with AJAX
+        var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.addedNodes.length || mutation.removedNodes.length) {
+                    moveWooCommerceNotice();
+                }
+            });
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+
+        // Optional: Clean up the observer when leaving the page to prevent memory leaks
+        window.addEventListener('beforeunload', function() {
+            observer.disconnect();
+        });
+    });
+
+    document.addEventListener('click', function(event) {
+        // Check if the clicked element is the close button
+        if (event.target.classList.contains('close-button')) {
+            // Find the parent error message div
+            var errorMessage = event.target.closest('.woocommerce-error');
+            // Hide the error message div
+            if (errorMessage) {
+                errorMessage.style.display = 'none';
+            }
         }
     });
 </script>

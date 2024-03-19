@@ -27,7 +27,7 @@ $youtube_video_id = get_sub_field('youtube_video_id');
 <section class="py-8 flexi-video relative w-full px-4 m-auto flex flex-col items-center gap-10 rounded-video">
     <div class="relative w-full max-w-max-1359 h-[290px] lg:h-[600px] rounded-video drop-shadow_one">
 <img class="video-thumbnail w-full h-full object-cover rounded-video" src="{{ $image_url_default }}" srcset="{{ $srcset_attribute }}" sizes="(max-width: 1360px) 100vw, 1360px" alt="{{ $video_title }}">
-        <div class="play-button absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120px] h-[120px] bg-[url('/images/play-logo.svg')] bg-no-repeat bg-center cursor-pointer"></div>
+        <div class="play-button absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120px] h-[120px] bg-[url('https://rollingdonut.matrix-test.com/dist/images/play-logo.16078c.svg')] bg-no-repeat bg-center cursor-pointer"></div>
     </div>
     <iframe id="video-player" class="w-full rounded-video max-w-max-1359 h-[290px] lg:h-[600px] hidden absolute " src="https://www.youtube-nocookie.com/embed/{{ $youtube_video_id }}?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </section>

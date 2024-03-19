@@ -59,3 +59,23 @@ $shop_bg_url = get_field('shop_bg', 'option');
         </div>
     </div>
 @endsection
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const attributeButtons = document.querySelectorAll('.attribute-button');
+
+    attributeButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            const attributeName = this.dataset.attributeName;
+            const buttons = document.querySelectorAll('.attribute-button[data-attribute-name="' + attributeName + '"]');
+
+            // Remove 'selected' class from all buttons with the same attribute name
+            buttons.forEach(function(btn) {
+                btn.classList.remove('selected');
+            });
+
+            // Add 'selected' class to the clicked button
+            this.classList.add('selected');
+        });
+    });
+});
+</script>
