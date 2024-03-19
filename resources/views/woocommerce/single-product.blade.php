@@ -78,4 +78,41 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const addToCartButton = document.querySelector('button.single_add_to_cart_button'); // Adjust based on your theme's markup
+    // Initially disable the "Add to Cart" button and add a 'disabled' class
+    addToCartButton.disabled = true;
+    addToCartButton.classList.add('disabled');
+
+    function checkAllAttributesSelected() {
+        const attributeContainers = document.querySelectorAll('.attribute-container');
+        let allSelected = true;
+        attributeContainers.forEach(container => {
+            if (!container.querySelector('.attribute-button.selected')) {
+                allSelected = false;
+            }
+        });
+
+        // Enable or disable the Add to Cart button based on attribute selection
+        addToCartButton.disabled = !allSelected;
+        if(allSelected) {
+            addToCartButton.classList.remove('disabled');
+        } else {
+            addToCartButton.classList.add('disabled');
+        }
+    }
+
+    document.querySelectorAll('.attribute-button').forEach(button => {
+        button.addEventListener('click', function() {
+            const attributeName = this.dataset.attributeName;
+            // Remove 'selected' class from siblings and add to the clicked button
+            document.querySelectorAll(`.attribute-container .attribute-button[data-attribute-name="${attributeName}"]`).forEach(btn => btn.classList.remove('selected'));
+            this.classList.add('selected');
+
+            // Re-evaluate whether all selections have been made
+            checkAllAttributesSelected();
+        });
+    });
+});
+
 </script>

@@ -280,7 +280,7 @@ input {
 }
 
 .btn:hover .donut-icon {
-  background-image: url('../images/icons/btn2.png'); /* Set the path to your second icon image */
+  background-image: url('../images/icons/btn2.png');
 }
 
 .place-nav-icon {
@@ -2028,21 +2028,95 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     }
 }
 
-.attribute-button {
-    padding: 5px 10px;
-    margin: 0 5px 5px 0;
-    border: 1px solid #ccc;
-    background-color: #f7f7f7;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.pa_fit .attribute-button, .pa_size .attribute-button  {
+  border-radius: 72px;
+  border: 1px solid var(--yellow-disabled, #D8D7CE);
+  background: var(--white, #FFF);
+  color: var(--black-full, #000);
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 410;
+  line-height: 20px;
+  height: 58px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin-right: 1rem;
 }
 
-.attribute-button.selected {
-    background-color: #0071a1;
-    color: white;
-    border-color: #005c81;
+.pa_fit .attribute-button.selected, .pa_size .attribute-button.selected {
+  color: black;
+  background: var(--yellow-main, #FFED56);
+  border: 2px solid #000;
 }
 
 .woocommerce-error {
   height: max-content!important;
 }
+
+.attribute-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.pa_colour.attribute-container {
+  padding-top: 1.375rem;
+  padding-bottom: 1.375rem;
+      display: inline-flex;
+    align-items: center;
+}
+
+.pa_size.attribute-container {
+  padding-top: 1.375rem;
+  padding-bottom: 1.375rem;
+}
+
+
+.attribute-button.color-swatch {
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    box-shadow: 0 2px 2px rgb(0 0 0 / 20%);
+    transition: box-shadow 0.3s ease;
+}
+
+.attribute-button.color-swatch:hover {
+    box-shadow: 0 4px 4px rgb(0 0 0 / 40%);
+}
+
+.attribute-button.color-swatch.selected {
+  border: 2px solid #FFED56!important;
+}
+
+
+.woocommerce-product-gallery .splide__arrow:hover {
+  background: #FFED56;
+  color: black;
+}
+
+
+.woocommerce-product-gallery .splide__arrow:hover svg path {
+  fill: black;
+}
+
+.color-name-display {
+  margin-left: 1rem;
+}
+
+.single_add_to_cart_button.disabled {
+  background: var(--yellow-disabled, #D8D7CE);
+  color: var(--black-disabled, #484848);
+  cursor: not-allowed;
+  border: 2px solid var(--yellow-disabled, #D8D7CE);
+}
+
+.single_add_to_cart_button.disabled:hover {
+   background: var(--yellow-disabled, #D8D7CE);
+  color: var(--black-disabled, #484848);
+  cursor: not-allowed;
+  border: 2px solid var(--yellow-disabled, #D8D7CE);
+  opacity: .8;
+}
+
