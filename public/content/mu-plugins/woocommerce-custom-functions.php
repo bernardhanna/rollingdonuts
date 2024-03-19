@@ -1326,3 +1326,104 @@ function customize_payment_methods_columns($columns)
     return $columns;
 }
 add_filter('woocommerce_account_payment_methods_columns', 'customize_payment_methods_columns');
+
+/*
+ ****************************************************************
+ * PRODUCT ATTRIBUTES
+ ***********************************************************\
+*/
+function cw_woo_attribute()
+{
+    global $product;
+    $attributes = $product->get_attributes();
+    if (!$attributes) {
+        return;
+    }
+
+    echo '<div class="custom-attributes">';
+
+    foreach ($attributes as $attribute) {
+        if ($attribute->get_variation()) {
+            continue;
+        }
+        $name = $attribute->get_name();
+
+        if ($attribute->is_taxonomy()) {
+            $terms = wp_get_post_terms($product->get_id(), $name, 'all');
+            $cwtax = $terms[0]->taxonomy;
+            $cw_object_taxonomy = get_taxonomy($cwtax);
+
+            $tax_label = isset($cw_object_taxonomy->labels->singular_name) ? $cw_object_taxonomy->labels->singular_name : (isset($cw_object_taxonomy->label) ? $cw_object_taxonomy->label : $name);
+
+            echo "<div class='{$name} attribute-container'>";
+            echo "<strong>{$tax_label}: </strong>";
+
+            foreach ($terms as $term) {
+                echo "<button type='button' class='attribute-button' data-attribute-name='{$name}' data-attribute-value='" . esc_attr($term->slug) . "'>" . esc_html($term->name) . "</button> ";
+            }
+            echo "</div>";
+        } else {
+            $options = $attribute->get_options();
+            echo "<div class='{$name} attribute-container'>";
+            echo "<strong>" . esc_html($name) . ":</strong> ";
+
+            foreach ($options as $option) {
+                echo "<button type='button' class='attribute-button' data-attribute-name='{$name}' data-attribute-value='" . esc_attr($option) . "'>" . esc_html($option) . "</button> ";
+            }
+            echo "</div>";
+        }
+    }
+
+    echo '</div>';
+}
+add_action('woocommerce_single_product_summary', 'cw_woo_attribute', 25);
+
+add_filter('woocommerce_add_cart_item_data', 'add_selected_attributes_to_cart_item', 10, 3);
+function add_selected_attributes_to_cart_item($cart_item_data, $product_id, $variation_id)
+{
+    if (isset($_POST['attribute_pa_colour'])) {
+        $cart_item_data['selected_attributes']['colour'] = sanitize_text_field($_POST['attribute_pa_colour']);
+    }
+    if (isset($_POST['attribute_pa_size'])) {
+        $cart_item_data['selected_attributes']['size'] = sanitize_text_field($_POST['attribute_pa_size']);
+    }
+    if (isset($_POST['attribute_pa_fit'])) {
+        $cart_item_data['selected_attributes']['fit'] = sanitize_text_field($_POST['attribute_pa_fit']);
+    }
+
+    return $cart_item_data;
+}
+
+// Display selected attributes in cart and checkout
+add_filter('woocommerce_get_item_data', 'display_selected_attributes_in_cart', 10, 2);
+function display_selected_attributes_in_cart($item_data, $cart_item)
+{
+    if (isset($cart_item['selected_attributes'])) {
+        foreach ($cart_item['selected_attributes'] as $attribute => $value) {
+            $item_data[] = array(
+                'name' => ucfirst($attribute),
+                'value' => $value
+            );
+        }
+    }
+
+    return $item_data;
+}
+
+/*
+ ****************************************************************
+ * NOTICES
+ ***********************************************************\
+*/
+// Remove the notices from their original location
+remove_action('woocommerce_before_checkout_form', 'woocommerce_output_all_notices', 10);
+
+// Add the notices back, but before the checkout form specifically
+add_action('woocommerce_before_checkout_form', 'custom_woocommerce_output_all_notices', 40);
+
+function custom_woocommerce_output_all_notices()
+{
+    if (function_exists('wc_print_notices')) {
+        wc_print_notices();
+    }
+}

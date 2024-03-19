@@ -231,7 +231,7 @@ input {
 }
 
 .btn-menu::before {
-  content: url('/images/icons/top-donut.png');
+  content: url('https://rollingdonut.matrix-test.com/dist/images/icons/top-donut.png');
   display: inline-block;
   width: 32px;
   height: 32px;
@@ -241,7 +241,7 @@ input {
 }
 
 .btn-menu:hover::before {
-  content: url('/images/icons/yellowdonut.png');
+  content: url('https://rollingdonut.matrix-test.com/dist/images/icons/yellowdonut.png');
   display: inline-block;
   width: 32px;
   height: 32px;
@@ -2028,3 +2028,21 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     }
 }
 
+.attribute-button {
+    padding: 5px 10px;
+    margin: 0 5px 5px 0;
+    border: 1px solid #ccc;
+    background-color: #f7f7f7;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.attribute-button.selected {
+    background-color: #0071a1;
+    color: white;
+    border-color: #005c81;
+}
+
+.woocommerce-error {
+  height: max-content!important;
+}

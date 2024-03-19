@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "74b4593108170c057b5f0bf439797875",
+    "content-hash": "b7dec433a38af7f94ab580bb6afcf307",
     "packages": [
         {
             "name": "bernardhanna/gravityforms",
@@ -11213,9 +11213,9 @@
         "bernardhanna/mt-memotech-fixes": 20,
         "bernardhanna/mt-woo-sales-by-country-reports": 20,
         "bernardhanna/updraftplus": 20,
+        "bernardhanna/woo-product-bundle-premium": 20,
         "bernardhanna/woocommerce-customer-order-csv-export": 20,
         "bernardhanna/woocommerce-pdf-ips-pro": 20,
-        "bernardhanna/woo-product-bundle-premium": 20,
         "bernardhanna/woocommerce-shipping-local-pickup-plus": 20,
         "ibericode/html-forms": 20,
         "roave/security-advisories": 20
