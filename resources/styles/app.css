@@ -489,7 +489,7 @@ nav .submenu .current_page_item {
 
 #thumbnail-slider-list {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 }
 
