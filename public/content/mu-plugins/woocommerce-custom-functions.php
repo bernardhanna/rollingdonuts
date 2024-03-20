@@ -1332,7 +1332,7 @@ add_filter('woocommerce_account_payment_methods_columns', 'customize_payment_met
  * PRODUCT ATTRIBUTES
  ***********************************************************\
 */
-//ENABLE ATTRIUBUTES AND MAKE TEH COLURS DYNAMIC
+//ENABLE ATTRIUBUTES AND MAKE THE COLURS DYNAMIC
 function cw_woo_attribute()
 {
     global $product;
@@ -1522,8 +1522,8 @@ function save_custom_attributes_to_order_items($item, $cart_item_key, $values, $
 
 /*
  ****************************************************************
- * NOTICES
- ***********************************************************\
+ * NOTICES    // Now you can use $location_label without worrying about undefined array keys
+ ****************************************************************
 */
 // Remove the notices from their original location
 remove_action('woocommerce_before_checkout_form', 'woocommerce_output_all_notices', 10);
@@ -1537,3 +1537,30 @@ function custom_woocommerce_output_all_notices()
         wc_print_notices();
     }
 }
+/*
+ ****************************************************************
+ * Fix to allow us to use $location_label without worrying about undefined array keys
+ ****************************************************************
+*/
+function safely_get_location_label($country_code, $state_code = null)
+{
+    $label = '';
+
+    if (!empty($state_code)) {
+        $states = WC()->countries->get_states($country_code);
+        $label = array_key_exists($state_code, $states) ? $states[$state_code] : 'Unknown State';
+    } else {
+        $countries = WC()->countries->get_countries();
+        $label = array_key_exists($country_code, $countries) ? $countries[$country_code] : 'Unknown Country';
+    }
+
+    return $label;
+}
+
+add_filter('some_woocommerce_hook', function ($some_data) {
+    // Assuming $some_data contains country and state codes
+    $country_code = $some_data['country'];
+    $state_code = isset($some_data['state']) ? $some_data['state'] : null;
+
+    $location_label = safely_get_location_label($country_code, $state_code);
+});

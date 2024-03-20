@@ -78,14 +78,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
 document.addEventListener('DOMContentLoaded', function() {
     const addToCartButton = document.querySelector('button.single_add_to_cart_button'); // Adjust based on your theme's markup
-    // Initially disable the "Add to Cart" button and add a 'disabled' class
-    addToCartButton.disabled = true;
-    addToCartButton.classList.add('disabled');
+    const attributeContainers = document.querySelectorAll('.attribute-container');
 
+    // Function to check if all attributes are selected
     function checkAllAttributesSelected() {
-        const attributeContainers = document.querySelectorAll('.attribute-container');
         let allSelected = true;
         attributeContainers.forEach(container => {
             if (!container.querySelector('.attribute-button.selected')) {
@@ -102,17 +101,28 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    document.querySelectorAll('.attribute-button').forEach(button => {
-        button.addEventListener('click', function() {
-            const attributeName = this.dataset.attributeName;
-            // Remove 'selected' class from siblings and add to the clicked button
-            document.querySelectorAll(`.attribute-container .attribute-button[data-attribute-name="${attributeName}"]`).forEach(btn => btn.classList.remove('selected'));
-            this.classList.add('selected');
+    // If there are no attribute containers, the product does not require attribute selection
+    if (attributeContainers.length === 0) {
+        addToCartButton.disabled = false;
+        addToCartButton.classList.remove('disabled');
+    } else {
+        // Initially disable the "Add to Cart" button and add a 'disabled' class if there are attribute selections
+        addToCartButton.disabled = true;
+        addToCartButton.classList.add('disabled');
 
-            // Re-evaluate whether all selections have been made
-            checkAllAttributesSelected();
+        // Bind click event to attribute buttons
+        document.querySelectorAll('.attribute-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const attributeName = this.dataset.attributeName;
+                // Remove 'selected' class from siblings and add to the clicked button
+                document.querySelectorAll(`.attribute-container .attribute-button[data-attribute-name="${attributeName}"]`).forEach(btn => btn.classList.remove('selected'));
+                this.classList.add('selected');
+
+                // Re-evaluate whether all selections have been made
+                checkAllAttributesSelected();
+            });
         });
-    });
+    }
 });
 
 </script>
