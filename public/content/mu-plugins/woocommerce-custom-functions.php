@@ -882,7 +882,28 @@ function change_woocommerce_field_markup($field, $key, $args, $value)
 
 add_filter("woocommerce_form_field", "change_woocommerce_field_markup", 10, 4);
 //Only ALlow Dublin as an Option
-
+function custom_woocommerce_states($states)
+{
+    $states['IE'] = array(
+        //'' => 'Select Area Code',  // Placeholder
+        'D' => __('Dublin', 'woocommerce'),
+        'D01' => 'Dublin 01', 'D02' => 'Dublin 02', 'D03' => 'Dublin 03', 'D04' => 'Dublin 04',
+        'D05' => 'Dublin 05', 'D06' => 'Dublin 06', 'D6W' => 'Dublin 6W', 'D07' => 'Dublin 07',
+        'D08' => 'Dublin 08', 'D09' => 'Dublin 09', 'D11' => 'Dublin 11', 'D12' => 'Dublin 12',
+        'D13' => 'Dublin 13', 'D14' => 'Dublin 14', 'D15' => 'Dublin 15', 'D16' => 'Dublin 16',
+        'D17' => 'Dublin 17', 'D18' => 'Dublin 18', 'D20' => 'Dublin 20', 'D22' => 'Dublin 22', 'D24' => 'Dublin 24',
+        'break' => '************* Note: We Do Not Delivery to the Any of the below ****************',
+        'CE' => 'Clare', 'CN' => 'Cavan', 'CW' => 'Carlow', 'C' => 'Cork',
+        'DL' => 'Donegal', 'G' => 'Galway', 'KE' => 'Kildare', 'KY' => 'Kerry',
+        'KK' => 'Kilkenny', 'LS' => 'Laois', 'LM' => 'Leitrim', 'LH' => 'Louth',
+        'LD' => 'Longford', 'L' => 'Limerick', 'MH' => 'Meath', 'MN' => 'Monaghan',
+        'MO' => 'Mayo', 'OY' => 'Offaly', 'RN' => 'Roscommon', 'SO' => 'Sligo',
+        'TA' => 'Tipperary', 'WD' => 'Waterford', 'WH' => 'Westmeath', 'WX' => 'Wexford',
+        'WW' => 'Wicklow'
+    );
+    return $states;
+}
+add_filter('woocommerce_states', 'custom_woocommerce_states');
 
 /*
  ****************************************************************
