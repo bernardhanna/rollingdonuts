@@ -497,6 +497,263 @@ function filter_products_by_rd_product_type($query)
 }
 /*
  ****************************************************************
+ * PRODUCT ATTRIBUTES
+ ***********************************************************\
+*/
+//ENABLE ATTRIUBUTES AND MAKE THE COLURS DYNAMIC
+function cw_woo_attribute()
+{
+    global $product;
+    $attributes = $product->get_attributes();
+    if (!$attributes) {
+        return;
+    }
+
+    $nonce = wp_create_nonce('cw_add_to_cart_nonce');
+    echo '<div class="custom-attributes" data-nonce="' . esc_attr($nonce) . '">';
+
+    foreach ($attributes as $attribute) {
+        if ($attribute->get_variation()) {
+            continue;
+        }
+        $attribute_taxonomy = $attribute->get_taxonomy_object();
+        $attribute_name = $attribute_taxonomy->attribute_label;
+
+        echo "<div class='{$attribute->get_name()} attribute-container'>";
+        echo "<strong class='text-mob-md-font font-reg420 text-black-full'>{$attribute_name}:</strong> <div class='color-name-display'></div>";
+
+        if ($attribute->is_taxonomy() && ($attribute->get_name() == 'pa_color' || $attribute->get_name() == 'pa_colour')) {
+            $terms = wp_get_post_terms($product->get_id(), $attribute->get_name(), 'all');
+
+            foreach ($terms as $term) {
+                $term_name = esc_html($term->name);
+                $colorValue = strtolower($term_name); // Assumes names are valid CSS color values
+                echo "<button type='button' class='attribute-button color-swatch' onclick='updateColorSelection(this, \"{$term_name}\")' style='background-color: {$colorValue}; width: 3rem; height: 3rem; border: 1px solid #ccc; border-radius: 50%; margin-right: 5px;'></button> ";
+            }
+        } else {
+            // Handle non-color attributes
+            $terms = wp_get_post_terms($product->get_id(), $attribute->get_name(), 'all');
+            foreach ($terms as $term) {
+                echo "<button type='button' class='attribute-button' data-attribute-name='{$attribute->get_name()}' data-attribute-value='" . esc_attr($term->slug) . "'>" . esc_html($term->name) . "</button> ";
+            }
+        }
+        echo "</div>";
+    }
+
+    echo '</div>';
+
+    // Inline JavaScript for single selection and display color name
+    echo "<script>
+        function updateColorSelection(element, colorName) {
+            // Clear previous selections
+            document.querySelectorAll('.color-swatch').forEach(btn => btn.classList.remove('selected'));
+            // Mark the clicked swatch as selected
+            element.classList.add('selected');
+            // Update the display with the selected color name
+            document.querySelector('.color-name-display').textContent = colorName;
+        }
+    </script>";
+}
+add_action('woocommerce_single_product_summary', 'cw_woo_attribute', 25);
+
+
+function add_selected_attributes_to_cart_item($cart_item_data, $product_id, $variation_id)
+{
+    if (!empty($_POST['selected_attributes'])) {
+        foreach ($_POST['selected_attributes'] as $name => $value) {
+            $cart_item_data['selected_attributes'][$name] = sanitize_text_field($value);
+        }
+    }
+
+    return $cart_item_data;
+}
+add_filter('woocommerce_add_cart_item_data', 'add_selected_attributes_to_cart_item', 10, 3);
+
+//BUTTON JS, SET UP SWATCHES
+add_action('wp_footer', 'cw_add_custom_attribute_scripts');
+function cw_add_custom_attribute_scripts()
+{
+?>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            const attributeContainers = document.querySelectorAll('.attribute-container');
+            const addToCartButton = document.querySelector('button.single_add_to_cart_button');
+
+            // Initially disable the Add to Cart button only if there are attribute containers
+            addToCartButton.disabled = attributeContainers.length > 0;
+
+            function checkAllAttributesSelected() {
+                let allSelected = true;
+                attributeContainers.forEach(container => {
+                    if (!container.querySelector('.attribute-button.selected')) {
+                        allSelected = false;
+                    }
+                });
+                // Enable or disable the Add to Cart button based on attribute selection
+                addToCartButton.disabled = !allSelected;
+            }
+
+            // Bind click event listeners to attribute buttons, if any
+            if (attributeContainers.length > 0) {
+                document.querySelectorAll('.attribute-button').forEach(button => {
+                    button.addEventListener('click', function() {
+                        // Unselect siblings
+                        this.closest('.attribute-container').querySelectorAll('.attribute-button').forEach(btn => {
+                            btn.classList.remove('selected');
+                        });
+                        // Mark the clicked button as selected
+                        this.classList.add('selected');
+                        // Re-check if all attributes have been selected
+                        checkAllAttributesSelected();
+                    });
+                });
+            }
+
+            // Update color name display for color swatches, if present
+            document.querySelectorAll('.color-swatch').forEach(button => {
+                button.addEventListener('click', function() {
+                    const colorName = this.getAttribute('data-color-name');
+                    document.querySelector('.color-name-display').textContent = colorName;
+                });
+            });
+        });
+    </script>
+<?php
+}
+//SET THE CORRECT TERMS AT CART
+add_filter('woocommerce_get_item_data', 'display_selected_attributes_in_cart', 10, 2);
+
+function display_selected_attributes_in_cart($item_data, $cart_item)
+{
+    if (isset($cart_item['selected_attributes'])) {
+        foreach ($cart_item['selected_attributes'] as $attribute => $value) {
+            $attribute_clean = wc_attribute_label(str_replace('attribute_', '', $attribute));
+            $item_data[] = array('name' => $attribute_clean, 'value' => $value);
+        }
+    }
+    return $item_data;
+}
+
+// Capture and store selected attributes in cart item data
+add_filter('woocommerce_add_cart_item_data', 'capture_selected_attributes', 10, 3);
+function capture_selected_attributes($cart_item_data, $product_id, $variation_id)
+{
+    if (!empty($_REQUEST['selected_attributes'])) {
+        foreach ($_REQUEST['selected_attributes'] as $attribute => $value) {
+            $cart_item_data['selected_attributes'][$attribute] = $value;
+        }
+    }
+    return $cart_item_data;
+}
+
+
+// Save custom attributes to order items
+add_action('woocommerce_checkout_create_order_line_item', 'save_custom_attributes_to_order_items', 10, 4);
+function save_custom_attributes_to_order_items($item, $cart_item_key, $values, $order)
+{
+    if (!empty($values['custom_attributes'])) {
+        foreach ($values['custom_attributes'] as $attribute => $value) {
+            // Note: Consider prefixing attribute labels to ensure uniqueness
+            $item->add_meta_data(wc_attribute_label($attribute), $value);
+        }
+    }
+}
+/*
+ ****************************************************************
+ * VARIATIONS
+ ****************************************************************
+*/
+add_action('woocommerce_before_add_to_cart_button', function () {
+    global $product;
+    if ($product->is_type('variable')) {
+        $attributes = $product->get_variation_attributes();
+        echo '<div class="custom-attributes">';
+
+        foreach ($attributes as $attr_name => $options) {
+            // Convert attribute name to a readable label
+            $attribute_label = wc_attribute_label($attr_name);
+
+            echo "<div class='{$attr_name} attribute-container'>";
+            echo "<strong>{$attribute_label}:</strong> <div class='color-name-display'></div>";
+
+            foreach ($options as $option) {
+                $term = get_term_by('slug', $option, $attr_name);
+                if (!$term) continue; // Skip if term doesn't exist
+
+                $term_name = esc_html($term->name);
+
+                // Determine if this is a color attribute
+                if (strpos($attr_name, 'pa_color') !== false || strpos($attr_name, 'pa_colour') !== false) {
+                    // Display a color swatch
+                    echo "<button type='button' class='attribute-button color-swatch' onclick='updateColorSelection(this, \"{$term_name}\")' data-attribute-name='{$attr_name}' data-attribute-value='{$option}' style='background-color: {$option}; width: 3rem; height: 3rem; border: 1px solid #ccc; border-radius: 50%; margin-right: 5px;'></button> ";
+                } else {
+                    // Display as a button for non-color attributes
+                    echo "<button type='button' class='attribute-button' data-attribute-name='{$attr_name}' data-attribute-value='{$option}'>{$term_name}</button> ";
+                }
+            }
+            echo "</div>";
+        }
+
+        echo '</div>';
+    }
+}, 30);
+
+// JavaScript for handling attribute selection
+add_action('wp_footer', 'custom_variation_swatches_js');
+function custom_variation_swatches_js()
+{
+?>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.attribute-button').forEach(function(button) {
+                button.addEventListener('click', function() {
+                    var attributeName = this.dataset.attributeName;
+                    var attributeValue = this.dataset.attributeValue;
+
+                    // Find and select the corresponding option in the hidden dropdown
+                    var selectElement = document.querySelector('select[name="' + attributeName + '"]');
+                    if (selectElement) {
+                        selectElement.value = attributeValue;
+                        selectElement.dispatchEvent(new Event('change')); // Trigger change event to update WooCommerce
+                    }
+
+                    // Handle visual updates for custom interface
+                    var container = this.closest('.attribute-container');
+                    container.querySelectorAll('.attribute-button').forEach(btn => btn.classList.remove('selected'));
+                    this.classList.add('selected');
+
+                    // For color swatches, update the display with the selected color name (optional)
+                    if (this.classList.contains('color-swatch')) {
+                        var colorNameDisplay = container.querySelector('.color-name-display');
+                        if (colorNameDisplay) {
+                            colorNameDisplay.textContent = attributeValue; // Update to suit your needs
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+<?php
+}
+
+// Ensure WooCommerce's default variation dropdowns are available if needed
+add_action('woocommerce_single_product_summary', 'custom_display_variation_dropdowns', 25);
+
+function custom_display_variation_dropdowns()
+{
+    global $product;
+
+    if ($product->is_type('variable')) {
+        // Ensure global $product is a variable product.
+        wc_get_template('single-product/add-to-cart/variable.php', array(
+            'available_variations' => $product->get_available_variations(),
+            'attributes'           => $product->get_variation_attributes(),
+            'selected_attributes'  => $product->get_default_attributes(),
+        ));
+    }
+}
+/*
+ ****************************************************************
  * BREADCRUMB EDITS
  ***********************************************************
 */
@@ -1326,203 +1583,9 @@ function customize_payment_methods_columns($columns)
     return $columns;
 }
 add_filter('woocommerce_account_payment_methods_columns', 'customize_payment_methods_columns');
-
 /*
  ****************************************************************
- * PRODUCT ATTRIBUTES
- ***********************************************************\
-*/
-//ENABLE ATTRIUBUTES AND MAKE THE COLURS DYNAMIC
-function cw_woo_attribute()
-{
-    global $product;
-    $attributes = $product->get_attributes();
-    if (!$attributes) {
-        return;
-    }
-
-    $nonce = wp_create_nonce('cw_add_to_cart_nonce');
-    echo '<div class="custom-attributes" data-nonce="' . esc_attr($nonce) . '">';
-
-    foreach ($attributes as $attribute) {
-        if ($attribute->get_variation()) {
-            continue;
-        }
-        $attribute_taxonomy = $attribute->get_taxonomy_object();
-        $attribute_name = $attribute_taxonomy->attribute_label;
-
-        echo "<div class='{$attribute->get_name()} attribute-container'>";
-        echo "<strong class='text-mob-md-font font-reg420 text-black-full'>{$attribute_name}:</strong> <div class='color-name-display'></div>";
-
-        if ($attribute->is_taxonomy() && ($attribute->get_name() == 'pa_color' || $attribute->get_name() == 'pa_colour')) {
-            $terms = wp_get_post_terms($product->get_id(), $attribute->get_name(), 'all');
-
-            foreach ($terms as $term) {
-                $term_name = esc_html($term->name);
-                $colorValue = strtolower($term_name); // Assumes names are valid CSS color values
-                echo "<button type='button' class='attribute-button color-swatch' onclick='updateColorSelection(this, \"{$term_name}\")' style='background-color: {$colorValue}; width: 3rem; height: 3rem; border: 1px solid #ccc; border-radius: 50%; margin-right: 5px;'></button> ";
-            }
-        } else {
-            // Handle non-color attributes
-            $terms = wp_get_post_terms($product->get_id(), $attribute->get_name(), 'all');
-            foreach ($terms as $term) {
-                echo "<button type='button' class='attribute-button' data-attribute-name='{$attribute->get_name()}' data-attribute-value='" . esc_attr($term->slug) . "'>" . esc_html($term->name) . "</button> ";
-            }
-        }
-        echo "</div>";
-    }
-
-    echo '</div>';
-
-    // Inline JavaScript for single selection and display color name
-    echo "<script>
-        function updateColorSelection(element, colorName) {
-            // Clear previous selections
-            document.querySelectorAll('.color-swatch').forEach(btn => btn.classList.remove('selected'));
-            // Mark the clicked swatch as selected
-            element.classList.add('selected');
-            // Update the display with the selected color name
-            document.querySelector('.color-name-display').textContent = colorName;
-        }
-    </script>";
-}
-add_action('woocommerce_single_product_summary', 'cw_woo_attribute', 25);
-
-
-function add_selected_attributes_to_cart_item($cart_item_data, $product_id, $variation_id)
-{
-    if (!empty($_POST['selected_attributes'])) {
-        foreach ($_POST['selected_attributes'] as $name => $value) {
-            $cart_item_data['selected_attributes'][$name] = sanitize_text_field($value);
-        }
-    }
-
-    return $cart_item_data;
-}
-add_filter('woocommerce_add_cart_item_data', 'add_selected_attributes_to_cart_item', 10, 3);
-
-//BUTTON JS, SET UP SWATCHES
-add_action('wp_footer', 'cw_add_custom_attribute_scripts');
-function cw_add_custom_attribute_scripts()
-{
-    ?>
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            const attributeContainers = document.querySelectorAll('.attribute-container');
-            const addToCartButton = document.querySelector('button.single_add_to_cart_button');
-
-            // Initially disable the Add to Cart button only if there are attribute containers
-            addToCartButton.disabled = attributeContainers.length > 0;
-
-            function checkAllAttributesSelected() {
-                let allSelected = true;
-                attributeContainers.forEach(container => {
-                    if (!container.querySelector('.attribute-button.selected')) {
-                        allSelected = false;
-                    }
-                });
-                // Enable or disable the Add to Cart button based on attribute selection
-                addToCartButton.disabled = !allSelected;
-            }
-
-            // Bind click event listeners to attribute buttons, if any
-            if (attributeContainers.length > 0) {
-                document.querySelectorAll('.attribute-button').forEach(button => {
-                    button.addEventListener('click', function() {
-                        // Unselect siblings
-                        this.closest('.attribute-container').querySelectorAll('.attribute-button').forEach(btn => {
-                            btn.classList.remove('selected');
-                        });
-                        // Mark the clicked button as selected
-                        this.classList.add('selected');
-                        // Re-check if all attributes have been selected
-                        checkAllAttributesSelected();
-                    });
-                });
-            }
-
-            // Update color name display for color swatches, if present
-            document.querySelectorAll('.color-swatch').forEach(button => {
-                button.addEventListener('click', function() {
-                    const colorName = this.getAttribute('data-color-name');
-                    document.querySelector('.color-name-display').textContent = colorName;
-                });
-            });
-        });
-    </script>
-<?php
-}
-//SET THE CORRECT TERMS AT CART
-add_filter('woocommerce_get_item_data', 'display_selected_attributes_in_cart', 10, 2);
-function display_selected_attributes_in_cart($item_data, $cart_item)
-{
-    if (isset($cart_item['selected_attributes'])) {
-        foreach ($cart_item['selected_attributes'] as $attribute => $value) {
-            // Format the attribute name for display
-            $formatted_name = ucfirst(str_replace('pa_', '', $attribute)); // Remove 'pa_' prefix and capitalize
-            $formatted_name = str_replace('_', ' ', $formatted_name); // Replace underscores with spaces
-            $formatted_name = ucwords($formatted_name); // Capitalize each word
-
-            // Check if there's a more friendly name set in WooCommerce and use it
-            $taxonomy = wc_attribute_taxonomy_name(str_replace('pa_', '', $attribute));
-            if (taxonomy_exists($taxonomy)) {
-                $attribute_taxonomy = get_taxonomy($taxonomy);
-                if ($attribute_taxonomy && !is_wp_error($attribute_taxonomy)) {
-                    $formatted_name = $attribute_taxonomy->labels->singular_name;
-                }
-            }
-
-            $item_data[] = array(
-                'name' => $formatted_name,
-                'value' => $value,
-            );
-        }
-    }
-
-    return $item_data;
-}
-
-add_filter('woocommerce_add_cart_item_data', 'add_custom_product_selection_to_cart_item', 10, 3);
-
-function add_custom_product_selection_to_cart_item($cart_item_data, $product_id, $variation_id)
-{
-    if (!empty($_POST['selected_attributes'])) {
-        $cart_item_data['custom_attributes'] = $_POST['selected_attributes'];
-    }
-
-    return $cart_item_data;
-}
-
-add_filter('woocommerce_get_item_data', 'display_custom_attributes_in_cart', 10, 2);
-
-function display_custom_attributes_in_cart($item_data, $cart_item)
-{
-    if (isset($cart_item['custom_attributes'])) {
-        foreach ($cart_item['custom_attributes'] as $attribute => $value) {
-            $item_data[] = array(
-                'name' => $attribute,
-                'value' => $value,
-            );
-        }
-    }
-    return $item_data;
-}
-
-
-add_action('woocommerce_checkout_create_order_line_item', 'save_custom_attributes_to_order_items', 10, 4);
-
-function save_custom_attributes_to_order_items($item, $cart_item_key, $values, $order)
-{
-    if (!empty($values['custom_attributes'])) {
-        foreach ($values['custom_attributes'] as $attribute => $value) {
-            $item->add_meta_data($attribute, $value);
-        }
-    }
-}
-
-/*
- ****************************************************************
- * NOTICES    // Now you can use $location_label without worrying about undefined array keys
+ * NOTICES
  ****************************************************************
 */
 // Remove the notices from their original location
@@ -1549,3 +1612,114 @@ add_filter('some_plugin_filter_before_lookup', function ($lookup_data) {
     }
     return $lookup_data;
 });
+
+
+function custom_variation_selection_scripts()
+{
+    ?>
+    <style>
+        .variations_form .variations {
+            display: none;
+        }
+    </style>
+    <script>
+        jQuery(document).ready(function($) {
+            // Hide default variations table
+            $('.variations').hide();
+
+            // When a custom attribute button is clicked
+            $('.attribute-button').click(function() {
+                var attributeName = $(this).data('attribute-name');
+                var attributeValue = $(this).data('attribute-value');
+
+                // Set the corresponding select value
+                $('select[name="' + attributeName + '"]').val(attributeValue).trigger('change');
+
+                // Update visual feedback for selection
+                $(this).siblings().removeClass('selected');
+                $(this).addClass('selected');
+            });
+
+            // Optional: Update 'Add to Cart' button state based on selection
+            $('.variations_form').on('woocommerce_variation_has_changed', function() {
+                // Check if all attributes have been selected
+                if ($('.single_variation_wrap').is(':visible')) {
+                    $('.single_add_to_cart_button').prop('disabled', false);
+                } else {
+                    $('.single_add_to_cart_button').prop('disabled', true);
+                }
+            });
+            // Hide the default variations select dropdown
+            $('.variations').hide();
+
+            // Custom attribute selection
+            $('.attribute-button').on('click', function() {
+                // Get the attribute name and value
+                var attributeSelector = $(this).data('attribute-name');
+                var attributeValue = $(this).data('attribute-value');
+
+                // Update the hidden select dropdown and trigger change
+                $('select[name="' + attributeSelector + '"]').val(attributeValue).trigger('change');
+
+                // Visual feedback: mark the button as selected
+                $(`[data-attribute-name="${attributeSelector}"]`).removeClass('selected');
+                $(this).addClass('selected');
+
+                // Check if all variations are selected
+                setTimeout(function() { // Wait for WooCommerce to process the change
+                    if (!$('.single_add_to_cart_button').is('.disabled')) {
+                        $('.single_add_to_cart_button').prop('disabled', false); // Enable add to cart button
+                    } else {
+                        $('.single_add_to_cart_button').prop('disabled', true); // Disable add to cart button if not all selections are made
+                    }
+                }, 100);
+            });
+
+            // Trigger variation change to update the form state
+            $('.variations_form').on('change', '.variations select', function() {
+                $(this).closest('form').find('.woocommerce-variation-add-to-cart').removeClass('woocommerce-variation-add-to-cart-enabled').addClass('woocommerce-variation-add-to-cart-disabled');
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const attributeButtons = document.querySelectorAll('.attribute-button');
+
+            attributeButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    const attributeName = this.dataset.attributeName;
+                    const attributeValue = this.dataset.attributeValue;
+                    const select = document.querySelector(`select[name="${attributeName}"]`);
+
+                    if (select) {
+                        select.value = attributeValue;
+                        select.dispatchEvent(new Event('change', {
+                            bubbles: true
+                        }));
+                    }
+
+                    // Visual feedback for selection
+                    this.classList.add('selected');
+                    this.siblings('.attribute-button').classList.remove('selected'); // Implement this method or similar logic as needed
+                });
+            });
+        });
+    </script>
+<?php
+}
+add_action('wp_footer', 'custom_variation_selection_scripts');
+/*
+ ****************************************************************
+ * Emails
+ ****************************************************************
+*/
+
+add_filter('woocommerce_email_styles', 'custom_woocommerce_email_styles');
+function custom_woocommerce_email_styles($css)
+{
+    $css .= 's
+        #header_wrapper { background-color: #000000; }
+        #wrapper { background-color: #000000; }
+        body, body a { color: #000000; }
+        .button { background-color: #000000; border-color: #000000; }
+    ';
+    return $css;
+}
