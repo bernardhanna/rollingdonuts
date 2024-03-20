@@ -517,6 +517,12 @@ function cw_woo_attribute()
             continue;
         }
         $attribute_taxonomy = $attribute->get_taxonomy_object();
+
+        // Check if $attribute_taxonomy is not null
+        if (!$attribute_taxonomy) {
+            continue; // Skip this attribute if its taxonomy object is null
+        }
+
         $attribute_name = $attribute_taxonomy->attribute_label;
 
         echo "<div class='{$attribute->get_name()} attribute-container'>";
@@ -555,7 +561,6 @@ function cw_woo_attribute()
     </script>";
 }
 add_action('woocommerce_single_product_summary', 'cw_woo_attribute', 25);
-
 
 function add_selected_attributes_to_cart_item($cart_item_data, $product_id, $variation_id)
 {
