@@ -45,6 +45,9 @@ class AssetsServiceProvider extends ServiceProvider
                 wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css', array(), null);
                 wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js', array(), null, true);
             }
+            if (is_product() || is_shop() || is_product_category()) {
+                wp_enqueue_script('wc-add-to-cart-variation');
+            }
 
             wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css', array(), null);
             wp_enqueue_style('edmondsans', 'https://fonts.cdnfonts.com/css/edmondsans', false);

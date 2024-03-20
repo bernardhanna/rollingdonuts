@@ -61,68 +61,46 @@ $shop_bg_url = get_field('shop_bg', 'option');
 @endsection
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const attributeButtons = document.querySelectorAll('.attribute-button');
-
-    attributeButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            const attributeName = this.dataset.attributeName;
-            const buttons = document.querySelectorAll('.attribute-button[data-attribute-name="' + attributeName + '"]');
-
-            // Remove 'selected' class from all buttons with the same attribute name
-            buttons.forEach(function(btn) {
-                btn.classList.remove('selected');
-            });
-
-            // Add 'selected' class to the clicked button
-            this.classList.add('selected');
-        });
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    const addToCartButton = document.querySelector('button.single_add_to_cart_button'); // Adjust based on your theme's markup
-    const attributeContainers = document.querySelectorAll('.attribute-container');
-
-    // Function to check if all attributes are selected
-    function checkAllAttributesSelected() {
-        let allSelected = true;
-        attributeContainers.forEach(container => {
-            if (!container.querySelector('.attribute-button.selected')) {
-                allSelected = false;
-            }
-        });
-
-        // Enable or disable the Add to Cart button based on attribute selection
-        addToCartButton.disabled = !allSelected;
-        if(allSelected) {
-            addToCartButton.classList.remove('disabled');
-        } else {
-            addToCartButton.classList.add('disabled');
+    // Function to update hidden select and check if all attributes are selected
+    function updateAttributeSelection(attributeName, attributeValue) {
+        const select = document.querySelector('select[name="' + attributeName + '"]');
+        if (select) {
+            select.value = attributeValue;
+            select.dispatchEvent(new Event('change')); // Trigger change event for WooCommerce to detect
         }
     }
 
-    // If there are no attribute containers, the product does not require attribute selection
-    if (attributeContainers.length === 0) {
-        addToCartButton.disabled = false;
-        addToCartButton.classList.remove('disabled');
-    } else {
-        // Initially disable the "Add to Cart" button and add a 'disabled' class if there are attribute selections
-        addToCartButton.disabled = true;
-        addToCartButton.classList.add('disabled');
+    // Event listener for custom attribute buttons
+    document.querySelectorAll('.attribute-button').forEach(button => {
+        button.addEventListener('click', function() {
+            // Retrieve attribute data
+            const attributeName = this.dataset.attributeName;
+            const attributeValue = this.dataset.attributeValue;
 
-        // Bind click event to attribute buttons
-        document.querySelectorAll('.attribute-button').forEach(button => {
-            button.addEventListener('click', function() {
-                const attributeName = this.dataset.attributeName;
-                // Remove 'selected' class from siblings and add to the clicked button
-                document.querySelectorAll(`.attribute-container .attribute-button[data-attribute-name="${attributeName}"]`).forEach(btn => btn.classList.remove('selected'));
-                this.classList.add('selected');
+            // Update selection visually
+            document.querySelectorAll(`[data-attribute-name="${attributeName}"]`).forEach(btn => btn.classList.remove('selected'));
+            this.classList.add('selected');
 
-                // Re-evaluate whether all selections have been made
-                checkAllAttributesSelected();
-            });
+            // Update hidden select dropdown
+            updateAttributeSelection(attributeName, attributeValue);
         });
-    }
-});
+    });
 
+    // Check all attributes are selected to enable the Add to Cart button
+    function checkAllAttributesSelected() {
+        const allAttributesSelected = Array.from(document.querySelectorAll('.variations select')).every(select => select.value !== '');
+        const addToCartButton = document.querySelector('.single_add_to_cart_button');
+        if (addToCartButton) {
+            addToCartButton.disabled = !allAttributesSelected;
+        }
+    }
+
+    // Listen for changes on each variation select to handle "Add to Cart" button state
+    document.querySelectorAll('.variations select').forEach(select => {
+        select.addEventListener('change', checkAllAttributesSelected);
+    });
+
+    // Initially run the check in case defaults are set
+    checkAllAttributesSelected();
+});
 </script>

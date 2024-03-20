@@ -94,6 +94,17 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
         }
         // Similar handling for size and fit selections
     });
+
+    document.addEventListener('click', function(event) {
+        // Check if the clicked element is meant for selecting a variation
+        if (event.target.matches('[data-attribute]')) {
+            const attribute = event.target.getAttribute('data-attribute');
+            const value = event.target.getAttribute('data-value');
+
+            // Update the corresponding hidden input based on the data-attribute value
+            document.querySelector(`input[name="attribute_${attribute}"]`).value = value;
+        }
+    });
 </script>
 <?php
 do_action('woocommerce_after_add_to_cart_form');
