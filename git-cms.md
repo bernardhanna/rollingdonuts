@@ -1,6 +1,6 @@
 git checkout develop
 git add .           
-git commit -am "20-03-2024"
+git commit -am "22-03-2024"
 git push
 
 git checkout main   
@@ -22,3 +22,5 @@ git add .
 git commit -m "todays changes"
 git pull
 yarn build
+cd /var/www/
+sudo chown -R www-data:www-data html
