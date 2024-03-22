@@ -19,6 +19,20 @@
  */
 
 defined('ABSPATH') || exit;
+custom_thankyou_order_details($order->get_id());
+$order = wc_get_order($order->get_id());
+
+$is_local_pickup_plus = false;
+$location_id = '';
+
+// Loop through shipping items to check for Local Pickup Plus and fetch location ID
+foreach ($order->get_items('shipping') as $item) {
+    if ($item->get_method_id() === 'local_pickup_plus') { // Ensure this matches your method ID
+        $is_local_pickup_plus = true;
+        $location_id = $item->get_meta('_pickup_location_id');
+        break; // Stop the loop once the first local pickup plus item is found
+    }
+}
 ?>
 <div class="woocommerce-order px-4 lg:max-w-max-1568 m-auto">
     <?php
@@ -62,7 +76,7 @@ defined('ABSPATH') || exit;
                         </li>
 
                         <li class="woocommerce-order-overview__date date text-white text-sm-md-font lg:text-md-fon">
-                            <?php esc_html_e('Date:', 'woocommerce'); ?>
+                            <?php esc_html_e('Order Date:', 'woocommerce'); ?>
                             <?php echo wc_format_datetime($order->get_date_created()); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                             ?>
                         </li>
@@ -74,37 +88,65 @@ defined('ABSPATH') || exit;
                                 ?>
                             </li>
                         <?php endif; ?>
-
                         <li class=" woocommerce-order-overview__total total text-white text-mob-md-font">
                             <?php esc_html_e('Total:', 'woocommerce'); ?>
                             <?php echo $order->get_formatted_order_total(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                             ?>
                         </li>
+                        <?php
 
-                        <li class="text-white text-sm-font lg:text-mob-md-font mt-4">
-                            <?php echo esc_html($order->get_formatted_billing_full_name()); ?>
-                        </li>
-                        <?php if ($order->get_billing_address_1()) : ?>
-                            <li class="text-white text-sm-font lg:text-mob-md-font">
-                                <?php echo esc_html($order->get_billing_address_1()); ?>
-                            </li>
-                        <?php endif; ?>
-                        <?php if ($order->get_billing_address_2()) : ?>
-                            <li class="text-white text-sm-font lg:text-mob-md-font">
-                                <?php echo esc_html($order->get_billing_address_2()); ?>
-                            </li>
-                        <?php endif; ?>
-                        <?php if ($order->get_billing_city()) : ?>
-                            <li class="text-white text-sm-font lg:text-mob-md-font">
-                                <?php echo esc_html($order->get_billing_city() . ', ' . $order->get_billing_state() . ' ' . $order->get_billing_postcode()); ?>
-                            </li>
-                        <?php endif; ?>
-                        <?php if ($order->get_billing_country()) : ?>
-                            <li class="text-white text-sm-font lg:text-mob-md-font">
-                                <?php echo esc_html(WC()->countries->countries[$order->get_billing_country()]); ?>
-                            </li>
-                        <?php endif; ?>
+                        $shipping_items = $order->get_items('shipping');
+                        $is_local_pickup_plus = false;
+                        foreach ($shipping_items as $item_id => $shipping_item) {
+                            if (strpos($shipping_item->get_method_title(), 'Collection') !== false) {
+                                $is_local_pickup_plus = true;
+                                break;
+                            }
+                        }
 
+                        if ($is_local_pickup_plus && $location_id) :
+                            // Fetch location details
+                            $location_post = get_post($location_id);
+                            $location_name = $location_post ? $location_post->post_title : '';
+                            $location_address_meta = get_post_meta($location_id, '_pickup_location_address', true);
+                        ?>
+                            <li class="text-white text-sm-font lg:text-mob-md-font mt-4">
+                                <?php
+                                $location_id = ''; // Initialize outside the loop for wider scope
+                                $pickup_date = $order->get_meta('jckwds_date');
+                                $timeslot = $order->get_meta('jckwds_timeslot');
+                                $location_details = get_location_details_by_id($location_id);
+                                echo '<p><strong>Collection Date:</strong> ' . esc_html($pickup_date) . '</p>';
+                                echo '<p><strong>Collection Timeslot:</strong> ' . esc_html($timeslot) . '</p>';
+                                //echo collection location
+                                echo '<p><strong>Collection Location:</strong> ' . esc_html($location_name) . '</p>';
+                                ?>
+                            </li>
+                        <?php else : ?>
+                            <li class="text-white text-sm-font lg:text-mob-md-font mt-4">
+                                <?php echo esc_html($order->get_formatted_billing_full_name()); ?>
+                            </li>
+                            <?php if ($order->get_billing_address_1()) : ?>
+                                <li class="text-white text-sm-font lg:text-mob-md-font">
+                                    <?php echo esc_html($order->get_billing_address_1()); ?>
+                                </li>
+                            <?php endif; ?>
+                            <?php if ($order->get_billing_address_2()) : ?>
+                                <li class="text-white text-sm-font lg:text-mob-md-font">
+                                    <?php echo esc_html($order->get_billing_address_2()); ?>
+                                </li>
+                            <?php endif; ?>
+                            <?php if ($order->get_billing_city()) : ?>
+                                <li class="text-white text-sm-font lg:text-mob-md-font">
+                                    <?php echo esc_html($order->get_billing_city() . ', ' . $order->get_billing_state() . ' ' . $order->get_billing_postcode()); ?>
+                                </li>
+                            <?php endif; ?>
+                            <?php if ($order->get_billing_country()) : ?>
+                                <li class="text-white text-sm-font lg:text-mob-md-font">
+                                    <?php echo esc_html(WC()->countries->countries[$order->get_billing_country()]); ?>
+                                </li>
+                            <?php endif; ?>
+                        <?php endif; ?>
                     </ul>
 
                     <div class="mt-4">

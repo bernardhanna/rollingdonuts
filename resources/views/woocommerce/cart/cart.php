@@ -99,6 +99,16 @@ do_action('woocommerce_before_cart'); ?>
         color: black !important;
     }
 
+    .pickup-location-field .pickup-location-address {
+        font-size: .8em;
+        margin: 15px 0;
+        font-size: 1.125rem;
+        font-style: normal;
+        font-weight: 350;
+        line-height: 1.625rem;
+        margin-bottom: 0px;
+    }
+
     @media (max-width: 575px) {
         .coupon button {
             margin-top: 1rem !important
@@ -296,3 +306,146 @@ do_action('woocommerce_before_cart'); ?>
 </div>
 <?php do_action('woocommerce_after_cart'); ?>
 <div class="pb-48"></div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Find all instances of the shipping options container
+        const shippingOptions = document.querySelectorAll('.woocommerce-shipping-totals');
+        // If more than one instance found, remove duplicates
+        if (shippingOptions.length > 1) {
+            for (let i = 1; i < shippingOptions.length; i++) {
+                shippingOptions[i].remove();
+            }
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var deliveryTimeField = document.getElementById('jckwds-delivery-time');
+        var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function() {
+                setTimeout(function() {
+                    var savedDeliveryTime = <?php echo json_encode(WC()->session->get('iconic_delivery_time')); ?>;
+                    if (deliveryTimeField && savedDeliveryTime) {
+                        deliveryTimeField.value = savedDeliveryTime;
+                    }
+                }, 100); // Adjust this delay as needed
+            });
+        });
+
+        var config = {
+            childList: true,
+            subtree: true
+        };
+        var target = document.querySelector('.woocommerce-checkout-review-order-table'); // Adjust based on actual target
+        if (target) observer.observe(target, config);
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        // Target the element containing the "Collection" text. This selector might need adjustment.
+        var shippingLabel = document.querySelector('.checkout .col-1 h3');
+        if (shippingLabel && shippingLabel.textContent.includes('Collection')) {
+            shippingLabel.textContent = shippingLabel.textContent.replace('Collection.', '');
+            // Or set to a completely new value
+            // shippingLabel.textContent = '1. Delivery Method';
+        }
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+        var col1 = document.querySelector('.col-1.hideText'); // Select the container
+
+        if (col1) {
+            // This assumes 'Collection' is a direct text node of .col-1.hideText
+            Array.from(col1.childNodes).forEach(function(node) {
+                if (node.nodeType === 3 && node.textContent.trim() === 'Collection') { // nodeType 3 is a text node
+                    node.remove(); // Removes the 'Collection' text node
+                }
+            });
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const targetNode = document.body; // You can adjust this to a more specific parent if known
+
+        const config = {
+            childList: true,
+            subtree: true
+        };
+
+        const callback = function(mutationsList, observer) {
+            for (const mutation of mutationsList) {
+                if (mutation.type === "childList") {
+                    const noticeGroup = document.querySelector(".woocommerce-NoticeGroup");
+                    const targetLocation = document.getElementById("moveNotice");
+
+                    if (noticeGroup && targetLocation) {
+                        targetLocation.appendChild(noticeGroup);
+                        observer.disconnect(); // Stop observing once we've moved the element
+                    }
+                }
+            }
+        };
+
+        const observer = new MutationObserver(callback);
+        observer.observe(targetNode, config);
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Target the close button using its class or other identifiable selector
+        var closeButton = document.querySelector('.woocommerce-error .close-button'); // Adjust the selector based on your actual close button's class
+
+        if (closeButton) {
+            // Add click event listener to the close button
+            closeButton.addEventListener('click', function() {
+                // Hide the parent .woocommerce-NoticeGroup when the button is clicked
+                var noticeGroup = closeButton.closest('.woocommerce-NoticeGroup');
+                if (noticeGroup) {
+                    noticeGroup.style.display = 'none';
+                }
+            });
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Function to move the WooCommerce notice
+        function moveWooCommerceNotice() {
+            var noticeGroup = document.querySelector('.woocommerce-NoticeGroup.woocommerce-NoticeGroup-checkout');
+            var checkoutForm = document.querySelector('.checkout.woocommerce-checkout');
+
+            if (noticeGroup && checkoutForm) {
+                checkoutForm.parentNode.insertBefore(noticeGroup, checkoutForm);
+            }
+        }
+
+        // Initially move the notice
+        moveWooCommerceNotice();
+
+        // Optional: Listen for changes and move the notice again
+        // Useful if your checkout page triggers notices dynamically with AJAX
+        var observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.addedNodes.length || mutation.removedNodes.length) {
+                    moveWooCommerceNotice();
+                }
+            });
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+
+        // Optional: Clean up the observer when leaving the page to prevent memory leaks
+        window.addEventListener('beforeunload', function() {
+            observer.disconnect();
+        });
+    });
+
+    document.addEventListener('click', function(event) {
+        // Check if the clicked element is the close button
+        if (event.target.classList.contains('close-button')) {
+            // Find the parent error message div
+            var errorMessage = event.target.closest('.woocommerce-error');
+            // Hide the error message div
+            if (errorMessage) {
+                errorMessage.style.display = 'none';
+            }
+        }
+    });
+</script>

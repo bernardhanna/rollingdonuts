@@ -38,7 +38,7 @@
                 $navigation_left = array_slice($navigation, 0, $left_items);
                 $navigation_right = array_slice($navigation, $left_items);
             @endphp
-            <nav class="flex justify-between items-center w-full relative z-100 {{ is_cart() || is_checkout() ? 'top-8' : 'top-0 lg:-mt-2 xxl:-mt-8 desktop:-mt-10' }} lg:pt-0"
+            <nav class="flex justify-between items-center w-full relative z-100 {{ (is_cart() || is_checkout() && !is_wc_endpoint_url('order-received')) ? 'top-8' : 'top-0 lg:-mt-2 xxl:-mt-8 desktop:-mt-10' }} lg:pt-0"
                 role="navigation" id="menu">
                 <div class="max-lg:w-1/3 laptop:w-5/6">
                     @if (!is_cart() && !is_checkout())

@@ -52,6 +52,11 @@ defined('ABSPATH') || exit;
 
         <?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : ?>
 
+            <?php do_action('woocommerce_cart_totals_before_shipping'); ?>
+
+            <?php wc_cart_totals_shipping_html(); ?>
+
+            <?php do_action('woocommerce_cart_totals_after_shipping'); ?>
 
         <?php elseif (WC()->cart->needs_shipping() && 'yes' === get_option('woocommerce_enable_shipping_calc')) : ?>
 
@@ -105,7 +110,7 @@ defined('ABSPATH') || exit;
                                         <?php do_action('woocommerce_cart_totals_before_order_total'); ?>
 
                                         <div class="order-total text-black-full text-base-font font-reg420 w-full flex justify-between items-center border-b-2 border-black-full border-solid">
-                                            <div class="pl-6 text-left bg-grey-background py-5 w-1/2"><?php esc_html_e('Total before delivery (calculated on the next page)', 'woocommerce'); ?></div>
+                                            <div class="pl-6 text-left bg-grey-background py-5 w-1/2"><?php esc_html_e('Total', 'woocommerce'); ?></div>
                                             <div data-title="<?php esc_attr_e('Total', 'woocommerce'); ?>"><?php wc_cart_totals_order_total_html(); ?></div>
                                         </div>
 

@@ -36,7 +36,7 @@ if ($order) {
         <?php
         // Customize the order received message to include the customer's email.
         $custom_message = sprintf(
-            esc_html__('We sent you an email to confirm your order to %s. We’ll keep you updated on the status of your order.', 'woocommerce'),
+            esc_html__('Congratulations! Your order has been placed. Thank you for shopping with us', 'woocommerce'),
             $customer_email
         );
         echo $custom_message;
@@ -44,6 +44,6 @@ if ($order) {
     </p>
 <?php else : ?>
     <p class="text-white font-lighter text-sm-md-font  woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">
-        <?php echo apply_filters('woocommerce_thankyou_order_received_text', esc_html__('Thank you! Your order has been received.', 'woocommerce'), null); ?>
+        <?php echo apply_filters('woocommerce_thankyou_order_received_text', esc_html__('Congratulations! Your order has been placed. Thank you for shopping with us. ', 'woocommerce'), null); ?>
     </p>
 <?php endif; ?>
