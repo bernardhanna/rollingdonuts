@@ -250,7 +250,7 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
             <?php do_action('woocommerce_checkout_before_customer_details'); ?>
             <div class="xxl:w-1/2 desktop:w-[772px] w-full pr-0 md:pr-8 desktop:pr-0" id="customer_details">
                 <div class="col-1 hideText">
-                    <h3 class="text-black-full text-md-font font-reg420 pb-8"><?php esc_html_e('1. Delivery Method', 'woocommerce'); ?></h3>
+                    <h3 class="text-black-full text-md-font font-reg420 pb-8"><?php esc_html_e('1. Select Date & Time', 'woocommerce'); ?></h3>
                     <?php do_action('woocommerce_checkout_billing'); ?>
                 </div>
 
@@ -278,7 +278,6 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
     </form>
 </div>
 <?php do_action('woocommerce_after_checkout_form', $checkout); ?>
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Find all instances of the shipping options container

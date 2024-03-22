@@ -500,263 +500,7 @@ function filter_products_by_rd_product_type($query)
  * PRODUCT ATTRIBUTES
  ***********************************************************\
 */
-//ENABLE ATTRIUBUTES AND MAKE THE COLURS DYNAMIC
-function cw_woo_attribute()
-{
-    global $product;
-    $attributes = $product->get_attributes();
-    if (!$attributes) {
-        return;
-    }
 
-    $nonce = wp_create_nonce('cw_add_to_cart_nonce');
-    echo '<div class="custom-attributes" data-nonce="' . esc_attr($nonce) . '">';
-
-    foreach ($attributes as $attribute) {
-        if ($attribute->get_variation()) {
-            continue;
-        }
-        $attribute_taxonomy = $attribute->get_taxonomy_object();
-
-        // Check if $attribute_taxonomy is not null
-        if (!$attribute_taxonomy) {
-            continue; // Skip this attribute if its taxonomy object is null
-        }
-
-        $attribute_name = $attribute_taxonomy->attribute_label;
-
-        echo "<div class='{$attribute->get_name()} attribute-container'>";
-        echo "<strong class='text-mob-md-font font-reg420 text-black-full'>{$attribute_name}:</strong> <div class='color-name-display'></div>";
-
-        if ($attribute->is_taxonomy() && ($attribute->get_name() == 'pa_color' || $attribute->get_name() == 'pa_colour')) {
-            $terms = wp_get_post_terms($product->get_id(), $attribute->get_name(), 'all');
-
-            foreach ($terms as $term) {
-                $term_name = esc_html($term->name);
-                $colorValue = strtolower($term_name); // Assumes names are valid CSS color values
-                echo "<button type='button' class='attribute-button color-swatch' onclick='updateColorSelection(this, \"{$term_name}\")' style='background-color: {$colorValue}; width: 3rem; height: 3rem; border: 1px solid #ccc; border-radius: 50%; margin-right: 5px;'></button> ";
-            }
-        } else {
-            // Handle non-color attributes
-            $terms = wp_get_post_terms($product->get_id(), $attribute->get_name(), 'all');
-            foreach ($terms as $term) {
-                echo "<button type='button' class='attribute-button' data-attribute-name='{$attribute->get_name()}' data-attribute-value='" . esc_attr($term->slug) . "'>" . esc_html($term->name) . "</button> ";
-            }
-        }
-        echo "</div>";
-    }
-
-    echo '</div>';
-
-    // Inline JavaScript for single selection and display color name
-    echo "<script>
-        function updateColorSelection(element, colorName) {
-            // Clear previous selections
-            document.querySelectorAll('.color-swatch').forEach(btn => btn.classList.remove('selected'));
-            // Mark the clicked swatch as selected
-            element.classList.add('selected');
-            // Update the display with the selected color name
-            document.querySelector('.color-name-display').textContent = colorName;
-        }
-    </script>";
-}
-add_action('woocommerce_single_product_summary', 'cw_woo_attribute', 25);
-
-function add_selected_attributes_to_cart_item($cart_item_data, $product_id, $variation_id)
-{
-    if (!empty($_POST['selected_attributes'])) {
-        foreach ($_POST['selected_attributes'] as $name => $value) {
-            $cart_item_data['selected_attributes'][$name] = sanitize_text_field($value);
-        }
-    }
-
-    return $cart_item_data;
-}
-add_filter('woocommerce_add_cart_item_data', 'add_selected_attributes_to_cart_item', 10, 3);
-
-//BUTTON JS, SET UP SWATCHES
-add_action('wp_footer', 'cw_add_custom_attribute_scripts');
-function cw_add_custom_attribute_scripts()
-{
-?>
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            const attributeContainers = document.querySelectorAll('.attribute-container');
-            const addToCartButton = document.querySelector('button.single_add_to_cart_button');
-
-            // Initially disable the Add to Cart button only if there are attribute containers
-            addToCartButton.disabled = attributeContainers.length > 0;
-
-            function checkAllAttributesSelected() {
-                let allSelected = true;
-                attributeContainers.forEach(container => {
-                    if (!container.querySelector('.attribute-button.selected')) {
-                        allSelected = false;
-                    }
-                });
-                // Enable or disable the Add to Cart button based on attribute selection
-                addToCartButton.disabled = !allSelected;
-            }
-
-            // Bind click event listeners to attribute buttons, if any
-            if (attributeContainers.length > 0) {
-                document.querySelectorAll('.attribute-button').forEach(button => {
-                    button.addEventListener('click', function() {
-                        // Unselect siblings
-                        this.closest('.attribute-container').querySelectorAll('.attribute-button').forEach(btn => {
-                            btn.classList.remove('selected');
-                        });
-                        // Mark the clicked button as selected
-                        this.classList.add('selected');
-                        // Re-check if all attributes have been selected
-                        checkAllAttributesSelected();
-                    });
-                });
-            }
-
-            // Update color name display for color swatches, if present
-            document.querySelectorAll('.color-swatch').forEach(button => {
-                button.addEventListener('click', function() {
-                    const colorName = this.getAttribute('data-color-name');
-                    document.querySelector('.color-name-display').textContent = colorName;
-                });
-            });
-        });
-    </script>
-<?php
-}
-//SET THE CORRECT TERMS AT CART
-add_filter('woocommerce_get_item_data', 'display_selected_attributes_in_cart', 10, 2);
-
-function display_selected_attributes_in_cart($item_data, $cart_item)
-{
-    if (isset($cart_item['selected_attributes'])) {
-        foreach ($cart_item['selected_attributes'] as $attribute => $value) {
-            $attribute_clean = wc_attribute_label(str_replace('attribute_', '', $attribute));
-            $item_data[] = array('name' => $attribute_clean, 'value' => $value);
-        }
-    }
-    return $item_data;
-}
-
-// Capture and store selected attributes in cart item data
-add_filter('woocommerce_add_cart_item_data', 'capture_selected_attributes', 10, 3);
-function capture_selected_attributes($cart_item_data, $product_id, $variation_id)
-{
-    if (!empty($_REQUEST['selected_attributes'])) {
-        foreach ($_REQUEST['selected_attributes'] as $attribute => $value) {
-            $cart_item_data['selected_attributes'][$attribute] = $value;
-        }
-    }
-    return $cart_item_data;
-}
-
-
-// Save custom attributes to order items
-add_action('woocommerce_checkout_create_order_line_item', 'save_custom_attributes_to_order_items', 10, 4);
-function save_custom_attributes_to_order_items($item, $cart_item_key, $values, $order)
-{
-    if (!empty($values['custom_attributes'])) {
-        foreach ($values['custom_attributes'] as $attribute => $value) {
-            // Note: Consider prefixing attribute labels to ensure uniqueness
-            $item->add_meta_data(wc_attribute_label($attribute), $value);
-        }
-    }
-}
-/*
- ****************************************************************
- * VARIATIONS
- ****************************************************************
-*/
-add_action('woocommerce_before_add_to_cart_button', function () {
-    global $product;
-    if ($product->is_type('variable')) {
-        $attributes = $product->get_variation_attributes();
-        echo '<div class="custom-attributes">';
-
-        foreach ($attributes as $attr_name => $options) {
-            // Convert attribute name to a readable label
-            $attribute_label = wc_attribute_label($attr_name);
-
-            echo "<div class='{$attr_name} attribute-container'>";
-            echo "<strong>{$attribute_label}:</strong> <div class='color-name-display'></div>";
-
-            foreach ($options as $option) {
-                $term = get_term_by('slug', $option, $attr_name);
-                if (!$term) continue; // Skip if term doesn't exist
-
-                $term_name = esc_html($term->name);
-
-                // Determine if this is a color attribute
-                if (strpos($attr_name, 'pa_color') !== false || strpos($attr_name, 'pa_colour') !== false) {
-                    // Display a color swatch
-                    echo "<button type='button' class='attribute-button color-swatch' onclick='updateColorSelection(this, \"{$term_name}\")' data-attribute-name='{$attr_name}' data-attribute-value='{$option}' style='background-color: {$option}; width: 3rem; height: 3rem; border: 1px solid #ccc; border-radius: 50%; margin-right: 5px;'></button> ";
-                } else {
-                    // Display as a button for non-color attributes
-                    echo "<button type='button' class='attribute-button' data-attribute-name='{$attr_name}' data-attribute-value='{$option}'>{$term_name}</button> ";
-                }
-            }
-            echo "</div>";
-        }
-
-        echo '</div>';
-    }
-}, 30);
-
-// JavaScript for handling attribute selection
-add_action('wp_footer', 'custom_variation_swatches_js');
-function custom_variation_swatches_js()
-{
-?>
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('.attribute-button').forEach(function(button) {
-                button.addEventListener('click', function() {
-                    var attributeName = this.dataset.attributeName;
-                    var attributeValue = this.dataset.attributeValue;
-
-                    // Find and select the corresponding option in the hidden dropdown
-                    var selectElement = document.querySelector('select[name="' + attributeName + '"]');
-                    if (selectElement) {
-                        selectElement.value = attributeValue;
-                        selectElement.dispatchEvent(new Event('change')); // Trigger change event to update WooCommerce
-                    }
-
-                    // Handle visual updates for custom interface
-                    var container = this.closest('.attribute-container');
-                    container.querySelectorAll('.attribute-button').forEach(btn => btn.classList.remove('selected'));
-                    this.classList.add('selected');
-
-                    // For color swatches, update the display with the selected color name (optional)
-                    if (this.classList.contains('color-swatch')) {
-                        var colorNameDisplay = container.querySelector('.color-name-display');
-                        if (colorNameDisplay) {
-                            colorNameDisplay.textContent = attributeValue; // Update to suit your needs
-                        }
-                    }
-                });
-            });
-        });
-    </script>
-<?php
-}
-
-// Ensure WooCommerce's default variation dropdowns are available if needed
-add_action('woocommerce_single_product_summary', 'custom_display_variation_dropdowns', 25);
-
-function custom_display_variation_dropdowns()
-{
-    global $product;
-
-    if ($product->is_type('variable')) {
-        // Ensure global $product is a variable product.
-        wc_get_template('single-product/add-to-cart/variable.php', array(
-            'available_variations' => $product->get_available_variations(),
-            'attributes'           => $product->get_variation_attributes(),
-            'selected_attributes'  => $product->get_default_attributes(),
-        ));
-    }
-}
 /*
  ****************************************************************
  * BREADCRUMB EDITS
@@ -1169,77 +913,6 @@ add_filter('woocommerce_states', 'custom_woocommerce_states');
 
 /*
  ****************************************************************
- * SHIPPING ZONES SET UP
- ***********************************************************
-
-add_filter('woocommerce_states', 'custom_woocommerce_states');
-
-function custom_woocommerce_states($states) {
-    $states['IE'] = array(
-        'D01' => 'Dublin 01', 'D02' => 'Dublin 02', 'D03' => 'Dublin 03', 'D04' => 'Dublin 04',
-        'D05' => 'Dublin 05', 'D06' => 'Dublin 06', 'D6W' => 'Dublin 6W', 'D07' => 'Dublin 07',
-        'D08' => 'Dublin 08', 'D09' => 'Dublin 09', 'D11' => 'Dublin 11', 'D12' => 'Dublin 12',
-        'D13' => 'Dublin 13', 'D14' => 'Dublin 14', 'D15' => 'Dublin 15', 'D16' => 'Dublin 16',
-        'D17' => 'Dublin 17', 'D18' => 'Dublin 18', 'D20' => 'Dublin 20', 'D22' => 'Dublin 22', 'D24' => 'Dublin 24'
-    );
-
-    return $states;
-}
-
-add_action('woocommerce_init', 'add_dublin_shipping_zones');
-
-function add_dublin_shipping_zones() {
-    $north_zones = array('D01', 'D03', 'D05', 'D07', 'D09', 'D11', 'D13', 'D15', 'D17');
-    $south_zones = array('D02', 'D04', 'D06', 'D6W', 'D08', 'D12', 'D14', 'D16', 'D18', 'D20', 'D22', 'D24');
-}
-
-add_filter('woocommerce_checkout_fields', 'add_postcode_dropdown_to_checkout');
-
-function add_postcode_dropdown_to_checkout($fields) {
-    $postcode_field = array(
-        'type' => 'select',
-        'options' => array(
-            '' => 'Select Area Code',  // Placeholder
-            'D01' => 'Dublin 01', 'D02' => 'Dublin 02', 'D03' => 'Dublin 03', 'D04' => 'Dublin 04',
-            'D05' => 'Dublin 05', 'D06' => 'Dublin 06', 'D6W' => 'Dublin 6W', 'D07' => 'Dublin 07',
-            'D08' => 'Dublin 08', 'D09' => 'Dublin 09', 'D11' => 'Dublin 11', 'D12' => 'Dublin 12',
-            'D13' => 'Dublin 13', 'D14' => 'Dublin 14', 'D15' => 'Dublin 15', 'D16' => 'Dublin 16',
-            'D17' => 'Dublin 17', 'D18' => 'Dublin 18', 'D20' => 'Dublin 20', 'D22' => 'Dublin 22', 'D24' => 'Dublin 24'
-        ),
-        'label' => 'Dublin Postcode',
-        'required' => true,
-    );
-
-    // Insert the postcode field after the state field
-    $order = array();
-    foreach ($fields['billing'] as $key => $value) {
-        $order[$key] = $value;
-        if ($key === 'billing_state') {
-            $order['billing_postcode_dropdown'] = $postcode_field;
-        }
-    }
-    $fields['billing'] = $order;
-
-    return $fields;
-}
-
-add_filter('woocommerce_shipping_zone_matching_package', 'assign_shipping_zone_based_on_postcode', 10, 2);
-
-function assign_shipping_zone_based_on_postcode($zone, $package) {
-    $postcode = $package['destination']['postcode'];
-    $north_zones = array('D01', 'D03', 'D05', 'D07', 'D09', 'D11', 'D13', 'D15', 'D17');
-    $south_zones = array('D02', 'D04', 'D06', 'D6W', 'D08', 'D12', 'D14', 'D16', 'D18', 'D20', 'D22', 'D24');
-
-    if (in_array($postcode, $north_zones)) {
-        $zone = new WC_Shipping_Zone(1);
-    } elseif (in_array($postcode, $south_zones)) {
-        $zone = new WC_Shipping_Zone(2);
-    }
-    return $zone;
-}
-*/
-/*
- ****************************************************************
  * CART TOTALS
  ***********************************************************\
 */
@@ -1448,25 +1121,6 @@ function iconic_modify_delivery_slots_label_for_collection_and_delivery($labels,
 add_filter('iconic_wds_labels', 'iconic_modify_delivery_slots_label_for_collection_and_delivery', 10, 2);
 
 
-// MOVE THE SHIPPING OPTIONS BEFORE THE DELIVERY SLOTS
-function custom_move_shipping_options()
-{
-    static $already_run = false;
-
-    // Check if the function has already run
-    if ($already_run) {
-        return;
-    }
-
-    if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) {
-        wc_cart_totals_shipping_html();
-    }
-
-    // Mark the function as having run
-    $already_run = true;
-}
-add_action('iconic_wds_before_checkout_fields', 'custom_move_shipping_options', 10);
-
 
 // FIX TO TIME CHANGING WHEN COUNTY IS CHANGED
 function iconic_save_delivery_time_to_session()
@@ -1649,4 +1303,51 @@ function custom_woocommerce_email_styles($css)
         .button { background-color: #000000; border-color: #000000; }
     ';
     return $css;
+}
+/*
+ ****************************************************************
+ * Thank You page
+ ***********************************************************\
+*/
+add_action('woocommerce_thankyou', 'custom_thankyou_order_details', 20);
+
+function custom_thankyou_order_details($order_id)
+{
+    if (!$order_id) return;
+}
+
+function get_location_details_by_id($location_id)
+{
+    $location_post = get_post($location_id);
+    if (!$location_post) return [];
+
+    // Retrieve the meta value
+    $address_meta = get_post_meta($location_id, '_pickup_location_address', true);
+
+    // Check if the meta value is serialized, and if so, unserialize it
+    if (is_string($address_meta) && is_serialized($address_meta)) {
+        $address_meta = unserialize($address_meta);
+    }
+
+    // Now, address_meta might be an array or a string
+    // If it's an array, format it into a string (you may need to adjust the formatting to match your needs)
+    $address = '';
+    if (is_array($address_meta)) {
+        // Example formatting; adjust as needed
+        $address_parts = [];
+        foreach ($address_meta as $key => $value) {
+            if (!empty($value)) {
+                $address_parts[] = $value;
+            }
+        }
+        $address = implode(', ', $address_parts);
+    } else {
+        // If it's a string, use it directly
+        $address = $address_meta;
+    }
+
+    return [
+        'name' => $location_post->post_title,
+        'address' => $address
+    ];
 }

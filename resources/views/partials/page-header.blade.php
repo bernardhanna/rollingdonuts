@@ -86,16 +86,20 @@
                             @endif
                         </h1>
                     </div>
+                {{-- This block checks for a post description and displays it if present --}}
                     @php
                     $description = get_post_field('post_excerpt', get_the_ID());
                     @endphp
                     @if (!empty($description))
+                     <!--
                         <div class="w-auto mobile:m-auto z-50 relative">
                             <span class="text-white font-Laca text-mob-md-font font-normal font-extrabold:350 leading-130 z-50 relative w-fit">
-                                    {{ $description }}
+                                   {{--    {{ $description }}  --}}
                             </span>
                         </div>
+                    End of post description container -->
                     @endif
+                {{-- End of post description block --}}
                 </div>
             </div>
     </section>

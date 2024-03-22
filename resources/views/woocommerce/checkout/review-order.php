@@ -66,6 +66,7 @@ defined('ABSPATH') || exit;
             </div>
         <?php endforeach; ?>
 
+
         <?php foreach (WC()->cart->get_fees() as $fee) : ?>
             <div class="fee flex justify-between px-8 py-4">
                 <div><?php echo esc_html($fee->name); ?></div>
@@ -85,12 +86,18 @@ defined('ABSPATH') || exit;
             <?php else : ?>
                 <div class="tax-total flex justify-between px-8 py-4">
                     <div><?php echo esc_html(WC()->countries->tax_or_vat()); ?></div>
+
                     <div><?php wc_cart_totals_taxes_total_html(); ?></div>
                 </div>
             <?php endif; ?>
         <?php endif; ?>
 
         <?php do_action('woocommerce_review_order_before_order_total'); ?>
+
+        <div class="shipping-costs-row flex justify-between px-8 py-4 border-b border-grey-border">
+            <div><?php esc_html_e('Delivery Costs', 'woocommerce'); ?></div>
+            <div><?php echo WC()->cart->get_cart_shipping_total(); ?></div>
+        </div>
 
         <div class="order-total flex justify-between px-8 py-4">
             <div><?php esc_html_e('Total', 'woocommerce'); ?></div>

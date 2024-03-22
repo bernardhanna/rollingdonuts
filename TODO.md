@@ -5,10 +5,9 @@ Merch and Box items should display on orders page
 Woo Commerce emails imporve
 Make sure orders are working as live site
 Gift card set up
-Fix to the checkout page delivery or pick up sometimes not showing possible non issue
+Add invoice number to invoice
 Work in a way to modify box items
 Add a way to create a custom box
-
 
 
 function cw_woo_attribute()
