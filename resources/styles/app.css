@@ -2120,3 +2120,6 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
   opacity: .8;
 }
 
+.woocommerce-remove-coupon {
+  color: red;
+}

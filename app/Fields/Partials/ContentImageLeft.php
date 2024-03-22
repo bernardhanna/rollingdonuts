@@ -30,9 +30,8 @@ class ContentImageLeft extends Partial
             ->addText('event_heading', [
                 'label' => 'Heading',
             ])
-            ->addTextarea('event_text', [
-                'label' => 'Text',
-                'rows' => 4,
+            ->addWysiwyg('event_text', [
+                'label' => 'Wysiwyg',
             ])
             ->addLink('event_button', [
                 'label' => 'Button',
