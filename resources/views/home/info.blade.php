@@ -20,9 +20,9 @@ $eventImage = get_field('event_image');
             </div>
             <div class="content md:w-1/2 desktop:pt-24 lg:flex lg:flex-col lg:pl-8 xxl:pr-37">
                 <h4 class="text-lg-font mt-6 font-reg420 pb-5 leading-3xl">{{ get_field('event_heading') }}</h4>
-                <div class="text-reg-font text-black-font leading-none lg:w-5/6">{{ get_field('event_text') }}</div>
+                <div class="text-reg-font text-black-font leading-none lg:w-5/6">{!! get_field('event_text') !!}</div>
                 @php
-$eventButton = get_field('event_button');
+                    $eventButton = get_field('event_button');
                 @endphp
 
                 @if ($eventButton)
@@ -38,7 +38,7 @@ $eventButton = get_field('event_button');
         <div class="flex flex-col md:flex-row-reverse lg:max-w-max-1552 mx-auto px-0 lg:px-4">
             <div class="md:w-1/2">
             @php
-$giftcardImage = get_field('giftcard_image');
+                $giftcardImage = get_field('giftcard_image');
             @endphp
 
             @if ($giftcardImage)
@@ -47,7 +47,7 @@ $giftcardImage = get_field('giftcard_image');
             </div>
             <div class="content md:w-1/2 lg:flex lg:flex-col lg:justify-center lg:pl-0 xxl:pr-44">
                 <h4 class="text-lg-font mt-6 font-reg420 pb-5 leading-3xl">{{ get_field('giftcard_heading') }}</h4>
-                <div class="text-reg-font text-black-font leading-none">{{ get_field('giftcard_text') }}</div>
+                <div class="text-reg-font text-black-font leading-none">{!! get_field('giftcard_text') !!}</div>
                 @php
 $giftcardButton = get_field('giftcard_button');
                 @endphp
