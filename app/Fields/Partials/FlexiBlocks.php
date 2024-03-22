@@ -208,9 +208,8 @@ class FlexiBlocks extends Partial
                 ->addText('event_heading_imgtxt', [
                     'label' => 'Event Heading',
                 ])
-                ->addTextarea('event_text_imgtxt', [
-                    'label' => 'Event Text',
-                    'new_lines' => 'wpautop',
+            ->addWysiwyg('event_text_imgtxt', [
+                'label' => 'Event Text',
                 ])
                 ->addLink('event_button_imgtxt', [
                     'label' => 'Event Button',
