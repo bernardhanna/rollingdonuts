@@ -19,8 +19,8 @@ $eventImage = get_field('event_image');
             @endif
             </div>
             <div class="content md:w-1/2 desktop:pt-24 lg:flex lg:flex-col lg:pl-8 xxl:pr-37">
-<h4 class="text-lg-font mt-6 font-reg420 pb-5 leading-3xl">{{ get_field('event_heading') }}</h4>
-                <p class="text-reg-font text-black-font leading-none lg:w-5/6">{{ get_field('event_text') }}</p>
+                <h4 class="text-lg-font mt-6 font-reg420 pb-5 leading-3xl">{{ get_field('event_heading') }}</h4>
+                <div class="text-reg-font text-black-font leading-none lg:w-5/6">{{ get_field('event_text') }}</div>
                 @php
 $eventButton = get_field('event_button');
                 @endphp
@@ -46,8 +46,8 @@ $giftcardImage = get_field('giftcard_image');
             @endif
             </div>
             <div class="content md:w-1/2 lg:flex lg:flex-col lg:justify-center lg:pl-0 xxl:pr-44">
-<h4 class="text-lg-font mt-6 font-reg420 pb-5 leading-3xl">{{ get_field('giftcard_heading') }}</h4>
-                <p class="text-reg-font text-black-font leading-none">{{ get_field('giftcard_text') }}</p>
+                <h4 class="text-lg-font mt-6 font-reg420 pb-5 leading-3xl">{{ get_field('giftcard_heading') }}</h4>
+                <div class="text-reg-font text-black-font leading-none">{{ get_field('giftcard_text') }}</div>
                 @php
 $giftcardButton = get_field('giftcard_button');
                 @endphp
