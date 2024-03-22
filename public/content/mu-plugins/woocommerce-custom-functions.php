@@ -1243,6 +1243,20 @@ function assign_shipping_zone_based_on_postcode($zone, $package) {
  * CART TOTALS
  ***********************************************************\
 */
+add_filter('woocommerce_cart_totals_coupon_html', 'custom_remove_dash_from_coupon_html', 10, 3);
+function custom_remove_dash_from_coupon_html($coupon_html, $coupon, $discount_amount_html)
+{
+    // Start output buffering
+    ob_start();
+    echo $coupon_html;
+    // Get the buffered output
+    $output = ob_get_clean();
+
+    // Remove the dash using str_replace
+    $output = str_replace('-<span', '<span', $output);
+
+    return $output;
+}
 /*
  ****************************************************************
  * PAYMENTS
@@ -1619,98 +1633,6 @@ add_filter('some_plugin_filter_before_lookup', function ($lookup_data) {
 });
 
 
-function custom_variation_selection_scripts()
-{
-    ?>
-    <style>
-        .variations_form .variations {
-            display: none;
-        }
-    </style>
-    <script>
-        jQuery(document).ready(function($) {
-            // Hide default variations table
-            $('.variations').hide();
-
-            // When a custom attribute button is clicked
-            $('.attribute-button').click(function() {
-                var attributeName = $(this).data('attribute-name');
-                var attributeValue = $(this).data('attribute-value');
-
-                // Set the corresponding select value
-                $('select[name="' + attributeName + '"]').val(attributeValue).trigger('change');
-
-                // Update visual feedback for selection
-                $(this).siblings().removeClass('selected');
-                $(this).addClass('selected');
-            });
-
-            // Optional: Update 'Add to Cart' button state based on selection
-            $('.variations_form').on('woocommerce_variation_has_changed', function() {
-                // Check if all attributes have been selected
-                if ($('.single_variation_wrap').is(':visible')) {
-                    $('.single_add_to_cart_button').prop('disabled', false);
-                } else {
-                    $('.single_add_to_cart_button').prop('disabled', true);
-                }
-            });
-            // Hide the default variations select dropdown
-            $('.variations').hide();
-
-            // Custom attribute selection
-            $('.attribute-button').on('click', function() {
-                // Get the attribute name and value
-                var attributeSelector = $(this).data('attribute-name');
-                var attributeValue = $(this).data('attribute-value');
-
-                // Update the hidden select dropdown and trigger change
-                $('select[name="' + attributeSelector + '"]').val(attributeValue).trigger('change');
-
-                // Visual feedback: mark the button as selected
-                $(`[data-attribute-name="${attributeSelector}"]`).removeClass('selected');
-                $(this).addClass('selected');
-
-                // Check if all variations are selected
-                setTimeout(function() { // Wait for WooCommerce to process the change
-                    if (!$('.single_add_to_cart_button').is('.disabled')) {
-                        $('.single_add_to_cart_button').prop('disabled', false); // Enable add to cart button
-                    } else {
-                        $('.single_add_to_cart_button').prop('disabled', true); // Disable add to cart button if not all selections are made
-                    }
-                }, 100);
-            });
-
-            // Trigger variation change to update the form state
-            $('.variations_form').on('change', '.variations select', function() {
-                $(this).closest('form').find('.woocommerce-variation-add-to-cart').removeClass('woocommerce-variation-add-to-cart-enabled').addClass('woocommerce-variation-add-to-cart-disabled');
-            });
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            const attributeButtons = document.querySelectorAll('.attribute-button');
-
-            attributeButtons.forEach(function(button) {
-                button.addEventListener('click', function() {
-                    const attributeName = this.dataset.attributeName;
-                    const attributeValue = this.dataset.attributeValue;
-                    const select = document.querySelector(`select[name="${attributeName}"]`);
-
-                    if (select) {
-                        select.value = attributeValue;
-                        select.dispatchEvent(new Event('change', {
-                            bubbles: true
-                        }));
-                    }
-
-                    // Visual feedback for selection
-                    this.classList.add('selected');
-                    this.siblings('.attribute-button').classList.remove('selected'); // Implement this method or similar logic as needed
-                });
-            });
-        });
-    </script>
-<?php
-}
-add_action('wp_footer', 'custom_variation_selection_scripts');
 /*
  ****************************************************************
  * Emails

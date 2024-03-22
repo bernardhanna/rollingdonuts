@@ -30,9 +30,8 @@ class ContentImageRight extends Partial
             ->addText('giftcard_heading', [
                 'label' => 'Heading',
             ])
-            ->addTextarea('giftcard_text', [
+            ->addWysiwyg('giftcard_text', [
                 'label' => 'Text',
-                'rows' => 4,
             ])
             ->addLink('giftcard_button', [
                 'label' => 'Button',
