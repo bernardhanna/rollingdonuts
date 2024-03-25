@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "64e4469a5706f7e4ca07664d02ffcdd1",
+    "content-hash": "8d34d3b6dc7d7bee1e7bd356aaba95b5",
     "packages": [
         {
             "name": "bernardhanna/gravity-forms-chained-selects-add-on",
@@ -5330,7 +5330,7 @@
         },
         {
             "name": "roots/wordpress",
-            "version": "6.2.2",
+            "version": "6.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/roots/wordpress.git",
@@ -5361,7 +5361,7 @@
             ],
             "support": {
                 "issues": "https://github.com/roots/wordpress/issues",
-                "source": "https://github.com/roots/wordpress/tree/6.2.2"
+                "source": "https://github.com/roots/wordpress/tree/6.4.3"
             },
             "funding": [
                 {
@@ -5444,22 +5444,22 @@
         },
         {
             "name": "roots/wordpress-no-content",
-            "version": "6.2.2",
+            "version": "6.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress/WordPress.git",
-                "reference": "6.2.2"
+                "reference": "6.4.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/release/wordpress-6.2.2-no-content.zip",
-                "shasum": "df066a16e97dd6ad5c1679d4a575983ea3143117"
+                "url": "https://downloads.wordpress.org/release/wordpress-6.4.3-no-content.zip",
+                "shasum": "4138c6337bf524159b406d5b27916deebb0f78df"
             },
             "require": {
-                "php": ">= 5.6.20"
+                "php": ">= 7.0.0"
             },
             "provide": {
-                "wordpress/core-implementation": "6.2.2"
+                "wordpress/core-implementation": "6.4.3"
             },
             "suggest": {
                 "ext-curl": "Performs remote request operations.",
@@ -5510,7 +5510,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2023-05-20T04:31:46+00:00"
+            "time": "2024-01-30T19:32:01+00:00"
         },
         {
             "name": "roots/wp-config",
@@ -7832,15 +7832,15 @@
         },
         {
             "name": "wpackagist-plugin/ajax-search-for-woocommerce",
-            "version": "1.27.0",
+            "version": "1.4.0",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/ajax-search-for-woocommerce/",
-                "reference": "tags/1.27.0"
+                "reference": "tags/1.4.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/ajax-search-for-woocommerce.1.27.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/ajax-search-for-woocommerce.1.4.0.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -8048,10 +8048,10 @@
         },
         {
             "name": "wpengine/advanced-custom-fields-pro",
-            "version": "6.2.7",
+            "version": "5.9.0",
             "dist": {
                 "type": "zip",
-                "url": "https://connect.advancedcustomfields.com/v2/plugins/composer_download?p=pro&t=6.2.7"
+                "url": "https://connect.advancedcustomfields.com/v2/plugins/composer_download?p=pro&t=5.9.0"
             },
             "require": {
                 "composer/installers": "~1.0 || ~2.0"
