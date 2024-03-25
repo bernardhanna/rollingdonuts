@@ -5,10 +5,10 @@ Merch and Box items should display on orders page
 Woo Commerce emails imporve
 Make sure orders are working as live site
 Gift card set up
-Add invoice number to invoice
+
 Work in a way to modify box items
 Add a way to create a custom box
-
+Gravity forms set up with product add ons is essential
 
 function cw_woo_attribute()
 {
