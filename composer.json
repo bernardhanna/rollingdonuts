@@ -38,12 +38,46 @@
             ]
         },
         {
+            "type": "package",
+            "package": {
+                "name": "junaidbhura/wp-all-import-pro",
+                "version": "4.8.6",
+                "type": "wordpress-plugin",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://www.wpallimport.com/"
+                },
+                "require": {
+                    "junaidbhura/composer-wp-pro-plugins": "*"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "junaidbhura/wp-all-export-pro",
+                "version": "1.8.8",
+                "type": "wordpress-plugin",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://www.wpallimport.com/"
+                },
+                "require": {
+                    "junaidbhura/composer-wp-pro-plugins": "*"
+                }
+            }
+        },
+        {
             "type": "composer",
             "url": "https://connect.advancedcustomfields.com"
         },
         {
             "type": "vcs",
             "url": "https://github.com/bernardhanna/gravityforms.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/bernardhanna/gravity-forms-chained-selects-add-on.git"
         },
         {
             "type": "vcs",
@@ -103,6 +137,7 @@
     "require": {
         "php": ">=8.0",
         "bernardhanna/gravityforms": "dev-main",
+        "bernardhanna/gravity-forms-chained-selects-add-on": "dev-main",
         "bernardhanna/iconic-woo-delivery-slots": "dev-main",
         "bernardhanna/mt-future-orders": "dev-main",
         "bernardhanna/mt-memotech-fixes": "dev-main",
@@ -120,6 +155,8 @@
         "hexbit/sage-woocommerce": "^1.0",
         "ibericode/html-forms": "dev-main",
         "johnbillion/extended-cpts": "^5.0",
+        "junaidbhura/wp-all-export-pro": "*",
+        "junaidbhura/wp-all-import-pro": "*",
         "log1x/acf-composer": "^2.1",
         "log1x/modern-acf-options": "^1.0",
         "log1x/modern-login": "^1.0",
@@ -141,6 +178,7 @@
         "vlucas/phpdotenv": "^5.5",
         "wpackagist-plugin/ajax-search-for-woocommerce": "*",
         "wpackagist-plugin/insta-gallery": "^4.1",
+        "wpackagist-plugin/mailpoet": "^4.48",
         "wpackagist-plugin/updraftplus": "^1.23",
         "wpackagist-plugin/wc-multiple-email-recipients": "^1.4.0",
         "wpackagist-plugin/woocommerce": "^7.8",
@@ -169,7 +207,8 @@
             "composer/installers": true,
             "roots/wordpress-core-installer": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "pestphp/pest-plugin": true
+            "pestphp/pest-plugin": true,
+            "junaidbhura/composer-wp-pro-plugins": true
         },
         "sort-packages": true,
         "platform": {

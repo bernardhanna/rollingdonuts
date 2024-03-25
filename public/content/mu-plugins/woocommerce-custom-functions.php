@@ -106,6 +106,56 @@ function custom_large_device_image_sizes($size)
     return $size;
 }
 add_filter('woocommerce_get_image_size', 'custom_large_device_image_sizes');
+
+// Fetch and Display Shipping Zone or Local Pickup in the Orders Table
+add_filter('manage_edit-shop_order_columns', 'add_order_zone_column_header', 20);
+function add_order_zone_column_header($columns)
+{
+    $columns['order_shipping_zone'] = __('Shipping Zone', 'rolling-donuts');
+    return $columns;
+}
+
+add_action('manage_shop_order_posts_custom_column', 'add_order_zone_column_content');
+function add_order_zone_column_content($column)
+{
+    global $post, $the_order;
+
+    if ('order_shipping_zone' === $column) {
+        if (is_null($the_order) || $the_order->get_id() !== $post->ID) {
+            $the_order = wc_get_order($post->ID);
+        }
+
+        $shipping_methods = $the_order->get_shipping_methods();
+        $shipping_zones = WC_Shipping_Zones::get_zones();
+        $zone_name = __('N/A: Collection', 'rolling-donuts'); // Default for local pickup or if no zone matches
+
+        $is_local_pickup = false;
+
+        foreach ($shipping_methods as $shipping_method) {
+            if (strpos($shipping_method['method_id'], 'local_pickup') !== false) {
+                $is_local_pickup = true;
+                break; // Break the loop if local pickup is found
+            }
+        }
+
+        // If not local pickup, find the shipping zone
+        if (!$is_local_pickup) {
+            foreach ($shipping_methods as $shipping_method) {
+                foreach ($shipping_zones as $zone_id => $zone) {
+                    foreach ($zone['shipping_methods'] as $method) {
+                        if ($method->id == $shipping_method['method_id']) {
+                            $zone_name = $zone['zone_name'];
+                            break 3; // Break out of all loops if a match is found
+                        }
+                    }
+                }
+            }
+        }
+
+        echo esc_html($zone_name);
+    }
+}
+
 /*
  ****************************************************************
  * RD PRODUCT TYPE USED FOR FILTERING
