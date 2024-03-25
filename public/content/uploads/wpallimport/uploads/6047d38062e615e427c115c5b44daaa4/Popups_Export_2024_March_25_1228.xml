@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<node>
+		<id><![CDATA[1051]]></id>
+		<title><![CDATA[Deliveries]]></title>
+		<content><![CDATA[[block id="delivery-rates"]]]></content>
+		<excerpt><![CDATA[]]></excerpt>
+		<date><![CDATA[2018-11-14 15:59:43]]></date>
+		<posttype><![CDATA[popup]]></posttype>
+		<permalink><![CDATA[https://www.therollingdonut.ie/?post_type=popup&p=1051]]></permalink>
+		<imageurl><![CDATA[]]></imageurl>
+		<imagetitle><![CDATA[]]></imagetitle>
+		<imagecaption><![CDATA[]]></imagecaption>
+		<imagedescription><![CDATA[]]></imagedescription>
+		<imagealttext><![CDATA[]]></imagealttext>
+		<imagefeatured><![CDATA[]]></imagefeatured>
+		<attachmenturl><![CDATA[]]></attachmenturl>
+		<data_version><![CDATA[3]]></data_version>
+		<popup_open_count><![CDATA[2620]]></popup_open_count>
+		<popup_title><![CDATA[]]></popup_title>
+		<popup_settings><![CDATA[a:35:{s:17:"disable_on_mobile";b:0;s:17:"disable_on_tablet";b:0;s:18:"custom_height_auto";b:0;s:18:"scrollable_content";b:0;s:21:"position_from_trigger";b:0;s:14:"position_fixed";b:0;s:16:"overlay_disabled";b:0;s:9:"stackable";b:0;s:18:"disable_reposition";b:0;s:22:"close_on_overlay_click";s:1:"1";s:18:"close_on_esc_press";s:1:"1";s:17:"close_on_f4_press";b:0;s:19:"disable_form_reopen";b:0;s:21:"disable_accessibility";b:0;s:8:"theme_id";s:4:"1050";s:4:"size";s:6:"medium";s:20:"responsive_min_width";s:2:"0%";s:20:"responsive_max_width";s:4:"100%";s:12:"custom_width";s:5:"640px";s:13:"custom_height";s:5:"380px";s:14:"animation_type";s:4:"fade";s:15:"animation_speed";s:3:"350";s:16:"animation_origin";s:10:"center top";s:8:"location";s:10:"center top";s:12:"position_top";s:3:"200";s:15:"position_bottom";s:1:"0";s:13:"position_left";s:1:"0";s:14:"position_right";s:1:"0";s:6:"zindex";s:10:"1999999999";s:10:"close_text";s:0:"";s:18:"close_button_delay";s:1:"0";s:10:"conditions";a:0:{}s:8:"triggers";a:0:{}s:7:"cookies";a:0:{}s:10:"theme_slug";s:13:"framed-border";}]]></popup_settings>
+		<popup_open_count_total><![CDATA[2620]]></popup_open_count_total>
+		<popup_last_opened><![CDATA[1711112738]]></popup_last_opened>
+		<enabled><![CDATA[1]]></enabled>
+		<_last_editor_used_jetpack><![CDATA[classic-editor]]></_last_editor_used_jetpack>
+		<popup_conversion_count><![CDATA[0]]></popup_conversion_count>
+		<_cmplz_scanned_post><![CDATA[1]]></_cmplz_scanned_post>
+		<status><![CDATA[publish]]></status>
+		<authorid><![CDATA[3]]></authorid>
+		<authorusername><![CDATA[arpan]]></authorusername>
+		<authoremail><![CDATA[arpan@memotech.ie]]></authoremail>
+		<authorfirstname><![CDATA[arpan]]></authorfirstname>
+		<authorlastname><![CDATA[mitra]]></authorlastname>
+		<slug><![CDATA[deliveries]]></slug>
+		<format><![CDATA[]]></format>
+		<template><![CDATA[]]></template>
+		<parent><![CDATA[0]]></parent>
+		<parentslug><![CDATA[0]]></parentslug>
+		<order><![CDATA[0]]></order>
+		<commentstatus><![CDATA[closed]]></commentstatus>
+		<pingstatus><![CDATA[closed]]></pingstatus>
+		<postmodifieddate><![CDATA[2018-11-15 13:07:20]]></postmodifieddate>
+	</node>
+</data>
