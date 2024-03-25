@@ -4,8 +4,48 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4ecb3109bb2d6d712c18f75727cb078",
+    "content-hash": "64e4469a5706f7e4ca07664d02ffcdd1",
     "packages": [
+        {
+            "name": "bernardhanna/gravity-forms-chained-selects-add-on",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bernardhanna/gravity-forms-chained-selects-add-on.git",
+                "reference": "463e43e6184c063fa333685c89cf21bca73d899f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bernardhanna/gravity-forms-chained-selects-add-on/zipball/463e43e6184c063fa333685c89cf21bca73d899f",
+                "reference": "463e43e6184c063fa333685c89cf21bca73d899f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "default-branch": true,
+            "type": "wordpress-plugin",
+            "autoload": {
+                "psr-4": {
+                    "chainedSelects\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernard Hanna",
+                    "email": "bernard@matrixinternet.ie"
+                }
+            ],
+            "description": "Gravity Forms Chained Selects Add-On",
+            "support": {
+                "source": "https://github.com/bernardhanna/gravity-forms-chained-selects-add-on/tree/main",
+                "issues": "https://github.com/bernardhanna/gravity-forms-chained-selects-add-on/issues"
+            },
+            "time": "2024-03-25T12:55:17+00:00"
+        },
         {
             "name": "bernardhanna/gravityforms",
             "version": "dev-main",
@@ -85,6 +125,46 @@
                 "issues": "https://github.com/bernardhanna/iconic-woo-delivery-slots/issues"
             },
             "time": "2024-03-07T10:16:10+00:00"
+        },
+        {
+            "name": "bernardhanna/mailpoet-premium",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bernardhanna/mailpoet-premium.git",
+                "reference": "d4733333af406382b4e0fd4e45d787e6e0e700ed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bernardhanna/mailpoet-premium/zipball/d4733333af406382b4e0fd4e45d787e6e0e700ed",
+                "reference": "d4733333af406382b4e0fd4e45d787e6e0e700ed",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "mailpoetPremium\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernard Hanna",
+                    "email": "bernard@matrixinternet.ie"
+                }
+            ],
+            "description": "This plugin adds Premium features to the free version of MailPoet and unlocks the limit of 1,000 subscribers. Enjoy!",
+            "support": {
+                "source": "https://github.com/bernardhanna/mailpoet-premium/tree/main",
+                "issues": "https://github.com/bernardhanna/mailpoet-premium/issues"
+            },
+            "time": "2024-03-25T14:36:57+00:00"
         },
         {
             "name": "bernardhanna/mt-future-orders",
@@ -207,6 +287,46 @@
             "time": "2024-02-15T15:06:52+00:00"
         },
         {
+            "name": "bernardhanna/product-configurator",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bernardhanna/product-configurator.git",
+                "reference": "8830beecfd8b9bc40a7e4cd510603496d205ba48"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bernardhanna/product-configurator/zipball/8830beecfd8b9bc40a7e4cd510603496d205ba48",
+                "reference": "8830beecfd8b9bc40a7e4cd510603496d205ba48",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "productConfigurator\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernard Hanna",
+                    "email": "bernard@matrixinternet.ie"
+                }
+            ],
+            "description": "WooCommerce Product Configurator by Iconic",
+            "support": {
+                "source": "https://github.com/bernardhanna/product-configurator/tree/main",
+                "issues": "https://github.com/bernardhanna/product-configurator/issues"
+            },
+            "time": "2024-03-25T12:59:48+00:00"
+        },
+        {
             "name": "bernardhanna/updraftplus",
             "version": "dev-main",
             "source": {
@@ -325,6 +445,46 @@
                 "issues": "https://github.com/bernardhanna/woocommerce-customer-order-csv-export/issues"
             },
             "time": "2024-02-15T15:10:44+00:00"
+        },
+        {
+            "name": "bernardhanna/woocommerce-gravityforms-product-addons",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:bernardhanna/woocommerce-gravityforms-product-addons.git",
+                "reference": "6a47511d1ef7f03aad648ff3ead424c4c1d5d72b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bernardhanna/woocommerce-gravityforms-product-addons/zipball/6a47511d1ef7f03aad648ff3ead424c4c1d5d72b",
+                "reference": "6a47511d1ef7f03aad648ff3ead424c4c1d5d72b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "wooCommerceGravityFormsProductAddons\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bernard Hanna",
+                    "email": "bernard@matrixinternet.ie"
+                }
+            ],
+            "description": "woocommerce-gravityforms-product-addons",
+            "support": {
+                "source": "https://github.com/bernardhanna/woocommerce-gravityforms-product-addons/tree/main",
+                "issues": "https://github.com/bernardhanna/woocommerce-gravityforms-product-addons/issues"
+            },
+            "time": "2024-03-25T14:45:56+00:00"
         },
         {
             "name": "bernardhanna/woocommerce-pdf-ips-pro",
@@ -3009,18 +3169,6 @@
                 "source": "https://github.com/junaidbhura/composer-wp-pro-plugins/tree/1.8.0"
             },
             "time": "2023-03-14T20:05:41+00:00"
-        },
-        {
-            "name": "junaidbhura/gravityformschainedselects",
-            "version": "1.7",
-            "dist": {
-                "type": "zip",
-                "url": "https://www.gravityforms.com/chainedselects/"
-            },
-            "require": {
-                "junaidbhura/composer-wp-pro-plugins": "*"
-            },
-            "type": "wordpress-plugin"
         },
         {
             "name": "junaidbhura/wp-all-export-pro",
@@ -9250,12 +9398,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "d2b53099f06a627006a0eb3c9dde665140390fc7"
+                "reference": "1cd94da9f134cc15fbef701aeb7349c4a50ebbbe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/d2b53099f06a627006a0eb3c9dde665140390fc7",
-                "reference": "d2b53099f06a627006a0eb3c9dde665140390fc7",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/1cd94da9f134cc15fbef701aeb7349c4a50ebbbe",
+                "reference": "1cd94da9f134cc15fbef701aeb7349c4a50ebbbe",
                 "shasum": ""
             },
             "conflict": {
@@ -9441,7 +9589,7 @@
                 "friendsofsymfony1/symfony1": ">=1.1,<1.5.19",
                 "friendsoftypo3/mediace": ">=7.6.2,<7.6.5",
                 "friendsoftypo3/openid": ">=4.5,<4.5.31|>=4.7,<4.7.16|>=6,<6.0.11|>=6.1,<6.1.6",
-                "froala/wysiwyg-editor": "<3.2.7|>=4.0.1,<=4.1.1",
+                "froala/wysiwyg-editor": "<3.2.7|>=4.0.1,<=4.1.3",
                 "froxlor/froxlor": "<=2.1.1",
                 "fuel/core": "<1.8.1",
                 "funadmin/funadmin": "<=3.2|>=3.3.2,<=3.3.3",
@@ -9984,7 +10132,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-03-22T21:04:47+00:00"
+            "time": "2024-03-25T13:04:38+00:00"
         },
         {
             "name": "sebastian/cli-parser",
@@ -11388,10 +11536,14 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "bernardhanna/gravityforms": 20,
+        "bernardhanna/woocommerce-gravityforms-product-addons": 20,
+        "bernardhanna/mailpoet-premium": 20,
+        "bernardhanna/gravity-forms-chained-selects-add-on": 20,
         "bernardhanna/iconic-woo-delivery-slots": 20,
         "bernardhanna/mt-future-orders": 20,
         "bernardhanna/mt-memotech-fixes": 20,
         "bernardhanna/mt-woo-sales-by-country-reports": 20,
+        "bernardhanna/product-configurator": 20,
         "bernardhanna/updraftplus": 20,
         "bernardhanna/woo-product-bundle-premium": 20,
         "bernardhanna/woocommerce-customer-order-csv-export": 20,

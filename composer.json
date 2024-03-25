@@ -38,36 +38,6 @@
             ]
         },
         {
-            "type": "package",
-            "package": {
-                "name": "junaidbhura/wp-all-import-pro",
-                "version": "4.8.6",
-                "type": "wordpress-plugin",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://www.wpallimport.com/"
-                },
-                "require": {
-                    "junaidbhura/composer-wp-pro-plugins": "*"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "junaidbhura/wp-all-export-pro",
-                "version": "1.8.8",
-                "type": "wordpress-plugin",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://www.wpallimport.com/"
-                },
-                "require": {
-                    "junaidbhura/composer-wp-pro-plugins": "*"
-                }
-            }
-        },
-        {
             "type": "composer",
             "url": "https://connect.advancedcustomfields.com"
         },
@@ -86,6 +56,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/ibericode/html-forms.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/bernardhanna/mailpoet-premium.git"
         },
         {
             "type": "vcs",
@@ -117,11 +91,49 @@
         },
         {
             "type": "vcs",
+            "url": "https://github.com/bernardhanna/woocommerce-gravityforms-product-addons.git"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/bernardhanna/woocommerce-shipping-local-pickup-plus.git"
         },
         {
             "type": "vcs",
+            "url": "https://github.com/bernardhanna/product-configurator"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/bernardhanna/updraftplus.git"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "junaidbhura/wp-all-import-pro",
+                "version": "4.8.6",
+                "type": "wordpress-plugin",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://www.wpallimport.com/"
+                },
+                "require": {
+                    "junaidbhura/composer-wp-pro-plugins": "*"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "junaidbhura/wp-all-export-pro",
+                "version": "1.8.8",
+                "type": "wordpress-plugin",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://www.wpallimport.com/"
+                },
+                "require": {
+                    "junaidbhura/composer-wp-pro-plugins": "*"
+                }
+            }
         }
     ],
     "autoload": {
@@ -137,11 +149,14 @@
     "require": {
         "php": ">=8.0",
         "bernardhanna/gravityforms": "dev-main",
+        "bernardhanna/woocommerce-gravityforms-product-addons": "dev-main",
+        "bernardhanna/mailpoet-premium": "dev-main",
         "bernardhanna/gravity-forms-chained-selects-add-on": "dev-main",
         "bernardhanna/iconic-woo-delivery-slots": "dev-main",
         "bernardhanna/mt-future-orders": "dev-main",
         "bernardhanna/mt-memotech-fixes": "dev-main",
         "bernardhanna/mt-woo-sales-by-country-reports": "dev-main",
+        "bernardhanna/product-configurator": "dev-main",
         "bernardhanna/updraftplus": "dev-main",
         "bernardhanna/woo-product-bundle-premium": "dev-main",
         "bernardhanna/woocommerce-customer-order-csv-export": "dev-main",
