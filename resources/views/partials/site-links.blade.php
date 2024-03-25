@@ -23,7 +23,7 @@ if (is_page_template('templates/template-locations.blade.php') ||
 }
 
     $isLocationsTemplate = is_page_template('template-locations.php');
-    $paddingClass = $isLocationsTemplate ? 'px-4' : 'px-0';
+    $paddingClass = $isLocationsTemplate ? 'px-0' : 'px-2';
 @endphp
 
 <section class="my-8 lg:max-w-max-1341 lg:mx-auto sitelinks flex flex-col {{ $paddingClass }} md:px-6 lg:p-0 {{ $hideSection }} w-full lg:grid lg:grid-rows-3 grid-flow-col gap-3">

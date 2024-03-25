@@ -627,8 +627,14 @@ nav .submenu .current_page_item {
     border: 2px solid black;
   }
 
-  .instagram-posts .swiper-button-prev::after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2717%27 height=%2717%27 viewBox=%270 0 17 17%27 fill=%27none%27%3E%3Cpath fill-rule=%27evenodd%27 clip-rule=%27evenodd%27 d=%27M5.93124 15.6548C5.66723 15.9188 5.23918 15.9188 4.97516 15.6548L4.0283 14.7079C3.76449 14.4441 3.76426 14.0165 4.02778 13.7524L9.73028 8.03741L4.02778 2.32245C3.76426 2.05836 3.76449 1.63071 4.0283 1.3669L4.97517 0.420034C5.23918 0.156022 5.66723 0.156022 5.93124 0.420034L13.5486 8.03741L5.93124 15.6548Z%27 fill=%27black%27/%3E%3C/svg%3E")!important;
+  .instagram-posts .swiper-button-next::after {
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 1.5rem;
+    height: 1.5rem;
+    vertical-align: -0.125em;
+    background-image: none !important;
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23000' d='M10.707 17.707L16.414 12l-5.707-5.707l-1.414 1.414L13.586 12l-4.293 4.293z'/%3E%3C/svg%3E") !important;
   }
 }
 
