@@ -73,7 +73,7 @@
                                         </div>
                                     </div>
                                     <div x-show="showAllergens"
-                                        class="p-4 rounded-tl-lg z-40 allergen-info absolute top-4 right-4 bg-white text-black lg:w-[220px] -m-[10px]">
+                                        class="p-4 rounded-tl-lg z-40 allergen-info absolute top-4 right-4 bg-white text-black w-[220px] -m-[10px]">
                                         <span
                                             class="text-black-full text-sm-font font-reg420">{{ __('Ingredients', 'rolling-donut') }}</span>
                                         <div class="w-full mt-4">
