@@ -10,7 +10,7 @@ $product_allergens = get_field('product_allergens', $product->get_id());
     ?>
      <?php if (!empty($product_allergens)):  // Only show if allergens are selected ?>
      <div class="absolute top-4 right-4 cursor-pointer z-50 " @click="showAllergens = !showAllergens">
-        <div class="z-50" x-show="!showAllergens">
+        <div class="z-50" x-cloak x-show="!showAllergens">
             <span class="sr-only"><?php _e('info icon', 'rolling-donut'); ?></span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="31" height="30" viewBox="0 0 31 30" fill="none">
                     <circle cx="15.678" cy="14.8499" r="14.721" fill="black"/>
@@ -20,7 +20,7 @@ $product_allergens = get_field('product_allergens', $product->get_id());
                     <path d="M15.6777 10.3906H15.6889" stroke="white" stroke-width="2.67654" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-            <div x-show="showAllergens" class="z-50 relative rounded-t-lg top-1.5 right-1.5">
+            <div x-cloak  x-show="showAllergens" class="z-50 relative rounded-t-lg top-1.5 right-1.5">
                 <span class="sr-only"><?php _e('close', 'rolling-donut'); ?></span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="23" height="22" viewBox="0 0 23 22" fill="none">
                 <rect x="1.5" y="1" width="20" height="20" rx="10" fill="black"/>
@@ -31,7 +31,7 @@ $product_allergens = get_field('product_allergens', $product->get_id());
                 </svg>
             </div>
         </div>
-        <div x-show="showAllergens" class="p-4 rounded-tl-lg z-40 allergen-info absolute top-4 right-4 bg-white text-black lg:w-[220px] -m-[10px]">
+        <div x-cloak x-show="showAllergens" class="p-4 rounded-tl-lg z-40 allergen-info absolute top-4 right-4 bg-white text-black lg:w-[220px] -m-[10px]">
         <span class="text-black-full text-sm-font font-reg420"><?php _e('Ingredients', 'rolling-donut'); ?></span>
             <div class="w-full mt-4">
                     <div class="w-full flex flex-wrap flex-row">
