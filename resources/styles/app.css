@@ -1774,6 +1774,10 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     display: flex;
 }
 
+.dgwt-wcas-search-form {
+    background: transparent !important;
+}
+
 @media (width <= 768px) {
   .dgwt-wcas-style-pirx .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input {
     background-color: black;
@@ -1823,6 +1827,7 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
 
 .dgwt-wcas-search-wrapp {
     max-width: 1182px;
+     background: transparent;
 }
 
 .dgwt-wcas-style-pirx .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input:hover {
@@ -1851,6 +1856,16 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
 @media (width <= 768px) {
     .search-bar-container {
         background-image: var(--mobile-bg-image);
+    }
+
+    .dgwt-wcas-style-pirx .dgwt-wcas-sf-wrapper {
+        background-color: transparent!important;
+    }
+
+    .dgwt-wcas-search-wrapp .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input {
+       background-color: transparent!important;
+        color: white!important;
+      border-color: white!important;
     }
 }
 
