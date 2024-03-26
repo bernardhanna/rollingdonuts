@@ -21,8 +21,8 @@ Template Name: Merch Orders
     @endphp
     @include('woocommerce.custom.woocommerce-header')
 
-    <div class="bg-cover bg-no-repeat py-8 md:py-24 h-full" style="{{ $shop_bg_url ? 'background-image: url(' . $shop_bg_url . ');' : '' }}">
-        <div class="mx-auto px-4 pb-20 lg:max-w-max-1485">
+    <div class="bg-cover bg-no-repeat" style="{{ $shop_bg_url ? 'background-image: url(' . $shop_bg_url . ');' : '' }}">
+        <div class="mx-auto px-2 mobile:px-4 pt-7 pb-20 lg:max-w-max-1485">
             <ul class="filter products columns-3 flex flex-row flex-wrap w-full">
                 @php
                     // Fetch all products of type 'Merch'
@@ -71,7 +71,6 @@ Template Name: Merch Orders
             do_action('get_footer', 'shop');
         @endphp
     </div>
-</div>
 @endsection
 
 <script>
