@@ -58,26 +58,7 @@ $image_id_mobile = get_field('woo_mobile_bg', 'option', false);
             </div>
             <div class="relative flex items-center justify-between mobile:pt-8 px-2 mobile:px-4 desktop:p-0 desktop:pt-6">
                 <div x-data="{ content: 'Dynamic content based on conditions' }" class="text-container relative inline-block width-fit-content px-4 desktop:p-0">
-                    <h1 :class="{
-                        'text-mob-xxl-font lg:text-lg-font xl:text-lg-font xxl:text-xxxl-font': content.length <= 20,
-                        'insta-flow:text-xxl-font': content.length > 20 && content.length <= 154,
-                        'xxl:text-xl-font': content.length > 20 && content.length <= 254,
-                        'macbook:text-lg-font': content.length > 20 && content.length <= 354,
-                        'xl:text-1lg-font': content.length > 20 && content.length <= 454,
-                        'laptop:text-lg-font': content.length > 20 && content.length <= 554,
-                        'notebook:text-1lg-font': content.length > 20 && content.length <= 654,
-                        'lg:text-md-font': content.length > 20 && content.length <= 754,
-                        'tablet-sm:text-md-font': content.length > 20 && content.length <= 854,
-                        'md:text-md-font': content.length > 20 && content.length <= 954,
-                        'sm:text-md-font': content.length > 20 && content.length <= 1054,
-                        'mobile:text-sm-md-font': content.length > 20 && content.length <= 1154,
-                        'sm-mob:textsm-md-font': content.length > 20 && content.length <= 1254,
-                        'small:text-base-font': content.length > 20 && content.length <= 1354,
-                        'xs:sm-base-font': content.length > 20 && content.length <= 1354,
-                        'xxxs:text-tiny': content.length > 20 && content.length <= 1454,
-                    }" class="z-10 relative left-0 text-white font-reg420" x-text="activeTab === 'register' ? 'Register' : isAccountPage && !isLoggedIn ? 'Sign In' : isTemplateBoxProducts ? 'Choose Your Own' : isProductArchive ? 'Our Donuts' : pageTitle">
-                        <!-- Dynamic content will be inserted here based on x-text directive -->
-                    </h1>
+                       <h1 :class="pageTitle.length > 15 ? 'xxxs:text-tiny xs:text-base-font sm-mob:text-sm-font mobile:text-md-font sm:text-lg-font md:text-lg-font lg:text-lg-font xl:text-lg-font xxl:text-xxl-font' : 'text-mob-xxl-font lg:text-lg-font xl:text-lg-font xxl:text-xxxl-font'"class="z-10 relative left-0 text-white font-reg420 text-mob-lg-font lg:text-lg-font xl:text-lg-font xxl:text-xxl-font' : 'text-mob-xxl-font lg:text-lg-font xl:text-lg-font xxl:text-xxxl-font" x-text="activeTab === 'register' ? 'Register' : isAccountPage && !isLoggedIn ? 'Sign In' : isTemplateBoxProducts ? 'Choose Your Own' : isProductArchive ? 'Our Donuts' : pageTitle"></h1>
                 </div>
                 @if(is_page_template('templates/template-box-products.blade.php') || is_page_template('templates/template-merch-products.blade.php'))
                 @include('components.filter')
