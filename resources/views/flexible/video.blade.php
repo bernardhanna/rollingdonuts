@@ -25,9 +25,11 @@ $youtube_video_id = get_sub_field('youtube_video_id');
 @endphp
 
 <section class="py-8 flexi-video relative w-full px-4 m-auto flex flex-col items-center gap-10 rounded-video">
-    <div class="relative w-full max-w-max-1359 h-[290px] lg:h-[600px] rounded-video drop-shadow_one">
-<img class="video-thumbnail w-full h-full object-cover rounded-video" src="{{ $image_url_default }}" srcset="{{ $srcset_attribute }}" sizes="(max-width: 1360px) 100vw, 1360px" alt="{{ $video_title }}">
-        <div class="play-button absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120px] h-[120px] bg-[url('https://rollingdonut.matrix-test.com/dist/images/play-logo.16078c.svg')] bg-no-repeat bg-center cursor-pointer"></div>
+    <div x-data="{ videoPlaying: false }" class="relative w-full max-w-max-1359">
+        <div class="aspect-ratio-16/9 relative w-full h-0 pb-[56.25%] rounded-video overflow-hidden drop-shadow_one">
+            <img x-show="!videoPlaying" class="video-thumbnail absolute top-0 left-0 w-full h-full object-cover rounded-video" src="{{ $image_url_default }}" alt="{{ $video_title }}" style="display: block;">
+            <div @click="videoPlaying = true" x-show="!videoPlaying" class="play-button absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120px] h-[120px] bg-[url('/images/play-logo.svg')] bg-no-repeat bg-center cursor-pointer"></div>
+            <iframe x-show="videoPlaying" class="absolute top-0 left-0 w-full h-full rounded-video" src="https://www.youtube-nocookie.com/embed/{{ $youtube_video_id }}?autoplay=1&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display: none;"></iframe>
+        </div>
     </div>
-    <iframe id="video-player" class="w-full rounded-video max-w-max-1359 h-[290px] lg:h-[600px] hidden absolute " src="https://www.youtube-nocookie.com/embed/{{ $youtube_video_id }}?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </section>
