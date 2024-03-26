@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @Author: Bernard Hanna
  * @Date:   2023-10-10 12:12:16
@@ -22,10 +23,8 @@
  * @version     3.3.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+if (!defined('ABSPATH')) {
+    exit;
 }
 ?>
-<ul x-data="{ justifyStyle: 'between' }"
-    x-init="justifyStyle = window.innerWidth > 1084 && $el.querySelectorAll('li').length < 3 ? 'start' : 'between'"
-    :class="`justify-${justifyStyle} flex flex-wrap  flex-row gap-4 lg:gap-6 desktop:px-0 lg:px-4 px-2`">
+<ul x-data="{ justifyStyle: 'between' }" x-cloak x-init="justifyStyle = window.innerWidth > 1084 && $el.querySelectorAll('li').length < 3 ? 'start' : 'between'" :class="`justify-${justifyStyle} flex flex-wrap  flex-row gap-4 lg:gap-6 desktop:px-0 lg:px-4 px-2`">
