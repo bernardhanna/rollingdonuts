@@ -71,7 +71,7 @@ $rd_product_type = get_rd_product_type($product->get_id());
     <?php endif; ?>
     <a class="relative w-full max-md:rounded-t-lg" href="<?php the_permalink(); ?>" x-data="{ isHovered: false }">
         <div class="max-md:hidden absolute inset-0 light-black-gradient opacity-50 z-10 md:h-[386px] rounded-sm-10"></div>
-        <?php echo woocommerce_get_product_thumbnail('medium', array('class' => 'w-full h-max-max-125 md:max-h-full object-cover h-[200px] md:h-[386px] md:border-2 md:border-solid md:border-black md:rounded-sm-8 m-0')); ?>
+        <?php echo woocommerce_get_product_thumbnail('medium', array('class' => 'border-top-eight max-md:rounded-t-lg w-full h-max-max-125 md:max-h-full object-cover h-[200px] md:h-[386px] md:border-2 md:border-solid md:border-black md:rounded-sm-8 m-0')); ?>
         <div id="productContentOne" class="absolute top-0 left-0 h-auto md:h-[386px] z-10 p-4 w-full" @mouseenter="isHovered = windowWidth >= 768" @mouseleave="isHovered = false" x-transition.duration.500ms>
             <div class="h-full w-full flex flex-col justify-end">
                 <h4 class="hidden md:block text-white text-md-font font-reg420 font-edmondsans">

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @Author: Bernard Hanna
  * @Date:   2023-10-10 12:26:57
@@ -22,56 +23,57 @@
  * @version 3.3.1
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+if (!defined('ABSPATH')) {
+    exit;
 }
 
-$total   = isset( $total ) ? $total : wc_get_loop_prop( 'total_pages' );
-$current = isset( $current ) ? $current : wc_get_loop_prop( 'current_page' );
-$base    = isset( $base ) ? $base : esc_url_raw( str_replace( 999999999, '%#%', remove_query_arg( 'add-to-cart', get_pagenum_link( 999999999, false ) ) ) );
-$format  = isset( $format ) ? $format : '';
+$total   = isset($total) ? $total : wc_get_loop_prop('total_pages');
+$current = isset($current) ? $current : wc_get_loop_prop('current_page');
+$base    = isset($base) ? $base : esc_url_raw(str_replace(999999999, '%#%', remove_query_arg('add-to-cart', get_pagenum_link(999999999, false))));
+$format  = isset($format) ? $format : '';
 
-if ( $total <= 1 ) {
-	return;
+if ($total <= 1) {
+    return;
 }
 ?>
 <nav aria-label="Page navigation example">
     <?php
-$paginate_links =  paginate_links(
-    apply_filters( 'woocommerce_pagination_args',
-        array(
-            'base'         => $base,
-            'format'       => $format,
-            'add_args'     => false,
-            'current'      => max( 1, $current ),
-            'total'        => $total,
-            'prev_text'    => '<span class="pagination-prev"><i class="fa-solid fa-chevron-left text-xxs-font text-grey-subdued mr-2"></i> Prev</span>',
-            'next_text'    => '<span class="pagination-next">Next <i class="ml-2 fa-solid fa-chevron-right text-xxs-font text-grey-subdued"></i></span>',
-            'type'         => 'array',
-            'end_size'     => 3,
-            'mid_size'     => 3,
+    $paginate_links =  paginate_links(
+        apply_filters(
+            'woocommerce_pagination_args',
+            array(
+                'base'         => $base,
+                'format'       => $format,
+                'add_args'     => false,
+                'current'      => max(1, $current),
+                'total'        => $total,
+                'prev_text'    => '<span class="pagination-prev"><i class="fa-solid fa-chevron-left text-xxs-font text-grey-subdued mr-2"></i> Prev</span>',
+                'next_text'    => '<span class="pagination-next">Next <i class="ml-2 fa-solid fa-chevron-right text-xxs-font text-grey-subdued"></i></span>',
+                'type'         => 'array',
+                'end_size'     => 3,
+                'mid_size'     => 3,
+            )
         )
-    )
-);
+    );
 
 
-    if ( is_array( $paginate_links ) ) {
+    if (is_array($paginate_links)) {
     ?>
-        <ul class="pagination flex justify-center items-center w-full flex-row">
-        <?php
-        foreach ($paginate_links as $paginate_link) {
-        ?>
+        <ul class="pagination flex justify-center items-center w-full flex-row py-20 tablet-sm:py-10">
+            <?php
+            foreach ($paginate_links as $paginate_link) {
+            ?>
 
-            <li class="page-item">
-                <?php
-                $paginate_link = str_replace( 'page-numbers', 'page-link', $paginate_link );
-                echo wp_kses_post($paginate_link)
-                ?>
-            </li>
+                <li class="page-item">
+                    <?php
+                    $paginate_link = str_replace('page-numbers', 'page-link', $paginate_link);
+                    echo wp_kses_post($paginate_link)
+                    ?>
+                </li>
 
-        <?php
-        }
-        ?>
+            <?php
+            }
+            ?>
         </ul>
     <?php
     }

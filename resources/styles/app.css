@@ -1635,6 +1635,11 @@ nav .submenu .current_page_item {
 }
 
 @media (width <= 993px) {
+   .border-top-eight {
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+  }
+
   .button-dashes {
     position: relative;
   }
