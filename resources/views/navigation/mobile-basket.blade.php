@@ -3,7 +3,7 @@ $hideOnPages = is_account_page() || is_checkout();
 $cartItemCount = WC()->cart->get_cart_contents_count();
 @endphp
 
-<div x-data="{ atBottom: false, hideOnPages: @js($hideOnPages), itemCount: @js($cartItemCount) }" x-init="window.addEventListener('scroll', () => {
+<div x-cloak x-data="{ atBottom: false, hideOnPages: @js($hideOnPages), itemCount: @js($cartItemCount) }" x-init="window.addEventListener('scroll', () => {
          let scrollPosition = window.scrollY + window.innerHeight;
          let footerTop = document.body.scrollHeight - document.querySelector('.footer').offsetHeight;
          atBottom = scrollPosition >= footerTop;
