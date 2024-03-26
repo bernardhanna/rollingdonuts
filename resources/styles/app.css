@@ -1798,7 +1798,7 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
   }
 
   .dgwt-wcas-search-wrapp.dgwt-wcas-has-submit.woocommerce.dgwt-wcas-style-pirx.js-dgwt-wcas-layout-classic.dgwt-wcas-layout-classic.js-dgwt-wcas-mobile-overlay-disabled.dgwt-wcas-active .dgwt-wcas-search-submit svg path {
-    fill: #000;
+    fill: #fff;
   }
 
 }
@@ -1858,9 +1858,9 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
         background-image: var(--mobile-bg-image);
     }
 
-    .dgwt-wcas-style-pirx .dgwt-wcas-sf-wrapper {
-        background-color: transparent!important;
-    }
+    .dgwt-wcas-style-pirx .dgwt-wcas-sf-wrapp {
+    background-color: transparent !important;
+  }
 
     .dgwt-wcas-search-wrapp .dgwt-wcas-sf-wrapp input[type="search"].dgwt-wcas-search-input {
        background-color: transparent!important;
