@@ -39,7 +39,7 @@ if (post_password_required()) {
     return;
 }
 ?>
-<div id="product-<?php the_ID(); ?>" <?php wc_product_class('max-w-max-1370 mx-auto flex flex-col md:flex-row lg:justify-between', $product); ?>>
+<div id="product-<?php the_ID(); ?>" <?php wc_product_class('max-w-max-1370 mx-auto flex flex-col md:flex-row lg:justify-between mb-20', $product); ?>>
 
     <?php
     /**
