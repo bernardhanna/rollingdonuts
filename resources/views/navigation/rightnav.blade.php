@@ -12,7 +12,7 @@
     @endphp
     @foreach ($navigation_right as $item)
         @if ($counter < 4)
-<li x-data="{ open: false }" class="lg:pl-2 laptop:pl-6 one-xl:pl-12 relative group" role="none">
+<li x-data="{ open: false }" class="lg:pl-2 laptop:pl-12 one-xl:pl-12 relative group" role="none">
                 <div @mouseenter="open = true" @mouseleave="open = false">
                     <a class="text-reg-font font-reg420 text-black-full whitespace-nowrap flex items-center hover:underline {{ $item->classes ?? '' }}"
                         href="{{ $item->url }}" role="menuitem" aria-haspopup="{{ $item->children ? 'true' : 'false' }}">

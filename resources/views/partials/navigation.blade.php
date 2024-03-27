@@ -12,15 +12,15 @@
         $currentUserId = get_current_user_id();
         $isUserLoggedIn = !empty($currentUserId);
     }
-                       $main_logo_id = attachment_url_to_postid(get_field('main_logo', 'option'));
-                            $main_alt_text = get_post_meta($main_logo_id, '_wp_attachment_image_alt', true);
-                    $mobile_logo_id = attachment_url_to_postid(get_field('mobile_logo', 'option'));
-                            $mobile_alt_text = get_post_meta($mobile_logo_id, '_wp_attachment_image_alt', true);
-                    $mobile_logo_open_id = attachment_url_to_postid(get_field('mobile_logo_open', 'option'));
-                            $mobile_logo_open_alt_text = get_post_meta($mobile_logo_open_id, '_wp_attachment_image_alt', true);
+    $main_logo_id = attachment_url_to_postid(get_field('main_logo', 'option'));
+    $main_alt_text = get_post_meta($main_logo_id, '_wp_attachment_image_alt', true);
+    $mobile_logo_id = attachment_url_to_postid(get_field('mobile_logo', 'option'));
+    $mobile_alt_text = get_post_meta($mobile_logo_id, '_wp_attachment_image_alt', true);
+    $mobile_logo_open_id = attachment_url_to_postid(get_field('mobile_logo_open', 'option'));
+    $mobile_logo_open_alt_text = get_post_meta($mobile_logo_open_id, '_wp_attachment_image_alt', true);
 @endphp
 <div x-data="{ open: false }" class="relative">
-    <section class="navbar max-lg:py-4  h-auto xl:h-nav max-lg:flex max-lg:items-center">
+    <section class="navbar max-lg:py-4 h-auto xl:h-nav max-lg:flex max-lg:items-center">
         <div class="mx-auto w-full max-w-sitewidth relative">
             @if (!is_cart() && !is_checkout())
                 @include('navigation.topnav')
@@ -48,8 +48,8 @@
                 </div>
 
                 <a class="cursor-pointer nav-center flex justify-center items-center z-100 w-1/3 lg:w-1/6 lg:relative lg:bottom-4 hide-md" href="{{ home_url('/') }}">
-                    <img class="logo desktop-logo relative laptop:-left-4 -t-0-3" src="{{ get_field('main_logo', 'option') }}" alt="{{ $main_alt_text }}">
-                        <img x-cloak x-show="!open" class="logo mobile-logo" src="{{ get_field('mobile_logo', 'option') }}" alt="{{ $mobile_alt_text }}">
+                    <img class="logo desktop-logo relative xxl:-left-4 -t-0-3" src="{{ get_field('main_logo', 'option') }}" alt="{{ $main_alt_text }}">
+                    <img x-cloak x-show="!open" class="logo mobile-logo" src="{{ get_field('mobile_logo', 'option') }}" alt="{{ $mobile_alt_text }}">
                     <img x-cloak x-show="open" class="logo mobile-logo z-100" src="{{ get_field('mobile_logo_open', 'option') }}" alt="{{ $mobile_logo_open_alt_text }}">
                 </a>
 
@@ -58,7 +58,7 @@
                     @if (!is_cart() && !is_checkout())
                         @include('navigation.mobile-right')
                         @include('navigation.rightnav')
-                          @include('navigation.combinednav')
+                        @include('navigation.combinednav')
                     @endif
                 </div>
             </nav>

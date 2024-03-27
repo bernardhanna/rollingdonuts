@@ -6,7 +6,10 @@
  * @Last Modified by:   Bernard Hanna
  * @Last Modified time: 2023-10-05 11:57:56
  */
-?>
+$bestsellersList = get_field('product');
+
+// Check if there are any products
+if (!empty($bestsellersList)): ?>
 <section class="bestsellers-slider relative bg-repeat"
     @if (get_field('bg_image')) style="background-image: url('{{ get_field('bg_image')['url'] }}');" @endif>
     <div class="overlay">
@@ -174,3 +177,4 @@
         </div>
     </div>
 </section>
+<?php endif; ?>
