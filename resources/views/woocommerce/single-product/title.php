@@ -17,4 +17,4 @@
 
 defined('ABSPATH') || exit;
 
-the_title('<h2 class="text-lg-font desktop:text-xxxl-font macbook:text-xxl-font laptop:text-xl-font font-bold entry-titles py-8">', '</h2>');
+the_title('<h2 class="text-lg-font desktop:text-xxxl-font macbook:text-xxl-font laptop:text-xl-font font-bold entry-titles py-8 leading-none">', '</h2>');

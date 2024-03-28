@@ -545,9 +545,34 @@ function filter_products_by_rd_product_type($query)
         $query->set('tax_query', $tax_query);
     }
 }
-//Change order  of Product desc and excerpt
 
+add_action('woocommerce_single_product_summary', 'display_allergens_below_product_summary', 25);
 
+function display_allergens_below_product_summary()
+{
+    global $post;
+    // Get the ACF field for allergens related to the product
+    $allergens = get_field('product_allergens', $post->ID);
+
+    // Check if there are any allergens set for the product
+    if ($allergens) {
+        echo '<div class="product-allergens w-1/2 pb-8"><span class="allergens-title text-base-font font-medium text-black-full">Allergens:</span><ul class="allergens-list py-4 flex wrap flex-row justify-between">';
+
+        // Loop through each allergen and display it
+        foreach ($allergens as $allergen) {
+            $allergen_name = get_the_title($allergen->ID); // Get the title of the allergen post
+            $allergen_thumbnail = get_the_post_thumbnail_url($allergen->ID, 'thumbnail'); // Get the thumbnail for the allergen
+
+            echo '<li class="allergen-item flex flex-col justify-between items-center">';
+            if ($allergen_thumbnail) {
+                echo '<img src="' . esc_url($allergen_thumbnail) . '" alt="' . esc_attr($allergen_name) . '" class="allergen-thumbnail">';
+            }
+            echo '<span class="allergen-name">' . esc_html($allergen_name) . '</span></li>';
+        }
+
+        echo '</ul></div>';
+    }
+}
 /*
  ****************************************************************
  * PRODUCT ATTRIBUTES
