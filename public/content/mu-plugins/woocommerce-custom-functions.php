@@ -573,6 +573,14 @@ function display_allergens_below_product_summary()
         echo '</ul></div>';
     }
 }
+
+//Remove shoprt description product page
+add_action('init', 'remove_short_description_from_single_product_page');
+
+function remove_short_description_from_single_product_page()
+{
+    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+}
 /*
  ****************************************************************
  * PRODUCT ATTRIBUTES
