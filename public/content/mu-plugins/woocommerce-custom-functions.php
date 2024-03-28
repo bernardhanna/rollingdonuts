@@ -545,6 +545,9 @@ function filter_products_by_rd_product_type($query)
         $query->set('tax_query', $tax_query);
     }
 }
+//Change order  of Product desc and excerpt
+
+
 /*
  ****************************************************************
  * PRODUCT ATTRIBUTES
