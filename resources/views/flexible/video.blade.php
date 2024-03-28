@@ -2,24 +2,6 @@
 $video_thumbnail = get_sub_field('video_thumbnail');
 $image_id = $video_thumbnail ? $video_thumbnail['ID'] : null;
 $video_title = get_sub_field('video_title');
-$sizes = [
-    'thumbnail' => '150w',
-    'medium' => '300w',
-    'large' => '1024w',
-    'full' => 'full',
-];
-$srcset = [];
-
-if ($image_id) {
-    foreach ($sizes as $size => $width) {
-        $image_url = wp_get_attachment_image_url($image_id, $size);
-        if ($image_url) {
-            $srcset[] = "{$image_url} {$width}";
-        }
-    }
-}
-
-$srcset_attribute = implode(', ', $srcset);
 $image_url_default = $image_id ? wp_get_attachment_image_url($image_id, 'full') : '';
 $youtube_video_id = get_sub_field('youtube_video_id');
 @endphp
@@ -33,4 +15,3 @@ $youtube_video_id = get_sub_field('youtube_video_id');
         </div>
     </div>
 </section>
-
