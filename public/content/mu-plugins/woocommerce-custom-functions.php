@@ -556,14 +556,14 @@ function display_allergens_below_product_summary()
 
     // Check if there are any allergens set for the product
     if ($allergens) {
-        echo '<div class="product-allergens w-1/2 pb-8"><span class="allergens-title text-base-font font-medium text-black-full">Allergens:</span><ul class="allergens-list py-4 flex wrap flex-row justify-between">';
+        echo '<div class="product-allergens w-1/2 pb-8"><span class="allergens-title text-base-font font-medium text-black-full">Allergens:</span><ul class="allergens-list py-4 flex wrap flex-row justify-start">';
 
         // Loop through each allergen and display it
         foreach ($allergens as $allergen) {
             $allergen_name = get_the_title($allergen->ID); // Get the title of the allergen post
             $allergen_thumbnail = get_the_post_thumbnail_url($allergen->ID, 'thumbnail'); // Get the thumbnail for the allergen
 
-            echo '<li class="allergen-item flex flex-col justify-between items-center">';
+            echo '<li class="allergen-item flex flex-col justify-between items-center pr-4">';
             if ($allergen_thumbnail) {
                 echo '<img src="' . esc_url($allergen_thumbnail) . '" alt="' . esc_attr($allergen_name) . '" class="allergen-thumbnail">';
             }
