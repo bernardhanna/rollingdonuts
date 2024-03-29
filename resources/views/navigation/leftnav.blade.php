@@ -14,7 +14,7 @@
         @if ($counter < 3)
 <li x-data="{ open: false }" class="lg:p-2 laptop:pr-10 one-xl:pr-12 relative group" role="none">
                 <div @mouseenter="open = true" @mouseleave="open = false">
-                    <a class="text-reg-font font-reg420 text-black-full whitespace-nowrap flex items-center hover:underline {{ (home_url($_SERVER['REQUEST_URI']) == $item->url) ? 'active' : '' }}"
+                    <a @if($item->target === '_blank') target="_blank" @endif class="text-reg-font font-reg420 text-black-full whitespace-nowrap flex items-center hover:underline {{ (home_url($_SERVER['REQUEST_URI']) == $item->url) ? 'active' : '' }}"
                         href="{{ $item->url }}" role="menuitem" aria-haspopup="{{ $item->children ? 'true' : 'false' }}" aria-expanded="false">
                         {{ $item->label }}
                         @if ($item->children)
@@ -27,7 +27,7 @@
                     @if ($item->children)
                     <div x-cloak x-show.transition.opacity="open" class="submenu absolute flex flex-col left-0 mt-0 bg-white pt-2 z-50 w-[200px]" role="menu">
                         @foreach ($item->children as $child)
-                                <a class="{{ !$loop->first ? 'border-t border-black' : '' }} {{ !$loop->last ? 'border-b border-black' : '' }} py-4 px-4 w-full text-reg-font font-reg420 text-black-full {{ $child->classes ?? '' }}  hover:bg-yellow-primary hover:text-black-full {{ $child->classes ?? '' }}" href="{{ $child->url }}" role="menuitem">
+                                <a @if($item->target === '_blank') target="_blank" @endif  class="{{ !$loop->first ? 'border-t border-black' : '' }} {{ !$loop->last ? 'border-b border-black' : '' }} py-4 px-4 w-full text-reg-font font-reg420 text-black-full {{ $child->classes ?? '' }}  hover:bg-yellow-primary hover:text-black-full {{ $child->classes ?? '' }}" href="{{ $child->url }}" role="menuitem">
                                     {{ $child->label }}
                                 </a>
                         @endforeach
