@@ -14,7 +14,7 @@
         @if ($counter < 4)
 <li x-data="{ open: false }" class="lg:pl-2 laptop:pl-12 one-xl:pl-12 relative group" role="none">
                 <div @mouseenter="open = true" @mouseleave="open = false">
-                    <a class="text-reg-font font-reg420 text-black-full whitespace-nowrap flex items-center hover:underline {{ $item->classes ?? '' }}"
+                    <a @if($item->target === '_blank') target="_blank" @endif class="text-reg-font font-reg420 text-black-full whitespace-nowrap flex items-center hover:underline {{ $item->classes ?? '' }}"
                         href="{{ $item->url }}" role="menuitem" aria-haspopup="{{ $item->children ? 'true' : 'false' }}">
                         {{ $item->label }}
                         @if ($item->children)
@@ -27,7 +27,7 @@
                     @if ($item->children)
 <div x-cloak x-show.transition.opacity="open" class="submenu flex flex-col absolute left-0 one-xl:left-10 mt-0 bg-white pt-2 z-500 w-[200px]" role="menu" aria-expanded="false">
                         @foreach ($item->children as $child)
-                        <a class="{{ !$loop->first ? 'border-t border-black' : '' }} {{ !$loop->last ? 'border-b border-black' : '' }} py-4 px-4 w-full text-reg-font font-reg420 text-black-full {{ $child->classes ?? '' }}  hover:bg-yellow-primary hover:text-black-full" href="{{ $child->url }}" role="menuitem">
+                        <a @if($item->target === '_blank') target="_blank" @endif class="{{ !$loop->first ? 'border-t border-black' : '' }} {{ !$loop->last ? 'border-b border-black' : '' }} py-4 px-4 w-full text-reg-font font-reg420 text-black-full {{ $child->classes ?? '' }}  hover:bg-yellow-primary hover:text-black-full" href="{{ $child->url }}" role="menuitem">
                             {{ $child->label }}
                         </a>
                         @endforeach
