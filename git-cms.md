@@ -19,7 +19,7 @@ cd /var/www/html
 
 git checkout main
 git add .
-git commit -m "todays changes 23"
+git commit -m "todays changes 29"
 git pull
 yarn build
 cd /var/www/
