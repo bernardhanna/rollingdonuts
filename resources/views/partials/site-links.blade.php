@@ -34,7 +34,7 @@ $site_links = get_field('site_links', 'option');
   @if($site_links && is_array($site_links))
       @foreach($site_links as $link)
           @if(isset($link['site_links']) && $link['site_links']['url'])
-              <a href="{{ esc_url($link['site_links']['url']) }}" class="flex items-center justify-between p-4 pl-4 rounded-[8px] border border-black bg-white hover:bg-yellow-primary shadow-lg text-sm-md-font font-medium boxshadow h-[75px]">
+              <a target="{{ $link['site_links']['target'] }}" href="{{ esc_url($link['site_links']['url']) }}" class="flex items-center justify-between p-4 pl-4 rounded-[8px] border border-black bg-white hover:bg-yellow-primary shadow-lg text-sm-md-font font-medium boxshadow h-[75px]">
                 {{ html_entity_decode(esc_html($link['site_links']['title'])) }}
                   <img src="https://api.iconify.design/ph:caret-right-bold.svg?width=18&height=18" alt="Icon">
               </a>

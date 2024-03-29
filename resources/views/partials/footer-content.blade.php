@@ -57,7 +57,7 @@ $footerMenuOne = get_field('footer_menu_one', 'option');
                 <div class="footer-menu">
                     <ul class="text-center lg:text-left">
                         @foreach ($footerMenuOne as $item)
-                            <li class="mb-4 text-white hover:text-yellow-primary"><a class="xs-font font-medium text-center hover:underline" href="{{ $item['footer_menu_one_link']['url'] }}">{{ $item['footer_menu_one_link']['title'] }}</a></li>
+                            <li class="mb-4 text-white hover:text-yellow-primary"><a target="{{ $link['target'] }}" class="xs-font font-medium text-center hover:underline" href="{{ $item['footer_menu_one_link']['url'] }}">{{ $item['footer_menu_one_link']['title'] }}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -77,7 +77,7 @@ $footerMenuOne = get_field('footer_menu_one', 'option');
                 <div class="footer-menu">
                     <ul class="text-center lg:text-left">
                         @foreach ($footerMenuThree as $item)
-                            <li class="mb-4 text-white hover:text-yellow-primary"><a class="xs-font font-medium text-center hover:underline" href="{{ $item['footer_menu_three_link']['url'] }}">{{ $item['footer_menu_three_link']['title'] }}</a></li>
+                            <li class="mb-4 text-white hover:text-yellow-primary"><a target="{{ $link['target'] }}" class="xs-font font-medium text-center hover:underline" href="{{ $item['footer_menu_three_link']['url'] }}">{{ $item['footer_menu_three_link']['title'] }}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -87,7 +87,7 @@ $footerMenuOne = get_field('footer_menu_one', 'option');
                 <div class="footer-menu">
                     <ul class="text-center lg:text-left">
                         @foreach ($footerMenuFour as $item)
-                            <li class="mb-4 text-white hover:text-yellow-primary"><a class="xs-font font-medium text-center hover:underline" href="{{ $item['footer_menu_four_link']['url'] }}">{{ $item['footer_menu_four_link']['title'] }}</a></li>
+                            <li class="mb-4 text-white hover:text-yellow-primary"><a target="{{ $link['target'] }}" class="xs-font font-medium text-center hover:underline" href="{{ $item['footer_menu_four_link']['url'] }}">{{ $item['footer_menu_four_link']['title'] }}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -106,7 +106,7 @@ $copyrightMenu = get_field('copyright_menu_four', 'option');
             <div class="copyright-menu">
                 <ul class="flex flex-wrap justify-center items-center text-white">
                     @foreach ($copyrightMenu as $item)
-                        <li class="pl-2 pr-2"><a class="text-white text-mob-xs-font font-lighter font-laca hover:text-yellow-primary
+                        <li class="pl-2 pr-2"><a target="{{ $link['target'] }}" class="text-white text-mob-xs-font font-lighter font-laca hover:text-yellow-primary
                              hover:underline" href="{{ $item['copyright_menu_link']['url'] }}">{{ $item['copyright_menu_link']['title'] }}</a></li>|
                     @endforeach
                 </ul>
