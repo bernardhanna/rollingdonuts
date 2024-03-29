@@ -307,13 +307,33 @@ add_action('wp_ajax_nopriv_filter_products', 'filter_products');
 // Customize the product summary on single product pages.
 function customize_single_product_summary()
 {
-    // Remove the quantity field.
-    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
+    global $product;
 
-    // Add your custom Add to Cart button with Tailwind CSS classes.
-    add_action('woocommerce_single_product_summary', 'custom_add_to_cart_button', 30);
+    // Get the product type from the product's terms
+    $terms = get_the_terms($product->get_id(), 'rd_product_type');
+    $is_donut = false;
+
+    // Check if 'donut' is in the product types
+    if (!is_wp_error($terms) && !empty($terms)) {
+        foreach ($terms as $term) {
+            if ($term->slug === 'donut') {
+                $is_donut = true;
+                break; // Exit the loop if 'donut' is found
+            }
+        }
+    }
+
+    // Apply customization only if product type is 'donut'
+    if ($is_donut) {
+        // Remove the quantity field.
+        remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
+
+        // Add your custom Add to Cart button with Tailwind CSS classes.
+        add_action('woocommerce_single_product_summary', 'custom_add_to_cart_button', 30);
+    }
 }
 add_action('woocommerce_before_single_product_summary', 'customize_single_product_summary', 1);
+
 
 function custom_add_to_cart_button()
 {
