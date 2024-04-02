@@ -1493,7 +1493,7 @@ nav .submenu .current_page_item {
   width: 100%;
 }
 
-.woosb-quantity {
+.woosb-quantity .input-text.qty.text.hasQtyButtons {
   width: 200px;
 }
 
