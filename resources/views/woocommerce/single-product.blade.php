@@ -44,7 +44,7 @@ $shop_bg_url = get_field('shop_bg', 'option');
                 @endphp
 
                 @if($product && $product->get_type() === 'woosb')
-                    @include('woocommerce.content-single-product-diy-box')
+                    @include('woocommerce.content-single-product')
                 @else
                     @include('woocommerce.content-single-product')
                 @endif
