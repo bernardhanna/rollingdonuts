@@ -75,7 +75,7 @@ $rd_product_type = get_rd_product_type($product->get_id());
         <?php echo woocommerce_get_product_thumbnail('full', array('class' => 'border-top-eight max-md:rounded-t-lg w-full h-max-max-125 md:max-h-full object-cover h-[200px] md:h-[386px] md:border-2 md:border-solid md:border-black md:rounded-sm-8 m-0')); ?>
         <div id="productContentOne" class="absolute top-0 left-0 h-auto md:h-[386px] z-10 p-4 w-full" @mouseenter="isHovered = windowWidth >= 768" @mouseleave="isHovered = false" x-transition.duration.500ms>
         <?php if(!empty($box_number)): ?>
-        <div class="z-10 hidden lg:flex left-4 top-4 absolute bg-white text-black-full font-laca text-center border-2 border-black-full p-2 border-normal rounded-normal">Box of <?php echo $box_number; ?></div>
+        <div class="z-10 flex left-4 top-4 absolute bg-white text-black-full font-laca text-center border-2 border-black-full p-2 border-normal rounded-normal">Box of <?php echo $box_number; ?></div>
         <?php endif; ?>
             <div class="h-full w-full flex flex-col justify-end">
                 <h4 class="hidden md:block text-white text-md-font font-reg420 font-edmondsans">
