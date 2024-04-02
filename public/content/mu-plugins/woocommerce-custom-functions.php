@@ -1252,7 +1252,7 @@ function iconic_restore_delivery_time_from_session()
                 }
             });
         </script>
-    <?php
+<?php
     }
 }
 add_action('woocommerce_after_checkout_form', 'iconic_restore_delivery_time_from_session');
