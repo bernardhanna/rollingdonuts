@@ -2222,19 +2222,26 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     display: flex;
     width: 100%;
     max-width: 416px;
-    height: 72px;
+    height: 54px;
+    letter-spacing: 1;
     padding: 16px 80px;
     justify-content: center;
     align-items: center;
     gap: 16px;
     border-radius: 132px;
     border: 3px solid var(--black-full, #000);
-    background: var(--yellow-main, #FFED56);
-    color: var(--black-key, #000);
+    background: var(--yellow-main, #000);
+    color: var(--black-key, #fff);
     font-size: 24px;
     font-style: normal;
-    font-weight: normal;
+    font-weight: 420;
     line-height: 40px;
+}
+
+.single_add_to_cart_button.button.alt:hover {
+    border: 3px solid var(--black-full, #000);
+    background: var(--yellow-main, #FFED56);
+    color: var(--black-key, #000);
 }
 
 .single_add_to_cart_button button.alt.woosb-disabled {
@@ -2258,7 +2265,7 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
 
 .single_add_to_cart_button.custom-woosb-button-class:hover {
     color: #000;
-    background-color: #FACF08;
+    background-color: black;
 }
 
 .woosb-disabled {
