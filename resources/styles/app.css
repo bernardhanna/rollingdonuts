@@ -2173,7 +2173,7 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     border-color: #e5e5e5;
     background: black;
     border-radius: 1.00475rem;
-    border: 2.679px solid var(--black-full, #000);
+    border: 3px solid var(--black-full, #000);
     padding: 1rem;
 }
 .woosb-products .woosb-product .woosb-title .woosb-title-inner a {
