@@ -34,7 +34,9 @@ if (!empty($bestsellersList)): ?>
                             <div class="splide__slide item flex lg:p-0" x-data="{ showAllergens: false }">
                                 @php
                                     $product_allergens = get_field('product_allergens', $product->ID);
+                                    $box_number = get_field('box_number', $product->ID); // Get the box_number value
                                 @endphp
+
 
                                 @if ($product_allergens)
                                     <div class="absolute top-6 max-sm:right-10 right-20 lg:top-6 lg:right-6 cursor-pointer z-50"
@@ -114,12 +116,14 @@ if (!empty($bestsellersList)): ?>
                                     </div>
                                     <img class="bestseller_image object-cover border-3 border-solid border-black-full rounded-sm-8 relative w-full h-[386px]"
                                         src="<?php echo get_the_post_thumbnail_url($product->ID); ?>" alt="<?php echo $product->post_title; ?>">
-
                                     <div id="productContentOne"
                                         class="z-40 h-[386px] absolute inset-0 flex flex-col items-center  lg:items-start justify-end p-4"
                                         @mouseenter="isLargeScreen && (isHovered = true)"
                                         @mouseleave="isLargeScreen && (isHovered = false)"
                                         x-transition:enter.duration.500ms.delay.50ms x-transition:leave.duration.400ms>
+                                        @if(!empty($box_number))
+                                         <div class="z-10 hidden lg:flex left-4 top-4 absolute bg-white text-black-full font-laca text-center border-2 border-black-full p-2 border-normal rounded-normal">Box of {{ $box_number }}</div>
+                                        @endif
                                         <h4 class="z-10 text-white text-sm-md-font lg:text-md-font font-regular text-center pb-0 lg:pb-6 lg:font-reg420 lg:md-font lg:text-left"
                                             x-transition.delay.150ms><?php echo $product->post_title; ?></h4>
                                         <button href="{{ get_permalink($product->ID) }}"
