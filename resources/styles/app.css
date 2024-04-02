@@ -25,6 +25,18 @@ body {
   }
 }
 
+    ::-webkit-scrollbar {
+        width: 0;  /* This will hide the scrollbar */
+    }
+
+    ::-webkit-scrollbar-track {
+        display: none;  /* Hide scrollbar track */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        display: none;  /* Hide scrollbar thumb */
+    }
+
 /*
 @media (width >= 1300px) {
   .space-top-sub {
