@@ -1493,6 +1493,10 @@ nav .submenu .current_page_item {
   width: 100%;
 }
 
+.woosb-quantity {
+  width: 200px;
+}
+
 .quantity {
   text-align: center;
   display: flex;
@@ -2158,3 +2162,33 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     border-radius: 8px;
 }
 
+.woosb-products.woosb-products-layout-list .woosb-product .woosb-thumb img, .woosb-products[class*=woosb-products-layout-grid] .woosb-product .woosb-thumb img {
+    border-radius: 100%;
+}
+
+
+.woosb-products {
+    border-width: 1px 0 0 0;
+    border-style: dotted;
+    border-color: #e5e5e5;
+    background: black;
+    border-radius: 1.00475rem;
+    border: 2.679px solid var(--black-full, #000);
+    padding: 1rem;
+}
+.woosb-products .woosb-product .woosb-title .woosb-title-inner a {
+  color: white;
+}
+
+
+.woosb-products .woosb-product .woosb-price .amount {
+    display: inline-block;
+    color: white;
+}
+
+
+.summary {
+    height: 100%;
+    overflow: scroll;
+    max-height: 757px;
+}
