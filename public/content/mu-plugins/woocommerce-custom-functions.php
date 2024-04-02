@@ -1460,3 +1460,8 @@ function get_location_details_by_id($location_id)
 
 // SMART BUNDLE IMPORT FIX
 add_filter('woosb_use_sku', '__return_true');
+/*
+ ****************************************************************
+ * BOX PRODUCTS
+ ***********************************************************\
+*/
