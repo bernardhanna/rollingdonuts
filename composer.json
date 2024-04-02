@@ -192,6 +192,7 @@
         "stoutlogic/acf-builder": "^1.12",
         "vlucas/phpdotenv": "^5.5",
         "wpackagist-plugin/ajax-search-for-woocommerce": "1.4",
+        "wpackagist-plugin/classic-editor": "^1.6",
         "wpackagist-plugin/insta-gallery": "^4.1",
         "wpackagist-plugin/mailpoet": "^4.48",
         "wpackagist-plugin/regenerate-thumbnails": "^3.1",
