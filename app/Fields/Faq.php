@@ -5,7 +5,7 @@ use Log1x\AcfComposer\Field;
 use App\Fields\Partials\Faqs;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Faq extends Field
+class Faqq extends Field
 {
     /**
      * The field group.
