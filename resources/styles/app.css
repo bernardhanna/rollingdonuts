@@ -2149,3 +2149,12 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
 .woocommerce-remove-coupon {
   color: red;
 }
+
+.woosb-products[class*="woosb-products-layout-grid"] .woosb-product {
+  border-radius: 8px;
+}
+
+.woosb-products .woosb-product .woosb-thumb img {
+    border-radius: 8px;
+}
+
