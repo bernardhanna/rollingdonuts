@@ -39,11 +39,11 @@ if ($product->is_in_stock()) : ?>
         $buttonText = $isConditionMet ? "Add Box to Basket" : "Please Meet All Criteria"; // Change text based on condition
         $disabledAttribute = $isConditionMet ? "" : "disabled"; // Disable button if condition not met
         ?>
-
-        <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" class="single_add_to_cart_button button alt<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" <?php echo $disabledAttribute; ?>>
-            <?php echo esc_html($buttonText); ?>
-        </button>
-
+        <div class="flex w-full justify-center items-center">
+            <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" class="single_add_to_cart_button button alt<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" <?php echo $disabledAttribute; ?>>
+                <?php echo esc_html($buttonText); ?>
+            </button>
+        </div>
         <?php do_action('woocommerce_after_add_to_cart_button'); ?>
     </form>
 
