@@ -1,3 +1,8 @@
+Attributes
+Delivery
+
+
+=============================
 Fix issue with 1e state
 Attributes and box items show at cart
 Merch products with different attributes should be added sepeprately
