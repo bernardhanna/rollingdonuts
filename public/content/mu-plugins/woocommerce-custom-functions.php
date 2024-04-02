@@ -1465,3 +1465,29 @@ add_filter('woosb_use_sku', '__return_true');
  * BOX PRODUCTS
  ***********************************************************\
 */
+add_action('pre_get_posts', 'exclude_private_products_for_all_users');
+
+function exclude_private_products_for_all_users($query)
+{
+    // Check if this is the main query, a product query, and on the frontend.
+    if (!is_admin() && $query->is_main_query() && (is_shop() || is_product_category() || is_product_tag())) {
+        // Get current post status query.
+        $post_status = $query->get('post_status');
+
+        // Make sure post_status is an array.
+        if (!is_array($post_status)) {
+            $post_status = ['publish'];
+        }
+
+        // Exclude 'private' status if not already excluded.
+        if (!in_array('private', $post_status, true)) {
+            // Ensure private products are excluded.
+            $post_status[] = 'private';
+            // Set the modified post_status query.
+            $query->set('post_status', $post_status);
+
+            // Exclude private products explicitly.
+            $query->set('has_password', false);
+        }
+    }
+}

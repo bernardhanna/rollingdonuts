@@ -22,6 +22,10 @@ class Product extends Partial
         $product = new FieldsBuilder('product');
 
         $product
+            ->addText('box_number', [
+                'label' => 'Number of Products in Box',
+                'instructions' => 'Enter a number to represent the quantity of products in the box.',
+            ])
             ->addColorPicker('featured_donut_bg_color', [
                 'label' => 'Featured Donut Background Color',
                 'instructions' => 'Select the background color for the featured donut.',
