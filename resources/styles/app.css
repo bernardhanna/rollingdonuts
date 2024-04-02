@@ -2224,6 +2224,17 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     max-height: 800px;
 }
 
+@media (width <= 1200px) {
+  .summary {
+      max-height: 100%;
+  }
+
+  .woosb-wrap {
+      max-height: 450px;
+      overflow: scroll;
+  }
+}
+
 .woosb-alert {
     padding: 1rem;
     border-left: 4px solid #222;
@@ -2280,6 +2291,11 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
 .single_add_to_cart_button.custom-woosb-button-class:hover {
     color: #000;
     background-color: black;
+}
+
+@media (width <= 993px) {
+  .single_add_to_cart_button.button.alt {
+   font-size: 18px;
 }
 
 .woosb-disabled {
@@ -2341,4 +2357,5 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     padding-bottom: 1rem;
   }
 
+}
 }
