@@ -51,7 +51,7 @@ if (post_password_required()) {
     do_action('woocommerce_before_single_product_summary');
     ?>
 
-    <div class="summary entry-summary w-full px-4 lg:px-0 lg:w-48 relative desktop:left-20">
+    <div class="summary entry-summary w-full px-4 tablet-sm:w-48 relative desktop:left-20">
         <?php
         /**
          * Hook: woocommerce_single_product_summary.

@@ -22,7 +22,7 @@ $wrapper_classes = apply_filters(
     )
 );
 ?>
-<div class="w-full lg:w-49 <?php echo esc_attr(implode(' ', array_map('sanitize_html_class', $wrapper_classes))); ?>" data-columns="<?php echo esc_attr($columns); ?>">
+<div class="w-full tablet-sm:w-49 <?php echo esc_attr(implode(' ', array_map('sanitize_html_class', $wrapper_classes))); ?>" data-columns="<?php echo esc_attr($columns); ?>">
     <?php if (!$exclude_featured && $post_thumbnail_id) : ?>
         <!-- Featured image -->
         <img class="main-slide-img object-cover w-full h-auto mobile:h-[520px]" src="<?= wp_get_attachment_url($post_thumbnail_id); ?>" alt="<?= get_post_meta($post_thumbnail_id, '_wp_attachment_image_alt', true); ?>">
@@ -45,7 +45,7 @@ $wrapper_classes = apply_filters(
 
         <!-- Optionally, Thumbnail slider setup -->
         <!-- Removed the condition around the thumbnail slider to always show if there are gallery images -->
-        <div class="splide max-lg:hidden" id="thumbnail-slider">
+        <div class="splide" id="thumbnail-slider">
             <div class="splide__track">
                 <div class="splide__list">
                     <?php
