@@ -82,6 +82,16 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
     .woo-selected-variation-item-name {
         display: none;
     }
+
+    .woo-variation-swatches .variable-items-wrapper {
+        padding-left: 1rem
+    }
+
+    @media (max-width: 380px) {
+        .woo-variation-swatches .variable-items-wrapper {
+            padding-left: 0px;
+        }
+    }
 </style>
 
 
@@ -97,8 +107,8 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
                 <?php foreach ($attributes as $attribute_name => $options) : ?>
                     <div class="flex items-center justify-start py-4">
                         <div class="label text-sm-md-font font-reg420 flex flex-row">
-                            <label for="<?php echo esc_attr(sanitize_title($attribute_name)); ?>">
-                                <?php echo wc_attribute_label($attribute_name); // Added colon here
+                            <label class="hidden small:flex" for="<?php echo esc_attr(sanitize_title($attribute_name)); ?>">
+                                <?php echo wc_attribute_label($attribute_name) . ':';
                                 ?>
                             </label>
                         </div>
