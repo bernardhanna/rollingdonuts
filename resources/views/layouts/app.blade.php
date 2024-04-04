@@ -28,7 +28,7 @@ $is_special_page = ($is_account_page || $is_thank_you_page) && $ty_bg; // Ensure
 $is_single_product_page = function_exists('is_product') && is_product();
 @endphp
 
-<div class="{{ $is_special_page ? 'w-full bg-cover bg-no-repeat bg-black-full' : ($is_single_product_page ? 'mx-auto' : 'mx-auto min-h-full') }}" style="{{ $is_special_page ? 'background-image: url('.$ty_bg.');' : '' }}">
+<div class="{{ $is_special_page ? 'w-full bg-cover bg-no-repeat bg-black-full' : ($is_single_product_page ? 'mx-auto' : 'mx-auto') }}" style="{{ $is_special_page ? 'background-image: url('.$ty_bg.');' : '' }}">
     @yield('content')
 </div>
 
