@@ -15,21 +15,7 @@ global $product;
 <div class="woocommerce-variation-add-to-cart variations_button">
     <?php do_action('woocommerce_before_add_to_cart_button'); ?>
 
-    <?php
-    do_action('woocommerce_before_add_to_cart_quantity');
-
-    woocommerce_quantity_input(
-        array(
-            'min_value'   => apply_filters('woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product),
-            'max_value'   => apply_filters('woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product),
-            'input_value' => isset($_POST['quantity']) ? wc_stock_amount(wp_unslash($_POST['quantity'])) : $product->get_min_purchase_quantity(), // WPCS: CSRF ok, input var ok.
-        )
-    );
-
-    do_action('woocommerce_after_add_to_cart_quantity');
-    ?>
-
-
+    <button type="submit" class="single_add_to_cart_button button alt mt-10 btn-width rounded-btn-72 border-3 border-color-yellow-primary bg-black-full text-yellow-primary whitespace-nowrap text-sm-md-font mobile:text-base-font small:text-xxs-font tablet-sm:text-sm-md-font font-reg420 w-full md:w-[322px] h-[56px] tablet-sm:w-[362px] tablet-sm:h-[72px] flex flex-row items-center justify-center hover:bg-yellow-primary hover:text-black-full disabled wc-variation-selection-needed"><?php echo esc_html($product->single_add_to_cart_text()); ?></button>
 
     <?php do_action('woocommerce_after_add_to_cart_button'); ?>
 

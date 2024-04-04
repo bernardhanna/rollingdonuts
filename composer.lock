@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f983e874e25a267c9a4a8be1402457da",
+    "content-hash": "dd5212dfd03a033596ebef54c695cfea",
     "packages": [
         {
             "name": "bernardhanna/gravity-forms-chained-selects-add-on",
@@ -7955,6 +7955,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wc-multiple-email-recipients/"
+        },
+        {
+            "name": "wpackagist-plugin/woo-variation-swatches",
+            "version": "2.0.30",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/woo-variation-swatches/",
+                "reference": "tags/2.0.30"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/woo-variation-swatches.2.0.30.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/woo-variation-swatches/"
         },
         {
             "name": "wpackagist-plugin/woocommerce",
