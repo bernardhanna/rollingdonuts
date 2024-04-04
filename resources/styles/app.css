@@ -2359,3 +2359,31 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
 .woosb-products .woosb-product .woosb-title .woosb-name a {
     color: white;
 }
+
+.woo-variation-swatches .variable-items-wrapper {
+  padding-left: 1rem;
+}
+
+.woo-variation-swatches .wvs-style-rounded.variable-items-wrapper .variable-item:not(.radio-variable-item) .variable-item-span, .woo-variation-swatches .wvs-style-rounded.variable-items-wrapper .variable-item:not(.radio-variable-item) img {
+    color: var(--black-full, #000);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 410;
+    line-height: 24px;
+}
+
+[data-attribute_name="attribute_pa_merch-size"] .variable-item {
+    border-radius: 72px;
+    border: 1px solid var(--yellow-disabled, #D8D7CE);
+    background: var(--white, #FFF);
+    color: var(--black-full, #000);
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 410;
+    line-height: 20px;
+    height: 58px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-right: 1rem;
+}

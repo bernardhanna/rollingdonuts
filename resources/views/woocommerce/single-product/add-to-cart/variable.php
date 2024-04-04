@@ -26,9 +26,61 @@ $variations_attr = function_exists('wc_esc_json') ? wc_esc_json($variations_json
 
 do_action('woocommerce_before_add_to_cart_form'); ?>
 <style>
-    select {
+    .colour-attribute li {
+        height: 48px !important;
+        width: 48px !important;
+    }
+
+    .merch-size-attribute li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px !important;
+        border-radius: 72px !important;
+        border: 1px solid var(--yellow-disabled, #D8D7CE) !important;
+        color: #000 !important;
+        font-size: 18px !important;
+        font-style: normal;
+        font-weight: 410 !important;
+        width: 56px !important;
+        height: 40px !important;
+    }
+
+    .merch-size-attribute li:hover {
+        background-color: #FFED56 !important;
+    }
+
+    .merch-size-attribute li.selected {
+        background-color: #FFED56 !important;
+    }
+
+    .fit-size-attribute li {
+        color: #000 !important;
+        font-size: 20px !important;
+        font-style: normal;
+        font-weight: 410 !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        border-radius: 72px !important;
+        border: 1px solid var(--yellow-disabled, #D8D7CE) !important;
+        background: var(--white, #FFF) !important;
+        height: 56px !important;
         width: 100%;
-        margin-left: .5rem;
+        min-width: 249px;
+    }
+
+    .fit-size-attribute li:hover {
+        background-color: #FFED56 !important;
+    }
+
+    .fit-size-attribute li.selected {
+        background-color: #FFED56 !important;
+    }
+
+    .woo-selected-variation-item-name {
+        display: none;
     }
 </style>
 
@@ -40,17 +92,17 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
     <?php if (empty($available_variations) && false !== $available_variations) : ?>
         <p class="stock out-of-stock"><?php echo esc_html(apply_filters('woocommerce_out_of_stock_message', __('This product is currently out of stock and unavailable.', 'woocommerce'))); ?></p>
     <?php else : ?>
-        <div class="variations w-full lg:w-9/12" role="presentation">
+        <div class="variations w-full" role="presentation">
             <div>
                 <?php foreach ($attributes as $attribute_name => $options) : ?>
-                    <div class="flex items-center justify-between py-4">
-                        <div class="label text-sm-md-font font-reg420 w-1/6">
+                    <div class="flex items-center justify-start py-4">
+                        <div class="label text-sm-md-font font-reg420 flex flex-row">
                             <label for="<?php echo esc_attr(sanitize_title($attribute_name)); ?>">
-                                <?php echo wc_attribute_label($attribute_name) . ':'; // Added colon here
+                                <?php echo wc_attribute_label($attribute_name); // Added colon here
                                 ?>
                             </label>
                         </div>
-                        <div class="value w-5/6 flex">
+                        <div class="value flex">
                             <?php
                             wc_dropdown_variation_attribute_options(
                                 array(
@@ -62,7 +114,7 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
                             ?>
                         </div>
                     </div>
-                    <?php echo end($attribute_keys) === $attribute_name ? wp_kses_post(apply_filters('woocommerce_reset_variations_link', '<a class="text-black-full btn text-black-full text-mob-lg-font lg:text-sm-md-font font-reg420 py-3 bg-yellow-primary rounded-lg-x w-full lg:w-256 rd-border hover:text-black-full hover:bg-white mb-4 reset_variations" href="#">' . esc_html__('Clear', 'woocommerce') . '</a>')) : ''; ?>
+                    <?php echo end($attribute_keys) === $attribute_name ? wp_kses_post(apply_filters('woocommerce_reset_variations_link', '<a class="text-black-full btn text-mob-lg-font lg:text-sm-md-font font-reg420 py-3 bg-white rounded-lg-x w-full lg:w-256 rd-border hover:text-black-full hover:bg-yellow-primary mb-4 reset_variations h-[50px]" href="#">' . esc_html__('Clear', 'woocommerce') . '</a>')) : ''; ?>
                 <?php endforeach; ?>
             </div>
         </div>
@@ -98,23 +150,14 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
     <?php do_action('woocommerce_after_variations_form'); ?>
 </form>
 <script>
-    document.addEventListener('click', function(event) {
-        if (event.target.matches('.color-swatch')) {
-            var color = event.target.dataset.color; // Assuming your buttons have data-color attributes
-            document.getElementById('hidden_input_colour').value = color;
-        }
-        // Similar handling for size and fit selections
+    document.querySelectorAll('[data-attribute_name="attribute_pa_colour"]').forEach(function(el) {
+        el.classList.add('colour-attribute');
     });
-
-    document.addEventListener('click', function(event) {
-        // Check if the clicked element is meant for selecting a variation
-        if (event.target.matches('[data-attribute]')) {
-            const attribute = event.target.getAttribute('data-attribute');
-            const value = event.target.getAttribute('data-value');
-
-            // Update the corresponding hidden input based on the data-attribute value
-            document.querySelector(`input[name="attribute_${attribute}"]`).value = value;
-        }
+    document.querySelectorAll('[data-attribute_name="attribute_pa_merch-size"]').forEach(function(el) {
+        el.classList.add('merch-size-attribute');
+    });
+    document.querySelectorAll('[data-attribute_name="attribute_pa_fit"]').forEach(function(el) {
+        el.classList.add('fit-size-attribute');
     });
 </script>
 <?php
