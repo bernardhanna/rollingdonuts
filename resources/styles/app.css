@@ -849,10 +849,6 @@ nav .submenu .current_page_item {
   box-shadow: 0 4px 0 0 rgb(0 0 0 / 25%);
 }
 
-.merch-product .quantity {
-  display: none !important;
-}
-
 #main-slider {
   position: relative;
 }
@@ -867,10 +863,6 @@ nav .submenu .current_page_item {
   pointer-events: none;
   border: 2px solid #ccc;
   display: none;
-}
-
-.woocommerce div.product p.stock, .woocommerce div.product span.stock {
-  display: none !important;
 }
 
 .splide__arrow {
@@ -2220,7 +2212,7 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
 
 .summary {
     height: 100%;
-    overflow: scroll;
+    overflow-y: scroll;
     max-height: 800px;
 }
 
@@ -2358,4 +2350,12 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
   }
 
 }
+}
+
+.woosb-products[class*="woosb-products-layout-grid"] .woosb-product:hover {
+    border-color: yellow;
+}
+
+.woosb-products .woosb-product .woosb-title .woosb-name a {
+    color: white;
 }
