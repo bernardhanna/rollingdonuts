@@ -1394,24 +1394,24 @@ nav .submenu .current_page_item {
   padding-bottom: 0;
 }
 
-.select2-container {
+.woocommerce-checkout  .select2-container {
   left: unset!important;
   right:  unset!important;
 }
 
-.select2-container--open .select2-dropdown {
+.woocommerce-checkout .select2-container--open .select2-dropdown {
   right: 0;
 }
 
 @media (width <= 1733px) {
-  .select2-container--open .select2-dropdown {
+  .woocommerce-checkout .select2-container--open .select2-dropdown {
     left: 5.5rem!important;
     right: 0!important;
   }
 }
 
 @media (width <= 1680px) {
-  .select2-container--open .select2-dropdown {
+ .woocommerce-checkout .select2-container--open .select2-dropdown {
     left: 3.5rem!important;
     right: 0!important;
   }
@@ -1419,14 +1419,14 @@ nav .submenu .current_page_item {
 
 
 @media (width <= 1560px) {
-  .select2-container--open .select2-dropdown {
+ .woocommerce-checkout .select2-container--open .select2-dropdown {
     left: 1rem!important;
     right: 0!important;
   }
 }
 
 @media (width >= 1733px) {
-  .select2-container--open .select2-dropdown {
+ .woocommerce-checkout .select2-container--open .select2-dropdown {
     left: 6rem!important;
     right: 0!important;
   }
@@ -2386,4 +2386,27 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     margin-right: 1rem;
+}
+
+.woosb-cart-child {
+  display: none;
+}
+
+.wvs-theme-rollingdonuts .summary {
+  display: none;
+}
+
+.woosuite-mix-and-match-wrapper h2 {
+  display: none;
+}
+
+.woosuite-mix-and-match-selected {
+    border-radius: 16.076px;
+    background: black;
+}
+
+.woosuite-mix-and-match-selected .woosuite-mix-and-match-item {
+    background-color: #000;
+    border: 1px solid white;
+    border-radius: 16.076px;
 }
