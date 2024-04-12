@@ -26,6 +26,7 @@
 defined('ABSPATH') || exit;
 
 do_action('woocommerce_before_cart'); ?>
+
 <style>
     .woocommerce table.shop_table {
         border: 0px;
@@ -123,6 +124,22 @@ do_action('woocommerce_before_cart'); ?>
             background: #FFED56 !important;
             color: #000 !important;
         }
+    }
+
+    .nice-select {
+        width: auto !important;
+    }
+
+    .dropdown-wrapper {
+        position: relative;
+    }
+
+    .select2-container.select2-container--default.select2-container--open {
+        left: 55.25% !important;
+    }
+
+    .woosb-cart-child {
+        display: none;
     }
 </style>
 <div class="px-4 md:px-0 pb-6 w-full max-w-max-1300 mx-auto">
@@ -447,5 +464,25 @@ do_action('woocommerce_before_cart'); ?>
                 errorMessage.style.display = 'none';
             }
         }
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        jQuery('.select2-container--open').each(function() {
+            var $this = jQuery(this);
+            // Assuming .dropdown-wrapper is the intended parent for the dropdown
+            var $dropdownParent = $this.closest('.dropdown-wrapper');
+
+            // Log the jQuery object to see if it's correctly identified
+            console.log($dropdownParent);
+
+            if ($dropdownParent.length === 0) {
+                // Fallback if no .dropdown-wrapper is found
+                $dropdownParent = jQuery('body');
+                console.log('Fallback to body, .dropdown-wrapper not found.');
+            }
+
+            $this.select2({
+                dropdownParent: $dropdownParent
+            });
+        });
     });
 </script>

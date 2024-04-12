@@ -603,7 +603,7 @@ function remove_short_description_from_single_product_page()
 }
 /*
  ****************************************************************
- * PRODUCT ATTRIBUTES
+ * CART ITEMS
  ***********************************************************\
 */
 

@@ -240,6 +240,10 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
             margin: 0px !important;
         }
     }
+
+    .woosb-cart-child {
+        display: none;
+    }
 </style>
 <div id="moveNotice"></div>
 <div class="pb-24 mb-10 pt-8">
