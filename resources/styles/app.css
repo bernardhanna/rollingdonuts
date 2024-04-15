@@ -1093,6 +1093,15 @@ nav .submenu .current_page_item {
   }
 }
 
+ol {
+     list-style-type: decimal;
+    padding: 1.5rem;
+}
+
+ol li {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
 
 /* Initial State of the Button */
 .bestseller-splide .item .button {
