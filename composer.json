@@ -91,10 +91,6 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/bernardhanna/woosuite-core.git"
-        },
-        {
-            "type": "vcs",
             "url": "https://github.com/bernardhanna/woocommerce-gravityforms-product-addons.git"
         },
         {
@@ -162,7 +158,6 @@
         "bernardhanna/product-configurator": "dev-main",
         "bernardhanna/updraftplus": "dev-main",
         "bernardhanna/woo-product-bundle-premium": "dev-main",
-        "bernardhanna/woosuite-core": "dev-main",
         "bernardhanna/woocommerce-customer-order-csv-export": "dev-main",
         "bernardhanna/woocommerce-gravityforms-product-addons": "dev-main",
         "bernardhanna/woocommerce-pdf-ips-pro": "dev-main",

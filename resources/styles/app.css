@@ -2391,37 +2391,3 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
 .woosb-cart-child {
   display: none;
 }
-
-.woosuite-mix-and-match-selected {
-    border-radius: 16.076px;
-    background: black;
-}
-
-.woosuite-mix-and-match-selected .woosuite-mix-and-match-item {
-    background-color: #000;
-    border: none;
-    border-radius: 16.076px;
-}
-
-.woosuite-mix-and-match-item:hover .dashicons {
-    display: flex;
-}
-
-.woosuite-mix-and-match-available .dashicons {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    float: left;
-    margin-top: unset;
-    font-size: 3.5vw;
-    color: #fff;
-    align-items: center;
-    justify-content: center;
-    height: unset;
-    display: flex;
-}
-
-.woosuite-mix-and-match-item img {
-    width: 100%;
-    margin: auto;
-}
