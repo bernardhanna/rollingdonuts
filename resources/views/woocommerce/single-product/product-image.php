@@ -23,11 +23,11 @@ $wrapper_classes = apply_filters(
 );
 ?>
 <div class="w-full tablet-sm:w-49 <?php echo esc_attr(implode(' ', array_map('sanitize_html_class', $wrapper_classes))); ?>" data-columns="<?php echo esc_attr($columns); ?>">
+    <?php $bg_color = get_field('featured_donut_bg_color'); ?>
     <?php if (!$exclude_featured && $post_thumbnail_id) : ?>
         <!-- Featured image -->
-        <img class="main-slide-img object-cover w-full h-auto mobile:h-[520px]" src="<?= wp_get_attachment_url($post_thumbnail_id); ?>" alt="<?= get_post_meta($post_thumbnail_id, '_wp_attachment_image_alt', true); ?>">
+        <img style="background-color: <?php echo esc_attr($bg_color); ?>;" class="main-slide-img object-cover w-full h-auto mobile:h-[520px]" src="<?php echo esc_url(wp_get_attachment_url($post_thumbnail_id)); ?>" alt="<?php echo esc_attr(get_post_meta($post_thumbnail_id, '_wp_attachment_image_alt', true)); ?>">
     <?php endif; ?>
-
     <?php if (!empty($image_ids)) : ?>
         <!-- Slider for gallery images -->
         <div class="merch__single splide woocommerce-product-gallery__wrapper" id="main-slider">
