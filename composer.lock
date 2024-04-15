@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ebfbbc27c21117f70c5377e8109eea8b",
+    "content-hash": "dd5212dfd03a033596ebef54c695cfea",
     "packages": [
         {
             "name": "bernardhanna/gravity-forms-chained-selects-add-on",
@@ -565,46 +565,6 @@
                 "issues": "https://github.com/bernardhanna/woocommerce-shipping-local-pickup-plus/issues"
             },
             "time": "2024-03-07T10:38:10+00:00"
-        },
-        {
-            "name": "bernardhanna/woosuite-core",
-            "version": "dev-main",
-            "source": {
-                "type": "git",
-                "url": "git@github.com:bernardhanna/woosuite-core.git",
-                "reference": "5397752cb2135e59fae2366587b3b27d85019ff9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bernardhanna/woosuite-core/zipball/5397752cb2135e59fae2366587b3b27d85019ff9",
-                "reference": "5397752cb2135e59fae2366587b3b27d85019ff9",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.4"
-            },
-            "default-branch": true,
-            "type": "wordpress-plugin",
-            "autoload": {
-                "psr-4": {
-                    "WoocommercePdfIpsPro\\": "src/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bernard Hanna",
-                    "email": "bernard@matrixinternet.ie"
-                }
-            ],
-            "description": "woosuite core",
-            "support": {
-                "source": "https://github.com/bernardhanna/woosuite-core/tree/main",
-                "issues": "https://github.com/bernardhanna/woosuite-core/issues"
-            },
-            "time": "2024-04-15T08:45:21+00:00"
         },
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -11646,7 +11606,6 @@
         "bernardhanna/product-configurator": 20,
         "bernardhanna/updraftplus": 20,
         "bernardhanna/woo-product-bundle-premium": 20,
-        "bernardhanna/woosuite-core": 20,
         "bernardhanna/woocommerce-customer-order-csv-export": 20,
         "bernardhanna/woocommerce-gravityforms-product-addons": 20,
         "bernardhanna/woocommerce-pdf-ips-pro": 20,

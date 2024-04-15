@@ -72,11 +72,12 @@ $rd_product_type = get_rd_product_type($product->get_id());
     <?php endif; ?>
     <a class="relative w-full max-md:rounded-t-lg" href="<?php the_permalink(); ?>" x-data="{ isHovered: false }">
         <div class="max-md:hidden absolute inset-0 light-black-gradient opacity-50 z-10 md:h-[386px] rounded-sm-10"></div>
-        <?php echo woocommerce_get_product_thumbnail('full', array('class' => 'border-top-eight max-md:rounded-t-lg w-full h-max-max-125 md:max-h-full object-cover h-[200px] md:h-[386px] md:border-2 md:border-solid md:border-black md:rounded-sm-8 m-0')); ?>
+        <?php $bg_color = get_field('featured_donut_bg_color'); ?>
+        <?php echo woocommerce_get_product_thumbnail('full', array('class' => 'border-top-eight max-md:rounded-t-lg w-full h-max-max-125 md:max-h-full object-cover h-[200px] md:h-[386px] md:border-2 md:border-solid md:border-black md:rounded-sm-8 m-0', 'style' => "background-color: {$bg_color};")); ?>
         <div id="productContentOne" class="absolute top-0 left-0 h-auto md:h-[386px] z-10 p-4 w-full" @mouseenter="isHovered = windowWidth >= 768" @mouseleave="isHovered = false" x-transition.duration.500ms>
-        <?php if(!empty($box_number)): ?>
-        <div class="z-10 flex left-4 top-4 absolute bg-white text-black-full font-laca text-center border-2 border-black-full p-2 border-normal rounded-normal">Box of <?php echo $box_number; ?></div>
-        <?php endif; ?>
+            <?php if (!empty($box_number)) : ?>
+                <div class="z-10 flex left-4 top-4 absolute bg-white text-black-full font-laca text-center border-2 border-black-full p-2 border-normal rounded-normal">Box of <?php echo $box_number; ?></div>
+            <?php endif; ?>
             <div class="h-full w-full flex flex-col justify-end">
                 <h4 class="hidden md:block text-white text-md-font font-reg420 font-edmondsans">
                     <?php the_title(); ?>
