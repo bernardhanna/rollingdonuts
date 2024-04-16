@@ -11,7 +11,7 @@
   filter: saturate(0.8)!important;
 }
 </style>
-<section x-data="{ windowWidth: window.innerWidth }"
+<section class="relative max-mobile:-top-20" x-data="{ windowWidth: window.innerWidth }"
          x-init="window.addEventListener('resize', () => windowWidth = window.innerWidth)"
          class="tablet-sm:max-w-max-1341 mx-auto p-0 mobile:px-4 pt-4">
     @php
