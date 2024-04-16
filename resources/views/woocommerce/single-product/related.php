@@ -31,10 +31,10 @@ $product_id = $product->get_id();
 // Get the 'rd_product_type' terms for the current product
 $terms = wp_get_post_terms($product_id, 'rd_product_type', array('fields' => 'ids'));
 
-// Run a custom WP Query to get related products based on 'rd_product_type'
+// Define a custom WP Query to get related variable products
 $args = array(
     'post_type'      => 'product',
-    'posts_per_page' => 4, // Change this to the number of related products you want to display
+    'posts_per_page' => 4,
     'post__not_in'   => array($product_id),
     'tax_query'      => array(
         array(
@@ -43,7 +43,7 @@ $args = array(
             'terms'    => $terms,
             'operator' => 'IN',
         ),
-    ),
+    )
 );
 
 $related_products = new WP_Query($args);
