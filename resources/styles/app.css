@@ -223,7 +223,7 @@ button {
 }
 
 .e-content p, .gutenburg p {
-  @apply font-laca text-base-font font-light leading-[1.3rem] pt-2 pb-t;
+  @apply font-laca text-base-font font-light leading-[1.3rem] pt-2 pb-2;
 }
 
 .basket-detail {
