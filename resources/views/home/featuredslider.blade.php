@@ -56,7 +56,7 @@
                                                 @endforeach
                                             </ul>
                                         @endif
-                                        <a class="mt-6 btn-width rounded-btn-72 border-3 border-color-yellow-primary bg-black-full text-yellow-primary text-sm-md-font tablet-sm:text-md-font font-reg420 w-full md:w-[322px] h-[64px] tablet-sm:w-[362px] tablet-sm:h-[72px] flex flex-row items-center justify-center hover:bg-yellow-primary hover:text-black-full"
+                                        <a class="transition delay-150  mt-6 btn-width rounded-btn-72 border-3 border-black hover:border-yellow-primary bg-white text-black-full text-sm-md-font tablet-sm:text-md-font font-reg420 w-full md:w-[322px] h-[64px] tablet-sm:w-[362px] tablet-sm:h-[72px] flex flex-row items-center justify-center hover:bg-yellow-primary hover:text-black-full"
                                             href="{{ get_permalink($donut->ID) }}" class="btn btn-primary">View
                                             Options</a>
                                     </div>
