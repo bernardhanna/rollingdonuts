@@ -9,7 +9,7 @@ $index = 0; // Initialize index
 @endphp
 <div class="px-4 w-full flex flex-col justify-center items-center" style="padding-top: {{ $weddingPaddingTop }}rem;">
     <span class="text-black text-center text-md-font lg:text-lg-font font-reg420 leading-10">{{ $weddingTitle }}</span>
-    <p class="text-black font-laca text-center text-sm-font mobile:text-sm-md-font font-light py-6">{{ $weddingText }}</p>
+    <p class="text-black font-laca text-center text-sm-font mobile:text-sm-md-font font-light py-8 mx-auto w-full lg:w-3/4 mb-12">{{ $weddingText }}</p>
 </div>
 <div class="wedding-flexi" style="padding-bottom: {{ $weddingPaddingBottom }}rem;">
     <div class="flex flex-col w-full overflow-auto lg:overflow-visible scrollbar-hide lg:max-w-max-1300 mx-auto justify-start lg:justify-center items-start lg:items-center pl-4 lg:px-4">

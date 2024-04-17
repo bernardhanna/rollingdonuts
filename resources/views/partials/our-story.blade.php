@@ -18,7 +18,7 @@
          <svg class="absolute top-0 left-0 flex lg:hidden z-40" width="100%" viewBox="0 0 390 96" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M390 0H0V10.6812C7.48129 10.2208 15.154 9.97144 22.9981 9.97144C101.346 9.97144 160.701 33.6333 217.154 56.1382C268.344 76.5449 317.147 96.0002 375.56 96.0002H377.954C382.014 96.0002 386.028 95.9061 390 95.7243V0Z" fill="white"/>
             </svg>
-        <div class="absolute inset-0 bg-black-full opacity-60 w-full h-full"></div>
+        <div class="absolute inset-0 bg-black-full opacity-90 w-full h-full"></div>
         <div
             class="z-40 relative h-auto lg:h-full mx-auto max-w-max-site flex flex-col-reverse laptop:flex-row items-start justify-center">
             <ul
