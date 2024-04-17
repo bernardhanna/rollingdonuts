@@ -59,6 +59,5 @@ $featured_posts = get_field('featured_posts', get_option('page_for_posts'));
         </div>
     </div>
 @else
-<!-- Fallback content -->
-<p>No featured posts available.</p>
+
 @endif
