@@ -179,6 +179,18 @@ blockquote.right {
   color: rgb(0 0 0 / 40%);
 }
 
+button {
+  @apply transition duration-150 ease-out hover:ease-in
+}
+
+p {
+    line-height: 30px;
+}
+
+a {
+  @apply transition duration-150 ease-out hover:ease-in
+}
+
 /* TYPOGRAPHY */
 b {
   @apply font-bold;
@@ -1731,6 +1743,10 @@ ol li {
    .border-top-eight {
       border-top-left-radius: 8px;
       border-top-right-radius: 8px;
+  }
+
+  .about-image {
+    display: none;
   }
 
   .button-dashes {
