@@ -127,7 +127,42 @@ defined('ABSPATH') || exit;
                                         </div>
                                         <script>
                                             jQuery(document).ready(function($) {
-                                                var node = $('.cart-subtotal').get(0).nextSibling;
-                                                node.parentNode.removeChild(node);
+                                                // Function to hide the first instance of "Collection" following .cart-subtotal
+                                                function hideCollectionText() {
+                                                    var found = false; // Flag to control the hide operation
+                                                    $(".cart-subtotal").nextAll().each(function() {
+                                                        if (!found && this.nodeType === 3 && this.nodeValue.includes('Collection')) {
+                                                            $(this).hide();
+                                                            found = true;
+                                                            console.log("Collection text hidden.");
+                                                        }
+                                                    });
+                                                }
+
+                                                // Call the function initially to ensure it runs on page load
+                                                hideCollectionText();
+
+                                                // Setup a MutationObserver to handle changes in the .cart-subtotal container
+                                                var observer = new MutationObserver(function(mutations) {
+                                                    mutations.forEach(function(mutation) {
+                                                        if (mutation.type === 'childList' || mutation.type === 'subtree') {
+                                                            hideCollectionText(); // Re-run the hiding function when changes are detected
+                                                            console.log("DOM changed, rechecking for Collection text.");
+                                                        }
+                                                    });
+                                                });
+
+                                                // Options for the observer (which mutations to observe)
+                                                var config = {
+                                                    childList: true,
+                                                    subtree: true,
+                                                    characterData: true
+                                                };
+
+                                                // Select the node that will be observed for mutations
+                                                var targetNode = $('.cart-subtotal')[0];
+
+                                                // Pass in the target node, as well as the observer options
+                                                observer.observe(targetNode, config);
                                             });
                                         </script>
