@@ -141,6 +141,14 @@ do_action('woocommerce_before_cart'); ?>
     .woosb-cart-child {
         display: none;
     }
+
+    .woocommerce-shipping-contents small {
+        display: none !important;
+    }
+
+    .woocommerce ul#shipping_method li {
+        text-align: right;
+    }
 </style>
 <div class="px-4 md:px-0 pb-6 w-full max-w-max-1300 mx-auto">
     <h2 class="text-left text-xl-font font-reg420 text-black-full"><?php _e('Cart', 'rolling-donut'); ?></h2>
@@ -148,7 +156,7 @@ do_action('woocommerce_before_cart'); ?>
 <form class="px-4 md:px-0 woocommerce-cart-form" action="<?php echo esc_url(wc_get_cart_url()); ?>" method="post">
     <?php do_action('woocommerce_before_cart_table'); ?>
 
-    <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents w-full max-w-max-1300 mx-auto" cellspacing="0">
+    <table class="shop_table shop_table_responsive bg-grey-background cart woocommerce-cart-form__contents w-full max-w-max-1300 mx-auto" cellspacing="0">
         <thead class="border-t border-black-full border-solid border-b max-tablet-sm:hidden">
             <tr>
                 <th class="product-remove text-left py-4"><span class="screen-reader-text"><?php esc_html_e('Remove item', 'woocommerce'); ?></span></th>
@@ -508,5 +516,46 @@ do_action('woocommerce_before_cart'); ?>
                 }
             });
         });
+    });
+
+    jQuery(function($) {
+        // Function to toggle visibility of the shipping contents paragraph
+        function toggleShippingContents() {
+            // Check if local pickup is selected
+            var isLocalPickupSelected = $('input[name^="shipping_method"]:checked').val() === 'local_pickup_plus';
+
+            // Toggle the paragraph based on local pickup selection
+            if (isLocalPickupSelected) {
+                $('.woocommerce-shipping-contents').hide();
+            } else {
+                $('.woocommerce-shipping-contents').show();
+            }
+        }
+
+        // Bind the toggle function to the shipping method change event
+        $(document).on('change', 'input[name^="shipping_method"]', toggleShippingContents);
+
+        // Also run it on page load in case the local pickup is already selected
+        $(document).ready(toggleShippingContents);
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        function updateShippingVisibility() {
+            // Get the shipping method radio buttons and check if 'Delivery' is selected
+            const deliveryRadio = document.querySelector('input[name="shipping_method[0]"][value="flat_rate:2"]');
+            const shippingLabel = document.querySelector('.shipping-label-container'); // Ensure this selector targets your Shipping label correctly
+
+            if (deliveryRadio && shippingLabel) {
+                shippingLabel.style.display = deliveryRadio.checked ? 'none' : 'block';
+            }
+        }
+
+        // Listen for changes on the radio buttons for shipping method
+        document.querySelectorAll('input[name="shipping_method[0]"]').forEach(function(radio) {
+            radio.addEventListener('change', updateShippingVisibility);
+        });
+
+        // Initial check on page load
+        updateShippingVisibility();
     });
 </script>
