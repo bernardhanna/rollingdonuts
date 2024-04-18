@@ -127,33 +127,48 @@ defined('ABSPATH') || exit;
                                         </div>
                                         <script>
                                             jQuery(document).ready(function($) {
-                                                // Function to remove the "Collection" text node after the specific class
-                                                function removeCollectionText() {
-                                                    $(".shop_table.shop_table_responsive.bg-grey-background").contents().filter(function() {
-                                                        // Check for text nodes containing "Collection"
-                                                        return this.nodeType === 3 && $.trim(this.nodeValue).includes('Collection');
-                                                    }).remove(); // Remove the text node
+                                                console.log("Script is starting");
+
+                                                // Function to consistently remove unwanted text
+                                                function removeUnwantedText() {
+                                                    $(".shop_table.shop_table_responsive.bg-grey-background").contents().each(function() {
+                                                        if (this.nodeType === 3) { // Node type 3 is a text node
+                                                            if (this.nodeValue.includes('Collection')) {
+                                                                console.log("Removing 'Collection': ", this.nodeValue);
+                                                                this.nodeValue = this.nodeValue.replace('Collection', ''); // Replace 'Collection' with an empty string
+                                                            }
+                                                            if (this.nodeValue.includes('Shipping')) {
+                                                                console.log("Removing 'Shipping': ", this.nodeValue);
+                                                                this.nodeValue = this.nodeValue.replace('Shipping', ''); // Replace 'Shipping' with an empty string
+                                                            }
+                                                        }
+                                                    });
                                                 }
 
-                                                // Call the function on initial load
-                                                removeCollectionText();
+                                                // Initial clean-up on document ready
+                                                removeUnwantedText();
 
-                                                // Check if the target element exists
-                                                var target = $(".shop_table.shop_table_responsive.bg-grey-background").get(0);
+                                                // Set up an observer to monitor changes in the container
+                                                var observer = new MutationObserver(function(mutations) {
+                                                    mutations.forEach(function(mutation) {
+                                                        console.log("Detected changes, re-checking for unwanted text.");
+                                                        removeUnwantedText(); // Reapply the text removal when changes are detected
+                                                    });
+                                                });
+
+                                                // Configuration of the observer:
+                                                var config = {
+                                                    childList: true,
+                                                    subtree: true,
+                                                    characterData: true
+                                                };
+
+                                                // Select the target node
+                                                var target = $(".shop_table.shop_table_responsive.bg-grey-background")[0];
                                                 if (target) {
-                                                    // Reapply whenever the DOM changes within the cart container
-                                                    var observer = new MutationObserver(function() {
-                                                        removeCollectionText();
-                                                        console.log("DOM changed, checked for 'Collection' text nodes again.");
-                                                    });
-
-                                                    // Observe changes in the cart container
-                                                    observer.observe(target, {
-                                                        childList: true,
-                                                        subtree: true
-                                                    });
+                                                    observer.observe(target, config);
                                                 } else {
-                                                    console.error("Target element for mutation observer not found.");
+                                                    console.log("Failed to find the target element for MutationObserver.");
                                                 }
                                             });
                                         </script>
