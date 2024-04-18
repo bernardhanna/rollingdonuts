@@ -47,12 +47,7 @@ defined('ABSPATH') || exit;
 
             <?php do_action('woocommerce_cart_totals_before_shipping'); ?>
 
-            <div class="shipping py-5 text-black-full text-base-font font-reg42 flex justify-between items-center border-b border-black-full border-solid">
-                <div class="bg-grey-background w-1/2 pl-6"><?php esc_html_e('Shipping', 'woocommerce'); ?></div>
-                <div>
-                    <div data-title="<?php esc_attr_e('Shipping', 'woocommerce'); ?>"><?php woocommerce_shipping_calculator(); ?></div>
-                </div>
-            </div>
+            <?php wc_cart_totals_shipping_html(); ?>
 
             <?php do_action('woocommerce_cart_totals_after_shipping'); ?>
 
