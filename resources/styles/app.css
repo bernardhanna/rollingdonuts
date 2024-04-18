@@ -535,7 +535,7 @@ nav .submenu .current_page_item {
 }
 
 .opacity-8 {
-      opacity: .8;
+    opacity: .8!important;
 }
 
 .rd-notice {
