@@ -179,9 +179,6 @@ blockquote.right {
   color: rgb(0 0 0 / 40%);
 }
 
-button {
-  @apply transition duration-150 ease-out hover:ease-in
-}
 
 p {
     line-height: 30px;
@@ -223,7 +220,7 @@ a:hover h4 {
 }
 
 button {
-  transition: all 0.3s linear;
+  @apply transition duration-150 ease-out hover:ease-in;
 }
 
 .e-content h5, h5.wp-block-heading {
