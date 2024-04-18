@@ -11,7 +11,7 @@ do_action('woocommerce_cart_is_empty');
     }
 
     .woocommerce-info::before {
-        color: black;
+        display: none;
     }
 
     .cart-empty.woocommerce-info .woocommerce-info::before {

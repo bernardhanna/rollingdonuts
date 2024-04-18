@@ -534,6 +534,10 @@ nav .submenu .current_page_item {
   box-shadow: 0 8px 0 0 rgb(0 0 0 / 20%);
 }
 
+.opacity-8 {
+      opacity: .8;
+}
+
 .rd-notice {
   z-index: 1000;
 }

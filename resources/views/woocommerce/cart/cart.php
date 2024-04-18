@@ -244,24 +244,17 @@ do_action('woocommerce_before_cart'); ?>
                         <td class="product-quantity" data-title="<?php esc_attr_e('Quantity', 'woocommerce'); ?>">
                             <?php
                             if ($_product->is_sold_individually()) {
-                                $min_quantity = 1;
-                                $max_quantity = 1;
+                                $product_quantity = sprintf('1 <input type="hidden" name="cart[%s][qty]" value="1">', $cart_item_key);
                             } else {
-                                $min_quantity = 0;
-                                $max_quantity = $_product->get_max_purchase_quantity();
+                                $product_quantity = woocommerce_quantity_input(array(
+                                    'input_name'  => "cart[{$cart_item_key}][qty]",
+                                    'input_value' => $cart_item['quantity'],
+                                    'max_value'   => $_product->get_max_purchase_quantity(),
+                                    'min_value'   => '0',
+                                    'product_name'  => $_product->get_name(),
+                                ), $_product, false);
                             }
 
-                            $product_quantity = woocommerce_quantity_input(
-                                array(
-                                    'input_name'   => "cart[{$cart_item_key}][qty]",
-                                    'input_value'  => $cart_item['quantity'],
-                                    'max_value'    => $max_quantity,
-                                    'min_value'    => $min_quantity,
-                                    'product_name' => $product_name,
-                                ),
-                                $_product,
-                                false
-                            );
 
                             echo apply_filters('woocommerce_cart_item_quantity', $product_quantity, $cart_item_key, $cart_item); // PHPCS: XSS ok.
                             ?>
@@ -482,6 +475,37 @@ do_action('woocommerce_before_cart'); ?>
 
             $this.select2({
                 dropdownParent: $dropdownParent
+            });
+        });
+    });
+    jQuery(document).ready(function($) {
+        // Delegated event to listen for quantity changes
+        $(document).on('change', '.woocommerce-cart-form input.qty', function() {
+            clearTimeout($.data(this, 'timer'));
+            var wait = setTimeout(function() {
+                $('button[name="update_cart"]').trigger('click');
+            }, 1000); // Delay before updating cart after changes
+            $(this).data('timer', wait);
+        });
+
+        // Update cart event
+        $(document).on('submit', '.woocommerce-cart-form', function(e) {
+            e.preventDefault();
+            var formData = $(this).serialize();
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'),
+                data: formData,
+                success: function(response) {
+                    // Assuming your cart markup is returned and needs to be refreshed
+                    $('.cart_totals').replaceWith($(response).find('.cart_totals'));
+                },
+                error: function() {
+                    console.error('Failed to update cart');
+                },
+                complete: function() {
+                    $(document.body).trigger('updated_cart_totals');
+                }
             });
         });
     });
