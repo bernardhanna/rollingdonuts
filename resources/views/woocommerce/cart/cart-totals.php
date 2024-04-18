@@ -32,9 +32,9 @@ defined('ABSPATH') || exit;
     <div class="border-b-2 border-black-full py-4 text-left">
         <h2 class="text-md-font text-black-full font-medium"><?php esc_html_e('Cart totals', 'woocommerce'); ?></h2>
     </div>
-    <div class="shop_table shop_table_responsive">
+    <div class="shop_table shop_table_responsiv bg-grey-background">
 
-        <div class="cart-subtotal text-black-full text-base-font font-reg420 flex justify-between items-center border-b border-black-full border-solid">
+        <div class="cart-subtotal text-black-full text-base-font font-reg420 flex justify-between items-center border-b border-black-full border-solid bg-white">
             <div class="bg-grey-background py-5 w-1/2 pl-6"><?php esc_html_e('Subtotal', 'woocommerce'); ?></div>
             <div data-title="<?php esc_attr_e('Subtotal', 'woocommerce'); ?>">
                 <?php wc_cart_totals_subtotal_html(); ?>
