@@ -32,7 +32,7 @@ defined('ABSPATH') || exit;
     <div class="border-b-2 border-black-full py-4 text-left">
         <h2 class="text-md-font text-black-full font-medium"><?php esc_html_e('Cart totals', 'woocommerce'); ?></h2>
     </div>
-    <div class="shop_table shop_table_responsiv bg-grey-background">
+    <div class="shop_table shop_table_responsive bg-grey-background">
 
         <div class="cart-subtotal text-black-full text-base-font font-reg420 flex justify-between items-center border-b border-black-full border-solid bg-white">
             <div class="bg-grey-background py-5 w-1/2 pl-6"><?php esc_html_e('Subtotal', 'woocommerce'); ?></div>
@@ -127,42 +127,33 @@ defined('ABSPATH') || exit;
                                         </div>
                                         <script>
                                             jQuery(document).ready(function($) {
-                                                // Function to hide the first instance of "Collection" following .cart-subtotal
-                                                function hideCollectionText() {
-                                                    var found = false; // Flag to control the hide operation
-                                                    $(".cart-subtotal").nextAll().each(function() {
-                                                        if (!found && this.nodeType === 3 && this.nodeValue.includes('Collection')) {
-                                                            $(this).hide();
-                                                            found = true;
-                                                            console.log("Collection text hidden.");
-                                                        }
-                                                    });
+                                                // Function to remove the "Collection" text node after the specific class
+                                                function removeCollectionText() {
+                                                    $(".shop_table.shop_table_responsive.bg-grey-background").contents().filter(function() {
+                                                        // Check for text nodes containing "Collection"
+                                                        return this.nodeType === 3 && $.trim(this.nodeValue).includes('Collection');
+                                                    }).remove(); // Remove the text node
                                                 }
 
-                                                // Call the function initially to ensure it runs on page load
-                                                hideCollectionText();
+                                                // Call the function on initial load
+                                                removeCollectionText();
 
-                                                // Setup a MutationObserver to handle changes in the .cart-subtotal container
-                                                var observer = new MutationObserver(function(mutations) {
-                                                    mutations.forEach(function(mutation) {
-                                                        if (mutation.type === 'childList' || mutation.type === 'subtree') {
-                                                            hideCollectionText(); // Re-run the hiding function when changes are detected
-                                                            console.log("DOM changed, rechecking for Collection text.");
-                                                        }
+                                                // Check if the target element exists
+                                                var target = $(".shop_table.shop_table_responsive.bg-grey-background").get(0);
+                                                if (target) {
+                                                    // Reapply whenever the DOM changes within the cart container
+                                                    var observer = new MutationObserver(function() {
+                                                        removeCollectionText();
+                                                        console.log("DOM changed, checked for 'Collection' text nodes again.");
                                                     });
-                                                });
 
-                                                // Options for the observer (which mutations to observe)
-                                                var config = {
-                                                    childList: true,
-                                                    subtree: true,
-                                                    characterData: true
-                                                };
-
-                                                // Select the node that will be observed for mutations
-                                                var targetNode = $('.cart-subtotal')[0];
-
-                                                // Pass in the target node, as well as the observer options
-                                                observer.observe(targetNode, config);
+                                                    // Observe changes in the cart container
+                                                    observer.observe(target, {
+                                                        childList: true,
+                                                        subtree: true
+                                                    });
+                                                } else {
+                                                    console.error("Target element for mutation observer not found.");
+                                                }
                                             });
                                         </script>
