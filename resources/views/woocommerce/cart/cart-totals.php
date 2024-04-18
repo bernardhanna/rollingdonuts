@@ -1,13 +1,6 @@
 <?php
 
 /**
- * @Author: Bernard Hanna
- * @Date:   2023-10-24 11:59:13
- * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-10-24 12:32:18
- */
-
-/**
  * Cart totals
  *
  * This template can be overridden by copying it to yourtheme/woocommerce/cart/cart-totals.php.
@@ -54,121 +47,80 @@ defined('ABSPATH') || exit;
 
             <?php do_action('woocommerce_cart_totals_before_shipping'); ?>
 
-            <?php wc_cart_totals_shipping_html(); ?>
+            <div class="shipping py-5 text-black-full text-base-font font-reg42 flex justify-between items-center border-b border-black-full border-solid">
+                <div class="bg-grey-background w-1/2 pl-6"><?php esc_html_e('Shipping', 'woocommerce'); ?></div>
+                <div>
+                    <div data-title="<?php esc_attr_e('Shipping', 'woocommerce'); ?>"><?php woocommerce_shipping_calculator(); ?></div>
+                </div>
+            </div>
 
             <?php do_action('woocommerce_cart_totals_after_shipping'); ?>
 
         <?php elseif (WC()->cart->needs_shipping() && 'yes' === get_option('woocommerce_enable_shipping_calc')) : ?>
 
             <div class="shipping py-5 text-black-full text-base-font font-reg42 flex justify-between items-center border-b border-black-full border-solid">
-                <div class="bg-grey-background w-1/2 pl-6"><?php esc_html_e('Shipping', 'woocommerce'); ?><div>
-                        <div data-title="<?php esc_attr_e('Shipping', 'woocommerce'); ?>"><?php woocommerce_shipping_calculator(); ?></div>
+                <div class="bg-grey-background w-1/2 pl-6"><?php esc_html_e('Shipping', 'woocommerce'); ?></div>
+                <div>
+                    <div data-title="<?php esc_attr_e('Shipping', 'woocommerce'); ?>"><?php woocommerce_shipping_calculator(); ?></div>
+                </div>
+            </div>
+
+        <?php endif; ?>
+
+        <?php foreach (WC()->cart->get_fees() as $fee) : ?>
+            <div class="fee text-black-full text-base-font font-reg420 w-full flex justify-between items-center py-5">
+                <div class="bg-grey-background w-1/2 pl-6"><?php echo esc_html($fee->name); ?></div>
+                <div>
+                    <div data-title="<?php echo esc_attr($fee->name); ?>"><?php wc_cart_totals_fee_html($fee); ?></div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+
+        <?php
+        if (wc_tax_enabled() && !WC()->cart->display_prices_including_tax()) {
+            $taxable_address = WC()->customer->get_taxable_address();
+            $estimated_text  = '';
+
+            if (WC()->customer->is_customer_outside_base() && !WC()->customer->has_calculated_shipping()) {
+                /* translators: %s location. */
+                $estimated_text = sprintf(' <small>' . esc_html__('(estimated for %s)', 'woocommerce') . '</small>', WC()->countries->estimated_for_prefix($taxable_address[0]) . WC()->countries->countries[$taxable_address[0]]);
+            }
+
+            if ('itemized' === get_option('woocommerce_tax_total_display')) {
+                foreach (WC()->cart->get_tax_totals() as $code => $tax) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+        ?>
+                    <div class="tax-rate tax-rate-<?php echo esc_attr(sanitize_title($code)); ?> text-black-full text-base-font font-reg420 flex justify-between items-center">
+                        <div><?php echo esc_html($tax->label) . $estimated_text; ?></div>
+                        <div data-title="<?php echo esc_attr($tax->label); ?>"><?php echo wp_kses_post($tax->formatted_amount); ?></div>
                     </div>
+                <?php
+                }
+            } else {
+                ?>
+                <div class="tax-total text-black-full text-base-font font-reg420 flex justify-between items-center border-b border-black-full border-solid">
+                    <div class="bg-grey-background w-1/2 py-5 pl-6"><?php echo esc_html(WC()->countries->tax_or_vat()) . $estimated_text; ?></div>
+                    <div data-title="<?php echo esc_attr(WC()->countries->tax_or_vat()); ?>"><?php wc_cart_totals_taxes_total_html(); ?></div>
+                </div>
+        <?php
+            }
+        }
+        ?>
 
-                <?php endif; ?>
+        <?php do_action('woocommerce_cart_totals_before_order_total'); ?>
 
-                <?php foreach (WC()->cart->get_fees() as $fee) : ?>
-                    <div class="fee text-black-full text-base-font font-reg420 w-full flex justify-between items-center py-5">
-                        <div class="bg-grey-background w-1/2 pl-6"><?php echo esc_html($fee->name); ?><div>
-                                <div data-title="<?php echo esc_attr($fee->name); ?>"><?php wc_cart_totals_fee_html($fee); ?>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
+        <div class="order-total text-black-full text-base-font font-reg420 w-full flex justify-between items-center border-b-2 border-black-full border-solid">
+            <div class="pl-6 text-left bg-grey-background py-5 w-1/2"><?php esc_html_e('Total', 'woocommerce'); ?></div>
+            <div data-title="<?php esc_attr_e('Total', 'woocommerce'); ?>"><?php wc_cart_totals_order_total_html(); ?></div>
+        </div>
 
-                        <?php
-                        if (wc_tax_enabled() && !WC()->cart->display_prices_including_tax()) {
-                            $taxable_address = WC()->customer->get_taxable_address();
-                            $estimated_text  = '';
+        <?php do_action('woocommerce_cart_totals_after_order_total'); ?>
 
-                            if (WC()->customer->is_customer_outside_base() && !WC()->customer->has_calculated_shipping()) {
-                                /* translators: %s location. */
-                                $estimated_text = sprintf(' <small>' . esc_html__('(estimated for %s)', 'woocommerce') . '</small>', WC()->countries->estimated_for_prefix($taxable_address[0]) . WC()->countries->countries[$taxable_address[0]]);
-                            }
+    </div>
 
-                            if ('itemized' === get_option('woocommerce_tax_total_display')) {
-                                foreach (WC()->cart->get_tax_totals() as $code => $tax) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-                        ?>
-                                    <div class="tax-rate tax-rate-<?php echo esc_attr(sanitize_title($code)); ?> text-black-full text-base-font font-reg420 flex justify-between items-center">
-                                        <div><?php echo esc_html($tax->label) . $estimated_text; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                                                ?><div>
-                                                <div data-title="<?php echo esc_attr($tax->label); ?>"><?php echo wp_kses_post($tax->formatted_amount); ?></div>
-                                            </div>
-                                        <?php
-                                    }
-                                } else {
-                                        ?>
-                                        <div class="tax-total text-black-full text-base-font font-reg420 flex justify-between items-center border-b border-black-full border-solid">
-                                            <div class="bg-grey-background w-1/2 py-5 pl-6"><?php echo esc_html(WC()->countries->tax_or_vat()) . $estimated_text; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-                                                                                            ?><div>
-                                                    <div data-title="<?php echo esc_attr(WC()->countries->tax_or_vat()); ?>"><?php wc_cart_totals_taxes_total_html(); ?></div>
-                                                </div>
-                                        <?php
-                                    }
-                                }
-                                        ?>
+    <div class="wc-proceed-to-checkout">
+        <?php do_action('woocommerce_proceed_to_checkout'); ?>
+    </div>
 
-                                        <?php do_action('woocommerce_cart_totals_before_order_total'); ?>
+    <?php do_action('woocommerce_after_cart_totals'); ?>
 
-                                        <div class="order-total text-black-full text-base-font font-reg420 w-full flex justify-between items-center border-b-2 border-black-full border-solid">
-                                            <div class="pl-6 text-left bg-grey-background py-5 w-1/2"><?php esc_html_e('Total', 'woocommerce'); ?></div>
-                                            <div data-title="<?php esc_attr_e('Total', 'woocommerce'); ?>"><?php wc_cart_totals_order_total_html(); ?></div>
-                                        </div>
-
-                                        <?php do_action('woocommerce_cart_totals_after_order_total'); ?>
-
-                                            </div>
-
-                                            <div class="wc-proceed-to-checkout">
-                                                <?php do_action('woocommerce_proceed_to_checkout'); ?>
-                                            </div>
-
-                                            <?php do_action('woocommerce_after_cart_totals'); ?>
-
-                                        </div>
-                                        <script>
-                                            jQuery(document).ready(function($) {
-                                                console.log("Script is starting");
-
-                                                // Function to consistently remove unwanted text
-                                                function removeUnwantedText() {
-                                                    $(".shop_table.shop_table_responsive.bg-grey-background").contents().each(function() {
-                                                        if (this.nodeType === 3) { // Node type 3 is a text node
-                                                            if (this.nodeValue.includes('Collection')) {
-                                                                console.log("Removing 'Collection': ", this.nodeValue);
-                                                                this.nodeValue = this.nodeValue.replace('Collection', ''); // Replace 'Collection' with an empty string
-                                                            }
-                                                            if (this.nodeValue.includes('Shipping')) {
-                                                                console.log("Removing 'Shipping': ", this.nodeValue);
-                                                                this.nodeValue = this.nodeValue.replace('Shipping', ''); // Replace 'Shipping' with an empty string
-                                                            }
-                                                        }
-                                                    });
-                                                }
-
-                                                // Initial clean-up on document ready
-                                                removeUnwantedText();
-
-                                                // Set up an observer to monitor changes in the container
-                                                var observer = new MutationObserver(function(mutations) {
-                                                    mutations.forEach(function(mutation) {
-                                                        console.log("Detected changes, re-checking for unwanted text.");
-                                                        removeUnwantedText(); // Reapply the text removal when changes are detected
-                                                    });
-                                                });
-
-                                                // Configuration of the observer:
-                                                var config = {
-                                                    childList: true,
-                                                    subtree: true,
-                                                    characterData: true
-                                                };
-
-                                                // Select the target node
-                                                var target = $(".shop_table.shop_table_responsive.bg-grey-background")[0];
-                                                if (target) {
-                                                    observer.observe(target, config);
-                                                } else {
-                                                    console.log("Failed to find the target element for MutationObserver.");
-                                                }
-                                            });
-                                        </script>
+</div>
