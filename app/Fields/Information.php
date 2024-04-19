@@ -4,10 +4,10 @@ namespace App\Fields;
 
 use Log1x\AcfComposer\Field;
 use App\Fields\Partials\Faqs;
-use App\Fields\Partials\Information;
+use App\Fields\Partials\Info;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Delivery extends Field
+class Information extends Field
 {
     /**
      * The field group.
@@ -16,17 +16,15 @@ class Delivery extends Field
      */
     public function fields()
     {
-        $deliveryPage = new FieldsBuilder('DeliveryPage');
+        $infoPage = new FieldsBuilder('InfoPage');
+        $infoPage->setLocation('page_template', '==', 'templates/template-delivery.blade.php');
 
-        $deliveryPage->setLocation('page_template', '==', 'templates/template-delivery.blade.php');
+        $infoPage
+        ->addTab('Information')
+        ->addFields($this->get(Info::class))
+        ->addTab('Faqs')
+        ->addFields($this->get(Faqs::class));
 
-        $deliveryPage
-            ->addTab('Faqs')
-            ->addFields($this->get(Faqs::class))
-
-            ->addTab('Information')
-            ->addFields($this->get(Information::class));
-
-        return $deliveryPage->build();
+        return $infoPage->build();
     }
 }
