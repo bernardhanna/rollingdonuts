@@ -1491,3 +1491,25 @@ function exclude_private_products_for_all_users($query)
         }
     }
 }
+
+
+add_action('init', function () {
+    register_extended_post_type('faq', [
+        'show_in_feed' => true,
+        'supports' => ['title', 'editor', 'thumbnail'],
+        'menu_icon' => 'dashicons-star-filled',
+        'show_in_rest' => true,
+        'labels' => [
+            'singular' => __('Faq', 'rollingdonuts'),
+            'plural' => __('Faqs', 'rollingdonuts'),
+        ]
+    ]);
+
+    register_extended_taxonomy('faq_category', 'faq', [
+        'meta_box' => 'radio',
+        'labels' => [
+            'singular' => __('FAQ Category', 'rollingdonuts'),
+            'plural' => __('FAQ Categories', 'rollingdonuts'),
+        ]
+    ]);
+});

@@ -250,3 +250,5 @@ function disable_woocommerce_breadcrumbs() {
 }
 
 add_action('wp', 'disable_woocommerce_breadcrumbs');
+
+//CTP

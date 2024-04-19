@@ -38,6 +38,7 @@ return [
             'menu_icon' => 'dashicons-star-filled',
             'supports' => ['title', 'editor', 'author', 'revisions', 'thumbnail'],
             'show_in_rest' => true,
+            'show_ui' => true,
             'names' => [
                 'singular' => __('Faq', 'rollingdonuts'),
                 'plural' => __('Faqs', 'rollingdonuts'),
@@ -84,6 +85,15 @@ return [
             'names' => [
                 'singular' => __('Category', 'rollingdonuts'),
                 'plural' => __('Categories', 'rollingdonuts'),
+            ],
+        ],
+        'faq_category' => [
+            'post_types' => ['Faq'],
+            'meta_box' => 'radio',
+            'names' => [
+                'singular' => __('FAQ Category', 'rollingdonuts'),
+                'plural' => __('FAQ Categories', 'rollingdonuts'),
+                'slug' => 'faq-category',
             ],
         ],
         'rd_product_type' => [
