@@ -4,6 +4,7 @@ namespace App\Fields;
 
 use Log1x\AcfComposer\Field;
 use App\Fields\Partials\Faqs;
+use App\Fields\Partials\Information;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
 class Delivery extends Field
@@ -22,7 +23,10 @@ class Delivery extends Field
 
         $deliveryPage
             ->addTab('Faqs')
-            ->addFields($this->get(Faqs::class));
+            ->addFields($this->get(Faqs::class))
+
+            ->addTab('Information')
+            ->addFields($this->get(Information::class));
 
         return $deliveryPage->build();
     }

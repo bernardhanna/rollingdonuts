@@ -12,7 +12,7 @@
 @extends('layouts.app')
 @php
 $shop_bg_url = get_field('shop_bg', 'option');
-@endphp
+@endphps
 @section('content')
     {{-- Include the Page Header partial  --}}
     @include('partials.page-header')
@@ -22,6 +22,8 @@ $shop_bg_url = get_field('shop_bg', 'option');
             <section class="relative pt-20 pb-20">
               @include('partials.content-page')
             </section>
+            {{-- Include the Info partial  --}}
+              @include('partials.information')
             {{-- Include the Faqs partial  --}}
             @include('faq.faqs')
         </div>
