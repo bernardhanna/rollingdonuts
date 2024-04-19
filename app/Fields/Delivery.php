@@ -1,11 +1,12 @@
 <?php
+
 namespace App\Fields;
 
 use Log1x\AcfComposer\Field;
 use App\Fields\Partials\Faqs;
 use StoutLogic\AcfBuilder\FieldsBuilder;
 
-class Faqq extends Field
+class Delivery extends Field
 {
     /**
      * The field group.
@@ -14,15 +15,15 @@ class Faqq extends Field
      */
     public function fields()
     {
-        $faqPage = new FieldsBuilder('faqPage');
+        $deliveryPage = new FieldsBuilder('DeliveryPage');
 
-        $faqPage
-            ->setLocation('page_template', '==', 'templates/template-faqs.blade.php');
+        $deliveryPage
+            ->setLocation('page_template', '==', 'templates/template-delivery.blade.php');
 
-        $faqPage
+        $deliveryPage
             ->addTab('Faqs')
             ->addFields($this->get(Faqs::class));
 
-        return $faqPage->build();
+        return $deliveryPage->build();
     }
 }

@@ -25,15 +25,18 @@ class Faqs extends Partial
             'label' => 'Image',
             'return_format' => 'array',
             'preview_size' => 'medium',
+            'wrapper' => ['class' => 'hide-in-delivery'],
         ]);
 
 
         $faqs
             ->addText('faq_title', [
                 'label' => 'Title',
+            'wrapper' => ['class' => 'hide-in-delivery'],
             ])
             ->addLink('faq_button', [
                 'label' => 'Link',
+            'wrapper' => ['class' => 'hide-in-delivery'],
             ])
             ->addRepeater('selected_faqs', [
                 'label' => 'Select FAQ Posts',
