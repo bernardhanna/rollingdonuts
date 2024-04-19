@@ -17,7 +17,8 @@ class Faqq extends Field
         $faqPage = new FieldsBuilder('faqPage');
 
         $faqPage
-            ->setLocation('page_template', '==', 'templates/template-faqs.blade.php');
+            ->setLocation('page_template', '==', 'templates/template-faqs.blade.php')
+            ->or('page_template', '==', 'templates/template-delivery.blade.php');
 
         $faqPage
             ->addTab('Faqs')
