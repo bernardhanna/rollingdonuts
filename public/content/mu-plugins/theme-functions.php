@@ -122,6 +122,7 @@ function custom_admin_styles() {
         .login #login .admin-email-confirm-form .admin-email__details {
             color: #ffffff!important;
         }
+          .hide-in-delivery { display: none; }
     </style>';
 }
 add_action('admin_head', 'custom_admin_styles');
@@ -251,4 +252,4 @@ function disable_woocommerce_breadcrumbs() {
 
 add_action('wp', 'disable_woocommerce_breadcrumbs');
 
-//CTP
+
