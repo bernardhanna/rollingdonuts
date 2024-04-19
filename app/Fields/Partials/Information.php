@@ -1,12 +1,5 @@
 <?php
 
-/**
- * @Author: Bernard Hanna
- * @Date:   2023-07-10 16:56:26
- * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-07-31 16:01:44
- */
-
 namespace App\Fields\Partials;
 
 use Log1x\AcfComposer\Partial;
@@ -22,24 +15,26 @@ class Information extends Partial
     public function fields()
     {
         $information = new FieldsBuilder('information');
-        $information
-            ->addRepeater('selected_information', [
-                'label' => 'Select Information to display',
-                'button_label' => 'Add Info',
-                'layout' => 'block',
-            ])
+
+        // Main repeater for general information sections
+        $information->addRepeater('selected_information', [
+            'label' => 'Select Information to display',
+            'button_label' => 'Add Info',
+            'layout' => 'block', // Layout type for repeater fields
+        ])
             ->addImage('info_icon', [
                 'label' => 'Icon',
-                'return_format' => 'array',
-                'preview_size' => 'thumbnail',
+            'return_format' => 'array', // Returns an array with image details
+            'preview_size' => 'thumbnail', // Size of the admin preview
             ])
             ->addText('info_title', [
-                'label' => 'Title',
+            'label' => 'Title', // Simple label for text field
             ])
+            // Nested repeater for detailed sub-information
             ->addRepeater('add_info', [
                 'label' => 'Add Sub Information',
                 'button_label' => 'Add',
-                'layout' => 'row',
+            'layout' => 'row', // Layout type for nested repeater fields
             ])
             ->addImage('subinfo_icon', [
                 'label' => 'Icon',
@@ -47,10 +42,10 @@ class Information extends Partial
                 'preview_size' => 'thumbnail',
             ])
             ->addText('subinfo_text', [
-                'label' => 'Text',
+            'label' => 'Text', // Added a label for clarity
             ])
-
-            ->endRepeater();
+            ->endRepeater() // Ends the nested repeater
+            ->endRepeater(); // Ends the main repeater
 
         return $information;
     }

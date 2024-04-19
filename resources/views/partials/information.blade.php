@@ -10,14 +10,14 @@
                     $informationData = get_field('selected_information');
                     $index = 0;
                     @endphp
-                    @foreach ($informationData as $info)
-                        @include('components.information-accordion', ['info' => $info, 'index' => $index])
-                        @php $index++; @endphp
-                    @endforeach
+
+                    @if (!empty($informationData))  <!-- Check if $informationData is not empty -->
+                        @foreach ($informationData as $info)
+                            @include('components.information-accordion', ['info' => $info, 'index' => $index])
+                            @php $index++; @endphp
+                        @endforeach
+                    @endif
                 </div>
-            </div>
-            <div class="bottom pt-6 flex justify-center w-full">
-                @include('components.accordion-button')
             </div>
         </div>
     </div>

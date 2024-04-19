@@ -18,8 +18,7 @@ class Delivery extends Field
     {
         $deliveryPage = new FieldsBuilder('DeliveryPage');
 
-        $deliveryPage
-            ->setLocation('page_template', '==', 'templates/template-delivery.blade.php');
+        $deliveryPage->setLocation('page_template', '==', 'templates/template-delivery.blade.php');
 
         $deliveryPage
             ->addTab('Faqs')
