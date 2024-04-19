@@ -1,10 +1,4 @@
 <?php
-/**
- * @Author: Bernard Hanna
- * @Date:   2023-09-06 10:45:08
- * @Last Modified by:   Bernard Hanna
- * @Last Modified time: 2023-10-31 11:40:39
- */
 ?>
 {{--
     Template Name: Delivery
@@ -12,7 +6,7 @@
 @extends('layouts.app')
 @php
 $shop_bg_url = get_field('shop_bg', 'option');
-@endphps
+@endphp
 @section('content')
     {{-- Include the Page Header partial  --}}
     @include('partials.page-header')
