@@ -91,6 +91,10 @@
         },
         {
             "type": "vcs",
+            "url": "https://github.com/bernardhanna/woocommerce-custom-product-boxes-plugin.git"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/bernardhanna/woocommerce-gravityforms-product-addons.git"
         },
         {
@@ -158,6 +162,7 @@
         "bernardhanna/product-configurator": "dev-main",
         "bernardhanna/updraftplus": "dev-main",
         "bernardhanna/woo-product-bundle-premium": "dev-main",
+        "bernardhanna/woocommerce-custom-product-boxes-plugin": "dev-main",
         "bernardhanna/woocommerce-customer-order-csv-export": "dev-main",
         "bernardhanna/woocommerce-gravityforms-product-addons": "dev-main",
         "bernardhanna/woocommerce-pdf-ips-pro": "dev-main",
@@ -196,8 +201,10 @@
         "wpackagist-plugin/insta-gallery": "^4.1",
         "wpackagist-plugin/mailpoet": "^4.48",
         "wpackagist-plugin/regenerate-thumbnails": "^3.1",
+        "wpackagist-plugin/safe-svg": "^2.2",
         "wpackagist-plugin/updraftplus": "^1.23",
         "wpackagist-plugin/wc-multiple-email-recipients": "^1.4.0",
+        "wpackagist-plugin/webp-converter-for-media": "^5.12",
         "wpackagist-plugin/woo-variation-swatches": "^2.0",
         "wpackagist-plugin/woocommerce": "^7.8",
         "wpackagist-plugin/woocommerce-gateway-stripe": "^7.4.3",

@@ -1513,3 +1513,33 @@ add_action('init', function () {
         ]
     ]);
 });
+
+
+
+/**
+ * Add support for WooCommerce Mix and match templates.
+ */
+add_filter('woocommerce_locate_template', function ($template, $template_name, $template_path) {
+    $theme_template = resource_path('views/woocommerce/' . str_replace('.php', '.blade.php', $template_name));
+    if (file_exists($theme_template)) {
+        return $theme_template;
+    }
+    return $template;
+}, 10, 3);
+
+
+add_action('woocommerce_before_single_product', function () {
+    if (is_singular('product')) {
+        echo \Roots\view('woocommerce.single-product');
+        exit; // Stop WooCommerce from loading the default template
+    }
+});
+
+
+/**
+ * Add support for WooCommerce Subscription templates.
+ */
+add_filter('sage-woocommerce/templates', function ($paths) {
+    $paths[] = WP_PLUGIN_DIR . '/woocommerce-custom-product-boxes-plugin/templates/';
+    return $paths;
+});
