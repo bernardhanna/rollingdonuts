@@ -22,6 +22,15 @@ the readme will list any important changes.
 @version     1.6.4
 --}}
 <style>
+    .item_count_display {
+    color: #555;
+    font-weight: bold;
+    padding: 5px 10px;
+    display: inline-block;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+    margin-top: 10px;
+}
     #headerimg h1 a {
         display: none !important;
     }
@@ -29,7 +38,6 @@ the readme will list any important changes.
     form.cartt {
         margin-bottom: 0px;
         padding: 0px;
-        max-width: 1300px;
         margin: auto;
         width: 100%;
     }
@@ -187,16 +195,19 @@ the readme will list any important changes.
         padding: 0px;
     }
 
-    .quantity_input {
-        display: none;
-    }
-
     .extendons_add_to_cart {
         margin-top: 2%;
         display: flex;
         margin-left: 2%;
         margin-right: 2%;
         justify-content: flex-end;
+    }
+    .add_cta svg path {
+         stroke: black !important;
+        fill: black !important;
+    }
+    .qodef-woo-product-title.product_title.entry-title {
+        display: none!important;
     }
 </style>
 @extends('layouts.app')
