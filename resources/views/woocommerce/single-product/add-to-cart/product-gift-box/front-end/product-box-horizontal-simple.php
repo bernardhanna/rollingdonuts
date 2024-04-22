@@ -35,13 +35,13 @@ $circled_plus = '<?xml version="1.0" encoding="utf-8"?>
     }
 
     .horizontal_box .gt_box_tab .box_tb.active_tab .box_tb_list .gt_qt {
-        color: <?php echo filter_var($color_val); ?>;
+        color: black;
         border-color: transparent !important;
     }
 
     .pd_add_block .pd_addon_btns .add_btn :hover {
         background-color: <?php echo filter_var($color_val); ?>;
-        color: #fff !important
+        color: black !important
     }
 
     ;
@@ -61,6 +61,26 @@ $circled_plus = '<?xml version="1.0" encoding="utf-8"?>
 
     .pd_add_block .pd_addon_btns.pd_addon_active .addon_qty {
         width: 50%
+    }
+
+    .pd_addon_btns .add_btn .add_cta {
+        color: #000000 !important;
+        border: 1px solid #000000 !important;
+        align-items: center;
+    }
+
+    .qodef-woo-product-title.product_title.entry-title {
+        display: none !important;
+    }
+
+    .product_addon_container.horizontal_box .product_addon_box {
+        width: 100% !important;
+
+    }
+
+    .product_box_container {
+        padding-left: 5%;
+        padding-right: 5%;
     }
 </style>
 
@@ -117,9 +137,9 @@ if ('yes' != $add_new_box_quantity) {
                                 <a href="#" class="qty_control plus extenonsboxplus"></a>
                             </div>
                         </div>
-                        <div class="add_box">
-                            <a href="#!" class="add_box_cta"> <img src="images/remove.png" alt=""> <img src="images/remove_white.png" alt="">Remove Box 1</a>
-                        </div>
+                        <!-- <div class="reset_gt_box">
+								<a href="#" class="clear_cta"><img src="images/remove.png" alt=""> Clear All Items</a>
+							</div> -->
 
                         <div class="reset_gt_box">
                             <a href="#" class="clear_cta"><img src="images/remove.png" alt=""> Clear All Items</a>
@@ -255,10 +275,7 @@ if ('yes' != $add_new_box_quantity) {
                 $countproductselected = '0';
             }
             ?>
-            <div class="extenonheadingparent">
-                <h2 class="pd_title extenonserrormsg"><?php echo filter_var($_mm_boxheadingmessage); ?></h2>
-                <?php echo '<span class="extendssubtotalboxes"> Subtotal: ' . filter_var($product_price) . '</span>'; ?>
-            </div>
+
             <div class="pd_box_list">
 
                 <?php
@@ -268,7 +285,7 @@ if ('yes' != $add_new_box_quantity) {
                     $args = array();
 
                     if ('yes' == $sort_enable) {
-                        $args['orderby'] = 'modified';
+                        $args['orderby'] = 'title';
                         $args['order'] = 'DESC';
                     }
 
