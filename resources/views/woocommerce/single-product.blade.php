@@ -246,6 +246,13 @@ the readme will list any important changes.
             @php
                 do_action('get_header', 'shop');
                 do_action('woocommerce_before_main_content');
+                global $product;
+
+                // Get the product type
+               // $product_type = $product->get_type();
+
+                // Dump the product type
+               // var_dump($product_type);
             @endphp
 
             @while (have_posts())
@@ -261,20 +268,21 @@ the readme will list any important changes.
                     @include('woocommerce.content-single-product')
                 @endif
             @endwhile
+        @php
+        global $product;
 
-            @php
-                global $product;
-                if ( ! $product->is_type( 'variable' ) ) {
-                    /**
-                     * Hook: woocommerce_before_single_product_summary.
-                     *
-                     * @since 1.0.0
-                     * @hooked woocommerce_show_product_sale_flash - 10
-                     * @hooked woocommerce_show_product_images - 20
-                     */
-                    do_action('mixmatch_after_single_product_summary');
-                }
-            @endphp
+        // Check if the product is not of type 'variable' and has the product type 'woosb'
+       if ( $product->is_type( 'wooextmm' ) && ! $product->is_type( 'woosb' ) ) {
+            /**
+             * Hook: woocommerce_before_single_product_summary.
+             *
+             * @since 1.0.0
+             * @hooked woocommerce_show_product_sale_flash - 10
+             * @hooked woocommerce_show_product_images - 20
+             */
+            do_action('mixmatch_after_single_product_summary');
+        }
+        @endphp
 
 
             @php
@@ -313,18 +321,6 @@ jQuery(document).ready(function($) {
         $(qtySelector).text(currentQty + 1);
     });
 
-    $('.extendonsfilledboxesremove').on('click', function(e) {
-        e.preventDefault();
-        var productID = $(this).data('id');
-        var qtySelector = '.exqtyval' + productID;
-        var currentQty = parseInt($(qtySelector).text(), 10);
-
-        if (isNaN(currentQty) || currentQty <= 0) {
-            return;
-        }
-
-        $(qtySelector).text(currentQty - 1);
-    });
 });
 
 </script>
