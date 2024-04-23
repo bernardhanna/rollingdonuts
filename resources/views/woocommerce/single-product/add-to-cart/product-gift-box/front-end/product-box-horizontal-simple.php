@@ -44,7 +44,9 @@ $circled_plus = '<?xml version="1.0" encoding="utf-8"?>
         color: black !important
     }
 
-    ;
+    .horizontal_box .gift_box_container {
+        height: calc(100%) !important;
+    }
 
     .horizontal_box .gift_box_container .gt_bx_lt .add_box .add_box_hor_simple {
         background-color: transparent;
@@ -424,7 +426,7 @@ if ('yes' != $add_new_box_quantity) {
                                                 </div>
                                                 <div class="addon_qty">
                                                     <a href="#" data-id="<?php echo filter_var($product->get_id()); ?>" class="qty_control minus extendonsfilledboxesremove"></a>
-                                                    <span class="value extendonsqtytext exqtyval<?php echo filter_var($product->get_id()); ?> " id="<?php echo filter_var($product->get_id()); ?>">
+                                                    <span class="value extendonsqtytext hidden exqtyval<?php echo filter_var($product->get_id()); ?> " id="<?php echo filter_var($product->get_id()); ?>">
                                                         <?php echo filter_var($qtyvalue); ?>
                                                     </span>
                                                     <a href="#" class="qty_control plus add_cta" data-id="<?php echo filter_var($product->get_id()); ?>"></a>
