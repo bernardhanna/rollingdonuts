@@ -100,6 +100,7 @@ the readme will list any important changes.
 
     .horizontal_box .gt_bx_rt {
         background: black;
+        padding: 0px!important;
     }
 
     .simple_pd .pd_add_block .pd_dtl .pd_title {
@@ -135,10 +136,27 @@ the readme will list any important changes.
     }
 
     .horizontal_box .gt_box_list .gift_block {
-        width: 20%;
+        width: 22.5%;
         min-width: 20%;
         height: auto;
     }
+
+    .gift_box_top .reset_gt_box .clear_cta {
+    color: white!important  ;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 420;
+    text-decoration: none!important;
+}
+
+    .horizontal_box .product_gift_box .gift_box_top {
+    padding: .5rem !important;
+    transition: .3s ease-in-out;
+    justify-content: flex-end;
+    background: #C70000;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+}
 
     .gt_overlay {
         display: none;
@@ -261,3 +279,18 @@ the readme will list any important changes.
         </div>
     </div>
 @endsection
+<script>
+jQuery(document).ready(function($){
+
+	if(ewcpm_php_vars_cb._mm_template_type=='grid') {
+		jQuery(window).on('scroll', function(){
+			if(jQuery(window).scrollTop() >= jQuery('.horizontal_box .gift_box_container').offset().top){
+				jQuery('.gift_box_container').removeClass('sticky_gt');
+			} else {
+				jQuery('.gift_box_container').removeClass('sticky_gt');
+	            //or use $('.menu').removeClass('addclass');
+	        }
+	    });
+	}
+});
+</script>

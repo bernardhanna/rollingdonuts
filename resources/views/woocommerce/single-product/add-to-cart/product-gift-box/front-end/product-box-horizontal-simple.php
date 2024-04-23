@@ -82,6 +82,36 @@ $circled_plus = '<?xml version="1.0" encoding="utf-8"?>
         padding-left: 5%;
         padding-right: 5%;
     }
+
+    .extendonsboxfillederrormsg.woocommerce-message {
+        background-color: #f55959 !important;
+        color: black !important;
+    }
+
+    .product_addon_box.simple_pd .pd_box_list {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        grid-gap: 20px;
+        align-items: flex-start;
+        border-right: 4px solid #000;
+        background: var(--white, #FFF);
+        margin-right: 5%;
+    }
+
+    form.cartt {
+        margin-bottom: 0px !important;
+        padding: 0px !important;
+    }
+
+    .extendons_add_to_cart .quantity {
+        display: none !important;
+    }
+
+    .extendons_add_to_cart {
+        margin-right: 7%;
+
+
+
+    }
 </style>
 
 <?php
@@ -142,7 +172,17 @@ if ('yes' != $add_new_box_quantity) {
 							</div> -->
 
                         <div class="reset_gt_box">
-                            <a href="#" class="clear_cta"><img src="images/remove.png" alt=""> Clear All Items</a>
+                            <a href="#" class=" clear_cta">Clear box <svg class="ml-2" xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                                    <g clip-path="url(#clip0_2964_11220)">
+                                        <path d="M1.47559 5.77344V13.8114H9.51356" stroke="black" stroke-width="2.67932" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M4.83814 20.5088C5.70677 22.9742 7.35313 25.0907 9.52918 26.5391C11.7052 27.9875 14.2931 28.6895 16.9028 28.5393C19.5125 28.3891 22.0027 27.3949 23.9982 25.7063C25.9937 24.0178 27.3863 21.7265 27.9664 19.1776C28.5464 16.6288 28.2824 13.9604 27.214 11.5747C26.1457 9.18894 24.3309 7.21502 22.0432 5.95034C19.7555 4.68566 17.1187 4.19873 14.5302 4.56292C11.9416 4.92711 9.54158 6.12269 7.69162 7.96952L1.47559 13.8105" stroke="black" stroke-width="2.67932" stroke-linecap="round" stroke-linejoin="round" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_2964_11220">
+                                            <rect width="32.1519" height="32.1519" fill="white" transform="translate(0.135742 0.414062)" />
+                                        </clipPath>
+                                    </defs>
+                                </svg></a>
                         </div>
                     </div>
                     <ul class="gt_box_list" ph_src="<?php echo esc_url($ph_src); ?>">
@@ -263,7 +303,6 @@ if ('yes' != $add_new_box_quantity) {
                     </ul>
                 </div>
             </div>
-
         </div>
 
         <!-- Product Addon List -->
@@ -379,7 +418,7 @@ if ('yes' != $add_new_box_quantity) {
                                             } else {
 
                                             ?>
-                                                <div class="add_btn">
+                                                <div class="add_btn bg-yellow-primary hover:bg-white">
                                                     <a href="#" class="add_cta" data-id="<?php echo filter_var($product->get_id()); ?>">
                                                         <?php echo filter_var($circled_plus); ?> &nbsp;<?php echo esc_html__('Add', 'extendons-woocommerce-product-boxes'); ?></a>
                                                 </div>
@@ -407,5 +446,6 @@ if ('yes' != $add_new_box_quantity) {
                 ?>
             </div>
         </div>
+
     </div>
 </div>

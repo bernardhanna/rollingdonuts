@@ -37,8 +37,6 @@ if (!empty($arrayData->box_pricing) && 'perwoutbase' == $arrayData->box_pricing)
 
                 <!-- parent product information -->
                 <div class="col-md-12 mm_topHeading">
-
-                    <h2>TEst</h2>
                     <hr>
 
                     <p class="parentPrice">
