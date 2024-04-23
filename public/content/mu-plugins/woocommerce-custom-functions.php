@@ -1530,3 +1530,8 @@ add_action('woocommerce_before_single_product', function () {
         exit; // Stop WooCommerce from loading the default template
     }
 });
+
+add_filter('sage-woocommerce/templates', function ($paths) {
+    $paths[] = WP_PLUGIN_DIR . '/woocommerce-custom-product-boxes-plugin/templates/';
+    return $paths;
+});
