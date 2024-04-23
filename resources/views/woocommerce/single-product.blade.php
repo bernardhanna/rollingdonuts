@@ -35,6 +35,10 @@ the readme will list any important changes.
         display: none !important;
     }
 
+    #headerimg .description {
+        display: none !important;
+    }
+
     form.cartt {
         margin-bottom: 0px;
         padding: 0px;
@@ -258,18 +262,20 @@ the readme will list any important changes.
                 @endif
             @endwhile
 
-
             @php
-                /**
-                 * Hook: woocommerce_before_single_product_summary.
-                 *
-                 * @since 1.0.0
-                 * @hooked woocommerce_show_product_sale_flash - 10
-                 * @hooked woocommerce_show_product_images - 20
-                 */
-                do_action('mixmatch_after_single_product_summary');
-                // do_action( 'woocommerce_before_single_product_summary' );
+                global $product;
+                if ( ! $product->is_type( 'variable' ) ) {
+                    /**
+                     * Hook: woocommerce_before_single_product_summary.
+                     *
+                     * @since 1.0.0
+                     * @hooked woocommerce_show_product_sale_flash - 10
+                     * @hooked woocommerce_show_product_images - 20
+                     */
+                    do_action('mixmatch_after_single_product_summary');
+                }
             @endphp
+
 
             @php
                 do_action('woocommerce_after_main_content');
