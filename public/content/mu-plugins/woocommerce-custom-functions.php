@@ -1192,7 +1192,7 @@ function allow_bundles_and_boxes_in_cart($passed, $product_id, $quantity, $varia
     $product_type = $product->get_type();
 
     // Adjust these checks according to your actual product types or identifiers
-    if ($product_type === 'woosb' || $product_type === 'diy_box') {
+    if ($product_type === 'woosb') {
         return true;
     }
 
@@ -1513,33 +1513,20 @@ add_action('init', function () {
         ]
     ]);
 });
-
-
-
+/*
+ ****************************************************************
+ * CUSTOM PRODUCT BOXES
+ ****************************************************************
+*/
 /**
  * Add support for WooCommerce Mix and match templates.
  */
-add_filter('woocommerce_locate_template', function ($template, $template_name, $template_path) {
-    $theme_template = resource_path('views/woocommerce/' . str_replace('.php', '.blade.php', $template_name));
-    if (file_exists($theme_template)) {
-        return $theme_template;
-    }
-    return $template;
-}, 10, 3);
-
-
 add_action('woocommerce_before_single_product', function () {
-    if (is_singular('product')) {
+    global $post;
+
+    // Check if the product is of type 'box' in the 'rd_product_type' taxonomy
+    if (has_term('Box', 'rd_product_type', $post->ID)) {
         echo \Roots\view('woocommerce.single-product');
         exit; // Stop WooCommerce from loading the default template
     }
-});
-
-
-/**
- * Add support for WooCommerce Subscription templates.
- */
-add_filter('sage-woocommerce/templates', function ($paths) {
-    $paths[] = WP_PLUGIN_DIR . '/woocommerce-custom-product-boxes-plugin/templates/';
-    return $paths;
 });
