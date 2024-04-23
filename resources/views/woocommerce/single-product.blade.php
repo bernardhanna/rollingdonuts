@@ -299,4 +299,32 @@ jQuery(document).ready(function($){
 	    });
 	}
 });
+jQuery(document).ready(function($) {
+    $('.add_cta').on('click', function(e) {
+        e.preventDefault();
+        var productID = $(this).data('id');
+        var qtySelector = '.exqtyval' + productID;
+        var currentQty = parseInt($(qtySelector).text(), 10);
+
+        if (isNaN(currentQty)) {
+            currentQty = 0;
+        }
+
+        $(qtySelector).text(currentQty + 1);
+    });
+
+    $('.extendonsfilledboxesremove').on('click', function(e) {
+        e.preventDefault();
+        var productID = $(this).data('id');
+        var qtySelector = '.exqtyval' + productID;
+        var currentQty = parseInt($(qtySelector).text(), 10);
+
+        if (isNaN(currentQty) || currentQty <= 0) {
+            return;
+        }
+
+        $(qtySelector).text(currentQty - 1);
+    });
+});
+
 </script>
