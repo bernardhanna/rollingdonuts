@@ -147,7 +147,7 @@ if (!empty($arrayData->box_pricing) && 'perwoutbase' == $arrayData->box_pricing)
                                 <?php
                                 do_action('min_match_box_product_after_price_sub', $product->get_id());
                                 ?>
-                                <button disabled="disabled" type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" class="single_add_to_cart_button button alt"><?php echo esc_html($product->single_add_to_cart_text()); ?></button>
+                                <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" class="single_add_to_cart_button button alt"><?php echo esc_html($product->single_add_to_cart_text()); ?></button>
                             </div>
                         </div>
                     </div>

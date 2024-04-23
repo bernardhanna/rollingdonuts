@@ -1522,10 +1522,10 @@ add_action('init', function () {
  * Add support for WooCommerce Mix and match templates.
  */
 add_action('woocommerce_before_single_product', function () {
-    global $post;
+    global $post, $product;
 
     // Check if the product is of type 'box' in the 'rd_product_type' taxonomy
-    if (has_term('Box', 'rd_product_type', $post->ID)) {
+    if (has_term('Box', 'rd_product_type', $post->ID) && !($product->is_type('woosb') || $product->is_type('simple'))) {
         echo \Roots\view('woocommerce.single-product');
         exit; // Stop WooCommerce from loading the default template
     }
@@ -1533,5 +1533,11 @@ add_action('woocommerce_before_single_product', function () {
 
 add_filter('sage-woocommerce/templates', function ($paths) {
     $paths[] = WP_PLUGIN_DIR . '/woocommerce-custom-product-boxes-plugin/templates/';
+    return $paths;
+});
+
+
+add_filter('sage-woocommerce/templates', function ($paths) {
+    $paths[] = WP_PLUGIN_DIR . '/woo-product-bundle-premium';
     return $paths;
 });
