@@ -260,6 +260,7 @@ if ('yes' != $add_new_box_quantity) {
                                         ?>
                                         <div class="dlt_icon">
                                             <?php
+                                    $circled_x_id = '';
                                             if ((isset($prefileldval['pre_mandetory']) && 'on' != $prefileldval['pre_mandetory']) || !isset($prefileldval['pre_mandetory'])) {
                                                 $circled_x_id = '<?xml version="1.0" encoding="utf-8"?>
                                                             <svg data-id="' . $product->get_id() . '" class= "extendonsremovefilledboxes ' . $product->get_id() . '" width="24px" height="24px" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
