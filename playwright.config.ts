@@ -11,23 +11,23 @@ import { devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 const config: PlaywrightTestConfig = {
-  testDir: './tests/e2e',
+  testDir: "./tests/e2e",
   timeout: 30 * 1000,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: 'list',
+  reporter: [["html", { outputFolder: "test-results" }]],
   use: {
     actionTimeout: 0,
-    baseURL: 'https://rollingdonuts.lndo.site/',
-    trace: 'on-first-retry',
+    baseURL: "https://rollingdonuts.lndo.site/",
+    trace: "on-first-retry",
     ignoreHTTPSErrors: true, // Ignore SSL errors
   },
   projects: [
     {
-      name: 'chromium',
+      name: "chromium",
       use: {
-        ...devices['Desktop Chrome'],
+        ...devices["Desktop Chrome"],
       },
     },
   ],

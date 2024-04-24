@@ -1521,23 +1521,34 @@ add_action('init', function () {
 /**
  * Add support for WooCommerce Mix and match templates.
  */
-add_action('woocommerce_before_single_product', function () {
+add_filter('template_include', function ($template) {
     global $post, $product;
+
+    if (!is_singular('product')) {
+        return $template; // Return the default template if not on a single product page
+    }
+
+    if (!$product instanceof WC_Product) {
+        $product = wc_get_product($post->ID);
+    }
 
     // Check if the product is of type 'box' in the 'rd_product_type' taxonomy
     if (has_term('Box', 'rd_product_type', $post->ID) && !($product->is_type('woosb') || $product->is_type('simple'))) {
-        echo \Roots\view('woocommerce.single-product');
-        exit; // Stop WooCommerce from loading the default template
+        // Start output buffering to prevent duplicates
+        ob_start();
+
+        // Load the custom Blade view
+        $new_template = \Roots\view('woocommerce.single-product', ['product' => $product])->makeLoader();
+
+        // Clean the output buffer to remove any previously added content
+        ob_end_clean();
+
+        // Return the new template path if it exists
+        if (file_exists($new_template)) {
+            return $new_template;
+        }
     }
-});
 
-add_filter('sage-woocommerce/templates', function ($paths) {
-    $paths[] = WP_PLUGIN_DIR . '/woocommerce-custom-product-boxes-plugin/templates/';
-    return $paths;
-});
+    return $template; // Return the default template if conditions are not met
+}, 100, 1);
 
-
-add_filter('sage-woocommerce/templates', function ($paths) {
-    $paths[] = WP_PLUGIN_DIR . '/woo-product-bundle-premium';
-    return $paths;
-});

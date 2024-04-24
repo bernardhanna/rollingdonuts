@@ -182,3 +182,8 @@ if (!empty($bestsellersList)): ?>
     </div>
 </section>
 <?php endif; ?>
+<style>
+    .test {
+        color: red;
+    }
+    </style>
