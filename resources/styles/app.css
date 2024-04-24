@@ -2479,3 +2479,7 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
 .woosb-cart-child {
   display: none;
 }
+
+.woocommerce-cart-form__cart-item.cart_itemmixmatch-child {
+  display: none;
+}

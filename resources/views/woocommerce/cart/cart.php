@@ -28,6 +28,10 @@ defined('ABSPATH') || exit;
 do_action('woocommerce_before_cart'); ?>
 
 <style>
+    p {
+        line-height: 1.5;
+    }
+
     .woocommerce table.shop_table {
         border: 0px;
         margin: auto;

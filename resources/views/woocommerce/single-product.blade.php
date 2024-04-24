@@ -248,13 +248,13 @@ the readme will list any important changes.
                 do_action('woocommerce_before_main_content');
                 global $product;
 
-                // Get the product type
-               // $product_type = $product->get_type();
+            // Get the product type
+            //$product_type = $product->get_type();
 
-                // Dump the product type
-               // var_dump($product_type);
+            // Dump the product type
+            //var_dump($product_type);
             @endphp
-
+    @if ( !$product->is_type( 'wooextmm' ) ||  $product->is_type( 'woosb' ) )
             @while (have_posts())
                 @php
                     the_post();
@@ -268,6 +268,9 @@ the readme will list any important changes.
                     @include('woocommerce.content-single-product')
                 @endif
             @endwhile
+
+    @endif
+
         @php
         global $product;
 
