@@ -33,6 +33,11 @@ if ('yes' != $add_new_box_quantity) {
 
 ?>
     <style type="text/css">
+        .product_addon_container.horizontal_box .product_addon_box {
+            max-height: 900px;
+            overflow: scroll;
+        }
+
         .gt_box {
             border-radius: 100%;
         }
