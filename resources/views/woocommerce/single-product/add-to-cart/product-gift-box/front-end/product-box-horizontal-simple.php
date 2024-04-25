@@ -37,8 +37,8 @@ if ('yes' != $add_new_box_quantity) {
             border-radius: 100%;
         }
 
-        .simple_pd .pd_add_block .image_block img {
-            border-radius: 100%;
+        .gt_box_list .gift_block .img_block img .simple_pd .pd_add_block .image_block img {
+            border-radius: 100% !important;
         }
 
         .gt_box_tab .box_tb_list:hover {
