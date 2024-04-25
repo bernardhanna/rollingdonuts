@@ -74,7 +74,7 @@ $hero_link = get_field('hero_link');
              x-init="setTimeout(() => { isMobile = window.innerWidth < 1084 }, 0); window.addEventListener('resize', () => { isMobile = window.innerWidth < 1084 })"
              :style="{ backgroundImage: getBackgroundImage() }">
              @if($hazelnut['url'])
-<img src="{{ $hazelnut['url'] }}" alt="{{ $hazelnut['alt'] ?? 'Rolling Donut' }}" class="h-[308px] lg:h-[430px] relative inset-0 mx-auto -mb-10 lg:mb-4 px-4 lg:px-0 lg:mr-auto lg:-ml-28 animate-spin animate-once animate-ease-in animate-alternate-reverse">
+                <img src="{{ $hazelnut['url'] }}" alt="{{ $hazelnut['alt'] ?? 'Rolling Donut' }}" class="h-[308px] lg:h-[430px] relative inset-0 mx-auto -mb-10 lg:mb-4 px-4 lg:px-0 lg:mr-auto lg:-ml-28 animate-spin animate-once animate-ease-in animate-alternate-reverse">
               @endif
         </div>
     </div>

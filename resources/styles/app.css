@@ -2483,3 +2483,10 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
 .woocommerce-cart-form__cart-item.cart_itemmixmatch-child {
   display: none;
 }
+
+.extendonsboxfillederrormsg.woocommerce-message p {
+    margin: 0 6px;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 420;
+}

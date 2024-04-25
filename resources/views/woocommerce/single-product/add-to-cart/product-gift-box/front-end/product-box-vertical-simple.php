@@ -27,140 +27,107 @@ $circled_plus = '<?xml version="1.0" encoding="utf-8"?>
 				</svg>';
 
 ?>
+<style type="text/css">
+    .gt_box_tab .box_tb_list:hover {
+        background-color: <?php echo filter_var($color_val); ?>;
+        border-color: <?php echo filter_var($color_val); ?>;
+        color: #fff !important
+    }
+
+    .horizontal_box .gt_box_tab .box_tb.active_tab .box_tb_list .gt_qt {
+        color: black;
+        border-color: transparent !important;
+    }
+
+    .pd_add_block .pd_addon_btns .add_btn :hover {
+        background-color: <?php echo filter_var($color_val); ?>;
+        color: black !important
+    }
+
+    .horizontal_box .gift_box_container {
+        height: calc(100%) !important;
+    }
+
+    .horizontal_box .gift_box_container .gt_bx_lt .add_box .add_box_hor_simple {
+        background-color: transparent;
+    }
+
+    .horizontal_box .gift_box_container .add_box .add_box_cta {
+        background: #fff !important;
+    }
+
+    .horizontal_box .gift_box_container .gt_bx_lt .add_box .add_box_hor_simple:hover {
+        background-color: <?php echo filter_var($color_val); ?> !important;
+        color: #fff !important
+    }
+
+    .pd_add_block .pd_addon_btns.pd_addon_active .addon_qty {
+        width: 50%
+    }
+
+    .pd_addon_btns .add_btn .add_cta {
+        color: #000000 !important;
+        border: 1px solid #000000 !important;
+        align-items: center;
+    }
+
+    .qodef-woo-product-title.product_title.entry-title {
+        display: none !important;
+    }
+
+    .product_addon_container.horizontal_box .product_addon_box {
+        width: 100% !important;
+
+    }
+
+    .product_box_container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .extendonsboxfillederrormsg.woocommerce-message {
+        background-color: #f55959 !important;
+        color: black !important;
+    }
+
+    .product_addon_box.simple_pd .pd_box_list {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        grid-gap: 20px;
+        align-items: flex-start;
+        border-right: 4px solid #000;
+        background: var(--white, #FFF);
+        margin-right: 5%;
+    }
+
+    form.cartt {
+        margin-bottom: 0px !important;
+        padding: 0px !important;
+    }
+
+    .extendons_add_to_cart .quantity {
+        display: none !important;
+    }
+
+    .extendons_add_to_cart {
+        margin-right: 7%;
+    }
+
+    .pd_add_block .pd_addon_btns.pd_addon_active .add_btn {
+        display: block;
+    }
+
+    .value.extendonsqtytext {
+        display: none !important;
+    }
+</style>
 
 <?php
 if ('yes' != $add_new_box_quantity) {
 
 ?>
     <style type="text/css">
-        .gt_box_tab .box_tb_list:hover {
-            background-color: <?php echo filter_var($color_val); ?>;
-            border-color: <?php echo filter_var($color_val); ?>;
-            color: #fff !important
-        }
-
-        .horizontal_box .gt_box_tab .box_tb.active_tab .box_tb_list .gt_qt {
-            color: black;
-            border-color: transparent !important;
-        }
-
-        .pd_add_block .pd_addon_btns .add_btn :hover {
-            background-color: <?php echo filter_var($color_val); ?>;
-            color: black !important
-        }
-
-        .horizontal_box .gift_box_container {
-            height: calc(100%) !important;
-            padding-bottom: 5%;
-        }
-
-        .horizontal_box .gift_box_container .gt_bx_lt .add_box .add_box_hor_simple {
-            background-color: transparent;
-        }
-
-        .horizontal_box .gift_box_container .add_box .add_box_cta {
-            background: #fff !important;
-        }
-
-        .horizontal_box .gift_box_container .gt_bx_lt .add_box .add_box_hor_simple:hover {
-            background-color: <?php echo filter_var($color_val); ?> !important;
-            color: #fff !important
-        }
-
-        .pd_add_block .pd_addon_btns.pd_addon_active .addon_qty {
-            width: 50%
-        }
-
-        .pd_addon_btns .add_btn .add_cta {
-            color: #000000 !important;
-            border: 1px solid #000000 !important;
-            align-items: center;
-        }
-
-        .qodef-woo-product-title.product_title.entry-title {
-            display: none !important;
-        }
-
-        .product_addon_container.horizontal_box .product_addon_box {
-            width: 100% !important;
-        }
-
-        .product_box_container {
-            padding-left: 5%;
-            padding-right: 5%;
-        }
-
-        .product_addon_container.horizontal_box .product_addon_box {
-            padding-top: 30px;
-            height: 100%;
-            overflow: auto;
-            padding-bottom: 5% !important;
-        }
-
-        .extendonsboxfillederrormsg.woocommerce-message {
-            background-color: #f55959 !important;
-            color: black !important;
-        }
-
-        .product_addon_box.simple_pd .pd_box_list {
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            grid-gap: 20px;
-            align-items: flex-start;
-            background: transparent;
-            margin-right: 5%;
-        }
-
-        form.cartt {
-            margin-bottom: 0px !important;
-            padding: 0px !important;
-        }
-
-        .extendons_add_to_cart .quantity {
-            display: none !important;
-        }
-
-        .extendons_add_to_cart {
-            margin-right: 7%;
-        }
-
-        .pd_add_block .pd_addon_btns.pd_addon_active .add_btn {
-            display: block;
-        }
-
-        .value.extendonsqtytext {
-            display: none !important;
-        }
-
         .horizontal_box .gt_bx_rt {
             width: 100% !important;
-        }
-
-        .horizontal_box .sticky_gt .gt_box_list .gift_block {
-            width: 80px;
-            min-width: 80px;
-            padding: 8px;
-            width: 22.5%;
-            min-width: 20%;
-            height: auto;
-            margin: 0px 10px 10px 0px;
-        }
-
-        .gt_box_qty .label {
-            color: white;
-        }
-
-        .gt_box_qty .gt_qty .value {
-            background: white;
-            border: 1px solid #000000;
-            border-radius: 0px;
-        }
-
-        .gt_box_qty .gt_qty .qty_control {
-            background-color: #FFED56;
-        }
-
-        .gt_box_qty .label {
-            display: block !important;
         }
     </style>
 <?php
@@ -170,11 +137,7 @@ if ('yes' != $add_new_box_quantity) {
 <div class="product_box_container">
     <div class="product_addon_container horizontal_box full_opt">
         <!-- Gift Box -->
-        <div class="gift_box_container flex flex-col">
-            <?php
-            // Display WooCommerce product summary right here
-            do_action('woocommerce_mxmatch_product_summary');
-            ?>
+        <div class="gift_box_container">
             <?php if ('yes' == $add_new_box_quantity) { ?>
                 <div class="gt_bx_lt">
                     <ul class="gt_box_tab">
@@ -202,6 +165,7 @@ if ('yes' != $add_new_box_quantity) {
             <?php } ?>
             <div class="gt_bx_rt" color_val=<?php echo filter_var($color_val); ?>>
                 <div id="gift_box_0" data-box-count='0' class="product_gift_box active_bx_dtl">
+
                     <div class="gift_box_top">
                         <div class="gt_box_qty">
                             <span class="label"><?php echo esc_html__('Box 1 Quantity', 'extendons-woocommerce-product-boxes'); ?></span>
@@ -211,16 +175,9 @@ if ('yes' != $add_new_box_quantity) {
                                 <a href="#" class="qty_control plus extenonsboxplus"></a>
                             </div>
                         </div>
-                        <div class="gt_item_lmt">
-                            <?php
-
-                            $boxQty = intval($boxQty) - intval($prefileldArraylength);
-                            $totalboxQty = isset($boxQty) ? filter_var($boxQty) : '0';
-                            $totalboxQty = intval($totalboxQty) + intval($prefileldArraylength);
-
-                            ?>
-                            <span class="text"><span class="added_item"><span class="extendonsfilledboxcount"><?php echo filter_var($prefileldArraylength); ?></span>/<?php echo filter_var($totalboxQty); ?> </span><?php echo esc_html__(' Added', 'extendons-woocommerce-product-boxes'); ?></span>
-                        </div>
+                        <!-- <div class="reset_gt_box">
+								<a href="#" class="clear_cta"><img src="images/remove.png" alt=""> Clear All Items</a>
+							</div> -->
 
                         <div class="reset_gt_box">
                             <a href="#" class=" clear_cta">Clear box <svg class="ml-2" xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
@@ -354,13 +311,6 @@ if ('yes' != $add_new_box_quantity) {
                         ?>
                     </ul>
                 </div>
-            </div>
-            <div class="extsubtotaladdtocart">
-                <?php
-                echo '<span class="extendssubtotalboxes"> Box Price: ' . filter_var($product_price) . '</span>';
-
-                ?>
-
             </div>
         </div>
 
@@ -508,13 +458,3 @@ if ('yes' != $add_new_box_quantity) {
 
     </div>
 </div>
-<script>
-    jQuery(document).ready(function($) {
-        setTimeout(function() {
-            if ($('.extendons_add_to_cart').length && $('.gift_box_container').length) {
-                var addToCart = $('.extendons_add_to_cart').detach();
-                $('.gift_box_container').append(addToCart);
-            }
-        }, 200); // Adjust the timeout as needed
-    });
-</script>
