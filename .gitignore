@@ -1,7 +1,7 @@
 # Application
 /public/content/plugins/*
 !/public/content/plugins/.gitkeep
-/public/content/mu-plugins/*
+!/public/content/mu-plugins/*
 !/public/content/mu-plugins/editor/
 /public/content/upgrade
 /public/content/cache/*
@@ -9,7 +9,7 @@
 /public/content/updraft/*
 !/public/content/uploads/.gitkeep
 /public/content/uploads/*
-!/public/content/uploads/2024/02/*
+/public/content/uploads/2024/02/*
 public/content/updraft/backup_2023-12-11-1011_Rolling_Donut_2b4440752065-uploads.zip
 # WordPress
 public/wp
