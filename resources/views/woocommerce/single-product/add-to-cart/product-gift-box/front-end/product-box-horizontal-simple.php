@@ -33,6 +33,14 @@ if ('yes' != $add_new_box_quantity) {
 
 ?>
     <style type="text/css">
+        .gt_box {
+            border-radius: 100%;
+        }
+
+        .simple_pd .pd_add_block .image_block img {
+            border-radius: 100%;
+        }
+
         .gt_box_tab .box_tb_list:hover {
             background-color: <?php echo filter_var($color_val); ?>;
             border-color: <?php echo filter_var($color_val); ?>;
