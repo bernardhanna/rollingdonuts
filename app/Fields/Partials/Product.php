@@ -1,10 +1,12 @@
 <?php
+
 /**
  * @Author: Bernard Hanna
  * @Date:   2023-07-13 09:22:51
  * @Last Modified by:   Bernard Hanna
  * @Last Modified time: 2023-08-03 17:03:04
  */
+
 namespace App\Fields\Partials;
 
 use Log1x\AcfComposer\Partial;
