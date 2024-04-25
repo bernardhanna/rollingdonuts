@@ -264,6 +264,11 @@
           "name": "mob-xxs-font",
           "size": "12px",
           "slug": "mob-xxs-font"
+        },
+        {
+          "name": "tiny",
+          "size": "10px",
+          "slug": "tiny"
         }
       ]
     }
