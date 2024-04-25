@@ -22,7 +22,7 @@
     ]
   },
   "files": ["types/custom.d.ts", "bud.config.ts"],
-  "include": ["resources"],
+  "include": ["resources", "public/content/mu-plugins/mix-match-custom/main.js"],
   "bud": {
     "useCompilerOptions": true
   }

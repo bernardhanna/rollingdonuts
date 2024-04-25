@@ -22,15 +22,20 @@ the readme will list any important changes.
 @version     1.6.4
 --}}
 <style>
+    .horizontal_box .gift_box_container.sticky_gt {
+        position: relative;
+    }
+
     .item_count_display {
-    color: #555;
-    font-weight: bold;
-    padding: 5px 10px;
-    display: inline-block;
-    background-color: #f1f1f1;
-    border-radius: 4px;
-    margin-top: 10px;
-}
+        color: #555;
+        font-weight: bold;
+        padding: 5px 10px;
+        display: inline-block;
+        background-color: #f1f1f1;
+        border-radius: 4px;
+        margin-top: 10px;
+    }
+
     #headerimg h1 a {
         display: none !important;
     }
@@ -104,7 +109,7 @@ the readme will list any important changes.
 
     .horizontal_box .gt_bx_rt {
         background: black;
-        padding: 0px!important;
+        padding: 0px !important;
     }
 
     .simple_pd .pd_add_block .pd_dtl .pd_title {
@@ -126,11 +131,11 @@ the readme will list any important changes.
         padding: 1rem;
         border-radius: 0px 6px 6px 6px;
         border-radius: 16.076px;
-        border: 2.679px solid var(--black-full, #000) !important;
+        border: unset;
     }
 
     .gt_box_list .gift_block .dlt_icon svg {
-        s width: 20px !important;
+        width: 20px !important;
         height: 20px !important;
     }
 
@@ -146,21 +151,31 @@ the readme will list any important changes.
     }
 
     .gift_box_top .reset_gt_box .clear_cta {
-    color: white!important  ;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 420;
-    text-decoration: none!important;
-}
+        color: white !important;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 420;
+        text-decoration: none !important;
+    }
 
     .horizontal_box .product_gift_box .gift_box_top {
-    padding: .5rem !important;
-    transition: .3s ease-in-out;
-    justify-content: flex-end;
-    background: #C70000;
-    border-top-left-radius: 14px;
-    border-top-right-radius: 14px;
+        padding: .5rem !important;
+        transition: .3s ease-in-out;
+        justify-content: space-between!important;
+        background: #C70000;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .horizontal_box .gt_bx_rt .gt_item_lmt .text {
+    font-size: 16px;
+    padding-top: 0px!important;
+    display: inline-block;
 }
+
+    .horizontal_box .gt_bx_rt .gt_item_lmt .text {
+        color: white!important;
+    }
 
     .gt_overlay {
         display: none;
@@ -185,6 +200,14 @@ the readme will list any important changes.
     .extendssubtotalboxes,
     .gift_box_top .gt_item_lmt .text {
         color: #000000;
+    }
+
+    .extendssubtotalboxes {
+        font-size: 24px !important;
+    }
+
+    .woocommerce-Price-amount.amount bdi {
+        font-weight: 400;
     }
 
     .horizontal_box .gift_box_container.sticky_gt {
@@ -224,12 +247,37 @@ the readme will list any important changes.
         margin-right: 2%;
         justify-content: flex-end;
     }
+
     .add_cta svg path {
-         stroke: black !important;
+        stroke: black !important;
         fill: black !important;
     }
+
     .qodef-woo-product-title.product_title.entry-title {
-        display: none!important;
+        display: none !important;
+    }
+
+    .extendssubtotalboxes,
+    .gift_box_top .gt_item_lmt .text {
+        color: #000000 !important;
+    }
+
+    .pd_box_list .pd_add_block {
+        border: none !important;
+        padding: unset;
+        box-sizing: border-box;
+        border-radius: 6px;
+        box-shadow: unset !important;
+        transition: .3s ease-in-out;
+    }
+
+    .extsubtotaladdtocart {
+        border-top: 1px solid #000000;
+        border-bottom: 1px solid #000000 !important;
+        padding-bottom: 1rem !important;
+        margin-bottom: 0rem !important;
+        padding-top: 1rem;
+        justify-content: center !important;
     }
 </style>
 @extends('layouts.app')
@@ -248,44 +296,44 @@ the readme will list any important changes.
                 do_action('woocommerce_before_main_content');
                 global $product;
 
-            // Get the product type
-            //$product_type = $product->get_type();
+                // Get the product type
+                //$product_type = $product->get_type();
 
-            // Dump the product type
-            //var_dump($product_type);
+                // Dump the product type
+                //var_dump($product_type);
+
             @endphp
-    @if ( !$product->is_type( 'wooextmm' ) ||  $product->is_type( 'woosb' ) )
-            @while (have_posts())
-                @php
-                    the_post();
-                    global $product;
-                    $product = wc_get_product(get_the_ID());
-                @endphp
+            @if (!$product->is_type('wooextmm') || $product->is_type('woosb'))
+                @while (have_posts())
+                    @php
+                        the_post();
+                        global $product;
+                        $product = wc_get_product(get_the_ID());
+                    @endphp
 
-                @if ($product && $product->get_type() === 'woosb')
-                    @include('woocommerce.content-single-product')
-                @else
-                    @include('woocommerce.content-single-product')
-                @endif
-            @endwhile
+                    @if ($product && $product->get_type() === 'woosb')
+                        @include('woocommerce.content-single-product')
+                    @else
+                        @include('woocommerce.content-single-product')
+                    @endif
+                @endwhile
+            @endif
 
-    @endif
+            @php
+                global $product;
 
-        @php
-        global $product;
-
-        // Check if the product is not of type 'variable' and has the product type 'woosb'
-       if ( $product->is_type( 'wooextmm' ) && ! $product->is_type( 'woosb' ) ) {
-            /**
-             * Hook: woocommerce_before_single_product_summary.
-             *
-             * @since 1.0.0
-             * @hooked woocommerce_show_product_sale_flash - 10
-             * @hooked woocommerce_show_product_images - 20
-             */
-            do_action('mixmatch_after_single_product_summary');
-        }
-        @endphp
+                // Check if the product is not of type 'variable' and has the product type 'woosb'
+                if ($product->is_type('wooextmm') && !$product->is_type('woosb')) {
+                    /**
+                     * Hook: woocommerce_before_single_product_summary.
+                     *
+                     * @since 1.0.0
+                     * @hooked woocommerce_show_product_sale_flash - 10
+                     * @hooked woocommerce_show_product_images - 20
+                     */
+                    do_action('mixmatch_after_single_product_summary');
+                }
+            @endphp
 
 
             @php
@@ -296,34 +344,3 @@ the readme will list any important changes.
         </div>
     </div>
 @endsection
-<script>
-jQuery(document).ready(function($){
-
-	if(ewcpm_php_vars_cb._mm_template_type=='grid') {
-		jQuery(window).on('scroll', function(){
-			if(jQuery(window).scrollTop() >= jQuery('.horizontal_box .gift_box_container').offset().top){
-				jQuery('.gift_box_container').removeClass('sticky_gt');
-			} else {
-				jQuery('.gift_box_container').removeClass('sticky_gt');
-	            //or use $('.menu').removeClass('addclass');
-	        }
-	    });
-	}
-});
-jQuery(document).ready(function($) {
-    $('.add_cta').on('click', function(e) {
-        e.preventDefault();
-        var productID = $(this).data('id');
-        var qtySelector = '.exqtyval' + productID;
-        var currentQty = parseInt($(qtySelector).text(), 10);
-
-        if (isNaN(currentQty)) {
-            currentQty = 0;
-        }
-
-        $(qtySelector).text(currentQty + 1);
-    });
-
-});
-
-</script>
