@@ -21,265 +21,7 @@ the readme will list any important changes.
 @package     WooCommerce\Templates
 @version     1.6.4
 --}}
-<style>
-    .horizontal_box .gift_box_container.sticky_gt {
-        position: relative;
-    }
 
-    .item_count_display {
-        color: #555;
-        font-weight: bold;
-        padding: 5px 10px;
-        display: inline-block;
-        background-color: #f1f1f1;
-        border-radius: 4px;
-        margin-top: 10px;
-    }
-
-    #headerimg h1 a {
-        display: none !important;
-    }
-
-    #headerimg .description {
-        display: none !important;
-    }
-
-    form.cartt {
-        margin-bottom: 0px;
-        padding: 0px;
-        margin: auto;
-        width: 100%;
-    }
-
-    .product_box_container {
-        margin-left: 0px !important;
-        margin-right: 0px !important;
-    }
-
-    .horizontal_box .gift_box_container {
-        background-color: #ffffff !important;
-    }
-
-    .horizontal_box.product_addon_container .product_gift_box.active_bx_dtl {
-        background-color: #000 !important;
-    }
-
-    .product_addon_container {
-        background-color: transparent !important;
-    }
-
-    .horizontal_box .gift_box_container {
-        background-color: transparent !important;
-    }
-
-    .product_addon_container .product_addon_box {
-        background-color: transparent !important;
-        padding: unset !important;
-    }
-
-    .simple_pd .pd_box_list .pd_add_block {
-        padding: 0px;
-    }
-
-    .pd_box_list .pd_add_block {
-        border: none;
-        padding: 0px;
-        box-sizing: border-box;
-        border-radius: 6px;
-        box-shadow: none;
-        transition: .3s ease-in-out;
-        border: none;
-        background: transparent;
-    }
-
-    .product_box_container .product_addon_container {
-        padding: 0px !important;
-        box-sizing: border-box;
-        background-color: #eaeded00 !important;
-        border-radius: unset;
-        display: flex !important;
-        flex-direction: row-reverse !important;
-        justify-content: space-between !important;
-    }
-
-    .horizontal_box .gt_box_list .gift_block.active_gift {
-        border-style: solid;
-        background-color: black !important;
-    }
-
-    .horizontal_box .gt_bx_rt {
-        background: black;
-        padding: 0px !important;
-    }
-
-    .simple_pd .pd_add_block .pd_dtl .pd_title {
-        text-align: center;
-        color: #000 !important;
-        line-height: 1;
-    }
-
-    .horizontal_box .product_gift_box .gt_box_list {
-        flex-wrap: wrap !important;
-    }
-
-    .horizontal_box.product_addon_container .product_gift_box.active_bx_dtl {
-        background-color: #000 !important;
-    }
-
-    .horizontal_box .gt_bx_rt {
-        margin-top: 0px;
-        padding: 1rem;
-        border-radius: 0px 6px 6px 6px;
-        border-radius: 16.076px;
-        border: unset;
-    }
-
-    .gt_box_list .gift_block .dlt_icon svg {
-        width: 20px !important;
-        height: 20px !important;
-    }
-
-    .gt_box_list .gift_block .dlt_icon svg g {
-        stroke: black !important;
-        fill: #f55959 !important;
-    }
-
-    .horizontal_box .gt_box_list .gift_block {
-        width: 22.5%;
-        min-width: 20%;
-        height: auto;
-    }
-
-    .gift_box_top .reset_gt_box .clear_cta {
-        color: white !important;
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 420;
-        text-decoration: none !important;
-    }
-
-    .horizontal_box .product_gift_box .gift_box_top {
-        padding: .5rem !important;
-        transition: .3s ease-in-out;
-        justify-content: space-between!important;
-        background: #C70000;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-    }
-
-    .horizontal_box .gt_bx_rt .gt_item_lmt .text {
-    font-size: 16px;
-    padding-top: 0px!important;
-    display: inline-block;
-}
-
-    .horizontal_box .gt_bx_rt .gt_item_lmt .text {
-        color: white!important;
-    }
-
-    .gt_overlay {
-        display: none;
-    }
-
-    .woocommerce-Price-amount .amount {
-        color: #000 !important;
-    }
-
-    .woocommerce-Price-currencySymbol {
-        color: #000 !important;
-    }
-
-    .pd_box_list .pd_add_block:hover {
-        box-shadow: none !important;
-    }
-
-    .product_addon_box .pd_title {
-        color: #000000 !important;
-    }
-
-    .extendssubtotalboxes,
-    .gift_box_top .gt_item_lmt .text {
-        color: #000000;
-    }
-
-    .extendssubtotalboxes {
-        font-size: 24px !important;
-    }
-
-    .woocommerce-Price-amount.amount bdi {
-        font-weight: 400;
-    }
-
-    .horizontal_box .gift_box_container.sticky_gt {
-        padding-top: 0px !important;
-        margin-bottom: 0px !important;
-        border-radius: 0px !important;
-        box-shadow: none !important;
-    }
-
-    .horizontal_box .gift_box_container {
-        display: flex;
-        justify-content: space-between;
-        margin: 0px 0px 0px;
-        padding: 0px 0px;
-        width: 100%;
-        max-width: 480px;
-    }
-
-    .gift_box_container.sticky_gt {
-        width: 100%;
-        max-width: 480px;
-    }
-
-    .woocommerce-Price-amount.amount {
-        color: #000000 !important;
-
-    }
-
-    .form.cartt {
-        padding: 0px;
-    }
-
-    .extendons_add_to_cart {
-        margin-top: 2%;
-        display: flex;
-        margin-left: 2%;
-        margin-right: 2%;
-        justify-content: flex-end;
-    }
-
-    .add_cta svg path {
-        stroke: black !important;
-        fill: black !important;
-    }
-
-    .qodef-woo-product-title.product_title.entry-title {
-        display: none !important;
-    }
-
-    .extendssubtotalboxes,
-    .gift_box_top .gt_item_lmt .text {
-        color: #000000 !important;
-    }
-
-    .pd_box_list .pd_add_block {
-        border: none !important;
-        padding: unset;
-        box-sizing: border-box;
-        border-radius: 6px;
-        box-shadow: unset !important;
-        transition: .3s ease-in-out;
-    }
-
-    .extsubtotaladdtocart {
-        border-top: 1px solid #000000;
-        border-bottom: 1px solid #000000 !important;
-        padding-bottom: 1rem !important;
-        margin-bottom: 0rem !important;
-        padding-top: 1rem;
-        justify-content: center !important;
-    }
-</style>
 @extends('layouts.app')
 
 @php
@@ -288,19 +30,13 @@ the readme will list any important changes.
 
 @section('content')
     @include('woocommerce.custom.woocommerce-header')
-    <div class="bg-cover bg-no-repeat max-lg:z-10 max-lg:-top-6 relative"
+    <div class="relative bg-no-repeat bg-cover max-lg:z-10 max-lg:-top-6"
         style="{{ $shop_bg_url ? 'background-image: url(' . $shop_bg_url . ');' : '' }}">
-        <div class="mx-auto px-0 lg:px-4 w-full">
+        <div class="w-full px-0 mx-auto lg:px-4">
             @php
                 do_action('get_header', 'shop');
                 do_action('woocommerce_before_main_content');
                 global $product;
-
-                // Get the product type
-                //$product_type = $product->get_type();
-
-                // Dump the product type
-                //var_dump($product_type);
 
             @endphp
             @if (!$product->is_type('wooextmm') || $product->is_type('woosb'))
@@ -313,6 +49,8 @@ the readme will list any important changes.
 
                     @if ($product && $product->get_type() === 'woosb')
                         @include('woocommerce.content-single-product')
+                    @elseif ($product && $product->get_type() === 'donut_box_builder')
+                        @include('woocommerce.content-donut-box')
                     @else
                         @include('woocommerce.content-single-product')
                     @endif

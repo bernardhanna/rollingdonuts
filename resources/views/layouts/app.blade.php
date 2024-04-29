@@ -36,8 +36,8 @@ $is_single_product_page = function_exists('is_product') && is_product();
         </div>
 
 <?php do_action('get_footer'); ?>
-<?php wp_footer(); ?>
 @include('utils.scripts')
+<?php wp_footer(); ?>
     </body>
 
 </html>

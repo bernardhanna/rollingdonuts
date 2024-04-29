@@ -6,7 +6,7 @@
  * @Last Modified time: 2023-10-24 10:23:42
  */
 ?>
-    <section class="relative w-full z-50 lg:mb-12 mb-0"
+    <section class="relative z-50 w-full mb-0 lg:mb-12"
         x-data="{
             formState: 'login',
             activeTab: 'sign-in',
@@ -46,19 +46,19 @@ $image_id_mobile = get_field('woo_mobile_bg', 'option', false);
     <img class="object-cover w-full min-h-[243px] max-site:h-[243px] hidden sm:block" src="{{ $image_url }}" alt="{{ $image_alt }}" srcset="{{ $image_srcset }}" sizes="(min-width: 640px) 100vw">
 
     <!-- Mobile Background -->
-    <img class="w-full block sm:hidden" src="{{ $image_url_mobile }}" alt="{{ $image_alt_mobile }}" srcset="{{ $image_srcset_mobile }}" sizes="(max-width: 639px) 100vw">
+    <img class="block w-full sm:hidden" src="{{ $image_url_mobile }}" alt="{{ $image_alt_mobile }}" srcset="{{ $image_srcset_mobile }}" sizes="(max-width: 639px) 100vw">
 </div>
         @endif
 
-        <div class="mx-auto max-w-max-1485 absolute h-full left-0 right-0 top-0 w-full">
-            <div class="w-full lg:max-w-max-1485 pl-4 desktop:pl-0">
+        <div class="absolute top-0 left-0 right-0 w-full h-full mx-auto max-w-max-1485">
+            <div class="w-full pl-4 lg:max-w-max-1485 desktop:pl-0">
                 @php
                     woocommerce_breadcrumb();
                 @endphp
             </div>
-            <div class="relative flex items-center justify-between mobile:pt-8 px-2 mobile:px-4 desktop:p-0 desktop:pt-6">
-                <div x-data="{ content: 'Dynamic content based on conditions' }" class="text-container relative inline-block width-fit-content px-4 desktop:p-0">
-                       <h1 :class="pageTitle.length > 15 ? 'xxxs:text-tiny xs:text-base-font sm-mob:text-sm-font mobile:text-md-font sm:text-lg-font md:text-lg-font lg:text-lg-font xl:text-lg-font xxl:text-xxl-font' : 'text-mob-lg-font small:text-mob-xl-font sm:text-mob-xl-font mobile:text-mob-xxl-font md:text-mob-xxl-font tablet-sm:text-lg-font lg:text-xxl-font xl:text-xxl-font xxl:text-xxxl-font'"class="z-10 relative left-0 text-white font-reg420 text-mob-lg-font lg:text-lg-font xl:text-lg-font xxl:text-xxl-font' : 'text-tiny small:text-mob-md-font sm:text-mob-md-font mobile:text-mob-xxl-font md:text-mob-xxl-font tablet-sm:text-md-font lg:text-lg-font xl:text-lg-font xxl:text-xxxl-font" x-text="activeTab === 'register' ? 'Register' : isAccountPage && !isLoggedIn ? 'Sign In' : isTemplateBoxProducts ? 'Choose Your Own' : isProductArchive ? 'Our Donuts' : pageTitle"></h1>
+            <div class="relative flex items-center justify-between px-2 mobile:pt-8 mobile:px-4 desktop:p-0 desktop:pt-6">
+                <div x-data="{ content: 'Dynamic content based on conditions' }" class="relative inline-block px-4 text-container width-fit-content desktop:p-0">
+                       <h1 :class="pageTitle.length > 15 ? 'xxxs:text-tiny xs:text-base-font sm-mob:text-sm-font mobile:text-md-font sm:text-lg-font md:text-lg-font lg:text-lg-font xl:text-lg-font xxl:text-xxl-font' : 'text-mob-lg-font small:text-mob-xl-font sm:text-mob-xl-font mobile:text-mob-xxl-font md:text-mob-xxl-font tablet-sm:text-lg-font lg:text-xxl-font xl:text-xxl-font xxl:text-xxxl-font'"class="relative left-0 z-10 text-white font-reg420 text-mob-lg-font lg:text-lg-font xl:text-lg-font xxl:text-xxl-font' : 'text-tiny small:text-mob-md-font sm:text-mob-md-font mobile:text-mob-xxl-font md:text-mob-xxl-font tablet-sm:text-md-font lg:text-lg-font xl:text-lg-font xxl:text-xxxl-font" x-text="activeTab === 'register' ? 'Register' : isAccountPage && !isLoggedIn ? 'Sign In' : isTemplateBoxProducts ? 'Choose Your Own' : isProductArchive ? 'Our Donuts' : pageTitle"></h1>
                 </div>
                 @if(is_page_template('templates/template-box-products.blade.php') || is_page_template('templates/template-merch-products.blade.php'))
                 @include('components.filter')
@@ -71,8 +71,8 @@ $image_id_mobile = get_field('woo_mobile_bg', 'option', false);
                         $price = $product->get_price();
                         $currency = get_woocommerce_currency_symbol();
                     @endphp
-                        <div class="product-price text-white text-sm-md-font xs:text-md-font mobile:text-lg-font font-medium">
-                            <bdi class="z-50 relative">{!! $currency !!}{{ $price }}</bdi>
+                        <div class="font-medium text-white product-price text-sm-md-font xs:text-md-font mobile:text-lg-font">
+                            <bdi class="relative z-50">{!! $currency !!}{{ $price }}</bdi>
                         </div>
                     @php
                     } else {
