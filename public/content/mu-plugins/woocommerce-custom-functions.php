@@ -363,7 +363,7 @@ function custom_add_to_cart_button()
         }
 
         // Output the form and button with dynamic action URL and button text for non-Donut products
-        echo '<form class="cart py-8" action="' . $action_url . '" method="post" enctype="multipart/form-data">';
+        echo '<form class="py-8 cart" action="' . $action_url . '" method="post" enctype="multipart/form-data">';
         echo '<button type="submit" name="add-to-cart" value="' . esc_attr($product->get_id()) . '" class="single_add_to_cart_button h-[58px] text-sm-md-font font-reg420 text-yellow-primary hover:text-black-full bg-black-full hover:bg-yellow-primary rounded-lg-x border-2 border-yellow-primary w-full max-w-max-368">' . esc_html($button_text) . '</button>';
         echo '</form>';
     }
@@ -550,19 +550,20 @@ add_action('woocommerce_before_single_product', 'custom_woocommerce_notices_outp
 
 //Only Donuts products on the WooCOmmerce Shop page/ Our Donuts page
 add_action('pre_get_posts', 'filter_products_by_rd_product_type');
-
 function filter_products_by_rd_product_type($query)
 {
-    if (!is_admin() && is_post_type_archive('product') && $query->is_main_query()) {
-        $tax_query = array(
-            array(
-                'taxonomy' => 'rd_product_type',
-                'field'    => 'slug',
-                'terms'    => 'Donut',
-                'operator' => 'IN',
-            ),
-        );
-        $query->set('tax_query', $tax_query);
+    if (!is_admin() && $query->is_main_query()) {
+        if (is_post_type_archive('product')) {
+            $tax_query = array(
+                array(
+                    'taxonomy' => 'rd_product_type',
+                    'field'    => 'slug',
+                    'terms'    => 'Donut',
+                    'operator' => 'IN',
+                ),
+            );
+            $query->set('tax_query', $tax_query);
+        }
     }
 }
 
@@ -576,14 +577,14 @@ function display_allergens_below_product_summary()
 
     // Check if there are any allergens set for the product
     if ($allergens) {
-        echo '<div class="product-allergens w-1/2 pb-8"><span class="allergens-title text-base-font font-medium text-black-full">Allergens:</span><ul class="allergens-list py-4 flex wrap flex-row justify-start">';
+        echo '<div class="w-1/2 pb-8 product-allergens"><span class="font-medium allergens-title text-base-font text-black-full">Allergens:</span><ul class="flex flex-row justify-start py-4 allergens-list wrap">';
 
         // Loop through each allergen and display it
         foreach ($allergens as $allergen) {
             $allergen_name = get_the_title($allergen->ID); // Get the title of the allergen post
             $allergen_thumbnail = get_the_post_thumbnail_url($allergen->ID, 'thumbnail'); // Get the thumbnail for the allergen
 
-            echo '<li class="allergen-item flex flex-col justify-between items-center pr-4">';
+            echo '<li class="flex flex-col items-center justify-between pr-4 allergen-item">';
             if ($allergen_thumbnail) {
                 echo '<img src="' . esc_url($allergen_thumbnail) . '" alt="' . esc_attr($allergen_name) . '" class="allergen-thumbnail">';
             }
@@ -758,7 +759,7 @@ function custom_woocommerce_button_classes($button, $product)
     global $post;
     if (isset($post->post_name) && $post->post_name == 'my-account') {
         // Example: Add 'bg-blue-500' and 'text-white' classes from Tailwind CSS
-        $button = str_replace('class="button ', 'class="button bg-blue-500 text-white ', $button);
+        $button = str_replace('class="button ', 'class="text-white bg-blue-500 button ', $button);
     }
     return $button;
 }
@@ -887,7 +888,7 @@ function custom_woocommerce_form_field_args($args, $key, $value)
             $args['placeholder'] = 'First Name';
             $args['input_class'][] = 'lg:w-99';
             $args['wrapper_class'] = 'first-name-wrapper';
-            $args['before_field'] = '<div class="billing-name-wrapper flex w-full flex-wrap flex-col md:flex-row md:justify-between items-center">';  //
+            $args['before_field'] = '<div class="flex flex-col flex-wrap items-center w-full billing-name-wrapper md:flex-row md:justify-between">';  //
             break;
 
         case 'billing_last_name':
@@ -980,11 +981,11 @@ function change_woocommerce_field_markup($field, $key, $args, $value)
     $field = str_replace('form-row', '', $field);
 
     // Wrap each field with a div
-    $field = '<div class="single-field-wrapper w-full" data-priority="' . $args['priority'] . '">' . $field . '</div>';
+    $field = '<div class="w-full single-field-wrapper" data-priority="' . $args['priority'] . '">' . $field . '</div>';
 
     // Wrap first and last name fields together for both billing and shipping
     if ($key === 'billing_first_name' || $key === 'shipping_first_name') {
-        $field = '<div class="name-field w-full flex flex-col xl:flex-row xl:justify-between">' . $field;
+        $field = '<div class="flex flex-col w-full name-field xl:flex-row xl:justify-between">' . $field;
     } else if ($key === 'billing_last_name' || $key === 'shipping_last_name') {
         $field = $field . '</div>';
     }
@@ -1318,7 +1319,7 @@ function custom_add_order_again_button($order)
     // Set a session flag when the "Order Again" button is generated
     $_SESSION['custom_order_again_clicked'] = true;
 
-    echo '<div class="w-full max-w-max-1000 px-4 wc-reorder-button-container"><div class="flex justify-start"><a href="' . esc_url($reorder_url) . '" class="mx-auto btn-width rounded-btn-72 border-3 border-color-yellow-primary bg-yellow-primary text-black-full text-sm-md-font font-reg420 w-full max-md:w-[342px] md:w-[322px] h-[64px] flex flex-row items-center justify-center hover:bg-white button wc-reorder-button mt-8"><svg class="mr-2" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+    echo '<div class="w-full px-4 max-w-max-1000 wc-reorder-button-container"><div class="flex justify-start"><a href="' . esc_url($reorder_url) . '" class="mx-auto btn-width rounded-btn-72 border-3 border-color-yellow-primary bg-yellow-primary text-black-full text-sm-md-font font-reg420 w-full max-md:w-[342px] md:w-[322px] h-[64px] flex flex-row items-center justify-center hover:bg-white button wc-reorder-button mt-8"><svg class="mr-2" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M25.9904 15.6191C26.6514 16.5185 27.2976 16.6668 28.2774 16.8904C28.9557 17.0449 29.7451 17.2265 30.547 17.6985C30.6681 16.4568 30.6285 15.2039 30.4296 13.9573C29.8984 10.6263 28.2242 7.5573 25.7149 5.31359C23.4489 3.28857 20.5936 2.00734 17.6 1.66016C17.5889 1.88749 17.5728 2.1 17.5567 2.29027L17.5543 2.3224C17.4764 3.30463 17.4245 3.95452 18.0769 4.84286C18.733 5.73738 19.3742 5.88317 20.3453 6.10556L20.3614 6.10927C21.5611 6.38355 23.0449 6.72209 24.362 8.51606C25.6803 10.3113 25.5592 11.831 25.4616 13.0517C25.3813 14.0586 25.3282 14.7196 25.9892 15.6191H25.9904Z" fill="black"/>
 <path d="M16 0C7.17714 0 0 7.17714 0 16C0 24.8229 7.17714 32 16 32C24.8229 32 32 24.8229 32 16C32 7.17714 24.8229 0 16 0ZM24.3484 8.32618C23.0968 6.62239 21.6871 6.29992 20.5467 6.03923L20.5319 6.03552C19.6102 5.82425 18.9998 5.68587 18.3771 4.83583C17.7569 3.99197 17.8063 3.37421 17.8805 2.44015L17.8829 2.4105C17.8978 2.22888 17.9138 2.02749 17.9237 1.81127C20.7691 2.14116 23.4811 3.35815 25.6346 5.28309C28.0191 7.41436 29.6093 10.3314 30.1146 13.4956C30.3036 14.6792 30.3407 15.8715 30.2258 17.0502C29.4635 16.6005 28.7135 16.4287 28.0686 16.2817C27.1382 16.0692 26.5229 15.9283 25.8953 15.0734C25.2676 14.2184 25.3183 13.5907 25.3937 12.6344C25.4863 11.4743 25.6012 10.03 24.3484 8.32494V8.32618ZM16 30.5174C7.99506 30.5174 1.48263 24.0049 1.48263 16C1.48263 7.99506 7.99506 1.48263 16 1.48263C16.1495 1.48263 16.299 1.4851 16.4473 1.49004C16.4436 1.7705 16.4238 2.04355 16.404 2.29313L16.4015 2.32278C16.3188 3.35568 16.2335 4.4244 17.1812 5.71305C18.1313 7.00788 19.1839 7.24757 20.202 7.47984L20.223 7.48479C21.2547 7.72077 22.2283 7.94317 23.1537 9.20216C24.0791 10.4624 24 11.4607 23.916 12.522C23.832 13.5685 23.7467 14.652 24.7005 15.9506C25.6556 17.2503 26.7144 17.4925 27.7399 17.7273C28.5702 17.9163 29.4276 18.114 30.2246 18.9171C28.8704 25.5283 23.0079 30.5161 16.0025 30.5161L16 30.5174Z" fill="#2D2A2A"/>
 <g clip-path="url(#clip0_2683_11557)">
@@ -1565,6 +1566,6 @@ add_action('woocommerce_mxmatch_product_summary', 'mxmatch_display_product_descr
 function mxmatch_display_product_description()
 {
     global $product;
-    echo '<div class="product_description p-4">' . apply_filters('the_content', $product->get_description()) . '</div>';
+    echo '<div class="p-4 product_description">' . apply_filters('the_content', $product->get_description()) . '</div>';
 }
 

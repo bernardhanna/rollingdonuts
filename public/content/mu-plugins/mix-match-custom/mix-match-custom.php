@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name: Mix & Match Custom Functionality
  * Plugin URI: http://example.com/mix-match-custom
@@ -16,7 +15,7 @@ function enqueue_custom_mu_plugin_script()
 {
     wp_enqueue_script('jquery');
     $script_url = WP_CONTENT_URL . '/mu-plugins/mix-match-custom/assets/js/main.js';
-    wp_enqueue_script('mix-match-custom-js', $script_url, array('jquery'), '1.0.0', true);
+    wp_enqueue_script('mix-match-custom-js', $script_url, array('jquery'), '1.0.0', false);
 
     $settings = get_option('extendons_custombox_general_settings', []);
     $post_id = get_the_ID();

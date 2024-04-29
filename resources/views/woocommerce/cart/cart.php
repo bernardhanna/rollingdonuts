@@ -154,21 +154,21 @@ do_action('woocommerce_before_cart'); ?>
         text-align: right;
     }
 </style>
-<div class="px-4 md:px-0 pb-6 w-full max-w-max-1300 mx-auto">
+<div class="w-full px-4 pb-6 mx-auto md:px-0 max-w-max-1300">
     <h2 class="text-left text-xl-font font-reg420 text-black-full"><?php _e('Cart', 'rolling-donut'); ?></h2>
 </div>
 <form class="px-4 md:px-0 woocommerce-cart-form" action="<?php echo esc_url(wc_get_cart_url()); ?>" method="post">
     <?php do_action('woocommerce_before_cart_table'); ?>
 
-    <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents w-full max-w-max-1300 mx-auto" cellspacing="0">
-        <thead class="border-t border-black-full border-solid border-b max-tablet-sm:hidden">
+    <table class="w-full mx-auto shop_table shop_table_responsive cart woocommerce-cart-form__contents max-w-max-1300" cellspacing="0">
+        <thead class="border-t border-b border-solid border-black-full max-tablet-sm:hidden">
             <tr>
-                <th class="product-remove text-left py-4"><span class="screen-reader-text"><?php esc_html_e('Remove item', 'woocommerce'); ?></span></th>
-                <th class="product-thumbnai text-left py-4"><span class="screen-reader-text"><?php esc_html_e('Thumbnail image', 'woocommerce'); ?></span></th>
-                <th class="product-name text-left py-4"><?php esc_html_e('Product', 'woocommerce'); ?></th>
-                <th class="product-price text-left py-4"><?php esc_html_e('Price', 'woocommerce'); ?></th>
-                <th class="product-quantity text-center py-4"><?php esc_html_e('Quantity', 'woocommerce'); ?></th>
-                <th class="product-subtotal text-left py-4"><?php esc_html_e('Subtotal', 'woocommerce'); ?></th>
+                <th class="py-4 text-left product-remove"><span class="screen-reader-text"><?php esc_html_e('Remove item', 'woocommerce'); ?></span></th>
+                <th class="py-4 text-left product-thumbnai"><span class="screen-reader-text"><?php esc_html_e('Thumbnail image', 'woocommerce'); ?></span></th>
+                <th class="py-4 text-left product-name"><?php esc_html_e('Product', 'woocommerce'); ?></th>
+                <th class="py-4 text-left product-price"><?php esc_html_e('Price', 'woocommerce'); ?></th>
+                <th class="py-4 text-center product-quantity"><?php esc_html_e('Quantity', 'woocommerce'); ?></th>
+                <th class="py-4 text-left product-subtotal"><?php esc_html_e('Subtotal', 'woocommerce'); ?></th>
             </tr>
         </thead>
         <tbody>
@@ -176,6 +176,8 @@ do_action('woocommerce_before_cart'); ?>
 
             <?php
             foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
+                // Output product information for debugging
+
                 $_product   = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
                 $product_id = apply_filters('woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key);
                 /**
@@ -193,7 +195,7 @@ do_action('woocommerce_before_cart'); ?>
             ?>
                     <tr class="border-b border-solid border-grey-border woocommerce-cart-form__cart-item <?php echo esc_attr(apply_filters('woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key)); ?>">
 
-                        <td class="product-remove py-4">
+                        <td class="py-4 product-remove">
                             <?php
                             echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                 'woocommerce_cart_item_remove_link',
@@ -210,7 +212,7 @@ do_action('woocommerce_before_cart'); ?>
                             ?>
                         </td>
 
-                        <td class="product-thumbnail py-4">
+                        <td class="py-4 product-thumbnail">
                             <?php
                             $thumbnail = apply_filters('woocommerce_cart_item_thumbnail', $_product->get_image('h-[64px] w-[84px] rounded-normal object-cover'), $cart_item, $cart_item_key);
 
@@ -222,7 +224,7 @@ do_action('woocommerce_before_cart'); ?>
                             ?>
                         </td>
 
-                        <td class="product-name py-4 font-laca text-sm-font font-light" data-title="<?php esc_attr_e('Product', 'woocommerce'); ?>">
+                        <td class="py-4 font-light product-name font-laca text-sm-font" data-title="<?php esc_attr_e('Product', 'woocommerce'); ?>">
                             <?php
                             if (!$product_permalink) {
                                 echo wp_kses_post($product_name . '&nbsp;');
@@ -233,6 +235,19 @@ do_action('woocommerce_before_cart'); ?>
                                  * @since 2.1.0
                                  */
                                 echo wp_kses_post(apply_filters('woocommerce_cart_item_name', sprintf('<a class="uppercase" href="%s">%s</a>', esc_url($product_permalink), $_product->get_name()), $cart_item, $cart_item_key));
+                            }
+
+                            if ($_product->get_type() === 'donut_box_builder') {
+                                if (!empty($cart_item['donut_box_contents'])) {
+                                    echo '<ul class="donut-box-builder-items">';
+                                    foreach ($cart_item['donut_box_contents'] as $item_id) {
+                                        $item_product = wc_get_product($item_id);
+                                        if ($item_product) {
+                                            echo '<li>' . $item_product->get_name() . '</li>';
+                                        }
+                                    }
+                                    echo '</ul>';
+                                }
                             }
 
                             do_action('woocommerce_after_cart_item_name', $cart_item, $cart_item_key);
@@ -247,7 +262,7 @@ do_action('woocommerce_before_cart'); ?>
                             ?>
                         </td>
 
-                        <td class="product-price py-4 font-laca text-sm-font font-light" data-title="<?php esc_attr_e('Price', 'woocommerce'); ?>">
+                        <td class="py-4 font-light product-price font-laca text-sm-font" data-title="<?php esc_attr_e('Price', 'woocommerce'); ?>">
                             <?php
                             echo apply_filters('woocommerce_cart_item_price', WC()->cart->get_product_price($_product), $cart_item, $cart_item_key); // PHPCS: XSS ok.
                             ?>
@@ -272,7 +287,7 @@ do_action('woocommerce_before_cart'); ?>
                             ?>
                         </td>
 
-                        <td class="product-subtotal py-4 font-laca text-sm-font font-bolder" data-title="<?php esc_attr_e('Subtotal', 'woocommerce'); ?>">
+                        <td class="py-4 product-subtotal font-laca text-sm-font font-bolder" data-title="<?php esc_attr_e('Subtotal', 'woocommerce'); ?>">
                             <?php
                             echo apply_filters('woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal($_product, $cart_item['quantity']), $cart_item, $cart_item_key); // PHPCS: XSS ok.
                             ?>
@@ -288,17 +303,17 @@ do_action('woocommerce_before_cart'); ?>
 
     <?php do_action('woocommerce_cart_contents'); ?>
 
-    <div class="w-full max-w-max-1300 mx-auto my-8">
-        <div class="actions w-full flex flex-col-reverse md:flex-row justify-end md:justify-between border-t border-black-full border-solid border-b py-4">
+    <div class="w-full mx-auto my-8 max-w-max-1300">
+        <div class="flex flex-col-reverse justify-end w-full py-4 border-t border-b border-solid actions md:flex-row md:justify-between border-black-full">
             <div class="w-full md:2/3 lg:w-1/2 md:max-w-max-584">
                 <?php if (wc_coupons_enabled()) { ?>
-                    <div class="coupon w-full flex max-mobile:flex-col justify-between">
-                        <input type="text" name="coupon_code" class="rounded-lg-x h-input text-black-secondary text-mob-xs-font font-laca font-light pl-11 flex w-full mobile:max-w-max-358" id="coupon_code" value="" placeholder="<?php esc_attr_e('Coupon code', 'woocommerce'); ?>" /> <button type="submit" class="max-mobile:mt-4 button text-yellow-primary bg-black-full border-3 border-solid border-yellow-primary rounded-btn-72 text-base-font font-reg420 hover:border-black-full h-[56px] hover:bg-yellow-primary hover:text-black-full w-full mobile:min-w-min-208 mobile:w-[208px] flex items-center justify-center <?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="apply_coupon" value="<?php esc_attr_e('Apply coupon', 'woocommerce'); ?>"><?php esc_html_e('Apply coupon', 'woocommerce'); ?></button>
+                    <div class="flex justify-between w-full coupon max-mobile:flex-col">
+                        <input type="text" name="coupon_code" class="flex w-full font-light rounded-lg-x h-input text-black-secondary text-mob-xs-font font-laca pl-11 mobile:max-w-max-358" id="coupon_code" value="" placeholder="<?php esc_attr_e('Coupon code', 'woocommerce'); ?>" /> <button type="submit" class="max-mobile:mt-4 button text-yellow-primary bg-black-full border-3 border-solid border-yellow-primary rounded-btn-72 text-base-font font-reg420 hover:border-black-full h-[56px] hover:bg-yellow-primary hover:text-black-full w-full mobile:min-w-min-208 mobile:w-[208px] flex items-center justify-center <?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?>" name="apply_coupon" value="<?php esc_attr_e('Apply coupon', 'woocommerce'); ?>"><?php esc_html_e('Apply coupon', 'woocommerce'); ?></button>
                         <?php do_action('woocommerce_cart_coupon'); ?>
                     </div>
                 <?php } ?>
             </div>
-            <div class="w-full md:w-1/3 lg:1/2 flex justify-end max-md:pb-8 update-cart">
+            <div class="flex justify-end w-full md:w-1/3 lg:1/2 max-md:pb-8 update-cart">
                 <button type="submit" class="button<?php echo esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : ''); ?> text-black bg-yellow-primary border-3 border-solid border-yellow-primary rounded-btn-72 text-base-font font-reg420 hover:border-black-full hover:bg-black-full hover:text-yellow-primary min-w-min-208 w-full md:w-[208px] flex items-center justify-center h-[56px]" name="update_cart" value="<?php esc_attr_e('Update cart', 'woocommerce'); ?>"><?php esc_html_e('Update cart', 'woocommerce'); ?></button>
             </div>
             <?php do_action('woocommerce_cart_actions'); ?>
@@ -313,8 +328,8 @@ do_action('woocommerce_before_cart'); ?>
 </form>
 
 <?php do_action('woocommerce_before_cart_collaterals'); ?>
-<div class="w-full max-w-max-1300 mx-auto">
-    <div class="cart-collaterals flex justify-end">
+<div class="w-full mx-auto max-w-max-1300">
+    <div class="flex justify-end cart-collaterals">
         <?php
         /**
          * Cart collaterals hook.

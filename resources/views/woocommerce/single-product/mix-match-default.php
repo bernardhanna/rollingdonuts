@@ -25,6 +25,7 @@ if (!empty($arrayData->box_pricing) &&'perwoutbase' == $arrayData->box_pricing )
 
 
 <form class="cart pc_add_to_cart_form" action="<?php echo esc_url(apply_filters('woocommerce_add_to_cart_form_action', $product->get_permalink())); ?>" method="post" enctype='multipart/form-data'>
+
 	<input type="hidden" name="add_new_box" id="add_new_boxes" value="<?php echo esc_attr($arrayData->add_new_box); ?>">
 	<div class="mix_match_product_container bootstrap-iso">
 		<div class="mix_match_container_wrap">
