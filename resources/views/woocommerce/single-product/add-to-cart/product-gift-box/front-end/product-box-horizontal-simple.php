@@ -146,7 +146,7 @@ $color_val = $extendons_custombox_general_settings['_mm_color_primarycolor'] ?? 
     .dlt_icon {
         position: absolute;
         top: 0;
-        right: 0;
+        right: 1rem;
     }
 
     .extendons_add_to_cart {
@@ -227,7 +227,7 @@ if ('yes' != $add_new_box_quantity) {
 								<a href="#" class="clear_cta"><img src="images/remove.png" alt=""> Clear All Items</a>
 							</div> -->
                     </div>
-                    <ul class="flex flex-row flex-wrap justify-around gap-4 p-8 bg-black-full rounded-normal gt_box_list" ph_src="<?php echo esc_url($ph_src); ?>">
+                    <ul class="flex flex-row flex-wrap justify-around gap-4 p-8 bg-black-full rounded-normal gt_box_list lg:min-h-[380px]" ph_src="<?php echo esc_url($ph_src); ?>">
                         <?php
 
                         if ('yes' == $mmPrefilled_enable) {
@@ -304,7 +304,7 @@ if ('yes' != $add_new_box_quantity) {
                                     }
 
                         ?>
-                                    <li class="w-1/4 gift_block active_gift relative flex extendonsfilleditem <?php echo filter_var($prefilledclass); ?>">
+                                    <li class="w-auto mobile:w-1/4 gift_block active_gift relative justify-center items-center flex extendonsfilleditem <?php echo filter_var($prefilledclass); ?>">
                                         <div class="img_block">
                                             <?php
                                             // Assuming $product is an instance of WC_Product
@@ -319,7 +319,7 @@ if ('yes' != $add_new_box_quantity) {
                                             }
 
                                             // Output the image tag
-                                            echo '<img data-id="' . esc_attr($product->get_id()) . '" class="object-cover w-full rounded-full extendonsremovefilledboxes" src="' . esc_url($image_url) . '" alt="' . esc_attr($product->get_name()) . '">';
+                                            echo '<img data-id="' . esc_attr($product->get_id()) . '" class="object-cover w-full rounded-full extendonsremovefilledboxes h-[100px]" src="' . esc_url($image_url) . '" alt="' . esc_attr($product->get_name()) . '">';
                                             ?>
                                         </div>
                                         <div class="absolute top-0 right-0 dlt_icon">
