@@ -29,7 +29,7 @@ class AssetsServiceProvider extends ServiceProvider
          */
 
          add_action('wp_enqueue_scripts', function (): void {
-
+            wp_dequeue_style('wooextbox-style-css');
             if (!is_cart() && !is_checkout() || is_wc_endpoint_url('order-received')) {
                 // Dequeue WooCommerce styles
                 wp_dequeue_style('woocommerce-general');
