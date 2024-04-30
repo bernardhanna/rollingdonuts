@@ -79,6 +79,13 @@ $color_val = $extendons_custombox_general_settings['_mm_color_primarycolor'] ?? 
         border: 2px solid #ffed56 !important;
     }
 
+    .active_gift .img_block img {
+        border-radius: 100%;
+        border: 2px solid #ffed56;
+        width: 100px;
+        height: 100px;
+    }
+
     .prefilleditem .dlt_icon {
         display: none !important;
     }
@@ -145,7 +152,7 @@ $color_val = $extendons_custombox_general_settings['_mm_color_primarycolor'] ?? 
 
     .dlt_icon {
         position: absolute;
-        top: 0;
+        top: 1rem;
         right: 1rem;
     }
 
@@ -227,22 +234,23 @@ if ('yes' != $add_new_box_quantity) {
 								<a href="#" class="clear_cta"><img src="images/remove.png" alt=""> Clear All Items</a>
 							</div> -->
                     </div>
-                    <ul class="flex flex-row flex-wrap justify-around gap-4 p-8 bg-black-full rounded-normal gt_box_list lg:min-h-[380px]" ph_src="<?php echo esc_url($ph_src); ?>">
-                        <?php
+                    <div class="flex justify-center">
+                        <ul class="flex flex-row flex-wrap justify-around py-8 mobile:py-0 mobile:justify-center bg-black-full rounded-normal gt_box_list" ph_src="<?php echo esc_url($ph_src); ?>">
+                            <?php
 
-                        if ('yes' == $mmPrefilled_enable) {
+                            if ('yes' == $mmPrefilled_enable) {
 
-                            if (!empty($prefileldArray)) {
+                                if (!empty($prefileldArray)) {
 
-                                $qunit_arr = array();
-                                $boxQty = intval($boxQty) - intval($prefileldArraylength);
-                                foreach ($prefileldArray as $key => $prefileldval) {
+                                    $qunit_arr = array();
+                                    $boxQty = intval($boxQty) - intval($prefileldArraylength);
+                                    foreach ($prefileldArray as $key => $prefileldval) {
 
-                                    // Default empty or initial SVG code for circled_x_id
-                                    $circled_x_id = ''; // Ensure this variable has a value even if the if-condition fails.
+                                        // Default empty or initial SVG code for circled_x_id
+                                        $circled_x_id = ''; // Ensure this variable has a value even if the if-condition fails.
 
-                                    if (isset($prefileldval['pre_mandetory']) && 'on' != $prefileldval['pre_mandetory']) {
-                                        $circled_x_id = '<?xml version="1.0" encoding="utf-8"?>
+                                        if (isset($prefileldval['pre_mandetory']) && 'on' != $prefileldval['pre_mandetory']) {
+                                            $circled_x_id = '<?xml version="1.0" encoding="utf-8"?>
                                     <svg data-id="' . $product->get_id() . '" class= "extendonsremovefilledboxes ' . $product->get_id() . '" width="24px" height="24px" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
                                     <g fill="none" fill-rule="evenodd" stroke="' . $color_val . '" stroke-linecap="round" stroke-linejoin="round" transform="translate(2 2)">
                                     <circle cx="8.5" cy="8.5" r="8"/>
@@ -252,80 +260,80 @@ if ('yes' != $add_new_box_quantity) {
                                     </g>
                                     </g>
                                     </svg>';
-                                    }
-
-                                    // Usage of circled_x_id later in your code
-                                    if (!empty($circled_x_id)) {
-                                        echo filter_var($circled_x_id);
-                                    }
-
-                                    if (isset($prefileldval['pre_mandetory']) && 'on' == $prefileldval['pre_mandetory']) {
-                                        $prefilledclass = 'prefilleditem';
-                                    } else {
-                                        $prefilledclass = '';
-                                    }
-                                    $product = wc_get_product($prefileldval['product_id']);
-                                    $pr_id_here = $prefileldval['product_id'];
-                                    $_manage_stock = get_post_meta($product->get_id(), '_manage_stock', true);
-                                    if ('yes' == $_manage_stock) {
-
-                                        if (array_key_exists($pr_id_here, $qunit_arr)) {
-                                            $qunit_arr[$pr_id_here] = (int) $qunit_arr[$pr_id_here] + 1;
-                                        } else {
-                                            $qunit_arr[$pr_id_here] = 1;
                                         }
-                                        if ($product->get_stock_quantity() < $qunit_arr[$pr_id_here]) {
+
+                                        // Usage of circled_x_id later in your code
+                                        if (!empty($circled_x_id)) {
+                                            echo filter_var($circled_x_id);
+                                        }
+
+                                        if (isset($prefileldval['pre_mandetory']) && 'on' == $prefileldval['pre_mandetory']) {
+                                            $prefilledclass = 'prefilleditem';
+                                        } else {
+                                            $prefilledclass = '';
+                                        }
+                                        $product = wc_get_product($prefileldval['product_id']);
+                                        $pr_id_here = $prefileldval['product_id'];
+                                        $_manage_stock = get_post_meta($product->get_id(), '_manage_stock', true);
+                                        if ('yes' == $_manage_stock) {
+
+                                            if (array_key_exists($pr_id_here, $qunit_arr)) {
+                                                $qunit_arr[$pr_id_here] = (int) $qunit_arr[$pr_id_here] + 1;
+                                            } else {
+                                                $qunit_arr[$pr_id_here] = 1;
+                                            }
+                                            if ($product->get_stock_quantity() < $qunit_arr[$pr_id_here]) {
+                                                continue;
+                                            }
+                                        }
+
+                                        if (!$product->is_in_stock()) {
                                             continue;
                                         }
-                                    }
+                                        $image_url = wp_get_attachment_image_src(get_post_thumbnail_id($product->get_id()), 'single-post-thumbnail');
+                                        if (!empty($image_url)) {
+                                            $image_url = $image_url[0];
+                                        } else {
+                                            $size = 'woocommerce_thumbnail';
+                                            $src = WC()->plugin_url() . '/assets/images/placeholder.png';
+                                            $placeholder_image = get_option('woocommerce_placeholder_image', 0);
+                                            if (!empty($placeholder_image)) {
+                                                if (is_numeric($placeholder_image)) {
+                                                    $image = wp_get_attachment_image_src($placeholder_image, $size);
 
-                                    if (!$product->is_in_stock()) {
-                                        continue;
-                                    }
-                                    $image_url = wp_get_attachment_image_src(get_post_thumbnail_id($product->get_id()), 'single-post-thumbnail');
-                                    if (!empty($image_url)) {
-                                        $image_url = $image_url[0];
-                                    } else {
-                                        $size = 'woocommerce_thumbnail';
-                                        $src = WC()->plugin_url() . '/assets/images/placeholder.png';
-                                        $placeholder_image = get_option('woocommerce_placeholder_image', 0);
-                                        if (!empty($placeholder_image)) {
-                                            if (is_numeric($placeholder_image)) {
-                                                $image = wp_get_attachment_image_src($placeholder_image, $size);
-
-                                                if (!empty($image[0])) {
-                                                    $src = $image[0];
+                                                    if (!empty($image[0])) {
+                                                        $src = $image[0];
+                                                    }
+                                                } else {
+                                                    $src = $placeholder_image;
                                                 }
-                                            } else {
-                                                $src = $placeholder_image;
                                             }
+                                            $image_url = $src;
                                         }
-                                        $image_url = $src;
-                                    }
 
-                        ?>
-                                    <li class="w-auto mobile:w-1/4 gift_block active_gift relative justify-center items-center flex extendonsfilleditem <?php echo filter_var($prefilledclass); ?>">
-                                        <div class="img_block">
-                                            <?php
-                                            // Assuming $product is an instance of WC_Product
-                                            $image_id = $product->get_image_id(); // Getting the ID of the featured image
+                            ?>
+                                        <li class="w-auto border-list py-4 mobile:m-4 mobile:w-1/4 gift_block active_gift relative justify-center items-center flex extendonsfilleditem <?php echo filter_var($prefilledclass); ?>">
+                                            <div class="img_block">
+                                                <?php
+                                                // Assuming $product is an instance of WC_Product
+                                                $image_id = $product->get_image_id(); // Getting the ID of the featured image
 
-                                            if ($image_id) {
-                                                // If there's an image ID, get the URL of the image in a specific size
-                                                $image_url = wp_get_attachment_image_url($image_id, 'full');
-                                            } else {
-                                                // If no image ID, use a placeholder
-                                                $image_url = wc_placeholder_img_src();
-                                            }
+                                                if ($image_id) {
+                                                    // If there's an image ID, get the URL of the image in a specific size
+                                                    $image_url = wp_get_attachment_image_url($image_id, 'full');
+                                                } else {
+                                                    // If no image ID, use a placeholder
+                                                    $image_url = wc_placeholder_img_src();
+                                                }
 
-                                            // Output the image tag
-                                            echo '<img data-id="' . esc_attr($product->get_id()) . '" class="object-cover w-full rounded-full extendonsremovefilledboxes h-[100px]" src="' . esc_url($image_url) . '" alt="' . esc_attr($product->get_name()) . '">';
-                                            ?>
-                                        </div>
-                                        <div class="absolute top-0 right-0 dlt_icon">
-                                            <?php
-                                            if ((isset($prefileldval['pre_mandetory']) && 'on' != $prefileldval['pre_mandetory']) || !isset($prefileldval['pre_mandetory'])) {
-                                                $circled_x_id = '<?xml version="1.0" encoding="utf-8"?>
+                                                // Output the image tag
+                                                echo '<img data-id="' . esc_attr($product->get_id()) . '" class="object-cover w-full lg:w-[100px] rounded-full extendonsremovefilledboxes md:h-[100px] mobile:h-auto" src="' . esc_url($image_url) . '" alt="' . esc_attr($product->get_name()) . '">';
+                                                ?>
+                                            </div>
+                                            <div class="absolute top-0 right-0 dlt_icon">
+                                                <?php
+                                                if ((isset($prefileldval['pre_mandetory']) && 'on' != $prefileldval['pre_mandetory']) || !isset($prefileldval['pre_mandetory'])) {
+                                                    $circled_x_id = '<?xml version="1.0" encoding="utf-8"?>
                                                             <svg data-id="' . $product->get_id() . '" class= "extendonsremovefilledboxes ' . $product->get_id() . '" width="24px" height="24px" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
                                                             <g fill="none" fill-rule="evenodd" stroke="' . $color_val . '" stroke-linecap="round" stroke-linejoin="round" transform="translate(2 2)">
                                                             <circle cx="8.5" cy="8.5" r="8"/>
@@ -335,38 +343,39 @@ if ('yes' != $add_new_box_quantity) {
                                                             </g>
                                                             </g>
                                                             </svg>';
-                                            }
-                                            ?>
-                                            <?php echo filter_var($circled_x_id); ?>
-                                        </div>
-                                        <div class="hidden gt_overlay">
-                                            <div class="overlay_inner">
-                                                <div class="price"><?php echo filter_var(wc_price($product->get_price())); ?></div>
+                                                }
+                                                ?>
+                                                <?php echo filter_var($circled_x_id); ?>
                                             </div>
-                                        </div>
-                                    </li>
-                                <?php
+                                            <div class="hidden gt_overlay">
+                                                <div class="overlay_inner">
+                                                    <div class="price"><?php echo filter_var(wc_price($product->get_price())); ?></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    <?php
 
+                                    }
                                 }
                             }
-                        }
 
-                        if ('' != $boxQty) {
+                            if ('' != $boxQty) {
 
-                            for ($i = 0; $i < $boxQty; $i++) {
+                                for ($i = 0; $i < $boxQty; $i++) {
 
-                                ?>
-                                <li class="gift_block active_gift extendons_active_boxes">
-                                    <div class="img_block">
-                                        <img src="<?php echo esc_url($ph_src); ?>" alt="">
-                                    </div>
-                                </li>
-                        <?php
+                                    ?>
+                                    <li class="gift_block active_gift extendons_active_boxes">
+                                        <div class="img_block">
+                                            <img src="<?php echo esc_url($ph_src); ?>" alt="">
+                                        </div>
+                                    </li>
+                            <?php
+                                }
                             }
-                        }
 
-                        ?>
-                    </ul>
+                            ?>
+                        </ul>
+                    </div>
                     <div class="flex items-center justify-between py-6 ">
                         <div class="gt_item_lmt">
                             <?php
