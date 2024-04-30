@@ -44,53 +44,65 @@ if ($product) {
         this.box[index] = null;
         console.log('Product removed from box:', index);
     },
-    addBoxToCart() {
-        if (this.box.length > 0) {
-            const productIds = this.box.map(item => item.id).join(',');
-            console.log('Adding to cart:', productIds);
-            fetch(my_script_object.ajax_url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams({
-                    'action': 'donut_box_add_to_cart',
-                    'nonce': my_script_object.nonce,
-                    'donut_box_product_id': <?php echo esc_js($product->get_id()); ?>, // Pass Donut Box Builder product ID
-                    'products': productIds
-                })
+addBoxToCart() {
+    if (this.box.length > 0) {
+        const productIds = this.box.filter(item => item !== null).map(item => item.id).join(',');
+        console.log('Adding to cart:', productIds);
+        fetch(my_script_object.ajax_url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({
+                'action': 'donut_box_add_to_cart',
+                'nonce': my_script_object.nonce,
+                'donut_box_product_id': <?php echo esc_js($product->get_id()); ?>,
+                'products': productIds
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok: ' + response.statusText);
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok: ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Response:', data);
+            if (data.success) {
+                alert('Box added to cart.');
+                // Reset the box to all nulls after successfully adding to cart
+                this.box = Array.from({ length: this.maxQuantity }, () => null);
+                fetch(my_script_object.cart_url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(cartData => {
+                        console.log(cartData); // Check if cartData is received correctly
+                        // Update cart total and count elements on the page
+                        document.getElementById('cart-total').textContent = cartData.total;
+                        document.getElementById('cart-count').textContent = cartData.count;
+                    })
+                // Update cart count and total if needed
+                const cartCountElement = document.querySelector('.cart-contents-count');
+                const cartTotalElement = document.querySelector('.cart-contents-total');
+                if (cartCountElement) {
+                    cartCountElement.textContent = data.data.cart_contents_count;
                 }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Response:', data);
-                if (data.success) {
-                    alert('Box added to cart.');
-                    this.box = []; // Clear the box
-
-                    // Assuming the cart count and total elements exist
-                    const cartCountElement = document.querySelector('.cart-contents-count');
-                    const cartTotalElement = document.querySelector('.cart-contents-total');
-
-                    if (cartCountElement) {
-                        cartCountElement.textContent = data.data.cart_contents_count; // Update cart count
-                    }
-                    if (cartTotalElement) {
-                            cartTotalElement.innerHTML = data.data.cart_total_price; // Update cart total
-                    }
-                } else {
-                    alert('There was an error adding the box to the cart.');
+                if (cartTotalElement) {
+                    cartTotalElement.innerHTML = data.data.cart_total_price;
                 }
-            })
-            .catch(error => {
-                console.error('There was an error with the fetch operation: ', error);
-            });
-        } else {
-            alert('Please add some products to the box before adding to cart.');
-        }
+            } else {
+                alert('There was an error adding the box to the cart.');
+            }
+        })
+        .catch(error => {
+            console.error('There was an error with the fetch operation: ', error);
+        });
+    } else {
+        alert('Please add some products to the box before adding to cart.');
     }
+}
 }" id="product-<?php the_ID(); ?>" <?php wc_product_class('', $product); ?>>
     <div class="grid grid-cols-3 gap-4 product-grid">
         <?php
@@ -116,12 +128,10 @@ if ($product) {
 
     </div>
     <div class="box-contents bg-black-full">
-        <p class="text-white" x-text="`Items in box: ${box.filter(Boolean).length}/${maxQuantity}`"></p>
+        <p class="text-white" x-text="`Items in box: ${box.filter(item => item !== null).length}/${maxQuantity}`"></p>
         <div class="grid grid-cols-3 gap-4 box-grid">
-            <!-- Display items added to the box or empty placeholders -->
             <template x-for="(item, index) in box" :key="index">
                 <div class="box-item" :class="{ 'placeholder': !item }">
-                    <!-- If an item has been added, display its image and remove button -->
                     <template x-if="item">
                         <div>
                             <img :src="item.image" alt="" class="object-cover w-20 h-20">
@@ -146,7 +156,6 @@ if ($product) {
                             </button>
                         </div>
                     </template>
-                    <!-- If the slot is empty, show the SVG placeholder -->
                     <template x-if="!item">
                         <img :src="svgPlaceholder" alt="Placeholder" class="object-cover w-20 h-20">
                     </template>
@@ -157,6 +166,5 @@ if ($product) {
             <button @click="addBoxToCart" class="px-4 py-2 text-white rounded bg-black-full hover:bg-green-700">Add Box to Cart</button>
         </div>
     </div>
-
 </div>
 <?php do_action('woocommerce_after_single_product_summary'); ?>

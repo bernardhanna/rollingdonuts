@@ -323,8 +323,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  if (window.location.pathname.includes("/checkout")) {
-    // Exit the script early if on the checkout page
+  if (!document.body.classList.contains("home")) {
+    // Exit the script early if 'home' class is not found
     return;
   }
   const prev = document.querySelector(".arrow.prev");
@@ -385,10 +385,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  if (window.location.pathname.includes("/checkout")) {
-    // Exit the script early if on the checkout page
+  if (!document.getElementById("testimonial-slider")) {
+    // Exit the script early if the '#testimonial-slider' is not found
     return;
   }
+
   new Splide("#testimonial-slider", {
     type: "loop",
     perPage: 2.5,

@@ -30,7 +30,7 @@ the readme will list any important changes.
 
 @section('content')
     @include('woocommerce.custom.woocommerce-header')
-    <div class="relative bg-no-repeat bg-cover max-lg:z-10 max-lg:-top-6"
+    <div class="relative bg-no-repeat bg-cover removebg max-lg:z-10 max-lg:-top-6"
         style="{{ $shop_bg_url ? 'background-image: url(' . $shop_bg_url . ');' : '' }}">
         <div class="w-full px-0 mx-auto lg:px-4">
             @php

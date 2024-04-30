@@ -1569,3 +1569,18 @@ function mxmatch_display_product_description()
     echo '<div class="p-4 product_description">' . apply_filters('the_content', $product->get_description()) . '</div>';
 }
 
+
+function add_mxmatch_body_class($classes)
+{
+    if (is_product()) { // Ensure we're on a product page
+        global $post;
+        $product = wc_get_product($post->ID); // Get the product object
+
+        // Check if the product type is 'wooextmm'
+        if ($product && 'wooextmm' == $product->get_type()) {
+            $classes[] = 'box-product'; // Add 'box-product' to the body class
+        }
+    }
+    return $classes; // Return the modified classes array
+}
+add_filter('body_class', 'add_mxmatch_body_class');

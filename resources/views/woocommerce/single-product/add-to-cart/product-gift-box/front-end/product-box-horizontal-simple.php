@@ -2,168 +2,216 @@
 $extendons_custombox_general_settings = get_option('extendons_custombox_general_settings');
 $ph_src = $extendons_custombox_general_settings['_mm_image_placeholder'] ?? '';
 
+if ('' == $ph_src) {
+    $ph_src = plugin_dir_url(__FILE__) . '/images/img-empty.png';
+}
+
+$color_val = $extendons_custombox_general_settings['_mm_color_primarycolor'] ?? '#995E8E';
+
+
 ?>
+<style type="text/css">
+    .box-product .removebg {
+        background-image: none !important;
+    }
+
+    @media (min-width: 1085px) {
+        .product_addon_box.simple_pd {
+            border-right: 3px solid black;
+        }
+    }
+
+    .box-product .relative.z-50.w-full.mb-0 {
+        margin-bottom: 0px !important;
+    }
+
+    .single_add_to_cart_button.button.alt {
+        white-space: nowrap;
+    }
+
+    .extendons_active_boxes,
+    .prefilleditem {
+        pointer-events: none;
+        /* Disables clicking */
+        cursor: not-allowed;
+        /* Changes the cursor to indicate that the action is not allowed */
+    }
+
+
+    label {
+        display: none;
+    }
+
+    form.cartt {
+        margin-bottom: 0px;
+        padding: 0px;
+    }
+
+    .mm_gift_massage {
+        width: 100%;
+        padding: 2rem;
+        border-radius: 6px;
+        margin-top: 2rem;
+    }
+
+    .product_addon_box .pd_title,
+    .simple_pd .pd_add_block .pd_dtl .pd_price,
+    .horizontal_box .reset_gt_box.resp .clear_cta {
+        color: black !important;
+    }
+
+    .qodef-woo-product-title.product_title.entry-title {
+        display: none !important;
+    }
+
+    .pd_addon_btns .add_btn .add_cta {
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black !important;
+        border: 2px solid black !important;
+    }
+
+    .pd_addon_btns .add_btn .add_cta:hover {
+        background-color: black !important;
+        color: #ffed56 !important;
+        border: 2px solid #ffed56 !important;
+    }
+
+    .prefilleditem .dlt_icon {
+        display: none !important;
+    }
+
+    .dlt_icon svg g {
+        stroke: black !important;
+        fill: #f55959 !important;
+    }
+
+    .clear_cta {
+        display: flex;
+        width: 100%;
+        max-width: 202.289px;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        gap: 21.435px;
+        flex-shrink: 0;
+        border: 1.34px solid #000;
+        background: var(--red-critical, #C70000);
+        height: 50px;
+        border-radius: 8px;
+        color: white !important;
+        font-weight: 420;
+    }
+
+    .clear_cta:hover {
+        background-color: white;
+        color: black !important;
+    }
+
+    .gt_overlay {
+        display: none !important;
+    }
+
+    .extendssubtotalboxes,
+    .gift_box_top .gt_item_lmt .text {
+        color: #000000;
+    }
+
+    .woocommerce-Price-amount.amount {
+        font-weight: 400;
+    }
+
+    .bordertopbottom {
+        border: 1px solid black;
+        border-left: none;
+        border-right: none;
+    }
+
+    .extendonsboxfillederrormsg.woocommerce-message {
+        width: 100%;
+        padding-bottom: 4rem;
+        margin: auto;
+    }
+
+    .extendonsboxfillederrormsg.woocommerce-message p {
+        background-color: #f55959;
+        font-weight: 420;
+        padding: 2rem;
+    }
+
+    .dlt_icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .extendons_add_to_cart {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .extendons_add_to_cart .quantity {
+        margin-bottom: 1rem;
+    }
+
+    @media (max-width: 993px) {
+        .single_add_to_cart_button.button.alt {
+            font-size: 16px;
+            white-space: nowrap;
+        }
+    }
+</style>
 
 <?php
 if ('yes' != $add_new_box_quantity) {
 
 ?>
-    <style type="text/css">
-        .product_addon_container.horizontal_box .product_addon_box {
-            max-height: 900px;
-            overflow: scroll;
-        }
 
-        .gt_box {
-            border-radius: 100%;
-        }
-
-        .gt_box_list .gift_block .img_block img .simple_pd .pd_add_block .image_block img {
-            border-radius: 100% !important;
-        }
-
-        .gt_box_tab .box_tb_list:hover {
-            color: #fff !important
-        }
-
-        .horizontal_box .gt_box_tab .box_tb.active_tab .box_tb_list .gt_qt {
-            color: black;
-            border-color: transparent !important;
-        }
-
-        .pd_add_block .pd_addon_btns .add_btn :hover {
-            color: black !important
-        }
-
-        .horizontal_box .gift_box_container {
-            height: calc(100%) !important;
-            padding-bottom: 5%;
-        }
-
-        .horizontal_box .gift_box_container .gt_bx_lt .add_box .add_box_hor_simple {
-            background-color: transparent;
-        }
-
-        .horizontal_box .gift_box_container .add_box .add_box_cta {
-            background: #fff !important;
-        }
-
-        .horizontal_box .gift_box_container .gt_bx_lt .add_box .add_box_hor_simple:hover {
-            color: #fff !important
-        }
-
-        .pd_add_block .pd_addon_btns.pd_addon_active .addon_qty {
-            width: 50%
-        }
-
-        .pd_addon_btns .add_btn .add_cta {
-            color: #000000 !important;
-            border: 1px solid #000000 !important;
-            align-items: center;
-        }
-
-        .qodef-woo-product-title.product_title.entry-title {
-            display: none !important;
-        }
-
-        .product_addon_container.horizontal_box .product_addon_box {
-            width: 100% !important;
-        }
-
-        .product_box_container {
-            padding-left: 5%;
-            padding-right: 5%;
-        }
-
-        .product_addon_container.horizontal_box .product_addon_box {
-            padding-top: 30px;
-            height: 100%;
-            overflow: auto;
-            padding-bottom: 5% !important;
-        }
-
-        .extendonsboxfillederrormsg.woocommerce-message {
-            background-color: #f55959 !important;
-            color: black !important;
-        }
-
-        .product_addon_box.simple_pd .pd_box_list {
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            grid-gap: 20px;
-            align-items: flex-start;
-            background: transparent;
-            margin-right: 5%;
-        }
-
-        form.cartt {
-            margin-bottom: 0px !important;
-            padding: 0px !important;
-        }
-
-        .extendons_add_to_cart .quantity {
-            display: none !important;
-        }
-
-        .extendons_add_to_cart {
-            margin-right: 7%;
-        }
-
-        .pd_add_block .pd_addon_btns.pd_addon_active .add_btn {
-            display: block;
-        }
-
-        .value.extendonsqtytext {
-            display: none !important;
-        }
-
-        .horizontal_box .gt_bx_rt {
-            width: 100% !important;
-        }
-
-        .horizontal_box .sticky_gt .gt_box_list .gift_block {
-            width: 80px;
-            min-width: 80px;
-            padding: 8px;
-            width: 22.5%;
-            min-width: 20%;
-            height: auto;
-            margin: 0px 10px 10px 0px;
-        }
-
-        .gt_box_qty .label {
-            color: white;
-        }
-
-        .gt_box_qty .gt_qty .value {
-            background: white;
-            border: 1px solid #000000;
-            border-radius: 0px;
-        }
-
-        .gt_box_qty .gt_qty .qty_control {
-            background-color: #FFED56;
-        }
-
-        .gt_box_qty .label {
-            display: block !important;
-        }
-    </style>
 <?php
 
 }
 ?>
-<div class="product_box_container">
-    <div class="product_addon_container horizontal_box full_opt">
+<div class="w-full px-4 py-12 mx-auto lg:py-0 product_box_container">
+    <div class="flex flex-col-reverse w-full horizontal_box full_opt lg:flex-row-reverse lg:justify-between">
         <!-- Gift Box -->
-        <div class="flex flex-col gift_box_container">
-            <?php
-            // Display WooCommerce product summary right here
-            do_action('woocommerce_mxmatch_product_summary');
-            ?>
-            <div class="gt_bx_rt">
-                <div id="gift_box_0" data-box-count='0' class="product_gift_box active_bx_dtl">
+        <div class="w-full lg:w-2/5 gift_box_container lg:pl-8">
+            <?php if ('yes' == $add_new_box_quantity) { ?>
+                <div class="gt_bx_lt">
+                    <ul class="gt_box_tab">
+                        <li data-tab="0" class="box_tb active_tab"><span class="box_tb_list"> <?php echo esc_html__('Box 1', 'extendons-woocommerce-product-boxes'); ?> <span class="gt_qt"><span><?php echo esc_html__('Qty:', 'extendons-woocommerce-product-boxes'); ?></span> <span class="extendonsfilledboxcount"><?php echo filter_var($prefileldArraylength); ?></span> </span></span></li>
+                        </span>
+                        </li>
+                    </ul>
+
+                    <?php
+                    if ('yes' == $add_new_box_quantity) {
+
+                    ?>
+                        <div class="add_box " ph_src="<?php echo esc_url($ph_src); ?>" path="<?php $ph_src; ?>">
+                            <a href="#!" class="add_box_cta extendonsaddnewbox add_box_hor_simple">
+                                <?php echo filter_var($circled_plus); ?>&nbsp; <?php echo esc_html__(' Add Box', 'extendons-woocommerce-product-boxes'); ?>
+                            </a>
+
+                        </div>
+                    <?php
+                    }
+
+                    ?>
+
+                </div>
+            <?php } ?>
+            <div class="pt-12 gt_bx_rt" color_val=<?php echo filter_var($color_val); ?>>
+                <div id="gift_box_0" data-box-count='0' class="text-white product_gift_box active_bx_dtl ">
                     <div class="gift_box_top">
-                        <div class="gt_box_qty">
+                        <div class="hidden gt_box_qty">
                             <span class="label"><?php echo esc_html__('Box 1 Quantity', 'extendons-woocommerce-product-boxes'); ?></span>
                             <div class="gt_qty">
                                 <a href="#" class="qty_control minus extenonsboxminus"></a>
@@ -171,32 +219,15 @@ if ('yes' != $add_new_box_quantity) {
                                 <a href="#" class="qty_control plus extenonsboxplus"></a>
                             </div>
                         </div>
-                        <div class="gt_item_lmt">
-                            <?php
-
-                            $boxQty = intval($boxQty) - intval($prefileldArraylength);
-                            $totalboxQty = isset($boxQty) ? filter_var($boxQty) : '0';
-                            $totalboxQty = intval($totalboxQty) + intval($prefileldArraylength);
-
-                            ?>
-                            <span class="text"><span class="added_item"><span class="extendonsfilledboxcount"><?php echo filter_var($prefileldArraylength); ?></span>/<?php echo filter_var($totalboxQty); ?> </span><?php echo esc_html__(''); ?></span>
+                        <div class="add_box">
+                            <!-- <a href="#!" class="add_box_cta"> <img src="images/remove.png" alt=""> <img src="images/remove_white.png" alt="">Remove Box 1</a> -->
                         </div>
 
-                        <div class="reset_gt_box">
-                            <a href="#" class=" clear_cta">Clear box <svg class="ml-2" xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
-                                    <g clip-path="url(#clip0_2964_11220)">
-                                        <path d="M1.47559 5.77344V13.8114H9.51356" stroke="black" stroke-width="2.67932" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M4.83814 20.5088C5.70677 22.9742 7.35313 25.0907 9.52918 26.5391C11.7052 27.9875 14.2931 28.6895 16.9028 28.5393C19.5125 28.3891 22.0027 27.3949 23.9982 25.7063C25.9937 24.0178 27.3863 21.7265 27.9664 19.1776C28.5464 16.6288 28.2824 13.9604 27.214 11.5747C26.1457 9.18894 24.3309 7.21502 22.0432 5.95034C19.7555 4.68566 17.1187 4.19873 14.5302 4.56292C11.9416 4.92711 9.54158 6.12269 7.69162 7.96952L1.47559 13.8105" stroke="black" stroke-width="2.67932" stroke-linecap="round" stroke-linejoin="round" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_2964_11220">
-                                            <rect width="32.1519" height="32.1519" fill="white" transform="translate(0.135742 0.414062)" />
-                                        </clipPath>
-                                    </defs>
-                                </svg></a>
-                        </div>
+                        <!-- <div class="reset_gt_box">
+								<a href="#" class="clear_cta"><img src="images/remove.png" alt=""> Clear All Items</a>
+							</div> -->
                     </div>
-                    <ul class="gt_box_list" ph_src="<?php echo esc_url($ph_src); ?>">
+                    <ul class="flex flex-row flex-wrap justify-around gap-4 p-8 bg-black-full rounded-normal gt_box_list" ph_src="<?php echo esc_url($ph_src); ?>">
                         <?php
 
                         if ('yes' == $mmPrefilled_enable) {
@@ -206,6 +237,27 @@ if ('yes' != $add_new_box_quantity) {
                                 $qunit_arr = array();
                                 $boxQty = intval($boxQty) - intval($prefileldArraylength);
                                 foreach ($prefileldArray as $key => $prefileldval) {
+
+                                    // Default empty or initial SVG code for circled_x_id
+                                    $circled_x_id = ''; // Ensure this variable has a value even if the if-condition fails.
+
+                                    if (isset($prefileldval['pre_mandetory']) && 'on' != $prefileldval['pre_mandetory']) {
+                                        $circled_x_id = '<?xml version="1.0" encoding="utf-8"?>
+                                    <svg data-id="' . $product->get_id() . '" class= "extendonsremovefilledboxes ' . $product->get_id() . '" width="24px" height="24px" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+                                    <g fill="none" fill-rule="evenodd" stroke="' . $color_val . '" stroke-linecap="round" stroke-linejoin="round" transform="translate(2 2)">
+                                    <circle cx="8.5" cy="8.5" r="8"/>
+                                    <g transform="matrix(0 1 -1 0 17 0)">
+                                    <path d="m5.5 11.5 6-6"/>
+                                    <path d="m5.5 5.5 6 6"/>
+                                    </g>
+                                    </g>
+                                    </svg>';
+                                    }
+
+                                    // Usage of circled_x_id later in your code
+                                    if (!empty($circled_x_id)) {
+                                        echo filter_var($circled_x_id);
+                                    }
 
                                     if (isset($prefileldval['pre_mandetory']) && 'on' == $prefileldval['pre_mandetory']) {
                                         $prefilledclass = 'prefilleditem';
@@ -252,27 +304,42 @@ if ('yes' != $add_new_box_quantity) {
                                     }
 
                         ?>
-                                    <li class="gift_block active_gift extendonsfilleditem <?php echo filter_var($prefilledclass); ?>">
-                                        <?php
-                                        if ($product) {
-                                            $image_id = $product->get_image_id();
-                                            $image_url = wp_get_attachment_url($image_id);
+                                    <li class="w-1/4 gift_block active_gift relative flex extendonsfilleditem <?php echo filter_var($prefilledclass); ?>">
+                                        <div class="img_block">
+                                            <?php
+                                            // Assuming $product is an instance of WC_Product
+                                            $image_id = $product->get_image_id(); // Getting the ID of the featured image
 
-                                            if (!$image_url) {
-                                                $image_url = wc_placeholder_img_src(); // Fallback to placeholder if no image is available.
+                                            if ($image_id) {
+                                                // If there's an image ID, get the URL of the image in a specific size
+                                                $image_url = wp_get_attachment_image_url($image_id, 'full');
+                                            } else {
+                                                // If no image ID, use a placeholder
+                                                $image_url = wc_placeholder_img_src();
                                             }
 
-                                            echo '<div class="img_block">';
-                                            echo '<img data-id="' . esc_attr($product->get_id()) . '" class="extendonsremovefilledboxes" src="' . esc_url($image_url) . '" alt="' . esc_attr($product->get_name()) . '">';
-                                            echo '</div>';
-                                        }
-                                        ?>
-                                        <div class="dlt_icon bg-red-critical">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16" viewBox="0 0 15 16" fill="none">
-                                                <path d="M0.405677 4.14413L3.67949 0.870312L7.52926 4.72008L11.4093 0.839998L14.6831 4.11381L10.8031 7.99389L14.6831 11.874L11.4093 15.1478L7.52926 11.2677L3.67949 15.1175L0.405678 11.8437L4.25544 7.99389L0.405677 4.14413Z" fill="black" />
-                                            </svg>
+                                            // Output the image tag
+                                            echo '<img data-id="' . esc_attr($product->get_id()) . '" class="object-cover w-full rounded-full extendonsremovefilledboxes" src="' . esc_url($image_url) . '" alt="' . esc_attr($product->get_name()) . '">';
+                                            ?>
                                         </div>
-                                        <div class="gt_overlay">
+                                        <div class="absolute top-0 right-0 dlt_icon">
+                                            <?php
+                                            if ((isset($prefileldval['pre_mandetory']) && 'on' != $prefileldval['pre_mandetory']) || !isset($prefileldval['pre_mandetory'])) {
+                                                $circled_x_id = '<?xml version="1.0" encoding="utf-8"?>
+                                                            <svg data-id="' . $product->get_id() . '" class= "extendonsremovefilledboxes ' . $product->get_id() . '" width="24px" height="24px" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+                                                            <g fill="none" fill-rule="evenodd" stroke="' . $color_val . '" stroke-linecap="round" stroke-linejoin="round" transform="translate(2 2)">
+                                                            <circle cx="8.5" cy="8.5" r="8"/>
+                                                            <g transform="matrix(0 1 -1 0 17 0)">
+                                                            <path d="m5.5 11.5 6-6"/>
+                                                            <path d="m5.5 5.5 6 6"/>
+                                                            </g>
+                                                            </g>
+                                                            </svg>';
+                                            }
+                                            ?>
+                                            <?php echo filter_var($circled_x_id); ?>
+                                        </div>
+                                        <div class="hidden gt_overlay">
                                             <div class="overlay_inner">
                                                 <div class="price"><?php echo filter_var(wc_price($product->get_price())); ?></div>
                                             </div>
@@ -300,19 +367,43 @@ if ('yes' != $add_new_box_quantity) {
 
                         ?>
                     </ul>
+                    <div class="flex items-center justify-between py-6 ">
+                        <div class="gt_item_lmt">
+                            <?php
+                            $totalboxQty = isset($boxQty) ? filter_var($boxQty) : '0';
+                            $totalboxQty = intval($totalboxQty) + intval($prefileldArraylength);
+                            ?>
+                            <span class="text text-black-full font-reg420"><span class="added_item"><span class="extendonsfilledboxcount"><?php echo filter_var($prefileldArraylength); ?></span>/<?php echo filter_var($totalboxQty); ?> </span><?php echo esc_html('Added', 'extendons-woocommerce-product-boxes'); ?></span>
+                        </div>
+                        <div class="reset_gt_box resp">
+                            <a href="#" class="flex items-center justify-center rounded-sm clear_cta text-black-full bg-red-critical">
+                                <?php echo esc_html__('Clear all items', 'extendons-woocommerce-product-boxes'); ?>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+                                    <g clip-path="url(#clip0_3017_6817)">
+                                        <path d="M1.47607 5.77344V13.8114H9.51405" stroke="black" stroke-width="2.67932" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M4.83863 20.5088C5.70726 22.9742 7.35362 25.0907 9.52966 26.5391C11.7057 27.9875 14.2935 28.6895 16.9032 28.5393C19.513 28.3891 22.0032 27.3949 23.9987 25.7063C25.9941 24.0178 27.3868 21.7265 27.9669 19.1776C28.5469 16.6288 28.2828 13.9604 27.2145 11.5747C26.1462 9.18894 24.3314 7.21502 22.0437 5.95034C19.756 4.68566 17.1192 4.19873 14.5307 4.56292C11.9421 4.92711 9.54206 6.12269 7.69211 7.96952L1.47607 13.8105" stroke="black" stroke-width="2.67932" stroke-linecap="round" stroke-linejoin="round" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_3017_6817">
+                                            <rect width="32.1519" height="32.1519" fill="white" transform="translate(0.13623 0.414062)" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            <div class="extsubtotaladdtocart">
-                <?php
-                echo '<span class="extendssubtotalboxes"> Box Price: ' . filter_var($product_price) . '</span>';
-
-                ?>
-
+            <div class="py-8 text-center border-solid extenonheadingparent bordertopbottom border-t-black-primary border-b-black-primary">
+                <?php echo '<span class="extendssubtotalboxes text-black-full font-reg420 text-sm-md-font"> Box total: ' . filter_var($product_price) . '</span>'; ?>
             </div>
+            <div id="moveMSG"></div>
+            <div id="moveCTA"></div>
         </div>
 
         <!-- Product Addon List -->
-        <div class="product_addon_box simple_pd">
+        <div class="w-full lg:w-3/5 product_addon_box simple_pd">
             <?php
             if (!empty($selectedItems)) {
                 $countproductselected = count($selectedItems);
@@ -320,8 +411,7 @@ if ('yes' != $add_new_box_quantity) {
                 $countproductselected = '0';
             }
             ?>
-
-            <div class="pd_box_list">
+            <div class="flex flex-row flex-wrap justify-start pt-12 pd_box_list lg:pr-12">
 
                 <?php
                 //print_r($selectedItems);
@@ -330,7 +420,7 @@ if ('yes' != $add_new_box_quantity) {
                     $args = array();
 
                     if ('yes' == $sort_enable) {
-                        $args['orderby'] = 'title';
+                        $args['orderby'] = 'modified';
                         $args['order'] = 'DESC';
                     }
 
@@ -391,28 +481,32 @@ if ('yes' != $add_new_box_quantity) {
 
                 ?>
 
-                            <div class="pd_add_block">
-                                <div class="pd_add_block_inner">
-                                    <?php     // Assuming $product is your product object
-                                    if ($product) {
-                                        $image_id = $product->get_image_id();
-                                        $image_url = wp_get_attachment_url($image_id);
+                            <div class="w-full mb-8 small:w-1/2 mobile:w-1/3 pd_add_block">
+                                <div class="flex flex-col justify-center text-center pd_add_block_inner">
+                                    <div class="text-center pod_right_block">
+                                        <div class="flex justify-center text-center image_block">
+                                            <?php
+                                            // Assuming $product is an instance of WC_Product
+                                            $image_id = $product->get_image_id(); // Getting the ID of the featured image
 
-                                        if (!$image_url) {
-                                            $image_url = wc_placeholder_img_src();
-                                        }
+                                            if ($image_id) {
+                                                // If there's an image ID, get the URL of the image in a specific size
+                                                $image_url = wp_get_attachment_image_url($image_id, 'woocommerce_thumbnail'); // You can change 'woocommerce_thumbnail' to any other size like 'full', 'medium', etc.
+                                            } else {
+                                                // If no image ID, use a placeholder
+                                                $image_url = wc_placeholder_img_src();
+                                            }
 
-                                        // Display the image within your existing HTML structure
-                                        echo '<div class="pod_right_block">';
-                                        echo '<div class="image_block">';
-                                        echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($product->get_name()) . '" />';
-                                        echo '</div>';
-                                        echo '</div>';
-                                    } ?>
+                                            // Output the image tag
+                                            echo '<img class="rounded-full h-[150px] w-[150px] object-cover" src="' . esc_url($image_url) . '" alt="' . esc_attr($product->get_name()) . '" />';
+                                            ?>
+                                        </div>
 
-                                    <div class="pd_dtl">
-                                        <h2 class="pd_title"><?php echo filter_var($product->get_name()); ?></h2>
-                                        <span class="pd_price"><span class="price">
+                                    </div>
+
+                                    <div class="flex flex-col justify-center text-center pd_dtl">
+                                        <h2 style="color: black;" class="py-4 leading-none pd_title text-black-full font-reg420 text-mob-md-font"><?php echo filter_var($product->get_name()); ?></h2>
+                                        <span class="hidden pd_price"><span class="price">
                                                 <?php echo filter_var($product->get_price_html()); ?>
                                             </span></span>
                                         <div class="pd_addon_btns">
@@ -420,17 +514,25 @@ if ('yes' != $add_new_box_quantity) {
                                             <?php
 
                                             if (!$product->is_in_stock()) {
-                                                echo '<center><p class="stock out-of-stock">' . esc_html__($outofstocktextval, 'woocommerce') . '</p></center>';
+                                                echo '<center><p class="stock out-of-stock text-red-critical font-reg420">' . esc_html__($outofstocktextval, 'woocommerce') . '</p></center>';
                                             } else {
 
                                             ?>
-                                                <div class="add_btn bg-yellow-primary hover:bg-white">
-                                                    <a href="#" class="add_cta" data-id="<?php echo filter_var($product->get_id()); ?>">
-                                                        <?php echo esc_html__('Add', 'extendons-woocommerce-product-boxes'); ?></a>
+                                                <?php
+                                                // Define $circled_plus with a default SVG or a fallback value
+                                                $circled_plus = '<?xml version="1.0" encoding="utf-8"?>
+                                                <svg width="18px" height="18px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill="#000" d="M512 0C229.2 0 0 229.2 0 512s229.2 512 512 512 512-229.2 512-512S794.8 0 512 0zm0 960C264.6 960 64 759.4 64 512S264.6 64 512 64s448 200.6 448 448-200.6 448-448 448zm192-448H544V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v192H320c-17.7 0-32 14.3-32 32s14.3 32 32 32h160v192c0 17.7 14.3 32 32 32s32-14.3 32-32V544h192c17.7 0 32-14.3 32-32s-14.3-32-32-32z"/>
+                                                </svg>';
+                                                ?>
+
+                                                <div class="add_btn">
+                                                    <a href="#" class="flex add_cta bg-yellow-primary w-full max-w-[120px] mx-auto" data-id="<?php echo filter_var($product->get_id()); ?>">
+                                                        <?php echo esc_html__('Add to Box', 'extendons-woocommerce-product-boxes'); ?></a>
                                                 </div>
-                                                <div class="addon_qty">
+                                                <div class="hidden addon_qty">
                                                     <a href="#" data-id="<?php echo filter_var($product->get_id()); ?>" class="qty_control minus extendonsfilledboxesremove"></a>
-                                                    <span class="value extendonsqtytext hidden exqtyval<?php echo filter_var($product->get_id()); ?> " id="<?php echo filter_var($product->get_id()); ?>">
+                                                    <span class="value extendonsqtytext exqtyval<?php echo filter_var($product->get_id()); ?> " id="<?php echo filter_var($product->get_id()); ?>">
                                                         <?php echo filter_var($qtyvalue); ?>
                                                     </span>
                                                     <a href="#" class="qty_control plus add_cta" data-id="<?php echo filter_var($product->get_id()); ?>"></a>
@@ -450,106 +552,31 @@ if ('yes' != $add_new_box_quantity) {
 
 
                 ?>
+
             </div>
+
         </div>
 
     </div>
 </div>
 <script>
     jQuery(document).ready(function($) {
-        // Disable click events for items with class "prefilleditem"
-        $('.extendonsfilleditem.prefilleditem').on('click', function(event) {
-            event.preventDefault(); // Prevent default click action
-            event.stopPropagation(); // Stop event from bubbling up
-            return false; // Prevent default click action
-        });
-        // Attach a click event handler to the delete icons
-        $('.gift_box_container').on('click', '.dlt_icon', function() {
-            var $this = $(this); // cache 'this' to use inside the setTimeout function
-            setTimeout(function() {
-                $this.closest('li.gift_block').remove();
-            }, 100);
-        });
-        $('.gift_box_container').on('click', '.dlt_icon', function() {
-                // Specify the path to the image file in your media library
-            var imagePath = '/content/uploads/2024/04/Donuts.png';
-            // Create the HTML string with the img tag pointing to the image path
-            var imagePlaceholder = `<div class="img_block"><img src="${imagePath}" alt="Placeholder" class="h-full w-full object-cover"></div>`;
+        // Using plain JavaScript to remove the disabled attribute
+        var button = document.querySelector('.single_add_to_cart_button');
+        if (button) {
+            button.removeAttribute('disabled');
+        }
 
-            // Set the image as the HTML of the closest li.gift_block
-            $(this).closest('li.gift_block').html(imagePlaceholder);
-        });
+        var textarea = $('#mm-gmasg');
+        var moveMSG = $('#moveMSG');
+        if (textarea.length && moveMSG.length) {
+            textarea.detach().appendTo(moveMSG);
+        }
 
-        $('.gift_box_container').on('click', '.clear_cta', function(e) {
-        e.preventDefault(); // Prevent the default anchor click behavior
-
-        // Find all the gift blocks within the same gift box container
-        $(this).closest('.gift_box_container').find('.gt_box_list .gift_block').each(function() {
-            // Check if the gift block does NOT have the class 'prefilleditem'
-            if (!$(this).hasClass('prefilleditem')) {
-                $(this).remove(); // Remove the non-prefilled gift block
-            }
-        });
-        
-        // Optionally, you might want to update some counters or UI elements here to reflect the removal
+        var addToCartBtn = $('.extendons_add_to_cart');
+        var moveCTA = $('#moveCTA');
+        if (addToCartBtn.length && moveCTA.length) {
+            addToCartBtn.detach().appendTo(moveCTA);
+        }
     });
-
-    // Prevent interaction with prefilled items
-    $('.extendonsfilleditem.prefilleditem').on('click', function(event) {
-        event.stopPropagation(); // Stop the event from bubbling up to avoid unintended interaction
-        return false; // Do nothing
-    });
-
-    // Handle the deletion of individual items
-    $('.gift_box_container').on('click', '.dlt_icon', function() {
-        var imagePath = '/content/uploads/2024/04/Donuts.png'; // Path to the placeholder image
-        var imagePlaceholder = `<div class="img_block"><img src="${imagePath}" alt="Placeholder" class="h-full w-full object-cover"></div>`;
-
-        // Replace the content of the closest li.gift_block with the image placeholder
-        $(this).closest('li.gift_block').html(imagePlaceholder);
-    });
-     // Function to update the count of non-prefilled items in the box
-    function updateItemCount() {
-        // Calculate the number of non-prefilled items currently in the box
-        var itemCount = $('.gift_box_container .gt_box_list .gift_block').not('.prefilleditem').length;
-        var totalItems = $('.gift_box_container .gt_box_list .gift_block').length;
-        // Update the display
-        $('.extendonsfilledboxcount').text(itemCount);
-        $('.added_item').text(itemCount + '/' + totalItems + ' Added');
-    }
-
-    // Update count when removing individual items
-    $('.gift_box_container').on('click', '.dlt_icon', function() {
-        // Replace the content of the closest li.gift_block with the image placeholder
-        var imagePath = '/content/uploads/2024/04/Donuts.png'; // Path to the placeholder image
-        var imagePlaceholder = `<div class="img_block"><img src="${imagePath}" alt="Placeholder" class="h-full w-full object-cover"></div>`;
-        $(this).closest('li.gift_block').html(imagePlaceholder);
-
-        // Update item count after removal
-        setTimeout(function() {
-            updateItemCount();
-        }, 100); // Adjust time as necessary for your setup
-    });
-
-    // Handle the "Clear box" action
-    $('.gift_box_container').on('click', '.clear_cta', function(e) {
-        e.preventDefault();
-        // Remove all non-prefilled items
-        $(this).closest('.gift_box_container').find('.gt_box_list .gift_block').each(function() {
-            if (!$(this).hasClass('prefilleditem')) {
-                $(this).remove();
-            }
-        });
-
-        // Update the item count
-        updateItemCount();
-    });
-
-    // Disable interaction with prefilled items
-    $('.extendonsfilleditem.prefilleditem').on('click', function(event) {
-        event.preventDefault(); // Prevent default click action
-        event.stopPropagation(); // Stop event from bubbling up
-        return false; // Ensure no further processing for this event
-    });
-});
 </script>
