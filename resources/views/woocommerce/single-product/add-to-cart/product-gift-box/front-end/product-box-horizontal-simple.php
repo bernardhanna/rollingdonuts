@@ -404,7 +404,7 @@ if ('yes' != $add_new_box_quantity) {
                             ?>
                         </ul>
                     </div>
-                    <div class="flex items-center justify-between py-6 ">
+                    <div class="flex flex-col items-center justify-center py-6 row:flex-row mobile:justify-between">
                         <div class="gt_item_lmt">
                             <?php
                             $totalboxQty = isset($boxQty) ? filter_var($boxQty) : '0';
@@ -428,7 +428,7 @@ if ('yes' != $add_new_box_quantity) {
                         </div>
                         <div class="reset_gt_box resp">
                             <a href="#" id="clearAllItemsBtn" class="flex items-center justify-center rounded-sm clear_cta text-black-full bg-red-critical">
-                                <?php echo esc_html__('Clear all items', 'extendons-woocommerce-product-boxes'); ?>
+                                <?php echo esc_html__('Clear items', 'extendons-woocommerce-product-boxes'); ?>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
                                     <g clip-path="url(#clip0_3017_6817)">
                                         <path d="M1.47607 5.77344V13.8114H9.51405" stroke="black" stroke-width="2.67932" stroke-linecap="round" stroke-linejoin="round" />
