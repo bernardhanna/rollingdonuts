@@ -30,6 +30,7 @@ class AssetsServiceProvider extends ServiceProvider
 
          add_action('wp_enqueue_scripts', function (): void {
             wp_dequeue_style('wooextbox-style-css');
+            wp_dequeue_style('wc-local-pickup-plus-frontend');
             if (!is_cart() && !is_checkout() || is_wc_endpoint_url('order-received')) {
                 // Dequeue WooCommerce styles
                 wp_dequeue_style('woocommerce-general');
@@ -53,7 +54,7 @@ class AssetsServiceProvider extends ServiceProvider
             wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css', array(), null);
             wp_enqueue_style('edmondsans', 'https://fonts.cdnfonts.com/css/edmondsans', false);
             wp_enqueue_style('laca', 'https://fonts.cdnfonts.com/css/laca?styles=51511,51510,51505,51504,51507,51506,51503,51502,51509,51508,51513,51512,51501,51500,51499,51498', false);
-            //wp_dequeue_script('wooextbox-main-js');
+
             remove_action('wp_body_open', 'wp_global_styles_render_svg_filters');
             bundle('app')->enqueue();
         }, 9999);
