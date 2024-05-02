@@ -1253,7 +1253,7 @@ function iconic_restore_delivery_time_from_session()
                 }
             });
         </script>
-<?php
+    <?php
     }
 }
 add_action('woocommerce_after_checkout_form', 'iconic_restore_delivery_time_from_session');
@@ -1608,3 +1608,29 @@ function list_enqueued_styles()
 
 add_action('wp_head', 'list_enqueued_styles'); // Hook into the header to output the list of enqueued styles
 */
+// Calculate Shipping on Checkout
+add_action('woocommerce_before_checkout_form', 'calculate_shipping_on_checkout', 10);
+
+function calculate_shipping_on_checkout()
+{
+    $packages = WC()->cart->get_shipping_packages();
+    foreach ($packages as $package_key => $package) {
+        WC()->shipping->calculate_shipping_for_package($package, $package_key);
+    }
+}
+
+add_action('wp_footer', 'always_show_shipping_options_on_checkout');
+
+function always_show_shipping_options_on_checkout()
+{
+    if (is_checkout()) {
+    ?>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                // Trigger to update shipping when checkout page loads
+                $(document.body).trigger('update_checkout');
+            });
+        </script>
+<?php
+    }
+}
