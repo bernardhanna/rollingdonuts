@@ -18,11 +18,12 @@
 
 defined('ABSPATH') || exit;
 ?>
-<div class="shop_div woocommerce-checkout-review-order-div border-2 border-solid border-black-full rounded-20px boxshadow w-full">
+<div class="w-full border-2 border-solid shop_div woocommerce-checkout-review-order-div border-black-full rounded-20px boxshadow">
     <div class="bg-gray-disabled bg-grey-disabled relative -z-1 rounded-tl-[10px] rounded-tr-[10px] flex justify-between px-8 pt-4">
-        <div class="product-name text-left bg-grey-disabled text-base-font font-reg420 w-1/2"><?php esc_html_e('Product', 'woocommerce'); ?></div>
+        <div class="w-1/2 text-left product-name bg-grey-disabled text-base-font font-reg420"><?php esc_html_e('Product', 'woocommerce'); ?></div>
         <div class="product-total text-right bg-grey-disabled text-base-font font-reg420 py-[8px] px-2 w-1/2"><?php esc_html_e('Subtotal', 'woocommerce'); ?></div>
     </div>
+
     <div class="">
         <?php
         do_action('woocommerce_review_order_before_cart_contents');
@@ -54,7 +55,7 @@ defined('ABSPATH') || exit;
     </div>
     <div>
 
-        <div class="cart-subtotal flex justify-between px-8 py-4 border-b border-grey-border">
+        <div class="flex justify-between px-8 py-4 border-b cart-subtotal border-grey-border">
             <div><?php esc_html_e('Subtotal', 'woocommerce'); ?></div>
             <div><?php wc_cart_totals_subtotal_html(); ?></div>
         </div>
@@ -68,7 +69,7 @@ defined('ABSPATH') || exit;
 
 
         <?php foreach (WC()->cart->get_fees() as $fee) : ?>
-            <div class="fee flex justify-between px-8 py-4">
+            <div class="flex justify-between px-8 py-4 fee">
                 <div><?php echo esc_html($fee->name); ?></div>
                 <div><?php wc_cart_totals_fee_html($fee); ?></div>
             </div>
@@ -84,7 +85,7 @@ defined('ABSPATH') || exit;
                     </div>
                 <?php endforeach; ?>
             <?php else : ?>
-                <div class="tax-total flex justify-between px-8 py-4">
+                <div class="flex justify-between px-8 py-4 tax-total">
                     <div><?php echo esc_html(WC()->countries->tax_or_vat()); ?></div>
 
                     <div><?php wc_cart_totals_taxes_total_html(); ?></div>
@@ -94,12 +95,12 @@ defined('ABSPATH') || exit;
 
         <?php do_action('woocommerce_review_order_before_order_total'); ?>
 
-        <div class="shipping-costs-row flex justify-between px-8 py-4 border-b border-grey-border">
+        <div class="flex justify-between px-8 py-4 border-b shipping-costs-row border-grey-border">
             <div><?php esc_html_e('Delivery Costs', 'woocommerce'); ?></div>
             <div><?php echo WC()->cart->get_cart_shipping_total(); ?></div>
         </div>
 
-        <div class="order-total flex justify-between px-8 py-4">
+        <div class="flex justify-between px-8 py-4 order-total">
             <div><?php esc_html_e('Total', 'woocommerce'); ?></div>
             <div><?php wc_cart_totals_order_total_html(); ?></div>
         </div>

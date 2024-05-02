@@ -22,13 +22,13 @@ defined('ABSPATH') || exit;
 <div class="px-4 md:px-0 cart_totals w-full lg:max-w-max-503 <?php echo (WC()->customer->has_calculated_shipping()) ? 'calculated_shipping' : ''; ?>">
 
     <?php do_action('woocommerce_before_cart_totals'); ?>
-    <div class="border-b-2 border-black-full py-4 text-left">
-        <h2 class="text-md-font text-black-full font-medium"><?php esc_html_e('Cart totals', 'woocommerce'); ?></h2>
+    <div class="py-4 text-left border-b-2 border-black-full">
+        <h2 class="font-medium text-md-font text-black-full"><?php esc_html_e('Cart totals', 'woocommerce'); ?></h2>
     </div>
     <div class="shop_table shop_table_responsive bg-grey-background">
 
-        <div class="cart-subtotal text-black-full text-base-font font-reg420 flex justify-between items-center border-b border-black-full border-solid bg-white">
-            <div class="bg-grey-background py-5 w-1/2 pl-6"><?php esc_html_e('Subtotal', 'woocommerce'); ?></div>
+        <div class="flex items-center justify-between bg-white border-b border-solid cart-subtotal text-black-full text-base-font font-reg420 border-black-full">
+            <div class="w-1/2 py-5 pl-6 bg-grey-background"><?php esc_html_e('Subtotal', 'woocommerce'); ?></div>
             <div data-title="<?php esc_attr_e('Subtotal', 'woocommerce'); ?>">
                 <?php wc_cart_totals_subtotal_html(); ?>
             </div>
@@ -36,35 +36,16 @@ defined('ABSPATH') || exit;
 
         <?php foreach (WC()->cart->get_coupons() as $code => $coupon) : ?>
             <div class="cart-discount coupon-<?php echo esc_attr(sanitize_title($code)); ?> text-black-full text-base-font font-reg420 flex justify-between items-center border-b border-black-full border-solid">
-                <div class="bg-grey-background py-5 w-1/2 pl-6"><?php wc_cart_totals_coupon_label($coupon); ?></div>
-                <div class="flex flex-col mobile:flex-row justify-end" data-title="<?php echo esc_attr(wc_cart_totals_coupon_label($coupon, false)); ?>">
+                <div class="w-1/2 py-5 pl-6 bg-grey-background"><?php wc_cart_totals_coupon_label($coupon); ?></div>
+                <div class="flex flex-col justify-end mobile:flex-row" data-title="<?php echo esc_attr(wc_cart_totals_coupon_label($coupon, false)); ?>">
                     <?php wc_cart_totals_coupon_html($coupon); ?>
                 </div>
             </div>
         <?php endforeach; ?>
 
-        <?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : ?>
-
-            <?php do_action('woocommerce_cart_totals_before_shipping'); ?>
-
-            <?php wc_cart_totals_shipping_html(); ?>
-
-            <?php do_action('woocommerce_cart_totals_after_shipping'); ?>
-
-        <?php elseif (WC()->cart->needs_shipping() && 'yes' === get_option('woocommerce_enable_shipping_calc')) : ?>
-
-            <div class="shipping py-5 text-black-full text-base-font font-reg42 flex justify-between items-center border-b border-black-full border-solid">
-                <div class="bg-grey-background w-1/2 pl-6"><?php esc_html_e('Shipping', 'woocommerce'); ?></div>
-                <div>
-                    <div data-title="<?php esc_attr_e('Shipping', 'woocommerce'); ?>"><?php woocommerce_shipping_calculator(); ?></div>
-                </div>
-            </div>
-
-        <?php endif; ?>
-
         <?php foreach (WC()->cart->get_fees() as $fee) : ?>
-            <div class="fee text-black-full text-base-font font-reg420 w-full flex justify-between items-center py-5">
-                <div class="bg-grey-background w-1/2 pl-6"><?php echo esc_html($fee->name); ?></div>
+            <div class="flex items-center justify-between w-full py-5 fee text-black-full text-base-font font-reg420">
+                <div class="w-1/2 pl-6 bg-grey-background"><?php echo esc_html($fee->name); ?></div>
                 <div>
                     <div data-title="<?php echo esc_attr($fee->name); ?>"><?php wc_cart_totals_fee_html($fee); ?></div>
                 </div>
@@ -92,8 +73,8 @@ defined('ABSPATH') || exit;
                 }
             } else {
                 ?>
-                <div class="tax-total text-black-full text-base-font font-reg420 flex justify-between items-center border-b border-black-full border-solid">
-                    <div class="bg-grey-background w-1/2 py-5 pl-6"><?php echo esc_html(WC()->countries->tax_or_vat()) . $estimated_text; ?></div>
+                <div class="flex items-center justify-between border-b border-solid tax-total text-black-full text-base-font font-reg420 border-black-full">
+                    <div class="w-1/2 py-5 pl-6 bg-grey-background"><?php echo esc_html(WC()->countries->tax_or_vat()) . $estimated_text; ?></div>
                     <div data-title="<?php echo esc_attr(WC()->countries->tax_or_vat()); ?>"><?php wc_cart_totals_taxes_total_html(); ?></div>
                 </div>
         <?php
@@ -103,8 +84,8 @@ defined('ABSPATH') || exit;
 
         <?php do_action('woocommerce_cart_totals_before_order_total'); ?>
 
-        <div class="order-total text-black-full text-base-font font-reg420 w-full flex justify-between items-center border-b-2 border-black-full border-solid">
-            <div class="pl-6 text-left bg-grey-background py-5 w-1/2"><?php esc_html_e('Total', 'woocommerce'); ?></div>
+        <div class="flex items-center justify-between w-full border-b-2 border-solid order-total text-black-full text-base-font font-reg420 border-black-full">
+            <div class="w-1/2 py-5 pl-6 text-left bg-grey-background"><?php esc_html_e('Total', 'woocommerce'); ?></div>
             <div data-title="<?php esc_attr_e('Total', 'woocommerce'); ?>"><?php wc_cart_totals_order_total_html(); ?></div>
         </div>
 

@@ -2188,6 +2188,7 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
 
 .woocommerce-error {
   height: max-content!important;
+  background: black;
 }
 
 .attribute-container {

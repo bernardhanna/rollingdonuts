@@ -244,17 +244,31 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
     .woosb-cart-child {
         display: none;
     }
+
+    .border-grey-bordermixmatch-child,
+    .mixmatch-child {
+        display: none !important;
+    }
 </style>
 <div id="moveNotice"></div>
-<div class="pb-24 mb-10 pt-8">
-    <form name="checkout" method="post" class="checkout woocommerce-checkout woo-move-notice mx-auto max-w-max-1568 flex lg:flex-row flex-col lg:justify-between" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
+<div class="pt-8 pb-24 mb-10">
+    <form name="checkout" method="post" class="flex flex-col mx-auto checkout woocommerce-checkout woo-move-notice max-w-max-1568 lg:flex-row lg:justify-between" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
 
         <?php if ($checkout->get_checkout_fields()) : ?>
 
             <?php do_action('woocommerce_checkout_before_customer_details'); ?>
             <div class="xxl:w-1/2 desktop:w-[772px] w-full pr-0 md:pr-8 desktop:pr-0" id="customer_details">
                 <div class="col-1 hideText">
-                    <h3 class="text-black-full text-md-font font-reg420 pb-8"><?php esc_html_e('1. Select Date & Time', 'woocommerce'); ?></h3>
+                    <h3 class="pb-8 text-black-full text-md-font font-reg420"><?php esc_html_e('1. Delivery Method', 'woocommerce'); ?></h3>
+                    <?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : ?>
+
+                        <?php do_action('woocommerce_cart_totals_before_shipping'); ?>
+
+                        <?php wc_cart_totals_shipping_html(); ?>
+
+                        <?php do_action('woocommerce_cart_totals_after_shipping'); ?>
+
+                    <?php endif; ?>
                     <?php do_action('woocommerce_checkout_billing'); ?>
                 </div>
 
@@ -269,7 +283,7 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
         <div class="xxl:w-1/2 desktop:w-[640px] w-full ">
             <?php do_action('woocommerce_checkout_before_order_review_heading'); ?>
 
-            <h3 class="text-md-font font-reg420 mb-6" id="order_review_heading"><?php esc_html_e('Your order', 'woocommerce'); ?></h3>
+            <h3 class="mb-6 text-md-font font-reg420" id="order_review_heading"><?php esc_html_e('Your order', 'woocommerce'); ?></h3>
 
             <?php do_action('woocommerce_checkout_before_order_review'); ?>
 

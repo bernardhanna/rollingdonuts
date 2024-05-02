@@ -25,12 +25,11 @@ $has_calculated_shipping  = !empty($has_calculated_shipping);
 $show_shipping_calculator = !empty($show_shipping_calculator);
 $calculator_text          = '';
 ?>
-<div class="text-black-full text-base-font font-reg420 flex justify-between items-center border-b bg-white border-black-full border-solid">
-    <div class="bg-grey-background py-5 w-1/2 pl-6">Delivery Method</div>
-    <div class="woocommerce-shipping-totals shippingp-6">
+<div class="flex items-center justify-between bg-white text-black-full text-base-font font-reg420 border-black-full">
+    <div class="pb-8 woocommerce-shipping-totals shipping">
         <div data-title="<?php echo esc_attr($package_name); ?>">
             <?php if (!empty($available_methods) && is_array($available_methods)) : ?>
-                <ul id="shipping_method" class="woocommerce-shipping-methods p-4">
+                <ul id="shipping_method" class="p-4 woocommerce-shipping-methods">
                     <?php foreach ($available_methods as $method) : ?>
                         <li>
                             <?php
