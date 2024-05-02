@@ -266,11 +266,11 @@ if ('yes' != $add_new_box_quantity) {
                                     if ($totalItems == 2) {
                                         $widthClass = 'w-1/2';
                                     } elseif ($totalItems % 3 == 0) {
-                                        $widthClass = 'w-1/3';
+                                        $widthClass = 'w-auto lg:w-1/3';
                                     } elseif ($totalItems % 4 == 0) {
-                                        $widthClass = 'w-1/4';
+                                        $widthClass = '1/3 lg::w-1/4';
                                     } else {
-                                        $widthClass = 'w-1/4';
+                                        $widthClass = 'width-auto lg:w-1/4';
                                     }
                                     foreach ($prefileldArray as $key => $prefileldval) {
 
