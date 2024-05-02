@@ -1587,7 +1587,7 @@ add_filter('body_class', 'add_mxmatch_body_class');
 
 
 //DISPLAY ALL STYLES FOR DEBUGGING
-/*
+
 function list_enqueued_styles()
 {
     if (is_checkout()) { // Ensure we are on a product page
@@ -1602,4 +1602,4 @@ function list_enqueued_styles()
 }
 
 add_action('wp_head', 'list_enqueued_styles'); // Hook into the header to output the list
-*/
+
