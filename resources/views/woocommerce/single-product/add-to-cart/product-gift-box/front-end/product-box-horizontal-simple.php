@@ -193,12 +193,18 @@ if ('yes' != $add_new_box_quantity) {
     .extendons_active_boxes.active_gift .img_block img {
         border: none !important;
     }
+
+    .font-normal {
+        font-weight: 400;
+    }
 </style>
 <div class="w-full px-4 py-12 mx-auto lg:py-0 product_box_container">
     <div class="flex flex-col-reverse w-full horizontal_box full_opt lg:flex-row-reverse lg:justify-between">
         <!-- display woo commerce summary -->
         <div class="w-full lg:w-2/5 gift_box_container lg:pl-8">
-            <?php do_action('woocommerce_single_product_summary'); ?>
+            <div class="hidden lg:block">
+                <?php do_action('woocommerce_single_product_summary'); ?>
+            </div>
             <?php if ('yes' == $add_new_box_quantity) { ?>
                 <div class="gt_bx_lt">
                     <ul class="gt_box_tab">
@@ -415,7 +421,9 @@ if ('yes' != $add_new_box_quantity) {
                                 $widthClass = 'w-1/4'; // Default case
                             }
                             ?>
-                            <span class="text text-black-full font-reg420"><span class="added_item"><span class="extendonsfilledboxcount"><?php echo filter_var($prefileldArraylength); ?></span>/<?php echo filter_var($totalboxQty); ?> </span><?php echo esc_html('Added', 'extendons-woocommerce-product-boxes'); ?></span>
+                            <span class="text text-black-full font-reg420">
+                                Box size: <span class="font-normal text text-black-full"><?php echo filter_var($totalboxQty); ?> donuts
+                                </span></span>
                         </div>
                         <div class="reset_gt_box resp">
                             <a href="#" id="clearAllItemsBtn" class="flex items-center justify-center rounded-sm clear_cta text-black-full bg-red-critical">
@@ -446,6 +454,9 @@ if ('yes' != $add_new_box_quantity) {
 
         <!-- Product Addon List -->
         <div class="w-full lg:w-3/5 product_addon_box simple_pd">
+            <div class="block lg:hidden">
+                <?php do_action('woocommerce_single_product_summary'); ?>
+            </div>
             <?php
             if (!empty($selectedItems)) {
                 $countproductselected = count($selectedItems);
