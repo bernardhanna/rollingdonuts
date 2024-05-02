@@ -26,7 +26,7 @@ $show_shipping_calculator = !empty($show_shipping_calculator);
 $calculator_text          = '';
 ?>
 <div class="flex items-center justify-between bg-white text-black-full text-base-font font-reg420 border-black-full">
-    <div class="pb-8 woocommerce-shipping-totals shipping">
+    <div class="w-full pb-8 woocommerce-shipping-totals shipping">
         <div data-title="<?php echo esc_attr($package_name); ?>">
             <?php if (!empty($available_methods) && is_array($available_methods)) : ?>
                 <ul id="shipping_method" class="p-4 woocommerce-shipping-methods">
