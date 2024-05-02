@@ -43,7 +43,7 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 
     .woocommerce-error {
         height: max-content !important;
-        max-width: 1500px;
+        max-width: 1728px;
         margin: auto;
         background-color: black;
     }
@@ -256,6 +256,20 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
     .mixmatch-child {
         display: none !important;
     }
+
+    .woocommerce ul#shipping_method li input {
+        margin: 0px .5rem 0 0;
+        vertical-align: middle;
+    }
+
+    .woocommerce ul#shipping_method li {
+        margin: 0 0 .5em;
+        line-height: 0px;
+    }
+
+    .pickup-location-field em {
+        display: none;
+    }
 </style>
 <div id="moveNotice"></div>
 <div class="pt-8 pb-24 mb-10">
@@ -454,5 +468,25 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
                 errorMessage.style.display = 'none';
             }
         }
+    });
+    jQuery(document).ready(function($) {
+        // Function to toggle pickup location visibility
+        function togglePickupLocation(showPickup) {
+            if (showPickup) {
+                $('.pickup-location-field').removeClass('hidden').show();
+            } else {
+                $('.pickup-location-field').addClass('hidden').hide();
+            }
+        }
+
+        // Event handler for shipping method change
+        $('input[name="shipping_method[0]"]').change(function() {
+            var shippingMethod = $(this).val();
+            // Assuming 'local_pickup_plus' is the value for the pickup shipping method
+            togglePickupLocation(shippingMethod === 'local_pickup_plus');
+        });
+
+        // Initial check on page load
+        togglePickupLocation($('input[name="shipping_method[0]"]:checked').val() === 'local_pickup_plus');
     });
 </script>
