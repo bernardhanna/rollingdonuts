@@ -268,9 +268,9 @@ if ('yes' != $add_new_box_quantity) {
                                     } elseif ($totalItems % 3 == 0) {
                                         $widthClass = 'w-auto mobile:w-1/3';
                                     } elseif ($totalItems % 4 == 0) {
-                                        $widthClass = 'w-auto lg:w-1/4';
+                                        $widthClass = 'w-auto xxl:w-1/4';
                                     } else {
-                                        $widthClass = 'w-1/4';
+                                        $widthClass = 'w-auto xxl:w-1/4';
                                     }
                                     foreach ($prefileldArray as $key => $prefileldval) {
 
@@ -411,14 +411,14 @@ if ('yes' != $add_new_box_quantity) {
                             $totalboxQty = intval($totalboxQty) + intval($prefileldArraylength);
                             $totalItems = $totalboxQty;
                             // Determine the width class based on the number of items
-                            if ($totalItems % 4 == 0) {
-                                $widthClass = 'w-1/4';
-                            } elseif ($totalItems % 3 == 0) {
-                                $widthClass = 'w-1/3';
-                            } elseif ($totalItems == 2) {
+                            if ($totalItems == 2) {
                                 $widthClass = 'w-1/2';
+                            } elseif ($totalItems % 3 == 0) {
+                                $widthClass = 'w-auto mobile:w-1/3';
+                            } elseif ($totalItems % 4 == 0) {
+                                $widthClass = 'w-auto xxl:w-1/4';
                             } else {
-                                $widthClass = 'w-1/4'; // Default case
+                                $widthClass = 'w-auto xxl:w-1/4';
                             }
                             ?>
                             <span class="hidden text text-black-full font-reg420"><span class="added_item"><span class="extendonsfilledboxcount"><?php echo filter_var($prefileldArraylength); ?></span>/<?php echo filter_var($totalboxQty); ?> </span><?php echo esc_html('Added', 'extendons-woocommerce-product-boxes'); ?></span>
