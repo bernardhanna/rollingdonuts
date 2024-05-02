@@ -37,8 +37,15 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
 
 ?>
 <style>
+    .woocommerce-shipping-total.shipping th {
+        display: none !important;
+    }
+
     .woocommerce-error {
         height: max-content !important;
+        max-width: 1500px;
+        margin: auto;
+        background-color: black;
     }
 
     .hide-on-checkout {
@@ -261,14 +268,24 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
                 <div class="col-1 hideText">
                     <h3 class="pb-8 text-black-full text-md-font font-reg420"><?php esc_html_e('1. Delivery Method', 'woocommerce'); ?></h3>
                     <?php if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) : ?>
+                        <table class="w-full lpp-shipping-package-wrapper">
+                            <thead>
+                                <tr>
+                                    <th class="text-left" colspan="2"><?php esc_html_e('Shipping Options', 'woocommerce'); ?></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                            <tfoot>
+                                <?php do_action('woocommerce_review_order_before_shipping'); ?>
 
-                        <?php do_action('woocommerce_cart_totals_before_shipping'); ?>
+                                <?php wc_cart_totals_shipping_html(); ?>
 
-                        <?php wc_cart_totals_shipping_html(); ?>
-
-                        <?php do_action('woocommerce_cart_totals_after_shipping'); ?>
-
+                                <?php do_action('woocommerce_review_order_after_shipping'); ?>
+                            </tfoot>
+                        </table>
                     <?php endif; ?>
+
                     <?php do_action('woocommerce_checkout_billing'); ?>
                 </div>
 

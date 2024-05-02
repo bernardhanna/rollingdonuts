@@ -1587,19 +1587,24 @@ add_filter('body_class', 'add_mxmatch_body_class');
 
 
 //DISPLAY ALL STYLES FOR DEBUGGING
-
+/*
 function list_enqueued_styles()
 {
     if (is_checkout()) { // Ensure we are on a product page
-        global $wp_styles;
+        global $wp_scripts, $wp_styles; // Get the global scripts and styles objects
         echo '<!-- Enqueued Style Handles: -->';
         echo '<ul>';
         foreach ($wp_styles->queue as $handle) {
             echo '<li>' . esc_html($handle) . '</li>';
         }
         echo '</ul>';
+        echo '<ul>';
+        foreach ($wp_scripts->queue as $handle) {
+            echo '<li>' . esc_html($handle) . '</li>';
+        }
+        echo '</ul>';
     }
 }
 
-add_action('wp_head', 'list_enqueued_styles'); // Hook into the header to output the list
-
+add_action('wp_head', 'list_enqueued_styles'); // Hook into the header to output the list of enqueued styles
+*/
