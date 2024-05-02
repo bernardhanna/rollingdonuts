@@ -91,6 +91,10 @@ if ('yes' != $add_new_box_quantity) {
     .active_gift .img_block img {
         border-radius: 100%;
         border: 2px solid #ffed56;
+        max-height: 100px;
+        max-width: 100px;
+        min-height: 100px;
+        min-width: 100px;
     }
 
     .prefilleditem .dlt_icon {
