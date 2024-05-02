@@ -8,7 +8,16 @@ if ('' == $ph_src) {
 
 $color_val = $extendons_custombox_general_settings['_mm_color_primarycolor'] ?? '#995E8E';
 
+?>
 
+<?php
+if ('yes' != $add_new_box_quantity) {
+
+?>
+
+<?php
+
+}
 ?>
 <style type="text/css">
     .box-product .removebg {
@@ -82,8 +91,6 @@ $color_val = $extendons_custombox_general_settings['_mm_color_primarycolor'] ?? 
     .active_gift .img_block img {
         border-radius: 100%;
         border: 2px solid #ffed56;
-        width: 100px;
-        height: 100px;
     }
 
     .prefilleditem .dlt_icon {
@@ -151,9 +158,12 @@ $color_val = $extendons_custombox_general_settings['_mm_color_primarycolor'] ?? 
     }
 
     .dlt_icon {
-        position: absolute;
-        top: 1rem;
+        position: relative;
+        bottom: 100%;
         right: 1rem;
+        top: 0px;
+        width: 0px;
+        height: 10px;
     }
 
     .extendons_add_to_cart {
@@ -175,21 +185,16 @@ $color_val = $extendons_custombox_general_settings['_mm_color_primarycolor'] ?? 
             white-space: nowrap;
         }
     }
+
+    .extendons_active_boxes.active_gift .img_block img {
+        border: none !important;
+    }
 </style>
-
-<?php
-if ('yes' != $add_new_box_quantity) {
-
-?>
-
-<?php
-
-}
-?>
 <div class="w-full px-4 py-12 mx-auto lg:py-0 product_box_container">
     <div class="flex flex-col-reverse w-full horizontal_box full_opt lg:flex-row-reverse lg:justify-between">
-        <!-- Gift Box -->
+        <!-- display woo commerce summary -->
         <div class="w-full lg:w-2/5 gift_box_container lg:pl-8">
+            <?php do_action('woocommerce_single_product_summary'); ?>
             <?php if ('yes' == $add_new_box_quantity) { ?>
                 <div class="gt_bx_lt">
                     <ul class="gt_box_tab">
@@ -235,7 +240,7 @@ if ('yes' != $add_new_box_quantity) {
 							</div> -->
                     </div>
                     <div class="flex justify-center">
-                        <ul class="flex flex-row flex-wrap justify-around py-8 mobile:py-0 mobile:justify-center bg-black-full rounded-normal gt_box_list" ph_src="<?php echo esc_url($ph_src); ?>">
+                        <ul class="flex flex-row flex-wrap items-center justify-around w-full p-8 mobile:justify-center bg-black-full rounded-normal gt_box_list" ph_src="<?php echo esc_url($ph_src); ?>">
                             <?php
 
                             if ('yes' == $mmPrefilled_enable) {
@@ -244,6 +249,19 @@ if ('yes' != $add_new_box_quantity) {
 
                                     $qunit_arr = array();
                                     $boxQty = intval($boxQty) - intval($prefileldArraylength);
+                                    $totalboxQty = isset($boxQty) ? filter_var($boxQty) : '0';
+                                    $totalboxQty = intval($totalboxQty) + intval($prefileldArraylength);
+                                    $totalItems = $totalboxQty;
+                                    // Determine the width class based on the number of items
+                                    if ($totalItems == 2) {
+                                        $widthClass = 'w-1/2';
+                                    } elseif ($totalItems % 3 == 0) {
+                                        $widthClass = 'w-1/3';
+                                    } elseif ($totalItems % 4 == 0) {
+                                        $widthClass = 'w-1/4';
+                                    } else {
+                                        $widthClass = 'w-1/4';
+                                    }
                                     foreach ($prefileldArray as $key => $prefileldval) {
 
                                         // Default empty or initial SVG code for circled_x_id
@@ -312,8 +330,8 @@ if ('yes' != $add_new_box_quantity) {
                                         }
 
                             ?>
-                                        <li class="w-auto border-list py-4 mobile:m-4 mobile:w-1/4 gift_block active_gift relative justify-center items-center flex extendonsfilleditem <?php echo filter_var($prefilledclass); ?>">
-                                            <div class="img_block">
+                                        <li class="p-4 border-list <?php echo $widthClass; ?> gift_block active_gift relative justify-center items-center flex extendonsfilleditem <?php echo filter_var($prefilledclass); ?>">
+                                            <div class="flex items-center justify-center w-full h-full img_block">
                                                 <?php
                                                 // Assuming $product is an instance of WC_Product
                                                 $image_id = $product->get_image_id(); // Getting the ID of the featured image
@@ -327,13 +345,12 @@ if ('yes' != $add_new_box_quantity) {
                                                 }
 
                                                 // Output the image tag
-                                                echo '<img data-id="' . esc_attr($product->get_id()) . '" class="object-cover w-full lg:w-[100px] rounded-full extendonsremovefilledboxes md:h-[100px] mobile:h-auto" src="' . esc_url($image_url) . '" alt="' . esc_attr($product->get_name()) . '">';
+                                                echo '<img data-id="' . esc_attr($product->get_id()) . '" class="object-contain w-full h-full rounded-full extendonsremovefilledboxes" src="' . esc_url($image_url) . '" alt="' . esc_attr($product->get_name()) . '">';
                                                 ?>
-                                            </div>
-                                            <div class="absolute top-0 right-0 dlt_icon">
-                                                <?php
-                                                if ((isset($prefileldval['pre_mandetory']) && 'on' != $prefileldval['pre_mandetory']) || !isset($prefileldval['pre_mandetory'])) {
-                                                    $circled_x_id = '<?xml version="1.0" encoding="utf-8"?>
+                                                <div class="absolute top-0 right-0 dlt_icon">
+                                                    <?php
+                                                    if ((isset($prefileldval['pre_mandetory']) && 'on' != $prefileldval['pre_mandetory']) || !isset($prefileldval['pre_mandetory'])) {
+                                                        $circled_x_id = '<?xml version="1.0" encoding="utf-8"?>
                                                             <svg data-id="' . $product->get_id() . '" class= "extendonsremovefilledboxes ' . $product->get_id() . '" width="24px" height="24px" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
                                                             <g fill="none" fill-rule="evenodd" stroke="' . $color_val . '" stroke-linecap="round" stroke-linejoin="round" transform="translate(2 2)">
                                                             <circle cx="8.5" cy="8.5" r="8"/>
@@ -343,9 +360,10 @@ if ('yes' != $add_new_box_quantity) {
                                                             </g>
                                                             </g>
                                                             </svg>';
-                                                }
-                                                ?>
-                                                <?php echo filter_var($circled_x_id); ?>
+                                                    }
+                                                    ?>
+                                                    <?php echo filter_var($circled_x_id); ?>
+                                                </div>
                                             </div>
                                             <div class="hidden gt_overlay">
                                                 <div class="overlay_inner">
@@ -364,9 +382,9 @@ if ('yes' != $add_new_box_quantity) {
                                 for ($i = 0; $i < $boxQty; $i++) {
 
                                     ?>
-                                    <li class="gift_block active_gift extendons_active_boxes">
-                                        <div class="img_block">
-                                            <img src="<?php echo esc_url($ph_src); ?>" alt="">
+                                    <li class="gift_block justify-center items-center flex p-4 active_gift extendons_active_boxes <?php echo $widthClass; ?>">
+                                        <div class="flex items-center justify-center w-full h-full img_block">
+                                            <img class="object-cover w-full h-full rounded-full" src="<?php echo esc_url($ph_src); ?>" alt="">
                                         </div>
                                     </li>
                             <?php
@@ -381,11 +399,22 @@ if ('yes' != $add_new_box_quantity) {
                             <?php
                             $totalboxQty = isset($boxQty) ? filter_var($boxQty) : '0';
                             $totalboxQty = intval($totalboxQty) + intval($prefileldArraylength);
+                            $totalItems = $totalboxQty;
+                            // Determine the width class based on the number of items
+                            if ($totalItems % 4 == 0) {
+                                $widthClass = 'w-1/4';
+                            } elseif ($totalItems % 3 == 0) {
+                                $widthClass = 'w-1/3';
+                            } elseif ($totalItems == 2) {
+                                $widthClass = 'w-1/2';
+                            } else {
+                                $widthClass = 'w-1/4'; // Default case
+                            }
                             ?>
                             <span class="text text-black-full font-reg420"><span class="added_item"><span class="extendonsfilledboxcount"><?php echo filter_var($prefileldArraylength); ?></span>/<?php echo filter_var($totalboxQty); ?> </span><?php echo esc_html('Added', 'extendons-woocommerce-product-boxes'); ?></span>
                         </div>
                         <div class="reset_gt_box resp">
-                            <a href="#" class="flex items-center justify-center rounded-sm clear_cta text-black-full bg-red-critical">
+                            <a href="#" id="clearAllItemsBtn" class="flex items-center justify-center rounded-sm clear_cta text-black-full bg-red-critical">
                                 <?php echo esc_html__('Clear all items', 'extendons-woocommerce-product-boxes'); ?>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
                                     <g clip-path="url(#clip0_3017_6817)">
@@ -587,5 +616,30 @@ if ('yes' != $add_new_box_quantity) {
         if (addToCartBtn.length && moveCTA.length) {
             addToCartBtn.detach().appendTo(moveCTA);
         }
+    });
+    jQuery(document).ready(function($) {
+        function checkPrefilledItems() {
+            var allPrefilled = true; // Assume all are prefilled initially
+            $('.gt_box_list li').each(function() { // Assuming '.gt_box_list' is your UL container for items
+                if (!$(this).hasClass('prefilleditem')) {
+                    allPrefilled = false; // If any item is not prefilled, set to false
+                }
+            });
+
+            if (allPrefilled) {
+                $('#clearAllItemsBtn').hide(); // Hide clear button if all are prefilled
+            } else {
+                $('#clearAllItemsBtn').show(); // Otherwise, show it
+            }
+        }
+
+        // Call the function on document ready to check initially
+        checkPrefilledItems();
+
+        // Optionally, if items can be dynamically changed, call this function whenever an item is added/removed
+        // You can bind this to a more specific event if items are dynamically modified
+        $('.extendonsaddnewbox, .extendonsremovefilledboxes').click(function() {
+            checkPrefilledItems();
+        });
     });
 </script>
