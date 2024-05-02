@@ -266,9 +266,9 @@ if ('yes' != $add_new_box_quantity) {
                                     if ($totalItems == 2) {
                                         $widthClass = 'w-1/2';
                                     } elseif ($totalItems % 3 == 0) {
-                                        $widthClass = 'w-1/3';
+                                        $widthClass = 'w-auto mobile:w-1/3';
                                     } elseif ($totalItems % 4 == 0) {
-                                        $widthClass = 'w-1/4';
+                                        $widthClass = 'w-auto lg:w-1/4';
                                     } else {
                                         $widthClass = 'w-1/4';
                                     }
@@ -663,3 +663,16 @@ if ('yes' != $add_new_box_quantity) {
         // This new definition does nothing
     }
 </script>
+<div id="product-<?php the_ID(); ?>" <?php wc_product_class('max-w-max-1584 mx-auto flex flex-col lg:flex-row lg:justify-between px-4 lg:px-0 ', $product); ?>>
+    <?php
+    /**
+     * Hook: woocommerce_after_single_product_summary.
+     *
+     * @hooked woocommerce_output_product_data_tabs - 10
+     * @hooked woocommerce_upsell_display - 15
+     * @hooked woocommerce_output_related_products - 20
+     */
+    do_action('woocommerce_after_single_product_summary');
+    ?>
+</div>
+<?php do_action('woocommerce_after_single_product'); ?>

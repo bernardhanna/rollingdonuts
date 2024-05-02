@@ -263,7 +263,7 @@ button {
 }
 
 input {
-  @apply bg-white text-black-primary font-laca text-mob-xs-font font-light;
+  @apply font-light bg-white text-black-primary font-laca text-mob-xs-font;
 }
 
 .margin-top-18 {
@@ -297,11 +297,11 @@ input {
 
 /* Buttons */
 .btn {
-  @apply inline-flex justify-center items-center whitespace-nowrap transition ease-in-out duration-150 hover:cursor-pointer hover:no-underline;
+  @apply inline-flex items-center justify-center transition duration-150 ease-in-out whitespace-nowrap hover:cursor-pointer hover:no-underline;
 }
 
 .btn-menu {
-  @apply btn w-full max-w-max-242 text-white bg-black-full border-radius-large btn-p-lg font-reg420 text-sm-md-font hover:bg-yellow-primary right-0 hover:text-black-full hover:no-underline;
+  @apply right-0 w-full text-white btn max-w-max-242 bg-black-full border-radius-large btn-p-lg font-reg420 text-sm-md-font hover:bg-yellow-primary hover:text-black-full hover:no-underline;
 }
 
 @media (width >= 1085px) and (width <= 1180px) {
@@ -2489,4 +2489,10 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     font-size: 18px;
     line-height: 22px;
     font-weight: 420;
+}
+
+.woosb-products .woosb-product .woosb-title .woosb-name {
+    display: block;
+    overflow: hidden;
+    color: white;
 }
