@@ -164,7 +164,7 @@ if ('yes' != $add_new_box_quantity) {
     .dlt_icon {
         position: relative;
         bottom: 100%;
-        right: 1rem;
+        right: 2.5rem;
         top: 0px;
         width: 0px;
         height: 10px;
@@ -250,7 +250,7 @@ if ('yes' != $add_new_box_quantity) {
 							</div> -->
                     </div>
                     <div class="flex justify-center">
-                        <ul class="flex flex-row flex-wrap items-center justify-around w-full p-8 mobile:justify-center bg-black-full rounded-normal gt_box_list" ph_src="<?php echo esc_url($ph_src); ?>">
+                        <ul class="flex flex-row flex-wrap items-center justify-around w-full p-4 mobile:p-8 mobile:justify-center bg-black-full rounded-normal gt_box_list" ph_src="<?php echo esc_url($ph_src); ?>">
                             <?php
 
                             if ('yes' == $mmPrefilled_enable) {
@@ -357,10 +357,11 @@ if ('yes' != $add_new_box_quantity) {
                                                 // Output the image tag
                                                 echo '<img data-id="' . esc_attr($product->get_id()) . '" class="object-contain w-full h-full rounded-full extendonsremovefilledboxes" src="' . esc_url($image_url) . '" alt="' . esc_attr($product->get_name()) . '">';
                                                 ?>
-                                                <div class="absolute top-0 right-0 dlt_icon">
-                                                    <?php
-                                                    if ((isset($prefileldval['pre_mandetory']) && 'on' != $prefileldval['pre_mandetory']) || !isset($prefileldval['pre_mandetory'])) {
-                                                        $circled_x_id = '<?xml version="1.0" encoding="utf-8"?>
+                                            </div>
+                                            <div class="absolute top-0 right-0 dlt_icon">
+                                                <?php
+                                                if ((isset($prefileldval['pre_mandetory']) && 'on' != $prefileldval['pre_mandetory']) || !isset($prefileldval['pre_mandetory'])) {
+                                                    $circled_x_id = '<?xml version="1.0" encoding="utf-8"?>
                                                             <svg data-id="' . $product->get_id() . '" class= "extendonsremovefilledboxes ' . $product->get_id() . '" width="24px" height="24px" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
                                                             <g fill="none" fill-rule="evenodd" stroke="' . $color_val . '" stroke-linecap="round" stroke-linejoin="round" transform="translate(2 2)">
                                                             <circle cx="8.5" cy="8.5" r="8"/>
@@ -370,10 +371,9 @@ if ('yes' != $add_new_box_quantity) {
                                                             </g>
                                                             </g>
                                                             </svg>';
-                                                    }
-                                                    ?>
-                                                    <?php echo filter_var($circled_x_id); ?>
-                                                </div>
+                                                }
+                                                ?>
+                                                <?php echo filter_var($circled_x_id); ?>
                                             </div>
                                             <div class="hidden gt_overlay">
                                                 <div class="overlay_inner">
@@ -421,6 +421,7 @@ if ('yes' != $add_new_box_quantity) {
                                 $widthClass = 'w-1/4'; // Default case
                             }
                             ?>
+                            <span class="hidden text text-black-full font-reg420"><span class="added_item"><span class="extendonsfilledboxcount"><?php echo filter_var($prefileldArraylength); ?></span>/<?php echo filter_var($totalboxQty); ?> </span><?php echo esc_html('Added', 'extendons-woocommerce-product-boxes'); ?></span>
                             <span class="text text-black-full font-reg420">
                                 Box size: <span class="font-normal text text-black-full"><?php echo filter_var($totalboxQty); ?> donuts
                                 </span></span>
@@ -657,4 +658,8 @@ if ('yes' != $add_new_box_quantity) {
             checkPrefilledItems();
         });
     });
+
+    function ext_minicart_fly_to_cart(button, box) {
+        // This new definition does nothing
+    }
 </script>
