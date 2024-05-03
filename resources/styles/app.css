@@ -2497,3 +2497,44 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     overflow: hidden;
     color: white;
 }
+
+.mailpoet-manage-subscription {
+  width: 100%;
+    max-width: 53rem;
+    margin: auto;
+    padding: 2.5rem;
+    border: 2px solid black;
+    border-radius: 32px;
+}
+
+.mailpoet_text_label {
+  color: black;
+  font-weight: 420;
+}
+
+.mailpoet_paragraph {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.mailpoet-manage-subscription {
+  max-width: ;
+}
+
+
+.mailpoet_submit {
+    margin-top: 1.5rem;
+    border: 3px solid #000;
+    font-size: 24px;
+    width: 256px;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    transition-duration: .15s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    white-space: nowrap;
+    color: black;
+    background-color: rgb(255 237 86 / var(--tw-bg-opacity));
+    border-radius: 72px;
+}

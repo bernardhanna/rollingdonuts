@@ -1656,7 +1656,6 @@ function always_show_shipping_options_on_checkout()
     }
 }
 
-
 /****************************************************************
  * EMAILS
  ****************************************************************
@@ -1667,18 +1666,30 @@ add_action('woocommerce_email_header', function ($email_heading, $email) {
     </style>';
 }, 10, 2);
 
+
 add_filter('woocommerce_email_footer_text', function () {
     return '';  // Change this to whatever you want, or return an empty string to remove it.
 });
 
 
-add_action(
-    'woocommerce_email_header',
-    function ($email_heading, $email) {
-        echo '<style>
-        table { background-color: #000 !important; }
-    </style>';
-    },
-    10,
-    2
-);
+// Add custom content to the email header
+add_action('woocommerce_email_header', 'add_custom_content_to_email_header', 10, 2);
+
+function add_custom_content_to_email_header($email_heading, $email)
+{
+    if ('customer_on_hold_order' === $email->id) {
+        echo '<p style="text-align:center; color: #ffed56;">Special Notice for On-Hold Orders</p>';
+    }
+}
+
+// Change email header color based on the email type
+add_filter('woocommerce_email_styles', 'customize_woocommerce_email_styles');
+
+function customize_woocommerce_email_styles($css)
+{
+    $css .= '#wrapper { padding: 0px 0 !important; }';
+    $css .= "#header_wrapper { background-color: #000000; }";  // Change to black
+    $css .= "#header_wrapper h1 { color: #ffed56;     text-shadow: 0 1px 0 #000000; }";  // Change text color to white
+    return $css;
+}
+
