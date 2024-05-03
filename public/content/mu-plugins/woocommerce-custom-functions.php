@@ -1655,3 +1655,30 @@ function always_show_shipping_options_on_checkout()
 <?php
     }
 }
+
+
+/****************************************************************
+ * EMAILS
+ ****************************************************************
+ */
+add_action('woocommerce_email_header', function ($email_heading, $email) {
+    echo '<style>
+        h2 { color: #000 !important; }
+    </style>';
+}, 10, 2);
+
+add_filter('woocommerce_email_footer_text', function () {
+    return '';  // Change this to whatever you want, or return an empty string to remove it.
+});
+
+
+add_action(
+    'woocommerce_email_header',
+    function ($email_heading, $email) {
+        echo '<style>
+        table { background-color: #000 !important; }
+    </style>';
+    },
+    10,
+    2
+);
