@@ -1608,6 +1608,27 @@ function list_enqueued_styles()
 
 add_action('wp_head', 'list_enqueued_styles'); // Hook into the header to output the list of enqueued styles
 */
+
+// File: wp-content/mu-plugins/my_custom_plugin_fixes.php
+add_action('plugins_loaded', function () {
+    remove_action('woocommerce_checkout_create_order_line_item', array('MIXMATCH_FRONT_PRODUCT_BUNDLES', 'extendons_add_custom_data_to_order'), 10);
+    add_action('woocommerce_checkout_create_order_line_item', 'my_custom_extendons_add_custom_data_to_order', 10, 4);
+});
+
+function my_custom_extendons_add_custom_data_to_order($item, $cart_item_key, $values, $order)
+{
+    if (isset($values['mm_item_id'])) {
+        $box_no = intval($values['mm_item_id']) + 1;
+        $item->add_meta_data(__('box'), $box_no, true);
+    } else {
+        $item->add_meta_data(__('box'), 'Default Box', true); // Adjust this default handling as needed
+    }
+}
+
+/****************************************************************
+ * WP LOCAL ISSUES
+ ****************************************************************
+ */
 // Calculate Shipping on Checkout
 add_action('woocommerce_before_checkout_form', 'calculate_shipping_on_checkout', 10);
 
