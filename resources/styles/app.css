@@ -2507,7 +2507,7 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     border-radius: 32px;
 }
 
-.mailpoet_text_label {
+.mailpoet_select_label, .mailpoet_text_label, .mailpoet_paragraph label {
   color: black;
   font-weight: 420;
 }
@@ -2518,16 +2518,12 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     margin-bottom: 1rem;
 }
 
-.mailpoet-manage-subscription {
-  max-width: ;
-}
-
-
 .mailpoet_submit {
     margin-top: 1.5rem;
     border: 3px solid #000;
     font-size: 24px;
-    width: 256px;
+    width: 100%;
+    width: 226px;
     align-items: center;
     display: inline-flex;
     justify-content: center;
@@ -2537,4 +2533,21 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     color: black;
     background-color: rgb(255 237 86 / var(--tw-bg-opacity));
     border-radius: 72px;
+}
+
+.mailpoet_submit:hover {
+    background-color: #000;
+    color: #FFED56;
+}
+
+.mailpoet-manage-subscription .mailpoet-submit-success {
+    color: #000;
+    text-decoration: underline;
+}
+
+@media (width <= 480px) {
+  .mailpoet-manage-subscription {
+    padding: 1rem;
+  }
+
 }

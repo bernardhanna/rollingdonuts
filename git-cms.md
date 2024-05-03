@@ -19,9 +19,8 @@ cd /var/www/html
 
 git checkout main
 git add .
-git commit -m "Image folder fix"
+git commit -m "Email files"
 git pull
 yarn build
 cd /var/www/
 sudo chown -R www-data:www-data html
-v=spf1 ip4:159.223.211.112_ip ~all
