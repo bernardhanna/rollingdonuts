@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php wp_head(); ?>
     @include('utils.styles')
+    <style>
+        #mp_form_popup2 .mailpoet_paragraph {
+            line-height: 20px;
+            margin-bottom: 0px !important;
+            width: 100% !important;
+                flex-direction: row;
+        }
+        .mailpoet_form_column {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            flex-basis: 100% !important;
+        }
+    </style>
 </head>
 
 <body <?php body_class('p-0 w-full'); ?>>

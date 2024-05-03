@@ -2571,10 +2571,3 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     display: flex;
     flex-direction: row;
 }
-
-.mailpoet_form_column {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    flex-basis: 100% !important;
-}
