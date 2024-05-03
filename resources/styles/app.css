@@ -2565,12 +2565,6 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
     display: flex;
 }
 
-.mailpoet_form_column {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
 #mailpoet_form_preview_2 .mailpoet_paragraph {
     line-height: 0px;
     width: 100%;
