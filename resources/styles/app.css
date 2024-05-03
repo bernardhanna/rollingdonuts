@@ -2551,3 +2551,18 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
   }
 
 }
+
+.mailpoet_confirm_unsubscribe a {
+  text-decoration: underline;
+  font-weight: 420;
+}
+
+.mailpoet_confirm_unsubscribe a:hover {
+  text-decoration: none;
+}
+
+.mailpoet_form_column {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
