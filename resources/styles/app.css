@@ -2561,8 +2561,26 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
   text-decoration: none;
 }
 
+.mailpoet_form_columns_container {
+    display: flex;
+}
+
 .mailpoet_form_column {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+#mailpoet_form_preview_2 .mailpoet_paragraph {
+    line-height: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.mailpoet_form_column {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100% !important;
 }
