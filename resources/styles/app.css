@@ -2670,4 +2670,13 @@ background-color: #fff !important;
     font-weight: 350 !important;
     height: 20px !important;
     padding-left: 0 !important;
+    width: 20px !important;
+        margin-right: .5rem;
+}
+
+
+body .gform_legacy_markup_wrapper .top_label div.ginput_container {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
 }
