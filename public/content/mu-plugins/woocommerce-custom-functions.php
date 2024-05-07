@@ -1623,7 +1623,7 @@ function list_enqueued_styles()
 }
 
 add_action('wp_head', 'list_enqueued_styles'); // Hook into the header to output the list of enqueued styles
-*/
+
 
 function list_enqueued_scripts()
 {
@@ -1638,7 +1638,7 @@ function list_enqueued_scripts()
     }
 }
 add_action('wp_footer', 'list_enqueued_scripts'); // Place in footer to ensure all scripts are already enqueued.
-
+*/
 // File: wp-content/mu-plugins/my_custom_plugin_fixes.php
 add_action('plugins_loaded', function () {
     remove_action('woocommerce_checkout_create_order_line_item', array('MIXMATCH_FRONT_PRODUCT_BUNDLES', 'extendons_add_custom_data_to_order'), 10);

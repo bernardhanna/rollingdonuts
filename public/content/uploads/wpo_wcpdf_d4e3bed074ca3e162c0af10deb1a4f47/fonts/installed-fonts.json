@@ -1,0 +1,26 @@
+{
+    "open sans": {
+        "normal": "\/app\/public\/content\/uploads\/wpo_wcpdf_d4e3bed074ca3e162c0af10deb1a4f47\/fonts\/OpenSans-Normal",
+        "bold": "\/app\/public\/content\/uploads\/wpo_wcpdf_d4e3bed074ca3e162c0af10deb1a4f47\/fonts\/OpenSans-Bold",
+        "italic": "\/app\/public\/content\/uploads\/wpo_wcpdf_d4e3bed074ca3e162c0af10deb1a4f47\/fonts\/OpenSans-Italic",
+        "bold_italic": "\/app\/public\/content\/uploads\/wpo_wcpdf_d4e3bed074ca3e162c0af10deb1a4f47\/fonts\/OpenSans-BoldItalic"
+    },
+    "segoe": {
+        "normal": "\/app\/public\/content\/uploads\/wpo_wcpdf_d4e3bed074ca3e162c0af10deb1a4f47\/fonts\/Segoe-Normal",
+        "bold": "\/app\/public\/content\/uploads\/wpo_wcpdf_d4e3bed074ca3e162c0af10deb1a4f47\/fonts\/Segoe-Bold",
+        "italic": "\/app\/public\/content\/uploads\/wpo_wcpdf_d4e3bed074ca3e162c0af10deb1a4f47\/fonts\/Segoe-Italic",
+        "bold_italic": "\/app\/public\/content\/uploads\/wpo_wcpdf_d4e3bed074ca3e162c0af10deb1a4f47\/fonts\/Segoe-BoldItalic"
+    },
+    "roboto slab": {
+        "normal": "\/app\/public\/content\/uploads\/wpo_wcpdf_d4e3bed074ca3e162c0af10deb1a4f47\/fonts\/RobotoSlab-Normal",
+        "bold": "\/app\/public\/content\/uploads\/wpo_wcpdf_d4e3bed074ca3e162c0af10deb1a4f47\/fonts\/RobotoSlab-Bold",
+        "italic": "\/app\/public\/content\/uploads\/wpo_wcpdf_d4e3bed074ca3e162c0af10deb1a4f47\/fonts\/RobotoSlab-Italic",
+        "bold_italic": "\/app\/public\/content\/uploads\/wpo_wcpdf_d4e3bed074ca3e162c0af10deb1a4f47\/fonts\/RobotoSlab-BoldItalic"
+    },
+    "currencies": {
+        "normal": "\/app\/public\/content\/uploads\/wpo_wcpdf_d4e3bed074ca3e162c0af10deb1a4f47\/fonts\/currencies",
+        "bold": "\/app\/public\/content\/uploads\/wpo_wcpdf_d4e3bed074ca3e162c0af10deb1a4f47\/fonts\/currencies",
+        "italic": "\/app\/public\/content\/uploads\/wpo_wcpdf_d4e3bed074ca3e162c0af10deb1a4f47\/fonts\/currencies",
+        "bold_italic": "\/app\/public\/content\/uploads\/wpo_wcpdf_d4e3bed074ca3e162c0af10deb1a4f47\/fonts\/currencies"
+    }
+}
