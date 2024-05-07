@@ -1585,12 +1585,29 @@ function add_mxmatch_body_class($classes)
 }
 add_filter('body_class', 'add_mxmatch_body_class');
 
+//DISPLAY ALL SCRIPTS FOR DEBUGGING
+/*
+function list_enqueued_scripts()
+{
+    global $wp_scripts, $wp_scripts; // Get the global scripts and scripts objects
+    echo '<!-- Enqueued Style Handles: -->';
+    echo '<ul>';
+    foreach ($wp_scripts->queue as $handle) {
+        echo '<li>' . esc_html($handle) . '</li>';
+    }
+    echo '</ul>';
+    echo '<ul>';
+    foreach ($wp_scripts->queue as $handle) {
+        echo '<li>' . esc_html($handle) . '</li>';
+    }
+    echo '</ul>';
+}
+
+add_action('wp_head', 'list_enqueued_scripts'); // Hook into the header to output the list of enqueued styles
 
 //DISPLAY ALL STYLES FOR DEBUGGING
-/*
 function list_enqueued_styles()
 {
-    if (is_checkout()) { // Ensure we are on a product page
         global $wp_scripts, $wp_styles; // Get the global scripts and styles objects
         echo '<!-- Enqueued Style Handles: -->';
         echo '<ul>';
@@ -1603,11 +1620,24 @@ function list_enqueued_styles()
             echo '<li>' . esc_html($handle) . '</li>';
         }
         echo '</ul>';
-    }
 }
 
 add_action('wp_head', 'list_enqueued_styles'); // Hook into the header to output the list of enqueued styles
 */
+
+function list_enqueued_scripts()
+{
+    if (is_product() || is_shop() || is_cart()) {
+        global $wp_scripts;
+        echo '<!-- Enqueued Script Handles: -->';
+        echo '<ul>';
+        foreach ($wp_scripts->queue as $handle) {
+            echo '<li>' . esc_html($handle) . '</li>';
+        }
+        echo '</ul>';
+    }
+}
+add_action('wp_footer', 'list_enqueued_scripts'); // Place in footer to ensure all scripts are already enqueued.
 
 // File: wp-content/mu-plugins/my_custom_plugin_fixes.php
 add_action('plugins_loaded', function () {
@@ -1624,6 +1654,29 @@ function my_custom_extendons_add_custom_data_to_order($item, $cart_item_key, $va
         $item->add_meta_data(__('box'), 'Default Box', true); // Adjust this default handling as needed
     }
 }
+
+
+function conditionally_dequeue_wooextbox_scripts()
+{
+    // Assume that is_product() determines if it's a product page and the product type logic is checked inside.
+    if (!is_product()) {
+        // If it's not a product page, dequeue scripts
+        wp_dequeue_script('wooextbox-main-js');
+        wp_dequeue_script('wooextbox-jquery-ui-js');
+    } else {
+        // It's a product page, now check if it has the 'box-product' class based on product type or another condition
+        global $post;
+        $product = wc_get_product($post->ID);
+
+        // Checking for a specific condition to add 'box-product' class
+        if ($product && 'wooextmm' != $product->get_type()) {
+            // If the product type is not 'wooextmm', dequeue the scripts
+            wp_dequeue_script('wooextbox-main-js');
+            wp_dequeue_script('wooextbox-jquery-ui-js');
+        }
+    }
+}
+add_action('wp_enqueue_scripts', 'conditionally_dequeue_wooextbox_scripts', 100);
 
 /****************************************************************
  * WP LOCAL ISSUES

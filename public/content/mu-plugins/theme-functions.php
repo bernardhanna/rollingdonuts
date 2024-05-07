@@ -49,14 +49,14 @@ function is_woocommerce_related() {
 }
 
 function generate_breadcrumb_output($links) {
-    $breadcrumb = '<nav class="breadcrumb-nav pt-4">';
+    $breadcrumb = '<nav class="pt-4 breadcrumb-nav">';
     $lastIndex = count($links) - 1;
 
     foreach ($links as $index => $link) {
         $isLastItem = ($index === $lastIndex);
         $colorClass = $isLastItem ? 'text-yellow-primary font-bolder' : 'text-white';
 
-        $breadcrumb .= '<span class="breadcrumb-item text-white"><a class="' . $colorClass . 'font-medium font-laca text-sm-font" href="' . esc_url($link['url']) . '">' . esc_html($link['text']) . '</a></span>';
+        $breadcrumb .= '<span class="text-white breadcrumb-item"><a class="' . $colorClass . 'font-medium font-laca text-sm-font" href="' . esc_url($link['url']) . '">' . esc_html($link['text']) . '</a></span>';
 
         if ($index < $lastIndex) {
             $breadcrumb .= '<span class="mx-2 text-white font-laca text-sm-font"> > </span>';
@@ -212,7 +212,7 @@ function custom_pagination() {
         'end_size' => 1,
         'mid_size' => 2,
         'prev_next' => true,
-        'prev_text' => '<span class="pagination-prev"><i class="fa-solid fa-chevron-left text-xxs-font text-grey-subdued mr-2"></i> Prev</span>',
+        'prev_text' => '<span class="pagination-prev"><i class="mr-2 fa-solid fa-chevron-left text-xxs-font text-grey-subdued"></i> Prev</span>',
         'next_text' => '<span class="pagination-next">Next <i class="ml-2 fa-solid fa-chevron-right text-xxs-font text-grey-subdued"></i></span>',
         'add_args' => false,
         'add_fragment' => '',
@@ -221,7 +221,7 @@ function custom_pagination() {
     if (is_array($pages)) {
         $paged = (get_query_var('paged') == 0) ? 1 : get_query_var('paged');
         echo '<nav aria-label="Page navigation">';
-        echo '<ul class="pagination flex justify-center items-center w-full flex-row pt-20">';
+        echo '<ul class="flex flex-row items-center justify-center w-full pt-20 pagination">';
         foreach ($pages as $page) {
             // Ensure the 'page-numbers' class is replaced with 'page-link' for consistency
             $page = str_replace('page-numbers', 'page-link', $page);
@@ -251,5 +251,3 @@ function disable_woocommerce_breadcrumbs() {
 }
 
 add_action('wp', 'disable_woocommerce_breadcrumbs');
-
-

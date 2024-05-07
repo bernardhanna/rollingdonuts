@@ -20,6 +20,10 @@ if ('yes' != $add_new_box_quantity) {
 }
 ?>
 <style type="text/css">
+    .woocommerce-Price-amount.amount bdi {
+        font-weight: bold !important;
+    }
+
     .box-product .removebg {
         background-image: none !important;
     }

@@ -50,11 +50,12 @@ class AssetsServiceProvider extends ServiceProvider
             if (is_product() || is_shop() || is_product_category()) {
                 wp_enqueue_script('wc-add-to-cart-variation');
             }
-
+            if (is_woocommerce() || is_cart() || is_checkout()) {
+                wp_enqueue_script('wc-cart-fragments');
+            }
             wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css', array(), null);
             wp_enqueue_style('edmondsans', 'https://fonts.cdnfonts.com/css/edmondsans', false);
             wp_enqueue_style('laca', 'https://fonts.cdnfonts.com/css/laca?styles=51511,51510,51505,51504,51507,51506,51503,51502,51509,51508,51513,51512,51501,51500,51499,51498', false);
-            wp_dequeue_script('wooextbox-script-js');
             remove_action('wp_body_open', 'wp_global_styles_render_svg_filters');
             bundle('app')->enqueue();
         }, 9999);
