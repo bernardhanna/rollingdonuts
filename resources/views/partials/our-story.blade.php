@@ -12,17 +12,17 @@
     <section id="ourstory"
              class="max-lg:pt-40 max-lg:pb-40 bg-right lg:bg-center bg-repeat max-md:bg-cover bg-contain max-lg:mb-20 max-lg:mt-20 z-50 our-story relative bg-black-full h-auto laptop:h-[900px]"
              style="{{ !empty($mobile_story_bg) ? 'background-image: url(\''.$mobile_story_bg.'\');' : 'background-image: url(\''.$our_story_bg.'\');' }} @media (min-width: 768px) { {{ !empty($our_story_bg) ? 'background-image: url(\''.$our_story_bg.'\');' : '' }} }">
-        <svg class="z-50 absolute -top-8 left-0 flex lg:hidden" xmlns="http://www.w3.org/2000/svg" width="108" height="110" viewBox="0 0 108 110" fill="none">
+        <svg class="absolute left-0 z-50 flex -top-8 lg:hidden" xmlns="http://www.w3.org/2000/svg" width="108" height="110" viewBox="0 0 108 110" fill="none">
             <path d="M83.2406 0.635742L54.0008 30.0537L24.7882 0.66315L0.028844 25.5733L29.2414 54.9639L0 84.3834L24.7594 109.294L54.0008 79.8741L83.2374 109.289L107.997 84.3786L78.7602 54.9639L108 25.5459L83.2406 0.635742Z" fill="#FFED56"/>
          </svg>
-         <svg class="absolute top-0 left-0 flex lg:hidden z-40" width="100%" viewBox="0 0 390 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <svg class="absolute top-0 left-0 z-40 flex lg:hidden" width="100%" viewBox="0 0 390 96" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M390 0H0V10.6812C7.48129 10.2208 15.154 9.97144 22.9981 9.97144C101.346 9.97144 160.701 33.6333 217.154 56.1382C268.344 76.5449 317.147 96.0002 375.56 96.0002H377.954C382.014 96.0002 386.028 95.9061 390 95.7243V0Z" fill="white"/>
             </svg>
-        <div class="absolute inset-0 bg-black-full opacity-8 w-full h-full"></div>
+        <div class="absolute inset-0 w-full h-full bg-black-full opacity-8"></div>
         <div
-            class="z-40 relative h-auto lg:h-full mx-auto max-w-max-site flex flex-col-reverse laptop:flex-row items-start justify-center">
+            class="relative z-40 flex flex-col-reverse items-start justify-center h-auto mx-auto lg:h-full max-w-max-site laptop:flex-row">
             <ul
-                class="cards relative h-full w-full laptop:w-3/5 xxl:w-3/5 insta-flow:w-6/12 list-none laptop:m-auto laptop:flex items-center inline-flex flex-flow flex-nowrap max-laptop:overflow-x-auto flex-row justify-start laptop:justify-between">
+                class="relative inline-flex flex-row items-center justify-start w-full h-full list-none cards laptop:w-3/5 xxl:w-3/5 insta-flow:w-6/12 laptop:m-auto laptop:flex flex-flow flex-nowrap max-laptop:overflow-x-auto laptop:justify-between">
                 <svg class="yellow_donut" xmlns="http://www.w3.org/2000/svg" width="123" height="122"
                     viewBox="0 0 123 122" fill="none">
                     <path
@@ -43,8 +43,8 @@
                             <div class="relative">
                                 <img src="{{ $story['image_mobile'] }}"
                                     class="block laptop:hidden h-[408px w-full h-full object-cover rounded-[8px]" />
-                                <div class="flex laptop:hidden absolute bottom-0 left-0 w-full p-4">
-                                    <span class="text-white font-laca font-light text-mob-md-font">
+                                <div class="absolute bottom-0 left-0 flex w-full p-4 laptop:hidden">
+                                    <span class="font-light text-white font-laca text-mob-md-font">
                                         {{ $story['timeline_text'] }}
                                     </span>
                                 </div>
@@ -54,41 +54,41 @@
                             class="flex laptop:hidden bg-yellow-primary justify-center items-center text-black-full h-[80px] w-[200px] border-radius-large mt-4 button-dashes">
                             <img class="h-[40px] w-[40px]" src="{{ $story['donut_img'] }}" />
                             <span
-                                class="text-center font-reg420 text-md-font ml-4">{{ $story['timeline_button'] }}</span>
+                                class="ml-4 text-center font-reg420 text-md-font">{{ $story['timeline_button'] }}</span>
                         </div>
                     </li>
                 @endforeach
             </ul>
-            <div class="w-full flex laptop:hidden flex-col items-center justify-center h-auto p-4 relative">
+            <div class="relative flex flex-col items-center justify-center w-full h-auto p-4 laptop:hidden">
                 <h3
-                    class="animate-fade text-mob-xxl-font text-lg font-reg420 text-white pb- w-full flex ease-in duration-300">
+                    class="flex w-full text-lg text-white duration-300 ease-in animate-fade text-mob-xxl-font font-reg420 pb-">
                     {{ $title_mob }}</h3>
                 <span
-                    class="animate-fade text-white text-sm-md-font font-medium font-laca pb-2 w-full flex ease-in duration-300">{{ $span_one_mob }}</span>
+                    class="flex w-full pb-2 font-medium text-white duration-300 ease-in animate-fade text-sm-md-font font-laca">{{ $span_one_mob }}</span>
                 <span
-                    class="animate-fade text-white text-sm-md-font font-bolder laptop:font-medium font-laca pb-4 w-full flex ease-in duration-300">{{ $span_two_mob }}</span>
+                    class="flex w-full pb-4 text-white duration-300 ease-in animate-fade text-sm-md-font font-bolder laptop:font-medium font-laca">{{ $span_two_mob }}</span>
                 <p
-                    class="animate-fade text-white text-sm-font font-lighter laptop:font-light font-laca w-full flex ease-in duration-300">
+                    class="flex w-full text-white duration-300 ease-in animate-fade text-sm-font font-lighter laptop:font-light font-laca">
                     {{ $description_mob }}</p>
             </div>
             <div
-                class="text-contents px-4 laptop:px-0 w-full laptop:w-4/12 relative h-full laptop:-left-10 xxl:-left-24 hidden laptop:flex items-center justify-center">
+                class="relative items-center justify-center hidden w-full h-full px-4 text-contents laptop:px-0 laptop:w-4/12 laptop:-left-10 xxl:-left-24 laptop:flex">
                 @foreach ($our_stories as $index => $story)
                     <div class="text-content{{ $index === 0 ? ' active' : '' }} w-full flex flex-col items-center justify-center h-full laptop:pl-16 laptop:pr-20 relative"
                         data-index="{{ $index }}">
                         <h3
-                            class="animate-fade text-mob-xxl-font text-lg font-reg420 text-white pb- w-full flex ease-in duration-300">
+                            class="flex w-full text-lg text-white duration-300 ease-in animate-fade text-mob-xxl-font font-reg420 pb-">
                             {{ $story['title'] }}</h3>
                         <span
-                            class="animate-fade text-white text-sm-md-font font-medium font-laca pb-2 w-full flex ease-in duration-300">{{ $story['span_one'] }}</span>
+                            class="flex w-full pb-2 font-medium text-white duration-300 ease-in animate-fade text-sm-md-font font-laca">{{ $story['span_one'] }}</span>
                         <span
-                            class="animate-fade text-white text-sm-md-font font-bolder laptop:font-medium font-laca pb-4 w-full flex ease-in duration-300">{{ $story['span_two'] }}</span>
+                            class="flex w-full pb-4 text-white duration-300 ease-in animate-fade text-sm-md-font font-bolder laptop:font-medium font-laca">{{ $story['span_two'] }}</span>
                         <p
-                            class="animate-fade text-white text-sm-font font-lighter laptop:font-light font-laca w-full flex ease-in duration-300">
+                            class="flex w-full text-white duration-300 ease-in animate-fade text-sm-font font-lighter laptop:font-light font-laca">
                             {{ $story['description'] }}</p>
                     </div>
                 @endforeach
-                <div class="absolute w-full hidden laptop:flex justify-between items-center story-arrows">
+                <div class="absolute items-center justify-between hidden w-full laptop:flex story-arrows">
                     <a href="#"
                         class="arrow prev h-[47px] w-[47px] bg-white hover:bg-yellow-primary absolute left-0 top-1/2 transform -translate-y-1/2 text-sm-md-font font-bold z-50 rounded-full cursor-pointer flex items-center justify-center">‹</a>
                     <a href="#"
@@ -124,7 +124,7 @@
                 </svg>
             </div>
         </div>
-        <div class="hidden z-50 laptop:block absolute -bottom-4 w-full left-0 right-0 overflow-hidden">
+        <div class="absolute left-0 right-0 z-50 hidden w-full overflow-hidden laptop:block -bottom-4">
             <svg width="100%" height="117" viewBox="0 0 1726 107" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_2369_18787)">
                     <ellipse cx="863" cy="409" rx="1481" ry="405" fill="white" />
@@ -147,10 +147,10 @@
             </defs>
         </svg>
 
-        <svg class="z-20 absolute -bottom-8 right-0 flex lg:hidden"  xmlns="http://www.w3.org/2000/svg" width="80" height="81" viewBox="0 0 80 81" fill="none">
+        <svg class="absolute right-0 z-20 flex -bottom-8 lg:hidden"  xmlns="http://www.w3.org/2000/svg" width="80" height="81" viewBox="0 0 80 81" fill="none">
         <path d="M39.9999 80.0528C17.9763 80.0528 0 62.1485 0 40.1529C0 18.2168 17.9763 0.312012 39.9999 0.312012C62.0834 0.312012 79.9999 18.2168 79.9999 40.1529C80.0591 62.1485 62.0834 80.0528 39.9999 80.0528ZM39.9999 22.248C30.1188 22.248 22.0236 30.3116 22.0236 40.1529C22.0236 49.9948 30.1188 58.0577 39.9999 58.0577C49.8805 58.0577 57.9762 49.9948 57.9762 40.1529C57.9762 30.3116 49.9404 22.248 39.9999 22.248Z" fill="#FCEF55"/>
         </svg>
-        <svg  class="absolute -bottom-0 right-0 hidden lg:flex" width="100%" viewBox="0 0 1726 107" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg  class="absolute right-0 hidden -bottom-0 lg:flex" width="100%" viewBox="0 0 1726 107" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_2369_18792)">
             <ellipse cx="863" cy="-302" rx="1481" ry="405" transform="rotate(-180 863 -302)" fill="white"/>
             </g>
@@ -162,7 +162,12 @@
         </svg>
     </section>
 @endif
-
+<style>
+    .arrow.disabled {
+  opacity: .5;
+  pointer-events: none;
+}
+</style>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const prev = document.querySelector(".arrow.prev");
