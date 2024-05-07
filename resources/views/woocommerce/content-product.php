@@ -25,7 +25,7 @@ $rd_product_type = get_rd_product_type($product->get_id());
     ?>
     <?php if (!empty($product_allergens)) :  // Only show if allergens are selected
     ?>
-        <div class="absolute top-4 right-4 cursor-pointer z-50 " @click="showAllergens = !showAllergens">
+        <div class="absolute z-50 cursor-pointer top-4 right-4 " @click="showAllergens = !showAllergens">
             <div class="z-50" x-show="!showAllergens">
                 <span class="sr-only"><?php _e('info icon', 'rolling-donut'); ?></span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="31" height="30" viewBox="0 0 31 30" fill="none">
@@ -50,14 +50,14 @@ $rd_product_type = get_rd_product_type($product->get_id());
         <div x-cloak x-show="showAllergens" class="p-4 rounded-tl-lg z-40 allergen-info absolute top-4 right-4 bg-white text-black w-[220px] -m-[10px]">
             <span class="text-black-full text-sm-font font-reg420"><?php _e('Ingredients', 'rolling-donut'); ?></span>
             <div class="w-full mt-4">
-                <div class="w-full flex flex-wrap flex-row">
+                <div class="flex flex-row flex-wrap w-full">
                     <?php
                     $product_allergens = get_field('product_allergens', $product->get_id());
                     if ($product_allergens) {
                         foreach ($product_allergens as $allergen) {
                             $allergen_id = $allergen->ID;
                             if (has_post_thumbnail($allergen_id)) {
-                                echo '<div class="flex row items-center pb-4 w-1/2"><img src="' . get_the_post_thumbnail_url($allergen_id, 'thumbnail') . '" alt="' . $allergen->post_title . '" class="mr-1 h-6 w-6">';
+                                echo '<div class="flex items-center w-1/2 pb-4 row"><img src="' . get_the_post_thumbnail_url($allergen_id, 'thumbnail') . '" alt="' . $allergen->post_title . '" class="w-6 h-6 mr-1">';
                             }
                             echo '<span class="font-laca text-mob-xs-font font-regular">';
                             echo esc_html($allergen->post_title);
@@ -76,45 +76,45 @@ $rd_product_type = get_rd_product_type($product->get_id());
         <?php echo woocommerce_get_product_thumbnail('full', array('class' => 'border-top-eight max-md:rounded-t-lg w-full h-max-max-125 md:max-h-full object-cover h-[200px] md:h-[386px] md:border-2 md:border-solid md:border-black md:rounded-sm-8 m-0', 'style' => "background-color: {$bg_color};")); ?>
         <div id="productContentOne" class="absolute top-0 left-0 h-auto md:h-[386px] z-10 p-4 w-full" @mouseenter="isHovered = windowWidth >= 768" @mouseleave="isHovered = false" x-transition.duration.500ms>
             <?php if (!empty($box_number)) : ?>
-                <div class="z-10 flex left-4 top-4 absolute bg-white text-black-full font-laca text-center border-2 border-black-full p-2 border-normal rounded-normal">Box of <?php echo $box_number; ?></div>
+                <div class="absolute z-10 flex p-2 text-center bg-white border-2 left-4 top-4 text-black-full font-laca border-black-full border-normal rounded-normal">Box of <?php echo $box_number; ?></div>
             <?php endif; ?>
-            <div class="h-full w-full flex flex-col justify-end">
-                <h4 class="hidden md:block text-white text-md-font font-reg420 font-edmondsans">
+            <div class="flex flex-col justify-end w-full h-full">
+                <h4 class="hidden text-white md:block text-md-font font-reg420 font-edmondsans">
                     <?php the_title(); ?>
                 </h4>
-                <div id="productInfo" class="flex justify-between items-end w-full" x-show="isHovered" x-transition.duration.500ms>
-                    <p class="text-white text-left font-laca font-light text-sm-md-font">
+                <div id="productInfo" class="flex items-end justify-between w-full" x-show="isHovered" x-transition.duration.500ms>
+                    <p class="font-light text-left text-white font-laca text-sm-md-font">
                         <?php
                         $product_description = custom_truncate_product_description($product->get_short_description());
                         echo $product_description;
                         ?>
                     </p>
-                    <span class="text-white font-laca font-light text-sm-md-font text-right">
+                    <span class="font-light text-right text-white font-laca text-sm-md-font">
                         <?php woocommerce_template_loop_price(); ?>
                     </span>
                 </div>
             </div>
+            <div class="relative hidden pt-8 md:block" x-show="isHovered" x-show.transition="isHovered" x-transition:enter.duration.500ms>
+                <button @click="window.location='<?php the_permalink(); ?>'" class="button w-full text-mob-xs-font md:text-sm-font font-reg420 h-[32px] md:h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary">
+                    <?php echo ($rd_product_type == 'Donut') ? __('Find out More', 'rolling-donut') : __('Select and Customise', 'rolling-donut'); ?>
+                </button>
+            </div>
+            <div class="flex md:hidden">
+                <button @click="window.location='<?php the_permalink(); ?>'" class="button w-full text-mob-xs-font md:text-sm-font font-reg420 h-[32px] md:h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary">
+                    <?php echo ($rd_product_type == 'Donut') ? __('Find out More', 'rolling-donut') : __('Select and Customise', 'rolling-donut'); ?>
+                </button>
+            </div>
         </div>
         <div id="productContentTwo" class="flex flex-col max-md md:pt-4">
-            <div class="md:mt-2 flex max-md:flex-col justify-between max-md:p-4 " x-show="!isHovered">
-                <h4 class="block md:hidden text-black-full text-mob-xs-font font-reg420 font-edmondsans pb-4"><?php the_title(); ?></h4>
-                <p class="hidden md:block font-laca font-light text-mob-md-font md:text-sm-md-font pr-4"> <?php
+            <div class="flex justify-between md:mt-2 max-md:flex-col max-md:p-4 " x-show="!isHovered">
+                <h4 class="block pb-4 md:hidden text-black-full text-mob-xs-font font-reg420 font-edmondsans"><?php the_title(); ?></h4>
+                <p class="hidden pr-4 font-light md:block font-laca text-mob-md-font md:text-sm-md-font"> <?php
                                                                                                             $product_description = custom_truncate_product_description($product->get_short_description());
                                                                                                             echo $product_description;
                                                                                                             ?></p>
                 <span class="text-black-full font-reg420 text-mob-md-font md:text-sm-md-font"><?php woocommerce_template_loop_price(); ?></span>
             </div>
 
-            <div class="hidden md:block mt-2 relative p-4" x-show="isHovered" x-show.transition="isHovered" x-transition:enter.duration.500ms x-transition:leave.duration.400ms>
-                <button @click="window.location='<?php the_permalink(); ?>'" class="button w-full text-mob-xs-font md:text-sm-font font-reg420 h-[32px] md:h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary">
-                    <?php echo ($rd_product_type == 'Donut') ? __('Find out More', 'rolling-donut') : __('Select and Customise', 'rolling-donut'); ?>
-                </button>
-            </div>
-            <div class="block md:hidden p-4">
-                <button @click="window.location='<?php the_permalink(); ?>'" class="button w-full text-mob-xs-font md:text-sm-font font-reg420 h-[32px] md:h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary">
-                    <?php echo ($rd_product_type == 'Donut') ? __('Find out More', 'rolling-donut') : __('Select and Customise', 'rolling-donut'); ?>
-                </button>
-            </div>
         </div>
     </a>
 </li>
