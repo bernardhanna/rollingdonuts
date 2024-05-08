@@ -251,3 +251,132 @@ function disable_woocommerce_breadcrumbs() {
 }
 
 add_action('wp', 'disable_woocommerce_breadcrumbs');
+
+//ADMIN CLEAN UP:
+
+function plt_hide_wp_mail_smtp_menus()
+{
+    //Hide "WP Mail SMTP".
+    remove_menu_page('wp-mail-smtp');
+    //Hide "WP Mail SMTP → Settings".
+    remove_submenu_page('wp-mail-smtp', 'wp-mail-smtp');
+    //Hide "WP Mail SMTP → Email Log".
+    remove_submenu_page('wp-mail-smtp', 'wp-mail-smtp-logs');
+    //Hide "WP Mail SMTP → Email Reports".
+    remove_submenu_page('wp-mail-smtp', 'wp-mail-smtp-reports');
+    //Hide "WP Mail SMTP → Tools".
+    remove_submenu_page('wp-mail-smtp', 'wp-mail-smtp-tools');
+    //Hide "WP Mail SMTP → About Us".
+    remove_submenu_page('wp-mail-smtp', 'wp-mail-smtp-about');
+    //Hide "WP Mail SMTP → Upgrade to Pro".
+    remove_submenu_page('wp-mail-smtp', 'https://wpmailsmtp.com/lite-upgrade/?utm_source=WordPress&utm_medium=admin-menu&utm_campaign=liteplugin&utm_locale=en_us&utm_content=Upgrade%20to%20Pro');
+}
+
+add_action('admin_menu', 'plt_hide_wp_mail_smtp_menus', 2147483647);
+
+function plt_hide_pixelyoursite_menus()
+{
+    //Hide "PixelYourSite".
+    remove_menu_page('pixelyoursite');
+    //Hide "PixelYourSite → Dashboard".
+    remove_submenu_page('pixelyoursite', 'pixelyoursite');
+    //Hide "PixelYourSite → UTM Builder".
+    remove_submenu_page('pixelyoursite', 'pixelyoursite_utm');
+    //Hide "PixelYourSite → System Report".
+    remove_submenu_page('pixelyoursite', 'pixelyoursite_report');
+}
+
+add_action('admin_menu', 'plt_hide_pixelyoursite_menus', 11);
+
+function plt_hide_advanced_custom_fields_menus()
+{
+    //Hide "ACF".
+    remove_menu_page('edit.php?post_type=acf-field-group');
+    //Hide "ACF → Field Groups".
+    remove_submenu_page('edit.php?post_type=acf-field-group', 'edit.php?post_type=acf-field-group');
+    //Hide "ACF → Post Types".
+    remove_submenu_page('edit.php?post_type=acf-field-group', 'edit.php?post_type=acf-post-type');
+    //Hide "ACF → Taxonomies".
+    remove_submenu_page('edit.php?post_type=acf-field-group', 'edit.php?post_type=acf-taxonomy');
+    //Hide "ACF → Options Pages".
+    remove_submenu_page('edit.php?post_type=acf-field-group', 'acf_options_preview');
+    //Hide "ACF → Tools".
+    remove_submenu_page('edit.php?post_type=acf-field-group', 'acf-tools');
+}
+
+add_action('admin_menu', 'plt_hide_advanced_custom_fields_menus', 21);
+
+function plt_hide_wordpress_seo_menus()
+{
+    //Hide "Yoast SEO".
+    remove_menu_page('wpseo_dashboard');
+    //Hide "Yoast SEO → General".
+    remove_submenu_page('wpseo_dashboard', 'wpseo_dashboard');
+    //Hide "Yoast SEO → Settings".
+    remove_submenu_page('wpseo_dashboard', 'wpseo_page_settings');
+    //Hide "Yoast SEO → Integrations".
+    remove_submenu_page('wpseo_dashboard', 'wpseo_integrations');
+    //Hide "Yoast SEO → Tools".
+    remove_submenu_page('wpseo_dashboard', 'wpseo_tools');
+    //Hide "Yoast SEO → Academy".
+    remove_submenu_page('wpseo_dashboard', 'wpseo_page_academy');
+    //Hide "Yoast SEO → Premium".
+    remove_submenu_page('wpseo_dashboard', 'wpseo_licenses');
+    //Hide "Yoast SEO → Workouts".
+    remove_submenu_page('wpseo_dashboard', 'wpseo_workouts');
+    //Hide "Yoast SEO → Redirects".
+    remove_submenu_page('wpseo_dashboard', 'wpseo_redirects');
+    //Hide "Yoast SEO → Support".
+    remove_submenu_page('wpseo_dashboard', 'wpseo_page_support');
+}
+
+add_action('admin_menu', 'plt_hide_wordpress_seo_menus', 12);
+
+function plt_hide_mailpoet_menus()
+{
+    //Hide "Tools → Scheduled Actions".
+    remove_submenu_page('tools.php', 'action-scheduler');
+
+    //Hide "MailPoet".
+    remove_menu_page('mailpoet-homepage');
+    //Hide "MailPoet → Home".
+    remove_submenu_page('mailpoet-homepage', 'mailpoet-homepage');
+    //Hide "MailPoet → Emails".
+    remove_submenu_page('mailpoet-homepage', 'mailpoet-newsletters');
+    //Hide "MailPoet → Automations".
+    remove_submenu_page('mailpoet-homepage', 'mailpoet-automation');
+    //Hide "MailPoet → Forms".
+    remove_submenu_page('mailpoet-homepage', 'mailpoet-forms');
+    //Hide "MailPoet → Subscribers".
+    remove_submenu_page('mailpoet-homepage', 'mailpoet-subscribers');
+    //Hide "MailPoet → Lists".
+    remove_submenu_page('mailpoet-homepage', 'mailpoet-lists');
+    //Hide "MailPoet → Segments".
+    remove_submenu_page('mailpoet-homepage', 'mailpoet-segments');
+    //Hide "MailPoet → Settings".
+    remove_submenu_page('mailpoet-homepage', 'mailpoet-settings');
+    //Hide "MailPoet → Help".
+    remove_submenu_page('mailpoet-homepage', 'mailpoet-help');
+    //Hide "MailPoet → Upgrade".
+    remove_submenu_page('mailpoet-homepage', 'mailpoet-upgrade');
+}
+
+add_action('admin_menu', 'plt_hide_mailpoet_menus', 11);
+
+function plt_hide_insta_gallery_menus()
+{
+    //Hide "Social Feed Gallery".
+    remove_menu_page('qligg_backend');
+    //Hide "Social Feed Gallery → Welcome".
+    remove_submenu_page('qligg_backend', 'qligg_backend');
+    //Hide "Social Feed Gallery → Accounts".
+    remove_submenu_page('qligg_backend', 'qligg_backend&tab=accounts');
+    //Hide "Social Feed Gallery → Feeds".
+    remove_submenu_page('qligg_backend', 'qligg_backend&tab=feeds');
+    //Hide "Social Feed Gallery → Settings".
+    remove_submenu_page('qligg_backend', 'qligg_backend&tab=settings');
+    //Hide "Social Feed Gallery → Premium".
+    remove_submenu_page('qligg_backend', 'qligg_backend&tab=premium');
+}
+
+add_action('admin_menu', 'plt_hide_insta_gallery_menus', 11);

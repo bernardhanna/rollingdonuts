@@ -2697,3 +2697,7 @@ body .gform_legacy_markup_wrapper .top_label div.ginput_container {
     margin-right: .5rem;
     font-weight: 420;
 }
+
+.woocommerce_error.woocommerce-error.wc-stripe-error {
+  color: white;
+}

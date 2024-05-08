@@ -1,6 +1,6 @@
 git checkout develop
 git add .           
-git commit -am "03-05-2024"
+git commit -am "08-05-2024"
 git push
 
 git checkout main   
@@ -19,7 +19,7 @@ cd /var/www/html
 
 git checkout main
 git add .
-git commit -m "Email files"
+git commit -m "Fix to the Added to cart message"
 git pull
 yarn build
 cd /var/www/
