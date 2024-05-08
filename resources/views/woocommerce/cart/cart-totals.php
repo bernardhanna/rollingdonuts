@@ -84,7 +84,7 @@ defined('ABSPATH') || exit;
 
         <?php do_action('woocommerce_cart_totals_before_order_total'); ?>
 
-        <div class="flex items-center justify-between w-full border-b-2 border-solid order-total text-black-full text-base-font font-reg420 border-black-full">
+        <div class="flex items-center justify-between w-full bg-white border-b-2 border-solid order-total text-black-full text-base-font font-reg420 border-black-full">
             <div class="w-1/2 py-5 pl-6 text-left bg-grey-background"><?php esc_html_e('Total', 'woocommerce'); ?></div>
             <div data-title="<?php esc_attr_e('Total', 'woocommerce'); ?>"><?php wc_cart_totals_order_total_html(); ?></div>
         </div>

@@ -2682,3 +2682,18 @@ body .gform_legacy_markup_wrapper .top_label div.ginput_container {
   opacity: .5;
   pointer-events: none;
 }
+
+.woocommerce-checkout .variation {
+      width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: row wrap;
+}
+
+.woocommerce-checkout .variation .variation-Colour,
+.woocommerce-checkout .variation .variation-Fit,
+.woocommerce-checkout .variation .variation-MerchSize {
+    margin-right: .5rem;
+    font-weight: 420;
+}
