@@ -380,3 +380,41 @@ function plt_hide_insta_gallery_menus()
 }
 
 add_action('admin_menu', 'plt_hide_insta_gallery_menus', 11);
+
+/**
+ * Disable Wordpress logo from admin toolbar
+ *
+ */
+function mh_admin_bar_remove_logo()
+{
+    global $wp_admin_bar;
+    $wp_admin_bar->remove_menu('wp-logo');
+}
+add_action('wp_before_admin_bar_render', 'mh_admin_bar_remove_logo');
+/**
+ *  Try to Remove some notices from dashboard.
+ *
+ *  @since  1.0.0
+ */
+function matrix_helper_clean_admin_notices()
+{
+    remove_all_actions('admin_notices');
+}
+add_action('admin_init', 'matrix_helper_clean_admin_notices', 999);
+/**
+ * Removing dashboard widgets.
+ * @since  1.0.0
+ * @link https://developer.wordpress.org/reference/functions/remove_meta_box/
+ */
+add_action('wp_dashboard_setup', function () {
+    remove_action('welcome_panel', 'wp_welcome_panel');
+    remove_meta_box('dashboard_site_health', 'dashboard', 'normal');
+    remove_meta_box('dashboard_right_now', 'dashboard', 'normal');
+    remove_meta_box('dashboard_activity', 'dashboard', 'normal');
+    remove_meta_box('dashboard_primary', 'dashboard', 'side');
+    remove_meta_box('dashboard_quick_press', 'dashboard', 'side');
+    remove_meta_box('dashboard_secondary', 'dashboard', 'side');
+    //remove yoast
+    remove_meta_box('wpseo-dashboard-overview', 'dashboard', 'side');
+    remove_meta_box('wpseo-dashboard', 'dashboard', 'normal');
+});
