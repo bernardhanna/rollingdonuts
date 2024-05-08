@@ -47,7 +47,7 @@ if ($total <= 1) {
                 'add_args'     => false,
                 'current'      => max(1, $current),
                 'total'        => $total,
-                'prev_text'    => '<span class="pagination-prev"><i class="fa-solid fa-chevron-left text-xxs-font text-grey-subdued mr-2"></i> Prev</span>',
+                'prev_text'    => '<span class="pagination-prev"><i class="mr-2 fa-solid fa-chevron-left text-xxs-font text-grey-subdued"></i> Prev</span>',
                 'next_text'    => '<span class="pagination-next">Next <i class="ml-2 fa-solid fa-chevron-right text-xxs-font text-grey-subdued"></i></span>',
                 'type'         => 'array',
                 'end_size'     => 3,
@@ -59,7 +59,7 @@ if ($total <= 1) {
 
     if (is_array($paginate_links)) {
     ?>
-        <ul class="pagination flex justify-center items-center w-full flex-row py-20 tablet-sm:py-10">
+        <ul class="flex flex-row items-center justify-center w-full py-20 pagination tablet-sm:py-10">
             <?php
             foreach ($paginate_links as $paginate_link) {
             ?>

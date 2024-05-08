@@ -527,26 +527,42 @@ add_filter('woocommerce_add_success', function ($message) {
     return $message; // Return the original message for anything else
 }, 10, 1);
 
+// Functions.php or a custom plugin file
+
+// Display custom WooCommerce notices
 function custom_woocommerce_notices_output()
 {
-    $all_notices  = WC()->session->get('wc_notices', array());
-    $notice_types = apply_filters('woocommerce_notice_types', array('error', 'success', 'notice'));
+    if (!is_cart() && !is_checkout()) { // Optionally, exclude cart and checkout pages
+        $all_notices = WC()->session->get('wc_notices', array());
+        $notice_types = apply_filters('woocommerce_notice_types', array('error', 'success', 'notice'));
 
-    foreach ($notice_types as $notice_type) {
-        if (wc_notice_count($notice_type) > 0) {
-            wc_get_template("notices/{$notice_type}.php", array(
-                'notices' => $all_notices[$notice_type],
-            ));
+        foreach ($notice_types as $notice_type) {
+            if (wc_notice_count($notice_type) > 0) {
+                wc_get_template("notices/{$notice_type}.php", array(
+                    'notices' => $all_notices[$notice_type],
+                ));
+            }
         }
-    }
 
-    wc_clear_notices();
+        wc_clear_notices(); // Clear notices after displaying to prevent them from persisting on subsequent pages.
+    }
 }
 
-remove_action('woocommerce_before_shop_loop', 'wc_print_notices', 10);
-remove_action('woocommerce_before_single_product', 'wc_print_notices', 10);
-add_action('woocommerce_before_shop_loop', 'custom_woocommerce_notices_output', 10);
-add_action('woocommerce_before_single_product', 'custom_woocommerce_notices_output', 10);
+// Hook the custom notice output function to the WordPress footer action
+add_action('wp_footer', 'custom_woocommerce_notices_output', 10);
+
+// Optional: Handle AJAX request for notices
+function ajax_fetch_woocommerce_notices()
+{
+    ob_start();
+    custom_woocommerce_notices_output();
+    $notices_html = ob_get_clean();
+    wp_send_json_success($notices_html);
+}
+
+add_action('wp_ajax_fetch_wc_notices', 'ajax_fetch_woocommerce_notices');
+add_action('wp_ajax_nopriv_fetch_wc_notices', 'ajax_fetch_woocommerce_notices');
+
 
 //Only Donuts products on the WooCOmmerce Shop page/ Our Donuts page
 add_action('pre_get_posts', 'filter_products_by_rd_product_type');
@@ -1745,4 +1761,47 @@ function customize_woocommerce_email_styles($css)
     $css .= "#header_wrapper h1 { color: #ffed56;     text-shadow: 0 1px 0 #000000; }";  // Change text color to white
     return $css;
 }
+/*
+add_action('wp_ajax_woocommerce_ajax_add_to_cart', 'handle_ajax_add_to_cart');
+add_action('wp_ajax_nopriv_woocommerce_ajax_add_to_cart', 'handle_ajax_add_to_cart');
 
+function handle_ajax_add_to_cart()
+{
+    if (!check_ajax_referer('add-to-cart', 'security', false)) {
+        wp_send_json_error(['message' => 'Nonce verification failed']);
+        exit;
+    }
+
+    $product_id = isset($_POST['product_id']) ? intval($_POST['product_id']) : 0;
+    $quantity = isset($_POST['quantity']) ? intval($_POST['quantity']) : 1;
+
+    if ($product_id > 0 && ($product = wc_get_product($product_id)) && $product->is_purchasable()) {
+        WC()->cart->add_to_cart($product_id, $quantity);
+        wp_send_json_success([
+            'message' => 'Product added to cart',
+            'cart_total' => WC()->cart->get_cart_total(),
+            'cart_hash' => WC()->cart->get_cart_contents_count()
+        ]);
+    } else {
+        wp_send_json_error(['message' => 'Product cannot be added to the cart']);
+    }
+}
+
+add_action('wp_ajax_custom_add_to_cart', 'custom_add_to_cart_handler');
+add_action('wp_ajax_nopriv_custom_add_to_cart', 'custom_add_to_cart_handler');
+
+function custom_add_to_cart_handler()
+{
+    $product_id = apply_filters('woocommerce_add_to_cart_product_id', absint($_POST['product_id']));
+    $quantity = empty($_POST['quantity']) ? 1 : wc_stock_amount($_POST['quantity']);
+    $passed_validation = apply_filters('woocommerce_add_to_cart_validation', true, $product_id, $quantity);
+
+    if ($passed_validation && WC()->cart->add_to_cart($product_id, $quantity)) {
+        wc_add_to_cart_message(array($product_id => $quantity), true);
+        WC_AJAX::get_refreshed_fragments();
+    } else {
+        wp_send_json_error(['error' => true, 'product_url' => get_permalink($product_id)]);
+    }
+    exit;
+}
+*/

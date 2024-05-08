@@ -49,10 +49,19 @@ class AssetsServiceProvider extends ServiceProvider
             }
             if (is_product() || is_shop() || is_product_category()) {
                 wp_enqueue_script('wc-add-to-cart-variation');
+
             }
-            if (is_woocommerce() || is_cart() || is_checkout()) {
-                wp_enqueue_script('wc-cart-fragments');
-            }
+            /*if (is_woocommerce() || is_product()) {
+                // wp_enqueue_script('wc-cart-fragments');
+                $script_url = home_url('/content/mu-plugins/my_ajax_script.js');
+
+                wp_enqueue_script('my-ajax-script', $script_url, ['jquery'], null, true);
+                wp_localize_script('my-ajax-script', 'wc_add_to_cart_params', [
+                    'ajax_url' => admin_url('admin-ajax.php'),
+                    'add_to_cart_nonce' => wp_create_nonce('add-to-cart')
+                ]);
+            } */
+
             wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css', array(), null);
             wp_enqueue_style('edmondsans', 'https://fonts.cdnfonts.com/css/edmondsans', false);
             wp_enqueue_style('laca', 'https://fonts.cdnfonts.com/css/laca?styles=51511,51510,51505,51504,51507,51506,51503,51502,51509,51508,51513,51512,51501,51500,51499,51498', false);

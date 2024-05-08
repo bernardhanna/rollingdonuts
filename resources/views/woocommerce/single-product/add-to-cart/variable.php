@@ -102,17 +102,17 @@ do_action('woocommerce_before_add_to_cart_form'); ?>
     <?php if (empty($available_variations) && false !== $available_variations) : ?>
         <p class="stock out-of-stock"><?php echo esc_html(apply_filters('woocommerce_out_of_stock_message', __('This product is currently out of stock and unavailable.', 'woocommerce'))); ?></p>
     <?php else : ?>
-        <div class="variations w-full" role="presentation">
+        <div class="w-full variations" role="presentation">
             <div>
                 <?php foreach ($attributes as $attribute_name => $options) : ?>
                     <div class="flex items-center justify-start py-4">
-                        <div class="label text-sm-md-font font-reg420 flex flex-row">
+                        <div class="flex flex-row label text-sm-md-font font-reg420">
                             <label class="hidden small:flex" for="<?php echo esc_attr(sanitize_title($attribute_name)); ?>">
                                 <?php echo wc_attribute_label($attribute_name) . ':';
                                 ?>
                             </label>
                         </div>
-                        <div class="value flex">
+                        <div class="flex value">
                             <?php
                             wc_dropdown_variation_attribute_options(
                                 array(

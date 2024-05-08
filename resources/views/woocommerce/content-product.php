@@ -99,11 +99,6 @@ $rd_product_type = get_rd_product_type($product->get_id());
                     <?php echo ($rd_product_type == 'Donut') ? __('Find out More', 'rolling-donut') : __('Select and Customise', 'rolling-donut'); ?>
                 </button>
             </div>
-            <div class="flex md:hidden">
-                <button @click="window.location='<?php the_permalink(); ?>'" class="button w-full text-mob-xs-font md:text-sm-font font-reg420 h-[32px] md:h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary">
-                    <?php echo ($rd_product_type == 'Donut') ? __('Find out More', 'rolling-donut') : __('Select and Customise', 'rolling-donut'); ?>
-                </button>
-            </div>
         </div>
         <div id="productContentTwo" class="flex flex-col max-md md:pt-4">
             <div class="flex justify-between md:mt-2 max-md:flex-col max-md:p-4 " x-show="!isHovered">
@@ -114,7 +109,11 @@ $rd_product_type = get_rd_product_type($product->get_id());
                                                                                                             ?></p>
                 <span class="text-black-full font-reg420 text-mob-md-font md:text-sm-md-font"><?php woocommerce_template_loop_price(); ?></span>
             </div>
-
+            <div class="flex p-4 md:hidden">
+                <button @click="window.location='<?php the_permalink(); ?>'" class="button w-full text-mob-xs-font md:text-sm-font font-reg420 h-[32px] md:h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary">
+                    <?php echo ($rd_product_type == 'Donut') ? __('Find out More', 'rolling-donut') : __('Select and Customise', 'rolling-donut'); ?>
+                </button>
+            </div>
         </div>
     </a>
 </li>

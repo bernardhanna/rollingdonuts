@@ -7,7 +7,7 @@
  */
 ?>
 @include('navigation.mobile-basket')
-<footer class="footer w-full relative bottom-0 left-0 right-0 z-1 overflow-hidden">
+<footer class="relative bottom-0 left-0 right-0 w-full overflow-hidden footer z-1">
     @include('partials.newsletter')
     @include('partials.footer-content')
 

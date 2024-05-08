@@ -19,7 +19,7 @@
 $shop_bg_url = get_field('shop_bg', 'option');
     @endphp
 
-    <div class="bg-cover bg-no-repeat py-24" style="{{ $shop_bg_url ? 'background-image: url(' . $shop_bg_url . ');' : '' }}">
+    <div class="py-24 bg-no-repeat bg-cover" style="{{ $shop_bg_url ? 'background-image: url(' . $shop_bg_url . ');' : '' }}">
         <div class="mx-auto lg:max-w-max-1549">
             @if (woocommerce_product_loop())
                 @php

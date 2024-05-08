@@ -725,10 +725,6 @@ nav .submenu .current_page_item {
   }
 }
 
-.instagram-posts .swiper-button-prev {
-  display: none;
-}
-
 .instagram-posts .swiper-button-next:hover{
    opacity: .5;
 }
