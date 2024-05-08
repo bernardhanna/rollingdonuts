@@ -129,3 +129,40 @@ function display_orders_by_location_widget()
     }
     echo '</div>';
 }
+
+
+add_action('wp_dashboard_setup', 'add_quick_content_dashboard_widget');
+
+function add_quick_content_dashboard_widget()
+{
+    wp_add_dashboard_widget(
+        'quickly_add_content_widget',       // Widget slug.
+        'Quickly Add Content',              // Title.
+        'display_quick_content_widget'      // Display function.
+    );
+}
+
+function display_quick_content_widget()
+{
+    if (!current_user_can('edit_posts')) {
+        echo 'You do not have sufficient permissions to access this page.';
+        return;
+    }
+
+    // Associative array of content types and their respective admin URLs
+    $content_types = [
+        'Add a new Product' => 'post-new.php?post_type=product',
+        'Add a new Blog Post' => 'post-new.php',
+        'Add a new FAQ' => 'post-new.php?post_type=faq',
+        'Add a new Allergen' => 'post-new.php?post_type=allergen',
+        'Add a new Shop Location' => 'post-new.php?post_type=location',
+        'Add a new Testimonial' => 'post-new.php?post_type=testimonial',
+        'Add a new Page' => 'post-new.php?post_type=page'
+    ];
+
+    echo '<div class="quickly-add-content-links">';
+    foreach ($content_types as $label => $url) {
+        echo '<p><a href="' . esc_url(admin_url($url)) . '" class="button button-primary">' . esc_html($label) . '</a></p>';
+    }
+    echo '</div>';
+}
