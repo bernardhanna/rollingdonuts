@@ -27,4 +27,4 @@ if (!defined('ABSPATH')) {
     exit;
 }
 ?>
-<ul x-data="{ justifyStyle: 'between' }" x-cloak x-init="justifyStyle = window.innerWidth > 1084 && $el.querySelectorAll('li').length < 3 ? 'start' : 'between'" :class="`justify-${justifyStyle} flex flex-wrap  flex-row gap-4 lg:gap-6 desktop:px-0 lg:px-4 px-2`">
+<ul class="flex flex-row flex-wrap justify-start gap-4 px-2 lg:gap-6 desktop:px-0 lg:px-4">

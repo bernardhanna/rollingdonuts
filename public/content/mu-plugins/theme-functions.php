@@ -418,3 +418,45 @@ add_action('wp_dashboard_setup', function () {
     remove_meta_box('wpseo-dashboard-overview', 'dashboard', 'side');
     remove_meta_box('wpseo-dashboard', 'dashboard', 'normal');
 });
+
+function remove_comments_from_wp_dashboard()
+{
+    // Remove the "Comments" link from the admin menu
+    remove_menu_page('edit-comments.php');
+
+    // Optionally, disable the admin bar link for comments
+    add_action('wp_before_admin_bar_render', function () {
+        global $wp_admin_bar;
+        $wp_admin_bar->remove_menu('comments');
+    });
+}
+
+add_action('admin_menu', 'remove_comments_from_wp_dashboard');
+
+
+function remove_wpclever_admin_menu()
+{
+    // Check if the current user should have access
+    if (!current_user_can('manage_options')) {
+        return;  // Optionally restrict further based on user roles or capabilities
+    }
+
+    // Remove the WPClever page from the admin menu
+    remove_menu_page('wpclever');
+}
+
+add_action('admin_menu', 'remove_wpclever_admin_menu', 999); // High priority to ensure it runs after the menu has been added
+
+
+function remove_getwooplugins_admin_menu()
+{
+    // Check if the current user should have access
+    if (!current_user_can('manage_options')) {
+        return;  // Optionally restrict further based on user roles or capabilities
+    }
+
+    // Remove the GetWooPlugins Settings page from the admin menu
+    remove_menu_page('getwooplugins-settings');
+}
+
+add_action('admin_menu', 'remove_getwooplugins_admin_menu', 999); // High priority to ensure it runs after the menu has been added
