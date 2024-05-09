@@ -79,25 +79,3 @@ if ($total <= 1) {
     }
     ?>
 </nav>
-
-<style>
-    /* Base CSS for pagination - always showing all items */
-    .pagination .page-item {
-        display: inline-block;
-    }
-
-    /* Responsive adjustments for screens 575px and below */
-    @media (max-width: 575px) {
-        .pagination .page-item {
-            display: none;
-            /* Hide all initially */
-        }
-
-        .pagination .page-item:first-child,
-        .pagination .page-item:last-child,
-        .pagination .page-item.current {
-            display: inline-block;
-            /* Only show first, last, and current */
-        }
-    }
-</style>

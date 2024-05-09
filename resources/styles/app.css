@@ -1245,6 +1245,21 @@ ol li {
   border: none;
 }
 
+    @media (width <= 575px) {
+        .pagination .page-item {
+            display: none;
+
+            /* Hide all initially */
+        }
+
+        .pagination .page-item:first-child,
+        .pagination .page-item:last-child,
+        .pagination .page-item.current {
+            display: flex;
+
+        }
+    }
+
 @media (width <= 768px) {
   .product-small-device {
     border-radius: 8px;
