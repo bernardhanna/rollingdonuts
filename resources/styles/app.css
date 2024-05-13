@@ -2731,10 +2731,10 @@ body .gform_legacy_markup_wrapper .top_label div.ginput_container {
 .gform-body input[placeholder="First Name"],
 .gform-body  input[placeholder="Surname"] {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 256 256'%3E%3Cpath fill='%23000' d='M230.92 212c-15.23-26.33-38.7-45.21-66.09-54.16a72 72 0 1 0-73.66 0c-27.39 8.94-50.86 27.82-66.09 54.16a8 8 0 1 0 13.85 8c18.84-32.56 52.14-52 89.07-52s70.23 19.44 89.07 52a8 8 0 1 0 13.85-8M72 96a56 56 0 1 1 56 56a56.06 56.06 0 0 1-56-56'/%3E%3C/svg%3E");
-     background-size: 32px 32px;  /* Set the size of the background image */
+     background-size: 30px 30px;  /* Set the size of the background image */
     background-repeat: no-repeat;
     background-position: 1rem center; /* Adjusts the icon position */
-    padding-left: 1rem;
+    padding-left: 4rem!important;
 }
 
 .gform-body  input[placeholder="phone"],
@@ -2744,10 +2744,10 @@ body .gform_legacy_markup_wrapper .top_label div.ginput_container {
 .gform-body  input[placeholder="Telephone Number"],
 .gform-body  input[placeholder="Phone Number"] {
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 72 72'%3E%3Cdefs%3E%3Cpath id='openmojiTelephoneReceiver0' d='M13.67 21.31c1.415 9.9 26.87 35.355 36.77 36.77c0 0 5.657 0 8.486-5.658l-9.193-9.192l-3.535 3.536c-7.071-1.415-19.8-14.143-21.214-21.214l3.536-3.535l-9.192-9.193c-5.657 2.829-5.657 8.486-5.657 8.486'/%3E%3C/defs%3E%3Cpath fill='%23d0cfce' d='M13.67 21.31c1.415 9.9 26.87 35.355 36.77 36.77c0 0 5.657 0 8.486-5.658l-9.193-9.192l-3.535 3.536c-7.071-1.415-19.8-14.143-21.214-21.214l3.536-3.535l-9.192-9.193c-5.657 2.829-5.657 8.486-5.657 8.486'/%3E%3Cpath fill='%239b9b9a' d='m25 26l-9.084-8.96l2.083-2.728a1.015 1.015 0 0 1 1.499-.127l8.252 7.69zm29.893 29.907l-8.441-8.334l3.228-3.251l8.519 8.485z'/%3E%3Cg fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Cuse href='%23openmojiTelephoneReceiver0'/%3E%3Cuse href='%23openmojiTelephoneReceiver0'/%3E%3C/g%3E%3C/svg%3E");
-     background-size: 32px 32px;  /* Set the size of the background image */
+     background-size: 30px 30px;  /* Set the size of the background image */
     background-repeat: no-repeat;
     background-position: 1rem center; /* Adjusts the icon position */
-    padding-left: 1rem;
+    padding-left: 4rem!important;
 }
 
 
@@ -2755,8 +2755,8 @@ body .gform_legacy_markup_wrapper .top_label div.ginput_container {
 .gform-body input[placeholder="Email Address"],
 .gform-body input[placeholder="Email"] {
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 32 32'%3E%3Cpath fill='%23000' d='M28 6H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2m-2.2 2L16 14.78L6.2 8ZM4 24V8.91l11.43 7.91a1 1 0 0 0 1.14 0L28 8.91V24Z'/%3E%3C/svg%3E");
-     background-size: 32px 32px;  /* Set the size of the background image */
+     background-size: 30px 30px;  /* Set the size of the background image */
     background-repeat: no-repeat;
     background-position: 1rem center; /* Adjusts the icon position */
-    padding-left: 1rem;
+    padding-left: 4rem!important;
 }
