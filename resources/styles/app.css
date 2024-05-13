@@ -2035,18 +2035,41 @@ label[for="stripe-card-element"], label[for="stripe-exp-element"], label[for="st
   }
 }
 
+#testimonial-slider .splide__arrow {
+  background-color: white;
+}
 
-@media (width <= 768px) {
-  #testimonial-slider {
-    padding-left: 1rem!important;
-    padding-right: 1rem!important;
-  }
+#testimonial-slider .splide__arrow svg {
+  fill: black;
+}
+
+#testimonial-slider .splide__arrow:hover {
+  background-color: #ffed56;
 }
 
 .product-shadow {
   box-shadow: 0 8px 0 0 rgb(0 0 0 / 20%);
 }
 
+@media (width <= 768px) {
+  #testimonial-slider {
+    padding-left: 1rem!important;
+    padding-right: 1rem!important;
+  }
+
+  #testimonial-slider .splide__arrow {
+    height: 2rem;
+    width: 2rem;
+  }
+
+  #testimonial-slider .splide__arrow.splide__arrow--prev {
+    left: .5rem;
+  }
+
+  #testimonial-slider .splide__arrow.splide__arrow--next {
+    right: .5rem;
+  }
+}
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .scrollbar-hide::-webkit-scrollbar {

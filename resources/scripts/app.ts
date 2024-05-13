@@ -395,7 +395,7 @@ document.addEventListener("DOMContentLoaded", function () {
     perPage: 2.5,
     perMove: 1,
     gap: "2rem",
-    arrows: false,
+    arrows: true,
     pagination: false,
     breakpoints: {
       480: {
