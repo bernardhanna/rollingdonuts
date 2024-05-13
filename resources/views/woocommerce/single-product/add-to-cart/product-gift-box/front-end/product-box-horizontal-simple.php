@@ -70,6 +70,10 @@ if ('yes' != $add_new_box_quantity) {
     .product_addon_box .pd_title,
     .simple_pd .pd_add_block .pd_dtl .pd_price,
     .horizontal_box .reset_gt_box.resp .clear_cta {
+        color: white !important;
+    }
+
+    .horizontal_box .reset_gt_box.resp .clear_cta:hover {
         color: black !important;
     }
 
