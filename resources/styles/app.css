@@ -2760,3 +2760,8 @@ body .gform_legacy_markup_wrapper .top_label div.ginput_container {
     background-position: 1rem center; /* Adjusts the icon position */
     padding-left: 4rem!important;
 }
+
+
+.cart_itemmixmatch-child {
+  display: none;
+}
