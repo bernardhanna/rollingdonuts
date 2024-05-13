@@ -12,9 +12,7 @@
     <section id="ourstory"
              class="max-lg:pt-40 max-lg:pb-40 bg-right lg:bg-center bg-repeat max-md:bg-cover bg-contain max-lg:mb-20 max-lg:mt-20 z-50 our-story relative bg-black-full h-auto laptop:h-[900px]"
              style="{{ !empty($mobile_story_bg) ? 'background-image: url(\''.$mobile_story_bg.'\');' : 'background-image: url(\''.$our_story_bg.'\');' }} @media (min-width: 768px) { {{ !empty($our_story_bg) ? 'background-image: url(\''.$our_story_bg.'\');' : '' }} }">
-        <svg class="absolute left-0 z-50 flex -top-8 lg:hidden" xmlns="http://www.w3.org/2000/svg" width="108" height="110" viewBox="0 0 108 110" fill="none">
-            <path d="M83.2406 0.635742L54.0008 30.0537L24.7882 0.66315L0.028844 25.5733L29.2414 54.9639L0 84.3834L24.7594 109.294L54.0008 79.8741L83.2374 109.289L107.997 84.3786L78.7602 54.9639L108 25.5459L83.2406 0.635742Z" fill="#FFED56"/>
-         </svg>
+
          <svg class="absolute top-0 left-0 z-40 flex lg:hidden" width="100%" viewBox="0 0 390 96" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M390 0H0V10.6812C7.48129 10.2208 15.154 9.97144 22.9981 9.97144C101.346 9.97144 160.701 33.6333 217.154 56.1382C268.344 76.5449 317.147 96.0002 375.56 96.0002H377.954C382.014 96.0002 386.028 95.9061 390 95.7243V0Z" fill="white"/>
             </svg>
