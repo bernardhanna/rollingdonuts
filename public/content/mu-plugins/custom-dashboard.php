@@ -93,6 +93,13 @@ function custom_dashboard_links()
     echo '<p>Manage your theme settings:</p>';
     echo '<a href="' . esc_url($theme_options_url) . '" class="button button-primary">Theme Options</a>';
     echo '</div>';
+
+    // Link to Menu Options
+    $menu_options_url = admin_url('nav-menus.php');
+    echo '<div class="custom_dashboard_link">';
+    echo '<p>Edit the Header Menu</p>';
+    echo '<a href="' . esc_url($menu_options_url) . '" class="button button-primary">Menu Options</a>';
+    echo '</div>';
 }
 
 add_action('wp_dashboard_setup', 'add_pickup_location_dashboard_widgets');
