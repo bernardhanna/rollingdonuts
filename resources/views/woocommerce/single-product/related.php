@@ -50,8 +50,8 @@ $related_products = new WP_Query($args);
 
 if ($related_products->have_posts()) : ?>
 
-    <div class="related rd-related-product pb-5-5rem product overflow-hidden w-full">
-        <h4 class="text-black-full text-sm-md-font lg:text-lg-font font-reg420 pt-12 pb-4">
+    <div class="w-full overflow-hidden related rd-related-product pb-5-5rem product">
+        <h4 class="pt-12 pb-4 text-black-full text-sm-md-font lg:text-lg-font font-reg420">
             <?php
             if (!is_wp_error($terms) && !empty($terms)) {
                 $product_type = get_term($terms[0], 'rd_product_type')->name;
@@ -90,7 +90,7 @@ if ($related_products->have_posts()) : ?>
                 ?>
                 <?php if (!empty($product_allergens)) :  // Only show if allergens are selected
                 ?>
-                    <div class="absolute top-4 right-4 cursor-pointer z-50 " @click="showAllergens = !showAllergens">
+                    <div class="absolute z-50 cursor-pointer top-4 right-4 " @click="showAllergens = !showAllergens">
                         <div class="z-50" x-show="!showAllergens">
                             <span class="sr-only"><?php _e('info icon', 'rolling-donut'); ?></span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="31" height="30" viewBox="0 0 31 30" fill="none">
@@ -115,14 +115,14 @@ if ($related_products->have_posts()) : ?>
                     <div x-show="showAllergens" class="p-4 rounded-tl-lg z-40 allergen-info absolute top-4 right-4 bg-white text-black lg:w-[220px] -m-[10px]">
                         <span class="text-black-full text-sm-font font-reg420"><?php _e('Ingredients', 'rolling-donut'); ?></span>
                         <div class="w-full mt-4">
-                            <div class="w-full flex flex-wrap flex-row">
+                            <div class="flex flex-row flex-wrap w-full">
                                 <?php
                                 $product_allergens = get_field('product_allergens', $product->get_id());
                                 if ($product_allergens) {
                                     foreach ($product_allergens as $allergen) {
                                         $allergen_id = $allergen->ID;
                                         if (has_post_thumbnail($allergen_id)) {
-                                            echo '<div class="flex row items-center pb-4 w-1/2"><img src="' . get_the_post_thumbnail_url($allergen_id, 'thumbnail') . '" alt="' . $allergen->post_title . '" class="mr-1 h-6 w-6">';
+                                            echo '<div class="flex items-center w-1/2 pb-4 row"><img src="' . get_the_post_thumbnail_url($allergen_id, 'thumbnail') . '" alt="' . $allergen->post_title . '" class="w-6 h-6 mr-1">';
                                         }
                                         echo '<span class="font-laca text-mob-xs-font font-regular">';
                                         echo esc_html($allergen->post_title);
@@ -135,29 +135,29 @@ if ($related_products->have_posts()) : ?>
                         </div>
                     </div>
                 <?php endif; ?>
-                <a class="related-post w-full h-full related-shadow cursor-pointer relative bg-white border-2 border-solid border-black hover:border-yellow-primary rounded-sm-8" href="<?php the_permalink(); ?>">
+                <a class="relative w-full h-full bg-white border-2 border-black border-solid cursor-pointer related-post related-shadow hover:border-yellow-primary rounded-sm-8" href="<?php the_permalink(); ?>">
                     <div class="absolute inset-0 light-black-gradient opacity-50 z-10 h-[157px] lg:h-[200px]"></div>
                     <?php $bg_color = get_field('featured_donut_bg_color'); ?>
                     <?php echo woocommerce_get_product_thumbnail('related', array('class' => 'w-full object-cover rounded-sm-8 related-post-img h-[157px] lg:h-[200px] m-0', 'style' => "background-color: {$bg_color};")); ?>
-                    <div class="relative top-0 left-0 z-10 p-4 w-full bg-white">
+                    <div class="relative top-0 left-0 z-10 w-full p-4 bg-white">
                         <div class="w-full flex flex-col justify-between lg:h-[245px]">
                             <h4 class="text-black-full text-md-fon md:text-sm-md-font font-reg420 font-edmondsans"><?php the_title(); ?></h4>
                             <div class="flex flex-col w-full">
-                                <p class="hidden md:block text-black-full text-left font-laca font-light text-base-font">
+                                <p class="hidden font-light text-left md:block text-black-full font-laca text-base-font">
                                     <?php
                                     $product_description = custom_truncate_product_description($product->get_short_description());
                                     echo $product_description;
                                     ?>
                                 </p>
-                                <span class="text-black-full font-laca font-reg420 text-sm-md-font md:text-md-font text-left pb-4"><?php woocommerce_template_loop_price(); ?></span>
+                                <span class="pb-4 text-left text-black-full font-laca font-reg420 text-sm-md-font md:text-md-font"><?php woocommerce_template_loop_price(); ?></span>
                                 <button href="<?php the_permalink(); ?>" class="button w-full text-mob-xs-font  md:text-base-font font-reg420 h-[32px] md:h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary">
                                     <?php
                                     if ($rd_product_type == 'Donut') {
                                         echo __('Find out More', 'rolling-donut');
                                     } elseif ($rd_product_type == 'Box') {
-                                        echo __('Select and Customise', 'rolling-donut');
+                                        echo __('View Box', 'rolling-donut');
                                     } elseif ($rd_product_type == 'Merch') {
-                                        echo __('Add to Basket', 'rolling-donut');
+                                        echo __('View Item', 'rolling-donut');
                                     }
                                     ?>
                                 </button>

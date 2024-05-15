@@ -96,7 +96,7 @@ $rd_product_type = get_rd_product_type($product->get_id());
             </div>
             <div class="relative hidden pt-8 md:block" x-show="isHovered" x-show.transition="isHovered" x-transition:enter.duration.500ms>
                 <button @click="window.location='<?php the_permalink(); ?>'" class="button w-full text-mob-xs-font md:text-sm-font font-reg420 h-[32px] md:h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary">
-                    <?php echo ($rd_product_type == 'Donut') ? __('Find out More', 'rolling-donut') : __('Select and Customise', 'rolling-donut'); ?>
+                    <?php echo ($rd_product_type == 'Donut') ? __('Find out More', 'rolling-donut') : __('View Box', 'rolling-donut'); ?>
                 </button>
             </div>
         </div>
@@ -111,7 +111,7 @@ $rd_product_type = get_rd_product_type($product->get_id());
             </div>
             <div class="flex p-4 md:hidden">
                 <button @click="window.location='<?php the_permalink(); ?>'" class="button w-full text-mob-xs-font md:text-sm-font font-reg420 h-[32px] md:h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary">
-                    <?php echo ($rd_product_type == 'Donut') ? __('Find out More', 'rolling-donut') : __('Select and Customise', 'rolling-donut'); ?>
+                    <?php echo ($rd_product_type == 'Donut') ? __('Find out More', 'rolling-donut') : __('View Box', 'rolling-donut'); ?>
                 </button>
             </div>
         </div>
