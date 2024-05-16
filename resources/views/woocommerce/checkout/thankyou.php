@@ -34,19 +34,19 @@ foreach ($order->get_items('shipping') as $item) {
     }
 }
 ?>
-<div class="woocommerce-order px-4 lg:max-w-max-1568 m-auto">
+<div class="px-4 m-auto woocommerce-order lg:max-w-max-1568">
     <?php
     // Fetch the text-white font-lighter text-sm-md-font woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-receivedtext-white font-lighter text-sm-md-font woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received'ty_image' field from the ACF options page
     $ty_image = get_field('ty_image', 'option');
     ?>
     <!-- Unsplash Image to the left -->
-    <div class="h-full flex-col lg:flex-row flex lg:justify-between items-center">
+    <div class="flex flex-col items-center h-full lg:flex-row lg:justify-between">
         <?php if ($ty_image) : ?>
-            <div class=" w-full lg:w-1/2 flex justify-center items-center">
+            <div class="flex items-center justify-center w-full lg:w-1/2">
                 <img class="h-[346px] lg:h-auto w-full object-contain" src="<?php echo esc_url($ty_image); ?>" alt="Order Success">
             </div>
         <?php endif; ?>
-        <div class="w-full lg:1/2">
+        <div class="w-full lg:w-1/2">
             <?php if ($order) :
 
                 do_action('woocommerce_before_thankyou', $order->get_id());
@@ -69,26 +69,26 @@ foreach ($order->get_items('shipping') as $item) {
 
                     <ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details">
 
-                        <li class="flex justify-center items-center order-numb border-t border-b border-white py-4 woocommerce-order-overview__order order text-white text-sm-md-font lg:text-md-font my-4">
+                        <li class="flex items-center justify-center py-4 my-4 text-white border-t border-b border-white order-numb woocommerce-order-overview__order order text-sm-md-font lg:text-md-font">
                             <?php esc_html_e('Order number:', 'woocommerce'); ?>
                             <strong class="font-reg420"><?php echo $order->get_order_number(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                         ?></strong>
                         </li>
 
-                        <li class="woocommerce-order-overview__date date text-white text-sm-md-font lg:text-md-fon">
+                        <li class="text-white woocommerce-order-overview__date date text-sm-md-font lg:text-md-fon">
                             <?php esc_html_e('Order Date:', 'woocommerce'); ?>
                             <?php echo wc_format_datetime($order->get_date_created()); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                             ?>
                         </li>
 
                         <?php if (is_user_logged_in() && $order->get_user_id() === get_current_user_id() && $order->get_billing_email()) : ?>
-                            <li class="woocommerce-order-overview__email email text-sm-md-font lg:text-mob-md-font text-white">
+                            <li class="text-white woocommerce-order-overview__email email text-sm-md-font lg:text-mob-md-font">
                                 <?php esc_html_e('Email:', 'woocommerce'); ?>
                                 <?php echo $order->get_billing_email(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                 ?>
                             </li>
                         <?php endif; ?>
-                        <li class=" woocommerce-order-overview__total total text-white text-mob-md-font">
+                        <li class="text-white woocommerce-order-overview__total total text-mob-md-font">
                             <?php esc_html_e('Total:', 'woocommerce'); ?>
                             <?php echo $order->get_formatted_order_total(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                             ?>
@@ -110,7 +110,7 @@ foreach ($order->get_items('shipping') as $item) {
                             $location_name = $location_post ? $location_post->post_title : '';
                             $location_address_meta = get_post_meta($location_id, '_pickup_location_address', true);
                         ?>
-                            <li class="text-white text-sm-font lg:text-mob-md-font mt-4">
+                            <li class="mt-4 text-white text-sm-font lg:text-mob-md-font">
                                 <?php
                                 $location_id = ''; // Initialize outside the loop for wider scope
                                 $pickup_date = $order->get_meta('jckwds_date');
@@ -123,7 +123,7 @@ foreach ($order->get_items('shipping') as $item) {
                                 ?>
                             </li>
                         <?php else : ?>
-                            <li class="text-white text-sm-font lg:text-mob-md-font mt-4">
+                            <li class="mt-4 text-white text-sm-font lg:text-mob-md-font">
                                 <?php echo esc_html($order->get_formatted_billing_full_name()); ?>
                             </li>
                             <?php if ($order->get_billing_address_1()) : ?>
