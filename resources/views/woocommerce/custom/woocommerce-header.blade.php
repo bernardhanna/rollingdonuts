@@ -71,7 +71,7 @@ $image_id_mobile = get_field('woo_mobile_bg', 'option', false);
                         $price = $product->get_price();
                         $currency = get_woocommerce_currency_symbol();
                     @endphp
-                        <div class="font-medium text-white product-price text-sm-md-font xs:text-md-font mobile:text-lg-font">
+                        <div class="font-medium text-white product-price text-sm-md-font xs:text-md-font mobile:text-lg-font {{ in_array('rd-product-type-donut', get_body_class()) ? 'hidden' : '' }}">
                             <bdi class="relative z-50">{!! $currency !!}{{ $price }}</bdi>
                         </div>
                     @php

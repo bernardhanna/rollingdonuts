@@ -334,6 +334,23 @@ function customize_single_product_summary()
 }
 add_action('woocommerce_before_single_product_summary', 'customize_single_product_summary', 1);
 
+//ASSIGNE THE RD PRODUCT TYPE TO SINGLE BODY CLASS
+// Function to add RD product type as body class
+function add_rd_product_type_to_body_class($classes) {
+    if (is_singular('product')) {
+        global $post;
+        $terms = get_the_terms($post->ID, 'rd_product_type');
+
+        if ($terms && !is_wp_error($terms)) {
+            foreach ($terms as $term) {
+                $classes[] = 'rd-product-type-' . sanitize_html_class($term->slug);
+            }
+        }
+    }
+    return $classes;
+}
+add_filter('body_class', 'add_rd_product_type_to_body_class');
+
 
 function custom_add_to_cart_button()
 {
@@ -1805,3 +1822,23 @@ function custom_add_to_cart_handler()
     exit;
 }
 */
+// Add custom setting to WooCommerce settings page
+function custom_products_per_page_setting($settings) {
+    $settings[] = array(
+        'title'    => __('Products Per Page', 'woocommerce'),
+        'desc'     => __('Number of products to display per page on shop and category pages.', 'woocommerce'),
+        'id'       => 'woocommerce_products_per_page',
+        'type'     => 'number',
+        'default'  => 12,
+        'desc_tip' => true,
+        'autoload' => false,
+    );
+    return $settings;
+}
+add_filter('woocommerce_product_settings', 'custom_products_per_page_setting');
+// Change number of products displayed per page using the custom setting
+function custom_loop_shop_per_page($cols) {
+    $cols = get_option('woocommerce_products_per_page', 60); // Default to 12 if the option is not set
+    return $cols;
+}
+add_filter('loop_shop_per_page', 'custom_loop_shop_per_page', 20);
