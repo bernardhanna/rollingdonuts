@@ -75,6 +75,12 @@ if ('yes' != $add_new_box_quantity) {
         color: white !important;
     }
 
+    .product_addon_box .pd_title {
+                color: black !important;
+            font-size: 16px;
+        justify-content: center;
+    }
+
     .horizontal_box .reset_gt_box.resp .clear_cta:hover {
         color: black !important;
     }
