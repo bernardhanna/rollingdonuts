@@ -149,7 +149,9 @@ if ($related_products->have_posts()) : ?>
                                     echo $product_description;
                                     ?>
                                 </p>
-                                <span class="pb-4 text-left text-black-full font-laca font-reg420 text-sm-md-font md:text-md-font"><?php woocommerce_template_loop_price(); ?></span>
+                                <?php if ($rd_product_type !== 'Donut') : ?>
+                                 <span class="pb-4 text-left text-black-full font-laca font-reg420 text-sm-md-font md:text-md-font"><?php woocommerce_template_loop_price(); ?></span>
+                                <?php endif; ?>
                                 <button href="<?php the_permalink(); ?>" class="button w-full text-mob-xs-font  md:text-base-font font-reg420 h-[32px] md:h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary">
                                     <?php
                                     if ($rd_product_type == 'Donut') {

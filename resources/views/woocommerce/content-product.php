@@ -89,9 +89,11 @@ $rd_product_type = get_rd_product_type($product->get_id());
                         echo $product_description;
                         ?>
                     </p>
-                    <span class="font-light text-right text-white font-laca text-sm-md-font">
-                        <?php woocommerce_template_loop_price(); ?>
-                    </span>
+                    <?php if ($rd_product_type !== 'Donut') : ?>
+                        <span class="font-light text-right text-white font-laca text-sm-md-font">
+                            <?php woocommerce_template_loop_price(); ?>
+                        </span>
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="relative hidden pt-8 md:block" x-show="isHovered" x-show.transition="isHovered" x-transition:enter.duration.500ms>
@@ -107,7 +109,11 @@ $rd_product_type = get_rd_product_type($product->get_id());
                                                                                                             $product_description = custom_truncate_product_description($product->get_short_description());
                                                                                                             echo $product_description;
                                                                                                             ?></p>
-                <span class="text-black-full font-reg420 text-mob-md-font md:text-sm-md-font"><?php woocommerce_template_loop_price(); ?></span>
+                <?php if ($rd_product_type !== 'Donut') : ?>
+                    <span class="text-black-full font-reg420 text-mob-md-font md:text-sm-md-font">
+                        <?php woocommerce_template_loop_price(); ?>
+                      </span>
+                 <?php endif; ?>
             </div>
             <div class="flex p-4 md:hidden">
                 <button @click="window.location='<?php the_permalink(); ?>'" class="button w-full text-mob-xs-font md:text-sm-font font-reg420 h-[32px] md:h-[58px] flex justify-center items-center rounded-large border-black-full border-solid border-2 bg-white hover:bg-yellow-primary">
