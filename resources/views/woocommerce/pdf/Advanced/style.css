@@ -1,14 +1,13 @@
 /* Main Body */
 @page {
-	margin-top: 1cm;
-	margin-bottom: 3cm;
-	margin-left: 2cm;
-	margin-right: 2cm;
+	margin: 1cm 2cm 3cm;
 }
+
 body {
 	background: #fff;
 	color: #000;
-	margin: 0cm;
+	margin: 0;
+
 	/* want to use custom fonts? http://docs.wpovernight.com/woocommerce-pdf-invoices-packing-slips/using-custom-fonts/ */
 	font-size: 9pt;
 	line-height: 100%; /* fixes inherit dompdf bug */
@@ -106,6 +105,7 @@ td.header {
 td.shop-info {
 	width: 40%;
 }
+
 .document-type-label {
 	text-transform: uppercase;
 }
@@ -193,19 +193,22 @@ dd {
 	margin-left: 5px;
 }
 
-dd:after {
+dd::after {
 	content: "\A";
 	white-space: pre;
 }
+
 /* item-meta formatting for WC3.0+ */
 .wc-item-meta {
 	margin: 4px 0;
 	font-size: 7pt;
 	line-height: 7pt;
 }
+
 .wc-item-meta p {
 	display: inline;
 }
+
 .wc-item-meta li {
 	margin: 0;
 	margin-left: 5px;
@@ -258,9 +261,10 @@ table.totals tr.payment_method {
 }
 
 /* page numbers */
-.pagenum:before {
+.pagenum::before {
 	content: counter(page);
 }
+
 .pagenum,.pagecount {
 	font-family: sans-serif;
 }
@@ -274,8 +278,9 @@ hr {
 	border: 0;
 	position: relative;
 }
-hr:before,
-hr:after {
+
+hr::before,
+hr::after {
 	content: '';
 	display: block;
 	position: absolute;
@@ -286,14 +291,16 @@ hr:after {
 	border-top: 2px dashed black;
 
 }
-hr:before {
+
+hr::before {
 	left: 0;
 	right: 100%;
-	margin-right: 0px;
+	margin-right: 0;
 }
-hr:after {
+
+hr::after {
 	right: 0;
 	left: 0%;
-	margin-left: 0px;
+	margin-left: 0;
 }
 

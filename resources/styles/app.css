@@ -2740,3 +2740,21 @@ body .gform_legacy_markup_wrapper .top_label div.ginput_container {
         white-space: nowrap;
     }
 }
+
+.cmplz-document.cookie-statement.cmplz-document-eu {
+    width: 100%;
+    max-width: 100%;
+}
+
+.gfield_checkbox .gfield-choice-input {
+    background-color: #fff !important;
+    border: 2px solid #d8d7ce !important;
+    border-radius: .125rem !important;
+    color: #2d2a2a !important;
+    font-size: 20px !important;
+    font-weight: 350 !important;
+    height: 20px !important;
+    margin-left: 2rem;
+    padding-left: 0 !important;
+    width: 20px !important;
+}
