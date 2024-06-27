@@ -1,6 +1,5 @@
 <?php
 
-
 /**
  * @Author: Bernard Hanna
  * @Date:   2023-08-08 15:42:22
@@ -21,14 +20,10 @@ Author: Bernard Hanna
 */
 // NOTICES
 add_filter('login_errors', 'custom_login_error_message');
-add_filter('login_errors', 'custom_login_error_message');
 
 function custom_login_error_message($error)
 {
-function custom_login_error_message($error)
-{
     // Check if the error is related to incorrect password for the email
-    if (strpos($error, 'The password you entered for the email address') !== false) {
     if (strpos($error, 'The password you entered for the email address') !== false) {
         $error = 'Oops! Looks like you have entered the wrong password!';
     }
@@ -39,11 +34,7 @@ function custom_login_error_message($error)
 function rd_add_woocommerce_support()
 {
     add_theme_support('woocommerce');
-function rd_add_woocommerce_support()
-{
-    add_theme_support('woocommerce');
 }
-add_action('after_setup_theme', 'rd_add_woocommerce_support');
 add_action('after_setup_theme', 'rd_add_woocommerce_support');
 // SET path
 add_filter('woocommerce_locate_template', function ($template, $template_name, $template_path) {
@@ -58,18 +49,13 @@ add_filter('woocommerce_locate_template', function ($template, $template_name, $
 // Set products per row
 function custom_loop_columns()
 {
-function custom_loop_columns()
-{
     return 3; // 3 products per row
 }
 add_filter('loop_shop_columns', 'custom_loop_columns', 999);
 
 // STYLE THE ADD TO CART
 add_filter('woocommerce_loop_add_to_cart_args', 'customize_add_to_cart_button', 10, 2);
-add_filter('woocommerce_loop_add_to_cart_args', 'customize_add_to_cart_button', 10, 2);
 
-function customize_add_to_cart_button($args, $product)
-{
 function customize_add_to_cart_button($args, $product)
 {
     $args['class'] = 'bg-white text-mob-xs-font font-edmondsans font-reg420 py-4 px-10 flex items-center justify-center rounded-btn-72 border-1-fix';  // Here you can add your custom classes
@@ -79,22 +65,17 @@ function customize_add_to_cart_button($args, $product)
 // Image Styles
 function custom_woocommerce_image_sizes($size)
 {
-function custom_woocommerce_image_sizes($size)
-{
     // Custom height for single product image on mobile
-    if ('woocommerce_single' === $size['name']) {
     if ('woocommerce_single' === $size['name']) {
         $size['height'] = 125;
     }
 
     // Custom height for product thumbnails on mobile
     if ('woocommerce_thumbnail' === $size['name']) {
-    if ('woocommerce_thumbnail' === $size['name']) {
         $size['height'] = 125;
     }
 
     // Custom height for product gallery thumbnails on mobile
-    if ('woocommerce_gallery_thumbnail' === $size['name']) {
     if ('woocommerce_gallery_thumbnail' === $size['name']) {
         $size['height'] = 125;
     }
@@ -102,20 +83,15 @@ function custom_woocommerce_image_sizes($size)
     return $size;
 }
 add_filter('woocommerce_get_image_size', 'custom_woocommerce_image_sizes');
-add_filter('woocommerce_get_image_size', 'custom_woocommerce_image_sizes');
 
 function custom_large_device_image_sizes($size)
 {
-function custom_large_device_image_sizes($size)
-{
     // Custom height for single product image on large devices
-    if (wp_is_mobile() === false && 'woocommerce_single' === $size['name']) {
     if (wp_is_mobile() === false && 'woocommerce_single' === $size['name']) {
         $size['height'] = 386;
     }
 
     // Custom height for product thumbnails on large devices
-    if (wp_is_mobile() === false && 'woocommerce_thumbnail' === $size['name']) {
     if (wp_is_mobile() === false && 'woocommerce_thumbnail' === $size['name']) {
         $size['height'] = 386;
     }
@@ -188,8 +164,6 @@ function add_order_zone_column_content($column)
 //Product Types Mods
 function get_rd_product_type($product_id)
 {
-function get_rd_product_type($product_id)
-{
     $terms = get_the_terms($product_id, 'rd_product_type');
     if ($terms && !is_wp_error($terms)) {
         return $terms[0]->name;  // Fetch the term name
@@ -202,7 +176,6 @@ add_filter('manage_edit-product_columns', function ($columns) {
     return $columns;
 });
 
-add_action('manage_product_posts_custom_column', function ($column) {
 add_action('manage_product_posts_custom_column', function ($column) {
     global $post;
     if ($column == 'rd_product_type') {
@@ -219,7 +192,6 @@ add_action('manage_product_posts_custom_column', function ($column) {
     }
 });
 // Make the columns filterable
-add_action('restrict_manage_posts', function () {
 add_action('restrict_manage_posts', function () {
     global $typenow;
     if ($typenow == 'product') {
@@ -239,9 +211,6 @@ add_action('restrict_manage_posts', function () {
 });
 
 // Only allow selecting one rd_product_type on quick edit / bulk eidt
-function add_quick_edit_single_checkbox()
-{
-?>
 function add_quick_edit_single_checkbox()
 {
 ?>
@@ -274,7 +243,6 @@ function add_quick_edit_single_checkbox()
 add_action('admin_footer', 'add_quick_edit_single_checkbox');
 
 add_filter('parse_query', function ($query) {
-add_filter('parse_query', function ($query) {
     global $pagenow;
     $taxonomy = 'rd_product_type';
     $q_vars = &$query->query_vars;
@@ -287,8 +255,6 @@ add_filter('parse_query', function ($query) {
 });
 
 // Orders Page AJAX filter
-function filter_products()
-{
 function filter_products()
 {
     $category = $_POST['category'];
@@ -405,15 +371,10 @@ function custom_add_to_cart_button()
 
 // Change text on single product page
 add_filter('woocommerce_product_single_add_to_cart_text', 'custom_add_to_cart_text');
-add_filter('woocommerce_product_single_add_to_cart_text', 'custom_add_to_cart_text');
 
 // Change text on archives/product listings
 add_filter('woocommerce_product_add_to_cart_text', 'custom_add_to_cart_text');
-add_filter('woocommerce_product_add_to_cart_text', 'custom_add_to_cart_text');
 
-function custom_add_to_cart_text()
-{
-    return __('Select and customise', 'woocommerce');
 function custom_add_to_cart_text()
 {
     return __('Select and customise', 'woocommerce');
@@ -428,12 +389,7 @@ function remove_wc_breadcrumbs()
 }
 
 add_action('woocommerce_before_main_content', 'remove_wc_breadcrumbs_on_shop_page', 20);
-add_action('woocommerce_before_main_content', 'remove_wc_breadcrumbs_on_shop_page', 20);
 
-function remove_wc_breadcrumbs_on_shop_page()
-{
-    if (is_post_type_archive('product') || is_shop() || is_product_category() || is_product_tag()) {
-        remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
 function remove_wc_breadcrumbs_on_shop_page()
 {
     if (is_post_type_archive('product') || is_shop() || is_product_category() || is_product_tag()) {
@@ -456,15 +412,11 @@ add_action('woocommerce_single_product_summary', 'the_content', 6);
 //Change Button Text to "Add to Basket
 function custom_cart_button_text()
 {
-function custom_cart_button_text()
-{
     return __('Add to Basket', 'woocommerce');
 }
 add_filter('woocommerce_product_single_add_to_cart_text', 'custom_cart_button_text');
 
 //Remove Tabbed Short Description
-function remove_product_tabs($tabs)
-{
 function remove_product_tabs($tabs)
 {
     unset($tabs['description']); // Remove the description tab
@@ -477,17 +429,9 @@ add_action('init', 'remove_woocommerce_product_tabs', 99);
 function remove_woocommerce_product_tabs()
 {
     remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
-add_action('init', 'remove_woocommerce_product_tabs', 99);
-function remove_woocommerce_product_tabs()
-{
-    remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
 }
 
 // Remove categories display
-add_action('woocommerce_single_product_summary', 'remove_product_categories', 1);
-function remove_product_categories()
-{
-    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
 add_action('woocommerce_single_product_summary', 'remove_product_categories', 1);
 function remove_product_categories()
 {
@@ -498,8 +442,6 @@ function remove_product_categories()
 add_action('woocommerce_before_add_to_cart_button', 'remove_elements_start', 10);
 add_action('woocommerce_after_add_to_cart_button', 'remove_elements_end', 10);
 // Remove the add to cart button and other stuff we don't need
-function remove_elements_start()
-{
 function remove_elements_start()
 {
     global $product;
@@ -515,8 +457,6 @@ function remove_elements_start()
         }
     }
 }
-function remove_elements_end()
-{
 function remove_elements_end()
 {
     global $product;
@@ -535,8 +475,6 @@ function remove_elements_end()
 // Remove the add to cart button for Single Donut
 add_action('woocommerce_single_product_summary', 'remove_attribute_dropdowns', 1);
 
-function remove_attribute_dropdowns()
-{
 function remove_attribute_dropdowns()
 {
     global $product;
@@ -694,18 +632,12 @@ function remove_short_description_from_single_product_page()
 // Change Bread Crumb Delimiter
 function custom_woo_breadcrumbs_delimiter($defaults)
 {
-function custom_woo_breadcrumbs_delimiter($defaults)
-{
     $defaults['delimiter'] = ' &gt; '; // Changes the default " / " delimiter to " > "
     return $defaults;
 }
 add_filter('woocommerce_breadcrumb_defaults', 'custom_woo_breadcrumbs_delimiter');
-add_filter('woocommerce_breadcrumb_defaults', 'custom_woo_breadcrumbs_delimiter');
 
 //Change the breadcrumb catgeory link
-add_filter('woocommerce_get_breadcrumb', 'customize_woocommerce_breadcrumbs', 20, 2);
-function customize_woocommerce_breadcrumbs($crumbs, $breadcrumb)
-{
 add_filter('woocommerce_get_breadcrumb', 'customize_woocommerce_breadcrumbs', 20, 2);
 function customize_woocommerce_breadcrumbs($crumbs, $breadcrumb)
 {
@@ -713,41 +645,29 @@ function customize_woocommerce_breadcrumbs($crumbs, $breadcrumb)
 
     if (is_product()) {
         $terms = wp_get_post_terms($post->ID, 'rd_product_type');
-    if (is_product()) {
-        $terms = wp_get_post_terms($post->ID, 'rd_product_type');
 
-        if (!is_wp_error($terms) && !empty($terms)) {
         if (!is_wp_error($terms) && !empty($terms)) {
             $product_type = $terms[0]->name;
 
             if (strcasecmp($product_type, 'Donut') === 0) {
-            if (strcasecmp($product_type, 'Donut') === 0) {
                 // Remove the category (second last item)
-                array_splice($crumbs, -2, 1);
                 array_splice($crumbs, -2, 1);
 
                 // Insert "Our Donuts" before the last item
                 array_splice($crumbs, -1, 0, array(array('Our Donuts', home_url('/our-donuts/'))));
-                array_splice($crumbs, -1, 0, array(array('Our Donuts', home_url('/our-donuts/'))));
             }
             if (strcasecmp($product_type, 'Merch') === 0) {
-            if (strcasecmp($product_type, 'Merch') === 0) {
                 // Remove the category (second last item)
-                array_splice($crumbs, -2, 1);
                 array_splice($crumbs, -2, 1);
 
                 // Insert "Our Donuts" before the last item
                 array_splice($crumbs, -1, 0, array(array('Our Merch', home_url('/merch/'))));
-                array_splice($crumbs, -1, 0, array(array('Our Merch', home_url('/merch/'))));
             }
-            if (strcasecmp($product_type, 'Box') === 0) {
             if (strcasecmp($product_type, 'Box') === 0) {
                 // Remove the category (second last item)
                 array_splice($crumbs, -2, 1);
-                array_splice($crumbs, -2, 1);
 
                 // Insert "Our Donuts" before the last item
-                array_splice($crumbs, -1, 0, array(array('Our Boxes', home_url('/donut-box/'))));
                 array_splice($crumbs, -1, 0, array(array('Our Boxes', home_url('/donut-box/'))));
             }
         }
@@ -760,8 +680,6 @@ function customize_woocommerce_breadcrumbs($crumbs, $breadcrumb)
  * PRODUCT INDEX
  ***********************************************************/
 // Custom function to limit WooCommerce product descriptions
-function custom_truncate_product_description($description)
-{
 function custom_truncate_product_description($description)
 {
     $max_length = 70; // Change this to your desired character limit
@@ -780,8 +698,6 @@ add_action('check_admin_referer', 'logout_without_confirmation', 10, 2);
 
 function logout_without_confirmation($action, $result)
 {
-function logout_without_confirmation($action, $result)
-{
     if ($action == "log-out" && !$result) {
         wp_logout();
         wp_redirect(wc_get_page_permalink('myaccount'));
@@ -792,8 +708,6 @@ function logout_without_confirmation($action, $result)
 //BILLING FORM
 add_filter('woocommerce_form_field_args', 'customize_my_account_address_fields', 10, 3);
 
-function customize_my_account_address_fields($args, $key, $value)
-{
 function customize_my_account_address_fields($args, $key, $value)
 {
     // Check if we're on the My Account page
@@ -828,8 +742,6 @@ function customize_my_account_address_fields($args, $key, $value)
 add_filter('woocommerce_shipping_fields', 'customize_checkout_shipping_fields', 20, 1);
 function customize_checkout_shipping_fields($shipping_fields)
 {
-function customize_checkout_shipping_fields($shipping_fields)
-{
     // Define custom placeholders for specific fields
     $custom_placeholders = array(
         'shipping_first_name' => 'First name',
@@ -860,10 +772,7 @@ function customize_checkout_shipping_fields($shipping_fields)
 // EDIT BUTTON ON BILLING ON MY ACCOUNT
 function custom_woocommerce_button_classes($button, $product)
 {
-function custom_woocommerce_button_classes($button, $product)
-{
     global $post;
-    if (isset($post->post_name) && $post->post_name == 'my-account') {
     if (isset($post->post_name) && $post->post_name == 'my-account') {
         // Example: Add 'bg-blue-500' and 'text-white' classes from Tailwind CSS
         $button = str_replace('class="button ', 'class="text-white bg-blue-500 button ', $button);
@@ -871,18 +780,13 @@ function custom_woocommerce_button_classes($button, $product)
     return $button;
 }
 add_filter('woocommerce_loop_add_to_cart_link', 'custom_woocommerce_button_classes', 10, 2);
-add_filter('woocommerce_loop_add_to_cart_link', 'custom_woocommerce_button_classes', 10, 2);
 
 // REMOVE DOWNLOADS
 function remove_downloads_from_my_account($items)
 {
     unset($items['downloads']);
-function remove_downloads_from_my_account($items)
-{
-    unset($items['downloads']);
     return $items;
 }
-add_filter('woocommerce_account_menu_items', 'remove_downloads_from_my_account');
 add_filter('woocommerce_account_menu_items', 'remove_downloads_from_my_account');
 
 /*
@@ -892,14 +796,10 @@ add_filter('woocommerce_account_menu_items', 'remove_downloads_from_my_account')
 */
 //Set Thumbnail size
 add_filter('woocommerce_get_image_size_thumbnail', 'custom_woocommerce_thumbnail_size', 10, 2);
-add_filter('woocommerce_get_image_size_thumbnail', 'custom_woocommerce_thumbnail_size', 10, 2);
 
 function custom_woocommerce_thumbnail_size($size)
 {
-function custom_woocommerce_thumbnail_size($size)
-{
     // Check if it's the cart page
-    if (is_cart()) {
     if (is_cart()) {
         return array(
             'width'  => 64,
@@ -993,15 +893,12 @@ add_action('wp_footer', 'custom_quantity_update_script_with_svg_and_wrapper');
 // Customise Checkput Fields
 function custom_woocommerce_form_field_args($args, $key, $value)
 {
-function custom_woocommerce_form_field_args($args, $key, $value)
-{
 
     //Styling Form Fields Using Filters
     $args['label_class'][] = 'ml-2 text-mob-xs-font font-reg420 block pb-2';
     $args['input_class'][] = 'woocommerce-Input woocommerce-Input--text input-text rounded-lg-x h-input text-black-secondary text-mob-xs-font font-laca font-light pl-11 flex w-full';
 
     // Check if the key matches any of our conditions
-    switch ($key) {
     switch ($key) {
         case 'billing_first_name':
             $args['placeholder'] = 'First Name';
@@ -1059,13 +956,7 @@ function custom_woocommerce_form_field_args($args, $key, $value)
         case 'shipping_company':
             $args['placeholder'] = 'Company';
             break;
-        case 'shipping_company':
-            $args['placeholder'] = 'Company';
-            break;
 
-        case 'shipping_address_1':
-            $args['placeholder'] = 'House Number and street name';
-            break;
         case 'shipping_address_1':
             $args['placeholder'] = 'House Number and street name';
             break;
@@ -1073,13 +964,7 @@ function custom_woocommerce_form_field_args($args, $key, $value)
         case 'shipping_address_2':
             $args['placeholder'] = 'Apartment, suite, unit etc (Optional)';
             break;
-        case 'shipping_address_2':
-            $args['placeholder'] = 'Apartment, suite, unit etc (Optional)';
-            break;
 
-        case 'shipping_city':
-            $args['placeholder'] = 'Town/ City';
-            break;
         case 'shipping_city':
             $args['placeholder'] = 'Town/ City';
             break;
@@ -1087,13 +972,7 @@ function custom_woocommerce_form_field_args($args, $key, $value)
         case 'shipping_state':
             $args['placeholder'] = 'County';
             break;
-        case 'shipping_state':
-            $args['placeholder'] = 'County';
-            break;
 
-        case 'shipping_postcode':
-            $args['placeholder'] = 'Eircode';
-            break;
         case 'shipping_postcode':
             $args['placeholder'] = 'Eircode';
             break;
@@ -1108,8 +987,6 @@ function custom_woocommerce_form_field_args($args, $key, $value)
 }
 
 //STYLE NAMES FIELD
-add_filter('woocommerce_form_field_args', 'custom_woocommerce_form_field_args', 10, 3);
-add_filter('woocommerce_form_field', 'change_woocommerce_field_markup', 10, 4);
 add_filter('woocommerce_form_field_args', 'custom_woocommerce_form_field_args', 10, 3);
 add_filter('woocommerce_form_field', 'change_woocommerce_field_markup', 10, 4);
 
@@ -1133,10 +1010,7 @@ function change_woocommerce_field_markup($field, $key, $args, $value)
 }
 
 add_filter("woocommerce_form_field", "change_woocommerce_field_markup", 10, 4);
-add_filter("woocommerce_form_field", "change_woocommerce_field_markup", 10, 4);
 //Only ALlow Dublin as an Option
-function custom_woocommerce_states($states)
-{
 function custom_woocommerce_states($states)
 {
     $states['IE'] = array(
@@ -1187,20 +1061,14 @@ function custom_remove_dash_from_coupon_html($coupon_html, $coupon, $discount_am
 //Payment button
 function change_woocommerce_order_button_text($order_button_text)
 {
-function change_woocommerce_order_button_text($order_button_text)
-{
     return 'Pay now'; // Change the button text to "Pay now"
 }
 
 add_filter('woocommerce_order_button_text', 'change_woocommerce_order_button_text');
-add_filter('woocommerce_order_button_text', 'change_woocommerce_order_button_text');
 
 function custom_woocommerce_order_button_html($button_html)
 {
-function custom_woocommerce_order_button_html($button_html)
-{
     // Retrieve the order button text
-    $order_button_text = apply_filters('woocommerce_order_button_text', __('Place order', 'woocommerce'));
     $order_button_text = apply_filters('woocommerce_order_button_text', __('Place order', 'woocommerce'));
 
     // Define custom classes
@@ -1209,10 +1077,7 @@ function custom_woocommerce_order_button_html($button_html)
     // Build the button HTML
     $button_html = '<button type="submit" class="button alt ' .
         esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : '') . ' ' .
-        esc_attr(wc_wp_theme_get_element_class_name('button') ? ' ' . wc_wp_theme_get_element_class_name('button') : '') . ' ' .
         $custom_classes . '" name="woocommerce_checkout_place_order" id="place_order" value="' .
-        esc_attr($order_button_text) . '" data-value="' .
-        esc_attr($order_button_text) . '">' . esc_html($order_button_text) . '</button>';
         esc_attr($order_button_text) . '" data-value="' .
         esc_attr($order_button_text) . '">' . esc_html($order_button_text) . '</button>';
 
@@ -1220,11 +1085,8 @@ function custom_woocommerce_order_button_html($button_html)
 }
 
 add_filter('woocommerce_order_button_html', 'custom_woocommerce_order_button_html');
-add_filter('woocommerce_order_button_html', 'custom_woocommerce_order_button_html');
 // ADD ICONS TO FIELDS
 add_filter('woocommerce_default_address_fields', 'override_default_address_checkout_fields', 20, 1);
-function override_default_address_checkout_fields($address_fields)
-{
 function override_default_address_checkout_fields($address_fields)
 {
     $address_fields['first_name']['class'][] = 'icon-first-name';
@@ -1244,10 +1106,7 @@ function override_default_address_checkout_fields($address_fields)
 
 function custom_woocommerce_login_form_field_args($args, $key, $value)
 {
-function custom_woocommerce_login_form_field_args($args, $key, $value)
-{
     // Add Tailwind classes to form fields
-    if (in_array($key, array('username', 'password'))) {
     if (in_array($key, array('username', 'password'))) {
         $args['input_class'] = array('border', 'border-gray-300', 'p-2', 'rounded');
         $args['label_class'] = array('block', 'text-sm', 'font-medium', 'mb-1');
@@ -1256,15 +1115,12 @@ function custom_woocommerce_login_form_field_args($args, $key, $value)
     return $args;
 }
 add_filter('woocommerce_form_field_args', 'custom_woocommerce_login_form_field_args', 10, 3);
-add_filter('woocommerce_form_field_args', 'custom_woocommerce_login_form_field_args', 10, 3);
 
-function custom_login_button_styles()
-{
 function custom_login_button_styles()
 {
     $custom_css = "
         .woocommerce-form-login .woocommerce-button {
-            background-color: #3182ce;
+            background-color: #3182ce; /* Tailwind blue-500 */
             color: #ffffff;
             padding: 12px;
             border-radius: 0.25rem;
