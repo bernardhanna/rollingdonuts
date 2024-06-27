@@ -8,6 +8,8 @@ if ('' == $ph_src) {
 
 $color_val = $extendons_custombox_general_settings['_mm_color_primarycolor'] ?? '#995E8E';
 
+// Initialize $widthClass with a default value
+$widthClass = 'w-auto xxl:w-1/4';
 ?>
 
 <?php
