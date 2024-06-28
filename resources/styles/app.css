@@ -2763,3 +2763,16 @@ body .gform_legacy_markup_wrapper .top_label div.ginput_container {
 .product_totals .gform_fields.top_label.description_below {
   display: none!important;
 }
+
+.gsection_title {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+ .gform-theme--foundation .gfield input.medium {
+  background-color: #fff;
+ }
+
+ .ginput_container.ginput_container_fileupload .ginput_container input {
+   border: 2px solid #000 !important;
+ }
