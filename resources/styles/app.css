@@ -2775,4 +2775,5 @@ body .gform_legacy_markup_wrapper .top_label div.ginput_container {
 
  .ginput_container.ginput_container_fileupload .ginput_container input {
    border: 2px solid #000 !important;
+   padding-left: unset !important;
  }
