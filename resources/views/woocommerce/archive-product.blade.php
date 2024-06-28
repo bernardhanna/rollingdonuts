@@ -91,7 +91,7 @@
                 ));
             @endphp
              @if ($vegan_products->have_posts())
-                <h4 class="w-full py-12 product-category-title font-edmondsans text-xl-font font-reg420">Vegan</h4>
+                <h4 class="w-full pb-12 product-category-title font-edmondsans text-xl-font font-reg420">Vegan</h4>
                 <ul class="flex flex-row flex-wrap justify-start gap-4 px-2 products lg:gap-6 desktop:px-0 lg:px-4">
                     @while ($vegan_products->have_posts())
                         @php
