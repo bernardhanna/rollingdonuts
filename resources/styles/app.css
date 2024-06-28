@@ -2788,7 +2788,7 @@ body .gform_legacy_markup_wrapper .top_label div.ginput_container {
     border: 2px solid black !important;
 }
 
-r .gsection .gfield_label, .gform_legacy_markup_wrapper h2.gsection_title, .gform_legacy_markup_wrapper h3.gform_title {
+.gsection .gfield_label, .gform_legacy_markup_wrapper h2.gsection_title, .gform_legacy_markup_wrapper h3.gform_title {
     font-weight: 800;
     font-size: 24px;
 }
@@ -2797,4 +2797,8 @@ r .gsection .gfield_label, .gform_legacy_markup_wrapper h2.gsection_title, .gfor
     font-weight: 800 !important;
     font-size: 24px !important;
     margin-bottom: 1rem;
+}
+
+.gsection_description {
+    font-size: 16px!important;
 }
