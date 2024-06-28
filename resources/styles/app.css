@@ -2779,3 +2779,22 @@ body .gform_legacy_markup_wrapper .top_label div.ginput_container {
  }
 
 
+.gform_fields.description_below  select {
+    padding: 2px 0 2px 3px;
+    background-position: 1rem;
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    padding-left: 4rem !important;
+    border: 2px solid black !important;
+}
+
+r .gsection .gfield_label, .gform_legacy_markup_wrapper h2.gsection_title, .gform_legacy_markup_wrapper h3.gform_title {
+    font-weight: 800;
+    font-size: 24px;
+}
+
+.gform_legacy_markup_wrapper .top_label .gfield_label {
+    font-weight: 800 !important;
+    font-size: 24px !important;
+    margin-bottom: 1rem;
+}
