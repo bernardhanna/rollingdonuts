@@ -1842,3 +1842,20 @@ function custom_loop_shop_per_page($cols) {
     return $cols;
 }
 add_filter('loop_shop_per_page', 'custom_loop_shop_per_page', 20);
+
+
+function exclude_vegan_products($query) {
+    if (!is_admin() && $query->is_main_query() && (is_shop() || is_product_category() || is_product_tag())) {
+        $tax_query = $query->get('tax_query') ? $query->get('tax_query') : array();
+
+        $tax_query[] = array(
+            'taxonomy' => 'product_tag',
+            'field'    => 'slug',
+            'terms'    => array('vegan'),
+            'operator' => 'NOT IN',
+        );
+
+        $query->set('tax_query', $tax_query);
+    }
+}
+add_action('pre_get_posts', 'exclude_vegan_products');
