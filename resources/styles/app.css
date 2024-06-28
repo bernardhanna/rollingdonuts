@@ -2759,3 +2759,7 @@ body .gform_legacy_markup_wrapper .top_label div.ginput_container {
     width: 20px !important;
 }
 
+
+.product_totals .gform_fields.top_label.description_below {
+  display: none!important;
+}

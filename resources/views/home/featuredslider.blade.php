@@ -9,7 +9,7 @@
 @php
     $featuredDonuts = get_field('donuts');
 @endphp
-<section class="featured-donuts relative bg-black" id="featured-section">
+<section class="relative bg-black featured-donuts" id="featured-section">
     <div class="splide" id="featured-slider">
         <div class="splide__track">
             <div class="splide__list">
@@ -21,28 +21,28 @@
                     @endphp
                     <div class="splide__slide" style="background-color: {{ $bgColor }}">
                         <div
-                            class="tablet-sm:max-w-sitewidth mx-auto featured-slide w-full flex flex-col tablet-sm:flex-row pb-8 tablet-sm:pb-0 h-full">
+                            class="flex flex-col w-full h-full pb-8 mx-auto tablet-sm:max-w-sitewidth featured-slide tablet-sm:flex-row tablet-sm:pb-0">
                             <div class="w-full tablet-sm:w-45 left-feature">
                                 <img id="featuredImage"
-                                    class="max-tablet-sm:aspect-square featured-image transition duration-150 ease-in-out w-full mobile:h-full object-cover xyz-in xyz-n10"
+                                    class="object-cover w-full transition duration-150 ease-in-out max-tablet-sm:aspect-square featured-image mobile:h-full xyz-in xyz-n10"
                                     xyz="fade up big" src="{{ get_the_post_thumbnail_url($donut->ID) }}"
                                     sizes="(max-width: 640px) 309px, 800px" alt="{{ $donut->post_title }}">
                             </div>
                             <div class="w-full tablet-sm:w-1/2 h-auto laptop:h-[800px]"
                                 style="background-color: {{ $bgColor }}">
-                                <div class="h-full flex flex-col items-center">
+                                <div class="flex flex-col items-center h-full">
                                     <div
-                                        class="relative max-tablet-sm:p-8 w-full tablet-sm:px-24 mt-12 xxl:mt-32 flex items-start flex-col">
+                                        class="relative flex flex-col items-start w-full pb-12 mt-12 max-tablet-sm:p-8 tablet-sm:px-24 xxl:mt-32">
                                         <p class="slide-count text-md-font tablet-sm:text-mob-xxl-font">
                                             <span id="current-slide"
                                                 class="start-count font-reg420">1</span>/{{ count($featuredDonuts) }}
                                         </p>
                                         <h3
-                                            class="text-lg-font tablet-sm:text-xl-font font-reg420 transition delay-700 duration-300 ease-in-out">
+                                            class="transition duration-300 ease-in-out delay-700 text-lg-font tablet-sm:text-xl-font font-reg420">
                                             {{ $donut->post_title }}</h3>
-                                        <div class="text-sm-font tablet-sm:text-base-font text-left w-full max-w-max-573">{!! $description !!}</div>
+                                        <div class="w-full text-left text-sm-font tablet-sm:text-base-font max-w-max-573">{!! $description !!}</div>
                                         <span
-                                            class="text-lg-font tablet-sm:text-xl-font font-reg420 pt-8 pb-4">Allergens</span>
+                                            class="pt-8 pb-4 text-lg-font tablet-sm:text-xl-font font-reg420">Allergens</span>
                                         @if ($allergens)
                                             <ul class="allergen-list">
                                                 @foreach ($allergens as $allergen)
@@ -51,7 +51,7 @@
                                                             alt="{{ $allergen->post_title }}"
                                                             class="allergen-img mr-[10px]">
                                                         <span
-                                                            class="allergen-title text-base-font font-medium text-black-full">{{ $allergen->post_title }}</span>
+                                                            class="font-medium allergen-title text-base-font text-black-full">{{ $allergen->post_title }}</span>
                                                     </li>
                                                 @endforeach
                                             </ul>
@@ -69,8 +69,8 @@
         </div>
         <div class="tablet-sm:w-[100px] tablet-sm:mx-auto laptop:h-[700px] tablet-sm:absolute top-0 max-laptop:left-12 left-0 laptop:right-38 tablet-sm:right-[11.5rem] splide hidden tablet-sm:flex tablet-sm:items-center tablet-sm:justify-center tablet-sm:flex-col h-full"
             id="donut-thumb-slider">
-            <div class="splide__track tablet-sm:h-full tablet-sm:justify-between tablet-sm:items-center flex">
-                <div class="splide__list flex flex-col">
+            <div class="flex splide__track tablet-sm:h-full tablet-sm:justify-between tablet-sm:items-center">
+                <div class="flex flex-col splide__list">
                     @foreach ($featuredDonuts as $donut)
                         <div
                             class="splide__slide donut-indicator border-4 border-solid border-black-full rounded-full p-2.5 bg-white">
@@ -82,10 +82,10 @@
             </div>
         </div>
         <div
-            class="splide__arrows flex flex-row justify-between w-full tablet-sm:flex-col-reverse tablet-sm:absolute tablet-sm:right-24 tablet-sm:-mt-40 tablet-sm:justify-end tablet-sm:items-end">
+            class="flex flex-row justify-between w-full splide__arrows tablet-sm:flex-col-reverse tablet-sm:absolute tablet-sm:right-24 tablet-sm:-mt-40 tablet-sm:justify-end tablet-sm:items-end">
             <!-- Previous Button -->
             <button
-                class="splide__arrow splide__arrow--prev tablet-sm:left-auto tablet-sm:right-auto tablet-sm:flex tablet-sm:items-start tablet-sm:h-full relative tablet-sm:top-4">
+                class="relative splide__arrow splide__arrow--prev tablet-sm:left-auto tablet-sm:right-auto tablet-sm:flex tablet-sm:items-start tablet-sm:h-full tablet-sm:top-4">
                 <!-- Large Device Icon -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="67" viewBox="0 0 40 67"
                     fill="none">
@@ -103,7 +103,7 @@
                         fill="black" mask="url(#path-1-outside-1_1917_7034)" />
                 </svg>
                 <!-- Smaller Device Icon -->
-                <span class="iconify tablet-sm:hidden text-black-full absolute"
+                <span class="absolute iconify tablet-sm:hidden text-black-full"
                     data-icon="ant-design:arrow-left-outlined" height="62px"></span>
             </button>
 
@@ -127,7 +127,7 @@
                         fill="black" mask="url(#path-1-outside-1_1917_7030)" />
                 </svg>
                 <!-- Smaller Device Icon -->
-                <span class="iconify tablet-sm:hidden text-black-full absolute"
+                <span class="absolute iconify tablet-sm:hidden text-black-full"
                     data-icon="ant-design:arrow-right-outlined" height="62px"></span>
             </button>
         </div>
