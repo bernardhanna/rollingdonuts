@@ -6,21 +6,21 @@
  * @Last Modified time: 2023-07-19 10:45:29
  */
 ?>
-<ul class="nav-right w-100 hidden lg:relative laptop:-left-4 lg:hidden laptop:flex lg:justify-end one-xl:justify-start items-center lg:mr-4 one-xl:mr-0" role="menubar">
+<ul class="items-center hidden w-full nav-right laptop:flex lg:hidden lg:justify-around g:ml-4 lg:relative xxl:-right-4 one-xl:mr-0" role="menubar">
     @php
         $counter = 0;
     @endphp
     @foreach ($navigation_right as $item)
         @if ($counter < 4)
-            <li x-data="{ open: false }" class="lg:pl-2 laptop:pl-12 one-xl:pl-12 relative group" role="none">
+            <li x-data="{ open: false }" class="relative group" role="none">
                 <div @mouseenter="open = true" @mouseleave="open = false">
                     <a @if($item->target === '_blank') target="_blank" @endif class="text-reg-font font-reg420 text-black-full whitespace-nowrap flex items-center hover:underline {{ $item->classes ?? '' }}"
                         href="{{ $item->url }}" role="menuitem" aria-haspopup="{{ $item->children ? 'true' : 'false' }}">
                         {{ $item->label }}
                         @if ($item->children)
-                            <span class="iconify laptop:ml-2 group-hover:hidden"
+                            <span class="iconify group-hover:hidden"
                                   data-icon="basil:caret-down-outline"></span>
-                            <span class="iconify laptop:ml-2 hidden group-hover:block"
+                            <span class="hidden iconify group-hover:block"
                                   data-icon="basil:caret-up-solid"></span>
                         @endif
                     </a>

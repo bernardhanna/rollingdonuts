@@ -20,8 +20,8 @@
     $mobile_logo_open_alt_text = get_post_meta($mobile_logo_open_id, '_wp_attachment_image_alt', true);
 @endphp
 <div x-data="{ open: false }" class="relative">
-    <section class="navbar max-lg:py-4 h-auto xl:h-nav max-lg:flex max-lg:items-center">
-        <div class="mx-auto w-full max-w-sitewidth relative">
+    <section class="h-auto navbar max-lg:py-4 xl:h-nav max-lg:flex max-lg:items-center">
+        <div class="relative w-full px-4 mx-auto max-w-sitewidth">
             @if (!is_cart() && !is_checkout())
                 @include('navigation.topnav')
             @endif
@@ -34,7 +34,7 @@
                 }
 
                 // Set the number of items for the left navigation
-                $left_items = 3;
+                $left_items = 4;
                 $navigation_left = array_slice($navigation, 0, $left_items);
                 $navigation_right = array_slice($navigation, $left_items);
             @endphp
@@ -47,14 +47,14 @@
                     @endif
                 </div>
 
-                <a class="cursor-pointer nav-center flex justify-center items-center z-100 w-1/3 lg:w-1/6 lg:relative lg:bottom-4 hide-md" href="{{ home_url('/') }}">
-                    <img class="logo desktop-logo relative xxl:-left-4 -t-0-3" src="{{ get_field('main_logo', 'option') }}" alt="{{ $main_alt_text }}">
+                <a class="flex items-center justify-center w-1/3 cursor-pointer nav-center z-100 lg:w-1/6 lg:relative lg:bottom-4 hide-md" href="{{ home_url('/') }}">
+                    <img class="relative logo desktop-logo xxl:-left-4 -t-0-3" src="{{ get_field('main_logo', 'option') }}" alt="{{ $main_alt_text }}">
                     <img x-cloak x-show="!open" class="logo mobile-logo" src="{{ get_field('mobile_logo', 'option') }}" alt="{{ $mobile_alt_text }}">
                     <img x-cloak x-show="open" class="logo mobile-logo z-100" src="{{ get_field('mobile_logo_open', 'option') }}" alt="{{ $mobile_logo_open_alt_text }}">
                 </a>
 
 
-                <div class="w-1/3 lg:w-full laptop:w-5/6 flex justify-end lg:justify-start">
+                <div class="flex justify-end w-1/3 lg:w-full laptop:w-5/6 lg:justify-start">
                     @if (!is_cart() && !is_checkout())
                         @include('navigation.mobile-right')
                         @include('navigation.rightnav')

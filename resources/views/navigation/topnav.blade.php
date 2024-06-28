@@ -21,23 +21,31 @@
     </div>
     <div id="cart-container">
         <!-- Existing code for displaying cart contents -->
-        @if(WC()->cart->get_cart_contents_count() > 0)
-            <a class="z-50 flex-row items-center hidden reg-font lg:flex align-center" href="{{ wc_get_cart_url() }}">
-                <span class="iconify" data-icon="grommet-icons:basket" data-width="32" data-height="32"></span>
-                <span id="cart-contents-count" class="cart-count cart-contents-count text-tiny font-reg420 bg-red-critical w-[14px] h-[14px] flex items-center justify-center rounded-full border-2 border-black-border-solid p-2 basket-detail">{{ WC()->cart->get_cart_contents_count() }}</span>
-                @if(WC()->cart->get_cart_contents_count() > 0)
-                    <span id="cart-total-price" class="ml-2 cart-total cart-contents-total text-reg-font font-reg420">{!! wc_price(WC()->cart->get_total('edit')) !!}</span>
-                @endif
-            </a>
-        @else
-            <span class="z-50 flex-row items-center hidden cursor-default reg-font lg:flex align-center">
-                <span class="iconify" data-icon="grommet-icons:basket" data-width="32" data-height="32"></span>
-                <span id="cart-contents-count" class="text-tiny font-reg420 bg-red-critical w-[14px] h-[14px] flex items-center justify-center rounded-full border-2 border-black-border-solid p-2 basket-detail">{{ WC()->cart->get_cart_contents_count() }}</span>
-            </span>
-        @endif
+            @if(WC()->cart->get_cart_contents_count() > 0)
+                <a class="z-50 flex-row items-center hidden reg-font lg:flex align-center" href="{{ wc_get_cart_url() }}">
+                    <span class="iconify" data-icon="grommet-icons:basket" data-width="32" data-height="32"></span>
+                    <span id="cart-contents-count" class="cart-count cart-contents-count text-tiny font-reg420 bg-red-critical w-[14px] h-[14px] flex items-center justify-center rounded-full border-2 border-black-border-solid p-2 basket-detail">{{ WC()->cart->get_cart_contents_count() }}</span>
+                    @if(WC()->cart->get_cart_contents_count() > 0)
+                        @php
+                        $total = WC()->cart->get_total('edit');
+                        $formatted_total = wc_price($total);
+                        if (strpos($formatted_total, '.00') !== false) {
+                            $formatted_total = str_replace('.00', '', $formatted_total);
+                        }
+                        @endphp
+                        <span id="cart-total-price" class="ml-2 cart-total cart-contents-total text-reg-font font-reg420">{!! $formatted_total !!}</span>
+                    @endif
+                </a>
+            @else
+                <span class="z-50 flex-row items-center hidden cursor-default reg-font lg:flex align-center">
+                    <span class="iconify" data-icon="grommet-icons:basket" data-width="32" data-height="32"></span>
+                    <span id="cart-contents-count" class="text-tiny font-reg420 bg-red-critical w-[14px] h-[14px] flex items-center justify-center rounded-full border-2 border-black-border-solid p-2 basket-detail">{{ WC()->cart->get_cart_contents_count() }}</span>
+                </span>
+            @endif
 
-        <!-- Ensure that the cart contents element is included -->
-        <span class="cart-contents"></span>
+            <!-- Ensure that the cart contents element is included -->
+            <span class="cart-contents"></span>
+
     </div>
 </div>
 @endunless
