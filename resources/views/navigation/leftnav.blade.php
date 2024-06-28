@@ -20,7 +20,7 @@
                         @if ($item->children)
 <span class="iconify laptop:ml-2 group-hover:hidden"
                                 data-icon="basil:caret-down-outline"></span>
-<span class="iconify laptop" ml-2 hidden group-hover:block"
+<span class="hidden ml-2 iconify laptop group-hover:block"
                                 data-icon="basil:caret-up-solid"></span>
                         @endif
                     </a>
