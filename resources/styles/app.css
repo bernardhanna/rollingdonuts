@@ -2786,6 +2786,7 @@ body .gform_legacy_markup_wrapper .top_label div.ginput_container {
     background-size: 30px 30px;
     padding-left: 4rem !important;
     border: 2px solid black !important;
+    height: 50px;
 }
 
 .gsection .gfield_label, .gform_legacy_markup_wrapper h2.gsection_title, .gform_legacy_markup_wrapper h3.gform_title {
