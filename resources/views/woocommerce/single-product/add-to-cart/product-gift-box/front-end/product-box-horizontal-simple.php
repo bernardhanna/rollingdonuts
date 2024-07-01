@@ -477,7 +477,7 @@ if ('yes' != $add_new_box_quantity) {
                     <?php echo do_shortcode('[gravityform id="' . esc_attr($gravity_form_id) . '" title="false" description="false" ajax="true"]'); ?>
                 </div>
             <?php else : ?>
-                <p><?php echo esc_html__('Gravity Form ID not found or not set.', 'extendons-woocommerce-product-boxes'); ?></p>
+
             <?php endif; ?>
             <div class="py-8 text-center border-solid extenonheadingparent bordertopbottom border-t-black-primary border-b-black-primary">
                 <?php echo '<span class="extendssubtotalboxes text-black-full font-reg420 text-sm-md-font"> Box total: ' . filter_var($product_price) . '</span>'; ?>
