@@ -52,7 +52,10 @@ $gravity_form_id = get_post_meta($product->get_id(), '_gravity_form_id', true);
                         <div id="addcollapse">
                             <button type="button" class="btn btn-basic" name="demo" id="collapsebox" data-toggle="collapse" data-target="#demo">Box 1</button>
                             <div class="collapse" id="demo">
-                                <div class="row">
+
+
+
+                            <div class="row">
                                     <input type="hidden" name="boxcol" id="boxcol" value="<?php echo esc_attr($mmboxcol); ?>">
                                     <?php for ($i = 0; $i < $mmboxqty; $i++): ?>
                                         <div id="mm_item<?php echo filter_var($i); ?>" class="<?php echo filter_var($mmboxcol); ?> box-tobe-filled <?php echo !empty($prefilled[$i]['product_id']) ? 'mm_yes' : ''; ?> <?php echo !empty($prefilled[$i]['pre_mandetory']) ? 'mendatory' : ''; ?>" data-pid="<?php echo !empty($prefilled[$i]['product_id']) ? filter_var($prefilled[$i]['product_id']) : ''; ?>">

@@ -1,16 +1,16 @@
-<ul class="nav-combined w-full hidden lg:flex laptop:hidden lg:justify-between lg:items-center lg:ml-4 lg:mr-4 lg:relative laptop:-left-4 one-xl:ml-0 one-xl:mr-0" role="menubar">
+<ul class="hidden w-full nav-combined lg:flex laptop:hidden lg:justify-between lg:items-center lg:ml-4 lg:relative laptop:-left-4 one-xl:ml-0 one-xl:mr-0" role="menubar">
     @php
         $allNavigationItems = array_merge($navigation_left, $navigation_right);
     @endphp
     @foreach ($allNavigationItems as $item)
-        <li x-data="{ open: false }" class="lg:px-2 laptop:px-6 one-xl:px-12 relative group" role="none">
+        <li x-data="{ open: false }" class="relative lg:px-2 laptop:px-6 one-xl:px-12 group" role="none">
             <div @mouseenter="open = true" @mouseleave="open = false">
                 <a class="{{ $loop->last ? 'btn-menu' : '' }} text-reg-font font-reg420 text-black-full whitespace-nowrap flex items-center hover:underline {{ (home_url($_SERVER['REQUEST_URI']) == $item->url) ? 'active' : '' }}"
                    href="{{ $item->url }}" role="menuitem" aria-haspopup="{{ $item->children ? 'true' : 'false' }}" aria-expanded="false">
                     {{ $item->label }}
                     @if ($item->children)
                         <span class="iconify laptop:ml-2 group-hover:hidden" data-icon="basil:caret-down-outline"></span>
-                        <span class="iconify laptop:ml-2 hidden group-hover:block" data-icon="basil:caret-up-solid"></span>
+                        <span class="hidden iconify laptop:ml-2 group-hover:block" data-icon="basil:caret-up-solid"></span>
                     @endif
                 </a>
                 @if ($item->children)

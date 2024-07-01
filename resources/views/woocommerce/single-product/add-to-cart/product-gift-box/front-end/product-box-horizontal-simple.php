@@ -1,4 +1,8 @@
 <?php
+defined( 'ABSPATH' ) || exit;
+
+global $product;
+
 $extendons_custombox_general_settings = get_option('extendons_custombox_general_settings');
 $ph_src = $extendons_custombox_general_settings['_mm_image_placeholder'] ?? '';
 
@@ -10,12 +14,18 @@ $color_val = $extendons_custombox_general_settings['_mm_color_primarycolor'] ?? 
 
 // Initialize $widthClass with a default value
 $widthClass = 'w-auto xxl:w-1/4';
+
+// Get the Gravity Form ID
+$gravity_form_data = get_post_meta($product->get_id(), '_gravity_form_data', true);
+$gravity_form_id = isset($gravity_form_data['id']) ? $gravity_form_data['id'] : 0;
+
 ?>
 
 <?php
 if ('yes' != $add_new_box_quantity) {
 
 ?>
+
 
 <?php
 
@@ -462,6 +472,13 @@ if ('yes' != $add_new_box_quantity) {
 
                 </div>
             </div>
+            <?php if ($gravity_form_id) : ?>
+                <div class="gform_wrapper">
+                    <?php echo do_shortcode('[gravityform id="' . esc_attr($gravity_form_id) . '" title="false" description="false" ajax="true"]'); ?>
+                </div>
+            <?php else : ?>
+                <p><?php echo esc_html__('Gravity Form ID not found or not set.', 'extendons-woocommerce-product-boxes'); ?></p>
+            <?php endif; ?>
             <div class="py-8 text-center border-solid extenonheadingparent bordertopbottom border-t-black-primary border-b-black-primary">
                 <?php echo '<span class="extendssubtotalboxes text-black-full font-reg420 text-sm-md-font"> Box total: ' . filter_var($product_price) . '</span>'; ?>
             </div>
