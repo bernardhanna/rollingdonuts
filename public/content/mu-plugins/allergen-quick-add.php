@@ -131,5 +131,5 @@ function add_quick_edit($column_name, $post_type) {
 add_action('admin_enqueue_scripts', 'enqueue_quick_edit_scripts');
 function enqueue_quick_edit_scripts() {
     wp_enqueue_media();
-    wp_enqueue_script('quick-edit-script', plugin_dir_url(__FILE__) . 'quick-edit.js', array('jquery', 'media-upload'), null, true);
+    wp_enqueue_script('quick-edit-script', plugin_dir_url(__FILE__) . 'allergen-quick-add.js', array('jquery', 'media-upload'), null, true);
 }
