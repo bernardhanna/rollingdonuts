@@ -77,11 +77,26 @@ $fields = get_fields(); // This will return all ACF fields for the post
                     </button>
                     </span>
                     <div x-show="isOpen" id="accordion-collapse-body-{{ $post_id }}" aria-labelledby="accordion-collapse-heading-{{ $post_id }}">
-<div class="pt-1 pl-5 pr-5 dark:bg-gray-900">
-                        <div class="flex items-center justify-between p-2 bg-grey-background rounded-sm-8"><span class="font-medium text-base-font text-black-full">Monday - Friday</span><span class="text-grey-font text-base-font font-regular">{{ $fields['mon_fri_opening_hours'] }}</span></div>
-                        <div class="flex items-center justify-between p-2 bg-white rounded-sm-8"><span class="font-medium text-base-font text-black-full">Saturday</span> <span class="text-grey-font text-base-font font-regular">{{ $fields['sat_opening_hours'] }}</span></div>
-                        <div class="flex items-center justify-between p-2 bg-grey-background rounded-sm-8"><span class="font-medium text-base-font text-black-full">Sunday</span><span x-bind:class="{'text-white': $fields['sun_opening_hours'] !== 'Closed', 'text-red-500': $fields['sun_opening_hours'] === 'Closed'}" class="font-bold text-red-critical text-base-font">{{ $fields['sun_opening_hours'] }}</span></div>
-                    </div>
+                        <div class="pt-1 pl-5 pr-5 dark:bg-gray-900">
+                            @if(have_rows('opening_hours'))
+                                @php $index = 0; @endphp
+                                @while(have_rows('opening_hours')) @php the_row(); @endphp
+                                    @php
+                                        $day = get_sub_field('day');
+                                        $times = get_sub_field('times');
+                                        $bg_class = $index % 2 == 0 ? 'bg-grey-background' : 'bg-white';
+                                        $index++;
+                                    @endphp
+                                    <div class="flex items-center justify-between p-2 {{ $bg_class }} rounded-sm-8">
+                                        <span class="font-medium text-base-font text-black-full">{{ $day }}</span>
+                                        <span class="text-base-font"
+                                            :class="{'font-bold text-red-critical text-base-font': '{{ strtolower($times) }}' === 'closed', 'text-grey-font font-regular' : '{{ strtolower($times) }}' !== 'closed'}">
+                                            {{ $times }}
+                                        </span>
+                                    </div>
+                                @endwhile
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

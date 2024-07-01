@@ -34,15 +34,19 @@ class Location extends Partial
         ->addText('phone_number', [
             'label' => 'Phone Number',
         ])
-        ->addText('mon_fri_opening_hours', [
-            'label' => 'Monday - Friday Opening Hours',
+        ->addRepeater('opening_hours', [
+            'label' => 'Opening Hours',
+            'layout' => 'block',
+            'min' => 1,
+            'max' => 7,
         ])
-        ->addText('sat_opening_hours', [
-            'label' => 'Saturday Opening Hours',
-        ])
-        ->addText('sun_opening_hours', [
-            'label' => 'Sunday Opening Hours',
-        ])
+            ->addText('day', [
+                'label' => 'Day',
+            ])
+            ->addText('times', [
+                'label' => 'Opening and Closing Times',
+            ])
+        ->endRepeater()
         ->addUrl('get_directions_link', [
             'label' => 'Get Directions Link',
         ])
