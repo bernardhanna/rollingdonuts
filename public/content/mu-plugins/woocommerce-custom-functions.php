@@ -1859,3 +1859,35 @@ function exclude_vegan_products($query) {
     }
 }
 add_action('pre_get_posts', 'exclude_vegan_products');
+
+//Add Gravity Forms Meta Box To Box Builder
+add_action('woocommerce_product_options_general_product_data', 'add_gravity_forms_product_fields');
+add_action('woocommerce_process_product_meta', 'save_gravity_forms_product_fields');
+
+function add_gravity_forms_product_fields() {
+    global $post;
+    $product = wc_get_product($post->ID);
+    $gravity_forms = RGFormsModel::get_forms(null, 'title');
+    $selected_form_id = get_post_meta($post->ID, '_gravity_form_id', true);
+
+    echo '<div class="options_group">';
+
+    woocommerce_wp_select(
+        array(
+            'id' => '_gravity_form_id',
+            'label' => __('Gravity Form', 'woocommerce'),
+            'options' => array_reduce($gravity_forms, function($carry, $form) {
+                $carry[$form->id] = $form->title;
+                return $carry;
+            }, ['' => __('None', 'woocommerce')]),
+            'value' => $selected_form_id
+        )
+    );
+
+    echo '</div>';
+}
+
+function save_gravity_forms_product_fields($post_id) {
+    $gravity_form_id = isset($_POST['_gravity_form_id']) ? sanitize_text_field($_POST['_gravity_form_id']) : '';
+    update_post_meta($post_id, '_gravity_form_id', $gravity_form_id);
+}
