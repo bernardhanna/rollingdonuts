@@ -42,3 +42,5 @@ yarn-error.log
 
 # Bud
 storage/bud/*
+auth.json
+auth.json
