@@ -55,10 +55,6 @@
         },
         {
             "type": "vcs",
-            "url": "https://github.com/ibericode/html-forms.git"
-        },
-        {
-            "type": "vcs",
             "url": "https://github.com/bernardhanna/mailpoet-premium.git"
         },
         {
@@ -128,7 +124,7 @@
             "type": "package",
             "package": {
                 "name": "junaidbhura/wp-all-export-pro",
-                "version": "1.8.8",
+                "version": "1.8.9",
                 "type": "wordpress-plugin",
                 "dist": {
                     "type": "zip",
@@ -173,16 +169,15 @@
         "generoi/sage-woocommerce": "^1.0",
         "guzzlehttp/guzzle": "^7.8",
         "hexbit/sage-woocommerce": "^1.0",
-        "ibericode/html-forms": "dev-main",
         "johnbillion/extended-cpts": "^5.0",
-        "junaidbhura/wp-all-export-pro": "^1.8",
+        "junaidbhura/wp-all-export-pro": "^1.9",
         "junaidbhura/wp-all-import-pro": "^4.8",
         "log1x/acf-composer": "^2.1",
         "log1x/modern-acf-options": "^1.0",
         "log1x/modern-login": "^1.0",
         "log1x/navi": "^2.0",
         "log1x/sage-html-forms": "^1.0",
-        "masterminds/html5": "^2.8",
+        "mastehttps://github.com/settings/tokens/new?scopes=&description=Composer+on+Bernards-MacBook-Pro.local+2024-07-02+0725rminds/html5": "^2.8",
         "oscarotero/env": "^2.1",
         "raiym/instagram-php-scraper": "^0.5.0",
         "roots/acorn": "^3.1",

@@ -32,6 +32,11 @@ if ('yes' != $add_new_box_quantity) {
 }
 ?>
 <style type="text/css">
+
+    .border {
+        border: 1px solid black!important;
+    }
+
     .woocommerce-Price-amount.amount bdi {
         font-weight: bold !important;
     }
@@ -478,7 +483,12 @@ if ('yes' != $add_new_box_quantity) {
                 </div>
             <?php else : ?>
 
+
             <?php endif; ?>
+
+             <?php do_action('woocommerce_before_add_to_cart_button'); ?>
+
+
             <div class="py-8 text-center border-solid extenonheadingparent bordertopbottom border-t-black-primary border-b-black-primary">
                 <?php echo '<span class="extendssubtotalboxes text-black-full font-reg420 text-sm-md-font"> Box total: ' . filter_var($product_price) . '</span>'; ?>
             </div>

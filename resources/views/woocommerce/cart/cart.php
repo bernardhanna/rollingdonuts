@@ -32,6 +32,11 @@ do_action('woocommerce_before_cart'); ?>
         line-height: 1.5;
     }
 
+     .quantity  .border {
+            border: 1px solid black!important;
+        }
+
+
     .woocommerce table.shop_table {
         border: 0px;
         margin: auto;

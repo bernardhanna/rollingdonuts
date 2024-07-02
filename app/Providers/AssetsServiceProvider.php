@@ -31,6 +31,8 @@ class AssetsServiceProvider extends ServiceProvider
          add_action('wp_enqueue_scripts', function (): void {
             wp_dequeue_style('wooextbox-style-css');
             //wp_dequeue_style('wc-local-pickup-plus-frontend');
+            // Dequeue the specific style
+            wp_dequeue_style('extendons-product-addons-css');
             if (!is_cart() && !is_checkout() || is_wc_endpoint_url('order-received')) {
                 // Dequeue WooCommerce styles
                 wp_dequeue_style('woocommerce-general');
